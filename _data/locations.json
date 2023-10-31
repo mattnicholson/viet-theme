@@ -39,9 +39,12 @@
 		"deliveryTerms": "<p>Opening hours: Monday - Saturday 11am-10.30pm, Sunday 11am - 10pm</p><p>Delivery is currently operating in the following areas: Kingsland Road, Shoreditch, Hoxton, Hackney, Old street, City of London, Islington, Highbury, Stoke Newington, Dalston, Holloway, Farringdon, St Luke’s Clerkenwell, Spitalfields, Whitechapel, Bethnal Green, Bow, Homerton and surrounding East London area.</p><p>We understand that the health, safety and well-being of our staff and guests are paramount. As such, our staff regularly sanitise their hands and work environments, as well as adapting a ‘no contact’ policy for delivery.</p>",
 		"theme": {
 			"accent": "#F0D8AB",
-			"relief": "#000000",
+			"relief": "#4B4242",
 			"background": "#4B4242",
-			"foreground": "#F0D8AB"
+			"foreground": "#F0D8AB",
+			"frame": "#F0D8AB",
+			"nav": "#F0D8AB",
+			"navtext": "#4B4242"
 		}
 	},
 	{
@@ -85,8 +88,11 @@
 		"theme": {
 			"accent": "#E84E0E",
 			"relief": "#000000",
-			"background": "#C0A66D",
-			"foreground": "#5C0916"
+			"background": "#FFFFFF",
+			"foreground": "#E84E0E",
+			"frame": "#E84E0E",
+			"nav": "#F0D8AB",
+			"navtext": "#E84E0E"
 		}
 	}
 ]

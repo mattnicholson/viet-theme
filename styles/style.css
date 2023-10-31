@@ -46,7 +46,7 @@
   /* THEME FRAME */
   body {
     transition: color 1s ease, border 1s ease;
-    border: 8px solid var(--colors-accent);
+    border: 8px solid var(--colors-frame);
     min-height: 100vh;
   }
 
@@ -59,8 +59,8 @@
   html.scrolled {
     @media screen(md) {
       header {
-        opacity: 0;
-        transform: translate(-50%, -50%);
+        /*opacity: 0;
+        transform: translate(-50%, -50%);*/
       }
     }
   }

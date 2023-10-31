@@ -1,11 +1,11 @@
 @layer utilities {
 	.u-link-button {
-		@apply transition u-text-body inline-block py-[8px] px-gutter rounded-full uppercase;
+		@apply transition u-text-allcaps inline-block py-[0.3em] px-gutter rounded-full uppercase;
 		font-weight: bold;
-		min-width: 12em;
+		min-width: 8em;
 		text-align: center;
 		border: 2px solid;
-		letter-spacing: 0.05em;
+		cursor: pointer;
 
 		&:hover {
 			transform: scale(1.05);
@@ -13,10 +13,14 @@
 	}
 
 	.u-link-button-alt {
+		@apply u-link-button text-accent;
+
+		border-color: var(--colors-relief);
+	}
+
+	.u-link-button-wide {
 		@apply u-link-button;
-		color: currentColor;
-		background: transparent;
-		border-color: currentColor;
+		min-width: 12em;
 	}
 
 	.u-link-body {
@@ -25,6 +29,27 @@
 
 		&:hover {
 			border-color: transparent;
+		}
+	}
+
+	.u-link-close {
+		@apply font-display u-text-shortcuts p-[0.5em] text-center mt-gutter mx-inset;
+		border-top: 2px solid;
+		cursor: pointer;
+	}
+
+	.u-link-icon {
+		@apply u-text-allcaps flex flex-row gap-[0.7em] md:gap-[0.5em]  py-[0.7em] md:py-0;
+
+		svg {
+			@apply w-[1.2em] h-[auto] transition duration-[300ms];
+			transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+
+		&:hover {
+			svg {
+				@apply scale-[1.1] rotate-[-10deg] -translate-y-[0.2em];
+			}
 		}
 	}
 }

@@ -1,15 +1,21 @@
 {
-	"main": [
+	"shortcuts": [
+		{
+			"title": "Menus",
+			"url": "#menu"
+		},
 		{
 			"title": "Find Us",
 			"url": "#locations"
 		},
 		{
-			"title": "Menu",
-			"url": "#menu"
-		},
+			"title": "More",
+			"url": "#more"
+		}
+	],
+	"actions": [
 		{
-			"title": "Book a Table",
+			"title": "Book a table",
 			"url": "#book"
 		},
 		{
@@ -21,7 +27,7 @@
 			"url": "#delivery"
 		}
 	],
-	"footer": [
+	"main": [
 		{
 			"title": "Our Story",
 			"url": "/pages/our-story/"

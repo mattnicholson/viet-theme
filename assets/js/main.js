@@ -69,7 +69,12 @@ ready(() => {
 	// Start swup
 	const swup = new Swup({
 		ignoreVisit: (url, { el } = {}) => {
-			return el ? el.getAttribute('href')[0] === '#' : false
+			let isHash = el ? el.getAttribute('href')[0] === '#' : false
+			if (isHash) return true
+			let isNoSwup = el?.closest('[data-no-swup]')
+			if (isNoSwup) return true
+
+			return false
 		},
 		containers: ['#swup', '#opener'],
 		plugins: [
@@ -105,8 +110,8 @@ ready(() => {
 				}
 			}
 
-			router.update(window.location.href)
-			page.setUrl(window.location.href)
+			router.update(p)
+			page.setUrl(p)
 		}
 	})
 

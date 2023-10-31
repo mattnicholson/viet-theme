@@ -3,10 +3,15 @@
 	:root {
 		--colors-light: #ffffff;
 		--colors-dark: #222;
+		--colors-black: #000;
+		--colors-burgundy: #5c0916;
 		--colors-accent: #5c0916;
 		--colors-relief: #ffffff;
 		--colors-background: #ffffff;
 		--colors-foreground: #000000;
+		--colors-frame: #f0d8ab;
+		--colors-nav: #f0d8ab;
+		--colors-navtext: #4b4242;
 	}
 	/* TYPE */
 	:root {

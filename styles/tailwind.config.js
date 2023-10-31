@@ -3,8 +3,12 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = {
   // CORE
   black: 'var(--colors-dark)',
+  burgundy: 'var(--colors-burgundy)',
   dark: 'var(--colors-dark)',
   accent: 'var(--colors-accent)',
+  frame: 'var(--colors-frame)',
+  nav: 'var(--colors-nav)',
+  navtext: 'var(--colors-navtext)',
   light: 'var(--colors-light)',
   relief: 'var(--colors-relief)',
   background: 'var(--colors-background)',

@@ -14,6 +14,9 @@
     @media screen(md) {
       font-size: 16px;
     }
+    @media screen(md) {
+      font-size: calc(16px * 1.2);
+    }
     @media screen(xl) {
       font-size: calc(16px * 1.5);
     }
@@ -22,6 +25,11 @@
     }
     letter-spacing: -0.01em;
     line-height: 160%;
+  }
+
+  .u-text-allcaps {
+    @apply text-[0.9rem] md:text-[0.7rem] uppercase;
+    letter-spacing: 0.03em;
   }
 
   .u-text-hero {
@@ -44,5 +52,10 @@
     line-height: 100%;
 
     letter-spacing: 0.05em;
+  }
+
+  .u-text-shortcuts {
+    @apply uppercase font-display text-[0.8rem] md:text-[0.6rem];
+    letter-spacing: 0.03em;
   }
 }

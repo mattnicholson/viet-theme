@@ -3,7 +3,7 @@
    <div x-data x-show="$store.venue.modal != ''">
     <ul class="flex flex-row gap-gutter my-gutter items-center justify-center">
     {% for location in props.locations %}
-    <li x-data @click="$store.venue.setModal('{{ location.slug }}')" class="inline-block cursor-pointer py-[0.4em] px-gutter bg-[#cccccc]" :class="($store.venue.modal == '{{ location.slug }}') ? 'bg-[#cccccc]' : 'opacity-30'">{{ location.title }}</li>
+    <li x-data @click="$store.venue.setModal('{{ location.slug }}')" class="u-link-button min-w-[0]" :class="($store.venue.modal == '{{ location.slug }}') ? 'bg-relief text-accent border-relief u-link-button-alt' : 'opacity-30'">{{ location.title }}</li>
 	{% endfor %}
   </ul>
     </div>

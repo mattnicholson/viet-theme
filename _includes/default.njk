@@ -41,7 +41,7 @@
       </template>
     {% endfor %}
 
-    <div x-data="locationsModal" x-show="isMatch()" @click="close();if($store.venue.active) $store.venue.setModal($store.venue.active)" x-transition.opacity x-transition.opacity.duration.500ms style="background:rgba(0,0,0,0.7)" class="z-[999] fixed top-0 right-0 bottom-0 left-0">
+    <div x-data="locationsModal" x-show="0 && isMatch()" @click="close();if($store.venue.active) $store.venue.setModal($store.venue.active)" x-transition.opacity x-transition.opacity.duration.500ms style="background:rgba(0,0,0,0.7)" class="z-[999] fixed top-0 right-0 bottom-0 left-0">
 
         <div class="absolute top-0 right-0 bottom-0 left-0 cursor-pointer overflow-y-auto" x-data="lenis">
       <div class="grid place-items-center py-[60px] min-h-[100%]">
@@ -145,6 +145,9 @@
     
     </div>
 
+  {% block outsidescroll %}
+      {{ outsidescroll | safe }}
+  {% endblock %}
 
   <div id="page">
   <div class="page-body">
