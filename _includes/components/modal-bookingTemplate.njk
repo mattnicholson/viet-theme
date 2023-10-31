@@ -1,0 +1,7 @@
+{% macro render(props) %}
+    <div>
+                <a href="{{ props.location.bookingLink }}">Open in {{  props.location.bookingProvider }}</a>
+                <iframe class="h-[100vh]" width="100%" height="100%" src="{{ props.location.bookingEmbedId }}"></iframe>
+
+                </div>
+{% endmacro %}

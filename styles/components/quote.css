@@ -1,0 +1,54 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.quote {
+		@apply p-inset bg-dark text-light relative pb-[10%] pt-[10%] lg:pb-[5%] lg:pt-[5%];
+	}
+
+	.quote-text {
+		@apply u-text-intro-quote;
+		& span {
+			@apply text-mid-1;
+			transition: color 0.5s ease;
+			&.active {
+				@apply text-light;
+			}
+		}
+	}
+	.quote-caption {
+		@apply u-text-hashtag text-mid-2;
+	}
+
+	.quote-content {
+		@apply flex flex-col gap-inset;
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.quote-opener svg,
+	.quote-closer svg {
+		@apply w-full h-auto max-w-[60px] 2xl:max-w-[100px];
+	}
+	.quote-opener {
+		@apply absolute top-inset left-inset w-[5%] lg:w-[10%];
+
+		& svg {
+			@apply translate-x-1/2;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	.quote-closer {
+		@apply absolute right-inset bottom-inset w-[5%] lg:w-[10%];
+
+		& svg {
+			@apply -translate-x-[70%];
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+}

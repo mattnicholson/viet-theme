@@ -1,0 +1,44 @@
+{% import "_includes/components/magicFrame.njk" as magicFrame %}
+
+{% macro render(props) %}
+	<div class="">
+	<div class="py-[5vh]">
+      <div class="flex flex-col md:flex-row imageWithText {% if props.imagePosition == 'left' %}imageWithText--imageLeft{% else %}imageWithText--imageRight{% endif %}">
+        <div class="text-center overflow-hidden  relative w-full shrink-0 md:w-1/2 p-inset flex flex-col gap-inset">
+
+          {{ magicFrame.render({eyebrow:true}) }}
+
+          <div class="flex flex-col mx-auto h-full w-[80%] justify-center items-center p-inset gap-inset">
+          {% if props.preHeading != '' or props.heading != '' %}
+            <div>
+          {% if props.preHeading != '' %}<p class="u-text-eyebrow absolute top-inset -mt-[0.25em] left-[35%] right-[35%] text-center">{{ props.preHeading |safe }}</p>{%  endif  %}
+          {% if props.heading != '' %}<p class="u-text-hero pt-inset">{{ props.heading |safe }}</p>{%  endif %}
+            </div>
+          {%  endif %}
+          
+          <div class="flex flex-col gap-inset pb-inset">
+          <div class="imageWithText-body u-text-body">{{  props.text | safe }}</div>
+          <ul class="flex flex-row gap-gutter ml-auto">
+          {% if props.link1Url != '' %}
+          	<li>
+          		<a class="u-link-button" href="{{ props.link1Url }}">{{ props.link1Text }}</a>
+          	</li>
+          {% endif %}
+          {% if props.link2Url %}
+          	<li>
+          		<a class="u-link-button" href="{{ props.link2Url }}">{{ props.link2Text }}</a>
+          	</li>
+          {% endif %}
+          </ul>
+          </div>
+          </div>
+        </div>
+        <div class="overflow-hidden aspect-[6/5] relative w-full shrink-0 md:w-1/2 p-inset">
+          <div class="relative w-full h-full">
+          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.image }}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endmacro %}

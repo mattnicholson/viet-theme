@@ -1,0 +1,16 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.accordion {
+	}
+
+	.accordion-item-title {
+		& em {
+			font-style: normal;
+			@apply text-accent;
+		}
+	}
+}

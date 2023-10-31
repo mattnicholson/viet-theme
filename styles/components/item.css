@@ -1,0 +1,71 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.item.item--team {
+		@apply flex flex-col gap-gutter pb-[3em];
+
+		& .item-head {
+			@apply u-text-intro-quote;
+		}
+		& .item-subtitle {
+			@apply u-text-body -translate-y-[20%];
+		}
+		& .item-body {
+			@apply u-text-description w-[80%];
+		}
+
+		& .item-media {
+			width: 100px;
+			@apply mb-inset;
+
+			& * {
+				background: transparent;
+			}
+		}
+	}
+	.item.item--article {
+		@apply flex flex-col gap-gutter pb-[3em];
+
+		& .item-media {
+			filter: grayscale();
+			mix-blend-mode: multiply;
+			& * {
+				background: transparent;
+			}
+
+			& .Image {
+				background: rgba(0, 0, 0, 0.1);
+
+				& img {
+					transition: 0.4s ease;
+				}
+			}
+
+			&:hover {
+				& .Image img {
+					transform: translate(-50%, -50%) scale(1.03);
+				}
+			}
+		}
+		& .item-date {
+			@apply u-text-body -translate-y-[20%];
+		}
+		& .item-head {
+			@apply u-text-intro-quote;
+		}
+		& .item-body {
+			@apply u-text-description w-[80%];
+		}
+		& .item-foot {
+			& a {
+				@apply u-link-button;
+			}
+		}
+		& .item-tags {
+			@apply absolute p-gutter flex flex-row gap-gutter u-text-hashtag text-light;
+		}
+	}
+}

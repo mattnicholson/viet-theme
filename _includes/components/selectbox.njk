@@ -1,0 +1,10 @@
+{% macro render(props) %}
+<div class="selectbox">
+         <div class="selectbox-label">{{ props.label }}</div>
+
+         <div class="selectbox-dropdown" x-data="selectbox">
+         {{ props.field | safe }}
+         </div>
+         
+</div>
+{% endmacro %}

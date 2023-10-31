@@ -1,0 +1,157 @@
+{% extends "pages/_layout.njk" %}
+{% import "_includes/macros.njk" as macros %}
+
+{# COMPONENTS #}
+{% import "_includes/components/pageData.njk" as pageData %}
+{% import "_includes/components/ticker.njk" as ticker %}
+{% import "_includes/components/modal-menusTemplate.njk" as modalMenusTemplate %}
+{% import "_includes/components/image.njk" as image %}
+{% import "_includes/components/magicFrame.njk" as magicFrame %}
+{% import "_includes/components/collage.njk" as collage %}
+{% import "_includes/components/imageWithText.njk" as imageWithText %}
+{% import "_includes/components/topFrame.njk" as topFrame %}
+{% import "_includes/components/contactFrame.njk" as contactFrame %}
+
+
+{%  set pageLocation = {} %}
+	{% for location in locations %}
+  	{% if location.slug == 'soho' %}{% set pageLocation = location %}{%  endif %}
+  {% endfor %}
+
+
+{% block opener %}
+  <div class="h-[calc(var(--initialViewportHeight)-8px)] relative bg-black text-light text-center z-[0]">
+  <div class="absolute w-full h-full">
+  {{ image.render({
+    aspect:'fluid',
+    src:pageLocation.image
+  }) }}
+  </div>
+  <div class="z-[2] absolute w-full h-full flex items-center text-light justify-center bg-transparentblack">
+  <div class="content flex flex-col gap-inset"><svg width="201" height="45" viewBox="0 0 201 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3_822)">
+<path d="M30.8222 37.7106C30.3289 37.7106 30.0329 37.9037 29.7566 38.174C26.8658 40.7615 22.7812 42.3062 18.8446 42.3062C10.0537 42.3062 2.91055 35.239 2.91055 26.5596C2.91055 17.8801 9.95505 10.6585 18.9531 10.6585C22.8108 10.6585 26.5797 12.126 29.5297 14.7713C29.8257 15.061 30.1217 15.2541 30.615 15.2541C31.3747 15.2541 31.9864 14.6458 31.9864 13.9121C31.9864 13.4293 31.799 13.0721 31.424 12.7728C28.2175 9.85714 23.383 7.96484 19.1109 7.96484C8.21859 7.96484 0 15.9878 0 26.6175C0 37.2472 8.27779 44.9998 18.8446 44.9998C23.3929 44.9998 28.1682 43.2041 31.5819 40.2304C32.0061 39.9022 32.1936 39.5353 32.1936 39.0526C32.1936 38.3092 31.5819 37.7106 30.8222 37.7106Z" fill="#FFFFFF"/>
+<path d="M42.7803 31.4643L52.7748 12.2614L62.7693 31.4643H42.7704H42.7803ZM71.8759 43.1078L71.8265 42.7988C71.8167 42.7216 71.7871 42.6443 71.7476 42.5768L54.1758 9.01744C53.9489 8.57333 53.5937 8.07129 52.834 8.07129C52.0743 8.07129 51.7191 8.57333 51.4922 9.00778L39.6823 31.4643H36.3179C35.5483 31.4643 34.9465 32.034 34.9465 32.7581C34.9465 33.4821 35.5582 34.1 36.3179 34.1H38.3405L33.8711 42.5768C33.7921 42.7216 33.6836 42.9436 33.6836 43.2333C33.6836 43.9767 34.2953 44.5753 35.055 44.5753C35.6568 44.5753 36.1502 44.2567 36.3376 43.7932L41.4483 34.0904H64.1802L69.2613 43.7257C69.4784 44.247 69.9618 44.5753 70.5242 44.5753C71.2839 44.5753 71.9055 43.9767 71.9055 43.2333C71.9055 43.1947 71.9055 43.1464 71.8956 43.1078" fill="#FFFFFF"/>
+<path d="M168.664 42.0168L152.049 31.6767C155.305 31.6671 157.712 31.2616 159.597 30.4216C163.543 28.6355 165.812 24.9089 165.812 20.2168C165.812 16.3742 164.293 13.0048 161.649 10.9773C159.232 9.16226 156.558 8.49609 151.773 8.49609H140.742C139.262 8.49609 138.631 9.09468 138.631 10.5139V43.0498C138.631 43.8512 139.243 44.4498 140.061 44.4498C140.831 44.4498 141.433 43.8319 141.433 43.0498V11.1221H151.773C155.857 11.1221 157.9 11.6145 159.833 13.0724C161.787 14.5688 162.902 17.1659 162.902 20.2071C162.902 24.2524 160.85 27.2163 157.268 28.3556C155.65 28.8866 154.111 29.041 150.451 29.041C149.622 29.041 148.685 29.041 147.866 28.9928H147.599C146.544 28.9928 146.07 29.6686 146.07 30.3348C146.07 31.0009 146.484 31.3678 146.859 31.6092L167.184 44.3146C167.184 44.3146 167.233 44.3436 167.253 44.3532L167.371 44.4208C167.509 44.498 167.697 44.5946 167.973 44.5946C168.743 44.5946 169.345 43.9767 169.345 43.1947C169.345 42.7505 169.127 42.3644 168.664 42.0265" fill="#FFFFFF"/>
+<path d="M95.9395 9.42276C95.4955 8.74694 94.5779 8.54419 93.8873 8.97865L80.8046 17.1464L67.722 8.97865C67.0313 8.54419 66.1039 8.74694 65.6599 9.42276C65.216 10.0986 65.4232 11.0061 66.1138 11.4309L79.374 19.7049V43.0786C79.374 43.8703 79.9857 44.4785 80.8046 44.4785C81.5742 44.4785 82.1761 43.8703 82.1761 43.0786V19.7339L95.4856 11.4309C96.1763 10.9965 96.3835 10.0986 95.9395 9.42276Z" fill="#FFFFFF"/>
+<path d="M60.7565 4.72114L53.564 0.222111C53.1003 -0.0675265 52.5083 -0.0675265 52.0347 0.222111L44.8323 4.72114C44.1713 5.13629 43.974 5.99555 44.3982 6.64241C44.6646 7.05755 45.1283 7.27961 45.592 7.27961C45.8486 7.27961 46.1149 7.21203 46.3517 7.05755L52.7944 3.04125L59.2272 7.05755C59.464 7.21203 59.7304 7.27961 59.9869 7.27961C60.4605 7.27961 60.9143 7.0479 61.1807 6.64241C61.5951 5.99555 61.4076 5.14595 60.7565 4.7308" fill="#FFFFFF"/>
+<path d="M199.378 11.1801C200.157 11.1801 200.749 10.6008 200.749 9.83808C200.749 9.07537 200.127 8.49609 199.378 8.49609H175.472C174.031 8.49609 173.36 9.1526 173.36 10.5622V31.474H170.726C169.956 31.474 169.354 32.0436 169.354 32.7677C169.354 33.4918 169.966 34.1097 170.726 34.1097H173.36V42.4706C173.36 43.8898 173.992 44.4884 175.472 44.4884H198.322C199.082 44.4884 199.693 43.8898 199.693 43.1464C199.693 42.403 199.091 41.8527 198.322 41.8527H176.162V34.1097H198.904C199.703 34.1097 200.335 33.5208 200.335 32.7677C200.335 32.0533 199.693 31.474 198.904 31.474H176.162V11.1801H199.378Z" fill="#FFFFFF"/>
+<path d="M109.19 8.48633C108.42 8.48633 107.818 9.05595 107.818 9.78004C107.818 10.5041 108.43 11.122 109.19 11.122H120.003V43.0304C120.003 43.8317 120.615 44.4303 121.434 44.4303C122.253 44.4303 122.805 43.8124 122.805 43.0304V11.122H133.619C134.378 11.122 134.99 10.5234 134.99 9.78004C134.99 9.03664 134.388 8.48633 133.619 8.48633H109.19Z" fill="#FFFFFF"/>
+</g>
+<defs>
+<clipPath id="clip0_3_822">
+<rect width="200.749" height="45" fill="white"/>
+</clipPath>
+</defs>
+</svg><div class="uppercase">{{ pageLocation.title }}</div></div></div>
+
+</div>
+{% endblock %}
+
+{# SUBPAGE CONTENT #}
+{% block main %}
+	
+    <div x-data x-effect="$store.venue.setActive('{{pageLocation.slug}}')"></div>
+  
+  {# PAGE DATA #}
+  {{ pageData.render({
+    title : pageLocation.title,
+    url : page.url
+  }) }}
+
+
+  
+
+  <div class="relative flex flex-col gap-inset">
+    <div class="py-gutter bg-accent absolute top-0 left-0 right-0 -translate-y-full text-relief">
+      {{ ticker.render('Promotional text here') }}
+    </div>
+
+
+    {{ imageWithText.render({
+      imagePosition:'right',
+      preHeading:'Our Story',
+      heading:'When Saigon Met Soho',
+      text: "<p>Just a short walk away from Chinatown and London's west end, our flagship Soho venue is centred on the bustling foodie street Dean Street, serving up authentic Vietnamese feasting menus and seasonal dishes.</p>",
+      link1Url:'/pages/our-story/',
+      link1Text:"More",
+      image:'/assets/img/soho-01.jpg'
+    }) }}
+    
+
+    <div class="relative p-inset">
+      <div class="u-text-eyebrow absolute top-0 left-1/2 -translate-x-1/2">Menus</div>
+      {{ topFrame.render() }}
+      <div class="relative md:p-inset pt-[70px]">
+      {{ modalMenusTemplate.render({location:pageLocation}) }}
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-inset justify-center items-center">
+    <a class="u-link-button" href="#book">Book a Table</a>
+    <a class="u-link-button" href="#takeaway">Order Takeaway</a>
+    <a class="u-link-button" href="#delivery">Order Delivery</a>
+    </div>
+
+
+    {{ collage.render({
+      portrait: '/assets/img/02.jpg',
+      landscape : '/assets/img/soho-02.jpg',
+      illustration:'/assets/img/bikes.png'
+    })}}
+
+    
+
+    {{ imageWithText.render({
+      imagePosition:'left',
+      preHeading:'Events',
+      heading:'Private Parties & Group Bookings',
+      text: "<p>We can cater to large group bookings offering bespoke packages to suit your every need.</p><p>We create a selection of tasting menus, canapés and cocktails for all occasions. Speak with one of our venues and we will be happy to accommodate you and your guests in true Vietnamese style.</p>",
+      link1Url:'/pages/groups-and-parties/#{{ pageLocation.slug }}',
+      link1Text:"More",
+      image:'/assets/img/soho-03.jpg'
+    }) }}
+    
+   
+
+    <div class="relative p-inset">
+    <div class="w-full relative aspect-[1021/496]">
+      {{ image.render({
+        aspect:'fluid',
+        src : '/assets/img/soho-04.jpg'
+      }) }}
+    </div>
+    </div>
+
+
+    {%  set contactContent %}
+    <div class="flex flex-col md:flex-row">
+<div class="md:order-2 md:w-1/2 text-center flex flex-col gap-inset">
+
+      <div class="content text-left pl-inset">
+         <h1>Find Us</h1>
+          <p>{{ pageLocation.locationAddress | safe }} <a href="{{ pageLocation.locationMapUrl }}">Map</a></p>
+          <p>Contact:<br />{{ pageLocation.locationTelephone }}<br />
+          <a href="mailto:{{ pageLocation.locationEmail }}">{{ pageLocation.locationEmail }}</a></p>
+          <p>Opening Hours:<br />{{ pageLocation.locationOpening | safe }}</p>
+           <a class="u-link-button" href="/pages/contact/#{{ pageLocation.slug }}">More</a>
+      </div>
+      </div>
+      <div class="md:order-1 md:w-1/2 md:pr-inset">
+         <div x-data="mapbox" @wheel.prevent="" data-latlng="{{ pageLocation.locationLatLng }}" data-hex="{{pageLocation.theme.accent }}" data-accent="{{pageLocation.locationMapAccent }}" data-tint="{{pageLocation.locationMapTint }}" data-styles="{{ pageLocation.locationMapTheme }}" class="h-[400px] md:h-auto md:aspect-square" ></div>
+      </div>
+    
+    </div>
+    {%  endset %}
+    {{ contactFrame.render({
+      children : contactContent
+    }) }}
+    
+  </div>
+
+
+
+
+ 
+{% endblock %}
+  

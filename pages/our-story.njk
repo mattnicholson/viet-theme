@@ -1,0 +1,21 @@
+{% extends "pages/_layout.njk" %}
+{% import "_includes/macros.njk" as macros with context %}
+
+{# COMPONENTS #}
+{% import "_includes/components/pageData.njk" as pageData %}
+
+{# MAIN CONTENT #}
+{% block main %}
+
+<div x-data x-effect="$store.venue.setActive('')"></div>
+
+<div class="p-inset text-center pt-[150px]">
+    <div class="content">
+    <h1>Our Story</h1>
+    {{ macros.longcontent() }}
+    </div>
+  </div>
+
+
+{% endblock %}
+  

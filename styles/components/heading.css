@@ -1,0 +1,12 @@
+@layer utilities {
+	/* TICKER */
+	:root {
+	}
+}
+
+@layer components {
+	.heading {
+		@apply p-inset u-text-heading pb-[0.3em];
+		min-height: 2em;
+	}
+}

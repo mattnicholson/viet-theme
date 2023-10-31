@@ -1,0 +1,19 @@
+{% macro render(props) %}
+	<div class="content">
+	<h2>{{ props.location.title }}</h2>
+	</div>
+    <div class="flex flex-col gap-inset">
+    	<p>Find us:<br />{{ props.location.locationAddress | safe }} <a href="{{ props.location.locationMapUrl }}">Map</a></p>
+    	<p>Contact:<br />{{ props.location.locationTelephone }}<br />
+    	<a href="mailto:{{ props.location.locationEmail }}">{{ props.location.locationEmail }}</a></p>
+    	<p>Opening Hours:<br />{{ props.location.locationOpening | safe }}</p>
+
+    	
+    	<div>
+    		
+
+    	<div x-data="mapbox" @wheel.prevent="" data-latlng="{{ props.location.locationLatLng }}" data-hex="{{props.location.theme.accent }}" data-accent="{{ props.location.locationMapAccent }}" data-tint="{{ props.location.locationMapTint }}" data-styles="{{ props.location.locationMapTheme }}" class="h-[400px]" ></div>
+
+    	</div>
+    </div>
+{% endmacro %}

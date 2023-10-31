@@ -1,0 +1,48 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.selectbox {
+		@apply relative transition u-text-hashtag bg-pale-1 text-mid-2 p-gutter;
+		user-select: none;
+
+		& .selectbox-dropdown {
+			position: absolute;
+			cursor: pointer;
+			@apply transition u-text-hashtag text-dark;
+			left: 2em;
+			right: 0;
+			top: 0;
+
+			& .selectbox-dropdown-arrow {
+				@apply absolute top-1/2 -translate-y-1/2 right-0 pr-inset;
+
+				& svg {
+					height: 0.8em;
+				}
+			}
+			& .selectbox-selected-option {
+				@apply relative text-dark p-gutter;
+				border-left: 1px solid rgba(0, 0, 0, 0.2);
+			}
+
+			& ul {
+				@apply flex flex-col shadow-lg;
+				border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+				& li {
+					@apply transition p-gutter;
+
+					&:hover {
+						@apply bg-pale-1;
+					}
+				}
+			}
+			&.open {
+				@apply bg-pale-2;
+			}
+		}
+	}
+}

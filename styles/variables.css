@@ -1,0 +1,29 @@
+@layer utilities {
+	/* COLORS */
+	:root {
+		--colors-light: #ffffff;
+		--colors-dark: #222;
+		--colors-accent: #5c0916;
+		--colors-relief: #ffffff;
+		--colors-background: #ffffff;
+		--colors-foreground: #000000;
+	}
+	/* TYPE */
+	:root {
+		--font-base-size: 16px;
+
+		@media screen(md) {
+			--font-base-size: 16px;
+		}
+	}
+	/* SPACING */
+	:root {
+		--spacing-gutter: 8px;
+		--spacing-inset: 16px;
+
+		@media screen(md) {
+			--spacing-gutter: 16px;
+			--spacing-inset: 32px;
+		}
+	}
+}

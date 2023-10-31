@@ -1,0 +1,51 @@
+{% import "./icons.njk" as icons %}
+
+{% macro render(props) %}
+<div class="burger" x-data="burger"  {% if props.stateTrigger %}data-state-trigger="{{ props.stateTrigger }}" x-bind="stateful"{%else%}x-bind="lazy"{% endif %}>
+<div class="burger-animation" >
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 1200 799"
+  >
+    <path
+      id="Path_19"
+      data-name="Path 19"
+      d="M-60.955,7904.821l583.53-202.306-324.9,435.124L1081,7767.893,94.045,8551.74l1337.117-325.885"
+      transform="translate(-62.045 -7579.949)"
+      fill="none"
+      stroke="#f5e151"
+      stroke-width="300"
+      pathLength="1"
+    />
+  </svg>
+</div>
+<div class="burger-nav">
+    <nav>
+    <ul>
+        {% for link in props.mainLinks %}
+            <li style="--burger-line-index:{{loop.index}};"><a href="{{link.href}}">{{  link.text }}</a></li>
+        {% endfor %}
+    </ul>
+    </nav>
+    <ul class="burger-social">
+        {% for link in props.socialLinks %}
+            <li><a href="{{ link.href }}">{{ link.icon }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="burger-foot">
+<aside class="burger-secondary">
+    <ul>
+        {% for link in props.secondaryLinks %}
+            <li><a href="{{link.href}}">{{link.text}}</a></li>
+        {% endfor %}
+    </ul>
+</aside>
+<div class="burger-text">
+ {{ props.footerText }}   
+</div>
+</div>
+</div>
+{% endmacro %}

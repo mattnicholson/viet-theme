@@ -1,0 +1,5 @@
+{% macro render(props) %}
+    <ul class="teamGrid {% if props['modifier'] %}teamGrid--{{ props.modifier }}{% endif %}">
+        {% for item in props.items %}<li class="teamGrid-item">{{ item | safe }}</li>{% endfor %}
+    </ul>
+{% endmacro %}

@@ -1,0 +1,26 @@
+{% macro render(props) %}
+    <div class="{% if props.fixed %}fixed top-0 left-0 z-40 right-0{% endif %} u-text-nav-header p-gutter px-inset transition duration-500 delay-200 bg-dark text-light flex flex-row justify-between" x-data :class="($store.toggleStates.isActive('burger') ? 'fixed top-0 left-0 right-0 z-40 bg-transparent' : '') + ' ' {% if props.fixed %} + ($store.page.url == '/' ? 'fixed' : 'sticky'){% endif %}">
+    <a class="relative" href="/"><svg class="absolute left-0 top-1/2 -translate-y-1/2 h-[0.78em]" id="Group_3" data-name="Group 3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 93.171 32.358">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_9" data-name="Rectangle 9" width="93.171" height="32.358" fill="#f7f8f9"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1" data-name="Group 1" clip-path="url(#clip-path)">
+    <path id="Path_1" data-name="Path 1" d="M8.464,2.537V27.885c0,1.19-.485,1.94-1.455,1.94s-1.5-.749-1.5-1.94V16.062H0V28.238c0,3.835,2.821,6.3,7.009,6.3s6.965-2.469,6.965-6.3V2.537Z" transform="translate(0 -2.184)" fill="#f7f8f9"/>
+    <path id="Path_2" data-name="Path 2" d="M134.3,2.537V12.588l.021,1.565.023,1.741.044,3.351H134.3l-.716-3.351-.372-1.741L130.734,2.537h-5.643V34.189h4.981V21.008l0-.176L130,15.894l-.014-1.014h.088l.236,1.014,1.15,4.938.406,1.741,2.7,11.616h4.717V2.537Z" transform="translate(-107.7 -2.184)" fill="#f7f8f9"/>
+    <path id="Path_3" data-name="Path 3" d="M242.733,2.537v4.6h4.012v27.05h5.51V7.139h4.012v-4.6Z" transform="translate(-208.987 -2.184)" fill="#f7f8f9"/>
+    <path id="Path_4" data-name="Path 4" d="M358.216,25.7c0,1.19-.485,1.94-1.455,1.94s-1.5-.749-1.5-1.94V6.657c0-1.19.529-1.94,1.5-1.94s1.455.749,1.455,1.94ZM356.761,0c-4.188,0-7.009,2.469-7.009,6.3v19.75c0,3.835,2.821,6.3,7.009,6.3s6.965-2.469,6.965-6.3V6.3c0-3.835-2.777-6.3-6.965-6.3" transform="translate(-301.127)" fill="#f7f8f9"/>
+    <path id="Path_5" data-name="Path 5" d="M480.265,29.587V2.537h-5.422V34.189h11.021v-4.6Z" transform="translate(-408.827 -2.184)" fill="#f7f8f9"/>
+    <path id="Path_6" data-name="Path 6" d="M576.882,2.537h-7.23V34.189h5.51V7.3h1.455c.97,0,1.5.661,1.5,1.807V20.664h5.511V8.841c0-3.835-2.557-6.3-6.745-6.3" transform="translate(-490.456 -2.184)" fill="#f7f8f9"/>
+    <path id="Path_7" data-name="Path 7" d="M636.045,148.461v5.389a5.9,5.9,0,0,1-5.51,6.227v-2.651a2.136,2.136,0,0,0,2-2.2h-2v-6.762Z" transform="translate(-542.874 -127.821)" fill="#f7f8f9"/>
+    <path id="Path_8" data-name="Path 8" d="M0,12.347V6.958A5.9,5.9,0,0,1,5.51.731V3.382a2.136,2.136,0,0,0-2,2.2h2v6.762Z" transform="translate(0 -0.629)" fill="#f7f8f9"/>
+  </g>
+</svg>
+</a>
+    <ul class="flex flex-row gap-inset">
+      <li class="relative cursor-pointer text-left" x-data="stateTrigger" x-bind="toggle" data-label="burger"><span class="block" x-transitiontext="$store.toggleStates.isActive('burger') ? 'Close' : 'Menu'"></span></li>
+      <li><a class="text-accent" href="{{ props.shortcutUrl }}">{{ props.shortcutText }}</a></li>
+    </ul>
+  </div>
+{% endmacro %}

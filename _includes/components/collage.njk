@@ -1,0 +1,29 @@
+{% import "_includes/components/magicFrame.njk" as magicFrame %}
+
+{% macro render(props) %}
+  <div class="relative py-[10vh]">
+	<div class="relative z-[1] aspect-[6/4]">
+
+    <div x-data="viewportProgress" data-parallax="10" class="absolute w-full h-full">
+    <div class="absolute left-inset top-[50%] -translate-y-1/2 h-[90%] overflow-hidden aspect-[5/6.4] z-[0]">
+          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.portrait }}"></div>
+    </div>
+    </div>
+
+    <div x-data="viewportProgress" data-parallax="-15" class="absolute w-full h-full">
+    <div class="absolute h-[50%] left-[100%] -translate-y-[50%] -translate-x-full -ml-inset top-[60%] overflow-hidden aspect-[6/3.7] relative z-[1]">
+          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.landscape }}"></div>
+        </div>
+    </div>
+
+
+    <div class="absolute left-[55%] bottom-[5%] md:bottom-[8%] h-[30%] md:h-[20%] overflow-hidden aspect-[4/6] z-[2]">
+          <div class="Image" x-data="image" x-bind="lazy" data-fit="contain" data-src="{{ props.illustration }}"></div>
+        </div>
+
+    <div class="absolute w-[65%] md:w-auto md:h-[100%] left-[50%] top-[50%] -translate-x-1/2  -translate-y-1/2 aspect-[5/6] md:aspect-[4/6] z-[4]">
+      {{ magicFrame.render() }}
+    </div>
+  </div>
+  </div>
+{% endmacro %}

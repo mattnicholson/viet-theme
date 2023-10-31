@@ -1,0 +1,55 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.newsletter {
+		@apply bg-dark p-inset;
+
+		& h2 {
+			@apply u-text-heading;
+			white-space: nowrap;
+		}
+
+		& p {
+			@apply u-text-intro-quote;
+			width: 10em;
+		}
+
+		& form {
+			@apply relative u-text-intro-quote w-[80%] ml-auto mr-auto max-w-[9em] lg:max-w-[8em];
+			& input {
+				@apply block w-full bg-dark uppercase text-light ml-auto mr-auto p-gutter h-[1.2em] pr-[1.5em];
+				&:focus {
+					@apply bg-mid-2;
+					outline: none;
+				}
+			}
+			& button {
+				text-indent: 200%;
+				@apply block absolute top-0 right-0 h-[1.2em] w-[1.2em] overflow-hidden bg-dark;
+
+				background-image: url(/assets/gfx/arrow.svg);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: 35% auto;
+
+				&:focus {
+					@apply bg-mid-2;
+					outline: none;
+				}
+			}
+		}
+	}
+
+	.newsletter-content {
+		@apply bg-light flex flex-col gap-inset py-[5em];
+		text-align: center;
+
+		& p {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}

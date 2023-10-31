@@ -1,0 +1,41 @@
+{% extends "pages/_layout.njk" %}
+{% import "_includes/macros.njk" as macros %}
+
+{# COMPONENTS #}
+{% import "_includes/components/pageData.njk" as pageData %}
+{% import "_includes/components/image.njk" as image %}
+
+{# MAIN CONTENT #}
+{% block main %}
+
+  <div x-data x-effect="$store.venue.setActive('')"></div>
+
+  <div class="p-inset pt-[60px] md:pt-[120px]">
+    <img class="mx-auto" src="/assets/img/logo.svg" />
+  </div>
+  <ul class="flex flex-col md:flex-row gap-[0px]">
+  	{% for location in locations %}
+  	<li class="w-full md:w-[50%] aspect-square bg-accent text-light relative"><div class="absolute w-full h-full z-[0]">
+  {{ image.render({
+    aspect:'fluid',
+    src:location.graphic
+  }) }}
+  </div><a x-data="pageLink" class="w-[100%] h-[100%] z-[1] absolute top-0 left-0 flex items-center justify-center uppercase" href="/pages/{{location.slug}}/">{{location.title}}</a><a class="absolute z-[2] left-0 right-0 bottom-inset text-center uppercase text-[11px]" href="#locations/{{location.slug}}/"><svg class="mx-auto mb-[5px]" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 0C2.68 0 0 2.68 0 6C0 10 6 16 6 16C6 16 12 10 12 6C12 2.68 9.32 0 6 0ZM6 2C8.22 2 10 3.8 10 6C10 8.22 8.22 10 6 10C3.8 10 2 8.22 2 6C2 3.8 3.8 2 6 2Z" fill="white"/>
+</svg> Find Us
+</a></li>
+  {% endfor %}
+  </ul>
+
+  <div>
+  	{%  block subpage %}
+		{# PAGE DATA #}
+		{{ pageData.render({
+		    title : 'Locations',
+		    url : page.url
+		 }) }}
+  	{% endblock %}
+  </div>
+ 
+{% endblock %}
+  

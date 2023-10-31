@@ -1,0 +1,33 @@
+{% macro render(props) %}
+
+      <div class="flex flex-col md:flex-row">
+        <div class="relative w-full shrink-0 md:w-1/2 p-inset bg-pale-1 md:min-h-[50vw] pb-[5em]">
+          
+          <div class="flex flex-col gap-inset">
+            <div>
+              <h3 class="u-text-body uppercase">Email Us</h3>
+              <a class="u-text-intro-quote" href="mailto:{{props.email}}">{{ props.email }}</a>
+            </div>
+
+            <div>
+              <h3 class="u-text-body uppercase">Find Us</h3>
+              <p class="u-text-intro-quote">{{ props.address | safe }}(<a class="u-link-body" target="_blank" href="{{props.mapUrl}}">Map</a>)</p>
+            </div>
+
+            <div>
+              <h3 class="u-text-body uppercase">Follow Us</h3>
+              <ul class="flex flex-row gap-gutter pt-gutter">
+                {% for social in props.socialLinks %}
+                <li><a href="{{social.href}}">{{  social.icon }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="md:min-h-[50vw] relative w-full shrink-0 md:w-1/2 bg-dark">
+          {{ props.form }}
+        </div>
+      </div>
+   
+{% endmacro %}

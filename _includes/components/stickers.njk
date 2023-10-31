@@ -1,0 +1,15 @@
+{% macro render(props) %}
+ <div x-data="stickers">
+ 	
+ 	<div id="stickersLayer" class="fixed z-10 top-0 left-0 w-full h-full pointer-events-none"></div>
+    <div id="stickersBank" class="hidden">
+      <div class="sticker sticker-u"><img src="/assets/gfx/stickers/u.svg" alt="UNTOLD sticker"/></div>
+      <div class="sticker sticker-n"><img src="/assets/gfx/stickers/n.svg" alt="UNTOLD sticker"/></div>
+      <div class="sticker sticker-t"><img src="/assets/gfx/stickers/t.svg" alt="UNTOLD sticker"/></div>
+      <div class="sticker sticker-o"><img src="/assets/gfx/stickers/o.svg" alt="UNTOLD sticker"/></div>
+      <div class="sticker sticker-l"><img src="/assets/gfx/stickers/l.svg" alt="UNTOLD sticker"/></div>
+      <div class="sticker sticker-d"><img src="/assets/gfx/stickers/d.svg" alt="UNTOLD sticker"/></div>
+    </div>
+
+ </div>
+{% endmacro %}

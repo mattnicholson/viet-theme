@@ -1,0 +1,6 @@
+{% macro render(props) %}
+    {% for location in props.locations %}
+    <div x-data x-effect="if($store.route.match('#{{location.slug}}')) $store.venue.setActive('{{ location.slug }}')"></div>
+    <div x-data x-effect="if($store.route.match('/{{location.slug}}')) $store.venue.setModal('{{ location.slug }}')"></div>
+	{% endfor %}
+{% endmacro %}

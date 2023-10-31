@@ -1,0 +1,80 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.dataNumbers {
+		@apply bg-accent p-inset flex flex-col gap-inset;
+
+		& h3 {
+			@apply u-text-body uppercase;
+		}
+
+		& h2 {
+			@apply u-text-menu-tile max-w-[5em];
+		}
+	}
+
+	.dataNumbers-intro {
+		pointer-events: none;
+		@media screen(md) {
+			position: sticky;
+			@apply top-[8rem] left-inset w-[55%];
+		}
+	}
+
+	.dataNumbers-content {
+		@media screen(md) {
+			margin-left: auto;
+			width: 45%;
+		}
+
+		@media screen(lg) {
+			width: 55%;
+		}
+	}
+
+	.dataNumbers-item {
+		@apply pb-inset;
+
+		@media screen(md) {
+			@apply flex flex-row gap-inset;
+
+			& > div:first-child {
+				width: 40%;
+				text-align: right;
+			}
+			& > div:last-child {
+				width: 60%;
+			}
+		}
+	}
+	.dataNumbers .dataNumbers-number {
+		@apply text-light u-text-heading pb-gutter;
+	}
+	.dataNumbers .dataNumbers-info {
+		@apply u-text-nav-header;
+		max-width: 10em;
+
+		& span {
+			transition: 0.5s ease;
+			opacity: 0.5;
+
+			&.active {
+				opacity: 1;
+			}
+		}
+	}
+
+	.dataNumbers-text {
+		@apply py-inset;
+		width: 75%;
+		max-width: 23em;
+
+		@media screen(lg) {
+			margin-left: 40%;
+			@apply pl-inset;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+{% macro render(props) %}
+	<div class="relative">
+    <div class="absolute top-0 left-inset">
+      <svg width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 2L19 82" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M35 2L35 131" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M2 38L131 38" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M82 21L2 21" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
+
+    </div>
+
+    <div class="absolute top-0 right-inset">
+      <svg width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M114 2L114 82" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M98 2L98 131" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M131 38L2 38" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M51 21L131 21" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
+</div>
+
+
+<div class="absolute bottom-[25px] left-inset">
+      <svg width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 131L19 51" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M35 131L35 2" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M2 95L131 95" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M82 112L2 112" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
+
+
+    </div>
+
+    <div class="absolute bottom-[25px] right-inset">
+      <svg width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M114 131L114 51" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M98 131L98 2" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M131 95L2 95" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M51 112L131 112" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
+
+    </div>
+
+    <div class="relative my-[85px] mx-[100px] mb-[100px]">
+    {{ props.children |safe }}
+    </div>
+  </div>
+
+
+{% endmacro %}

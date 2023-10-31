@@ -1,0 +1,14 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.link--button {
+		@apply u-link-button;
+	}
+
+	.link--button--alt {
+		@apply u-link-button-alt;
+	}
+}

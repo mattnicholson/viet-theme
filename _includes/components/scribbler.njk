@@ -1,0 +1,13 @@
+{% macro render(props) %}
+ <div class="scribbler {% if props.fixed %}fixed inset-0{% else %}relative{% endif %} bg-white w-full">
+ <div class="scribbler-arrow sticky top-[98%] left-0 h-0 w-full shrink-0 "><svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-gutter left-1/2" width="11.908" height="20.516" viewBox="0 0 11.908 20.516">
+  <path id="Path_10" data-name="Path 10" d="M23.334-9.395,17.38-3.44V-8.3H2.818v-2.2H17.38l.013-4.85Z" transform="translate(-3.44 -2.818) rotate(90)" fill="#3e3c38"/>
+</svg>
+</div>
+  <div id="drawing-canvas-container" x-data="scribbler" class="w-full shrink-0" style="height: 100vh;">
+    <canvas id="drawing-canvas" class="w-full h-full"></canvas>
+  </div>
+  <div class="scribbler-heading u-text-ticker absolute top-[70%] 2xl:top-[75%] w-full p-inset text-center lg:left-1/2 lg:w-1/2 lg:text-left">{{ props.heading | safe }}</div>
+  
+</div>
+{% endmacro %}

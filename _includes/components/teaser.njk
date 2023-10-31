@@ -1,0 +1,34 @@
+{% macro render(props) %}
+    
+    <div class="themesection themesection--{{ props.theme }}">
+	<div class="teaser p-inset flex flex-col gap-inset">
+
+		<div class="teaser-head">
+        <p class="u-text-body uppercase" x-data="staggerText" x-bind="lazy">{{ props.preHeading |safe }}</p>
+          
+        <div class="teaser-title u-text-heading" x-data="staggerText" x-bind="lazy">
+        	{{ props.heading |safe }}
+    	</div>
+    	</div>
+          
+          <div class="teaser-text">
+          <p class="teaser-text-description u-text-description">{{  props.text | safe }}</p>
+          <ul class="teaser-text-links flex flex-row gap-gutter">
+          {% if props.link1Url != '' %}
+          	<li>
+          		<a class="link link--button--alt" href="{{ props.link1Url }}">{{ props.link1Text }}</a>
+          	</li>
+          {% endif %}
+          {% if props.link2Url != '' %}
+          	<li>
+          		<a class="link link--button" href="{{ props.link2Url }}">{{ props.link2Text }}</a>
+          	</li>
+          {% endif %}
+          </ul>
+      	
+      	</div>  
+      
+   
+    </div>
+    </div>
+{% endmacro %}

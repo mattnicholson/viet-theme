@@ -1,0 +1,25 @@
+{% macro render(props) %}
+
+   <div x-data x-show="$store.venue.modal != ''">
+    <ul class="flex flex-row gap-gutter my-gutter items-center justify-center">
+    {% for location in props.locations %}
+    <li x-data @click="$store.venue.setModal('{{ location.slug }}')" class="inline-block cursor-pointer py-[0.4em] px-gutter bg-[#cccccc]" :class="($store.venue.modal == '{{ location.slug }}') ? 'bg-[#cccccc]' : 'opacity-30'">{{ location.title }}</li>
+	{% endfor %}
+  </ul>
+    </div>
+
+    <template x-data x-if="$store.venue.modal == ''">
+    	<div class="w-[80%] max-w-[600px] mx-auto">
+    		<div class="content text-center p-inset">
+				<h2>Please select a venue...</h2>
+			</div>
+    		<ul class="flex flex-col gap-gutter ">
+    		{% for location in props.locations %}
+    		<li @click="$store.venue.setModal('{{ location.slug }}')">
+    			<span class="block cursor-pointer py-[0.4em] px-gutter  bg-[#cccccc] aspect-[4/2] flex justify-center items-center" >{{ location.title }}</span>
+    		</li>
+			{% endfor %}
+  			</ul>
+    	</div>
+    </template>
+{% endmacro %}

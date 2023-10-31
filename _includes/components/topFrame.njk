@@ -1,0 +1,17 @@
+{% macro render(props) %}
+	<div x-data="watchSize" class="pointer-events-none absolute top-0 left-0 w-full h-[60px]">
+
+
+
+
+   <svg :width="width" :height="height" x-data :viewBox="`0 0 ${width} ${height}`" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path x-data :d="`M34 2L34 ${height}`" stroke="var(--colors-foreground)"  stroke-width="2.5" stroke-linecap="round"/>
+<path x-data :d="`M${width * 0.4} 17L20 17`" stroke="var(--colors-foreground)"  stroke-width="2.5" stroke-linecap="round"/>
+<path x-data :d="`M${width - 34} 2L${width - 34} ${height}`"  stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+<path x-data :d="`M${width * 0.6} 17L${width - 20} 17`" stroke="var(--colors-foreground)"  stroke="blue" stroke-width="2.5" stroke-linecap="round"/>
+
+
+</svg>
+
+  </div>
+{% endmacro %}

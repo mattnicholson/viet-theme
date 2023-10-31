@@ -1,0 +1,51 @@
+{
+  "scripts": {
+    "watch-js": "npx esbuild ./assets/js/main.js --outfile=./_site/js/main.js --bundle --target=es2018 --watch",
+    "watch-styles": "npx postcss styles/style.css -o _site/style.css --watch",
+    "dev": "NODE_ENV=development concurrently  \"ELEVENTY_ENV=development eleventy --serve --port 8000\"  \"npm:watch-*\"",
+    "build-js": "npx esbuild ./assets/js/main.js --outfile=./_site/js/main.js  --bundle --target=es2018",
+    "build": "NODE_ENV=production concurrently \"npm:build-*\" && ELEVENTY_PRODUCTION=true eleventy",
+    "serve": "rm -rf _site && yarn build && serve -s _site -p 8000",
+    "export": "yarn build && node ./bin/export.js",
+    "lint": "eslint --ext .js ./assets/js/**.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@node-minify/core": "^6.2.0",
+    "@node-minify/uglify-es": "^6.2.0",
+    "alpinejs": "3.10.5",
+    "concurrently": "^7.0.0",
+    "cssnano": "^6.0.1",
+    "esbuild": "^0.14.23",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.2",
+    "fs-extra": "^10.1.0",
+    "html-minifier": "^4.0.0",
+    "md5": "^2.3.0",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "prettier": "^2.5.1",
+    "serve": "^13.0.2",
+    "tailwindcss": "^3.0.0"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.12.3",
+    "@alpinejs/morph": "^3.12.3",
+    "@studio-freight/lenis": "^1.0.19",
+    "@swup/fragment-plugin": "^0.3.3",
+    "animejs": "^3.2.1",
+    "autoprefixer": "^10.4.14",
+    "file-saver": "^2.0.5",
+    "gsap": "^3.12.2",
+    "masonry-layout": "^4.2.2",
+    "motion": "^10.16.2",
+    "simplex-noise": "^4.0.1",
+    "swup": "^4.1.0",
+    "values.js": "^2.1.1",
+    "wrap-svg-text": "^0.0.7"
+  }
+}

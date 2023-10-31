@@ -1,0 +1,6 @@
+_site/
+.DS_Store
+node_modules/
+
+#Generated hash data
+_data/hash.json

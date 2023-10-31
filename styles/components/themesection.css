@@ -1,0 +1,41 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.themesection {
+		background: var(--theme-bg);
+		color: var(--theme-text);
+
+		& .link--button {
+			background: var(--theme-text);
+			color: var(--theme-bg);
+		}
+
+		& .link--button--alt {
+			background: var(--theme-bg);
+			color: var(--theme-text);
+		}
+
+		&.themesection--yellow {
+			--theme-bg: theme('colors.accent');
+			--theme-text: theme('colors.dark');
+		}
+
+		&.themesection--white {
+			--theme-bg: theme('colors.light');
+			--theme-text: theme('colors.dark');
+		}
+
+		&.themesection--black {
+			--theme-bg: theme('colors.dark');
+			--theme-text: theme('colors.light');
+		}
+
+		&.themesection--grey {
+			--theme-bg: theme('colors.pale-1');
+			--theme-text: theme('colors.dark');
+		}
+	}
+}

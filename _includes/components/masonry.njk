@@ -1,0 +1,8 @@
+{% macro render(props) %}
+    <div class="masonry" x-data="masonry">
+        <div class="grid-sizer"></div>
+        {% for item in props.items %}
+        <div class="grid-item">{{ item | safe }}</div>
+        {% endfor %}
+    </div>
+{% endmacro %}

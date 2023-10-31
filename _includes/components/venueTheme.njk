@@ -1,0 +1,12 @@
+{% macro render(props) %}
+	<div>
+   <style type="text/css">
+  	:root{
+  	--colors-accent:{{props.location.theme.accent}};
+    --colors-relief:{{props.location.theme.relief}};
+    --colors-background:{{props.location.theme.background}};
+    --colors-foreground:{{props.location.theme.foreground}};
+  	}
+  </style>
+  </div>
+{% endmacro %}

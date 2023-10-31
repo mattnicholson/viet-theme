@@ -1,0 +1,58 @@
+{% macro render(props) %}
+  <div class="accordion bg-dark text-mid-1 flex flex-col pb-inset">
+      <div class="u-text-heading text-light p-inset" x-data="staggerText" x-bind="lazy">{{ props.title |safe }}</div>
+      {% for item in props.items %}
+      <div x-data="dropdown" class="transition" :class="open ? 'bg-mid-1 text-dark' : 'bg-dark'">
+        <div class="py-gutter px-inset pr-[60px] cursor-pointer u-text-intro-quote flex flex-row justify-between items-center" @click="toggle">
+
+          <div class="w-[90%]">
+          <p class="accordion-item-title text-light">{{item.title | safe }}</p>
+          {% if item.subtitle %}<p>{{item.subtitle}}</p>{%  endif %}
+          </div>
+
+          <div class="relative">
+            <div class="transition" :class="open ? 'opacity-0' : 'opacity-100'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11.908" height="20.516" viewBox="0 0 11.908 20.516">
+                <path id="Path_156" data-name="Path 156" d="M23.334-9.395,17.38-3.44V-8.3H2.818v-2.2H17.38l.013-4.85Z" transform="translate(-3.44 -2.818) rotate(90)" fill="#f7f8f9"/>
+              </svg>
+            </div>
+            <div class="transition absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" :class="open ? 'opacity-1' : 'opacity-0'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="2" viewBox="0 0 16 2">
+                <g id="Group_953" data-name="Group 953" transform="translate(9006.5 -12450.5)">
+                  <g id="Group_951" data-name="Group 951" transform="translate(-10244 11924)">
+                    <line id="Line_19" data-name="Line 19" y2="16" transform="translate(1253.5 527.5) rotate(90)" fill="none" stroke="#f7f8f9" stroke-width="2"/>
+                  </g>
+                </g>
+              </svg>
+
+            </div>
+          </div>
+
+        </div>
+        <div x-show="open" class="bg-pale-2 text-dark u-anim-fade-in">
+          
+          <div class="flex flex-col flex-wrap md:flex-row">
+            <div class="w-full shrink-0 md:w-1/2 bg-pale-1 pb-[3em]">{{ item.contentA | safe }}</div>
+            <div class="w-full shrink-0 md:w-1/2">
+            {{  item.contentB | safe }}
+            </div>
+          </div>
+
+        </div>
+     
+      <div class="transition accordion-divider bg-mid-2 h-[2px] mx-inset" :class="open ? 'opacity-0' : 'opacity-100'"></div>
+       </div>
+    {% endfor %}
+      
+    </div>
+{% endmacro %}
+
+{% macro text(content) %}
+<p>{{content}}</p>
+{% endmacro %}
+
+{% macro image(src) %}
+<div class="overflow-hidden aspect-square relative">
+  <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ src }}"></div>
+</div>
+{% endmacro %}

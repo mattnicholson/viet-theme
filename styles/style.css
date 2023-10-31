@@ -1,0 +1,198 @@
+/* TAILWIND */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* VARIABLES */
+@import './variables.css';
+
+/* FONTS */
+@import '../assets/fonts/GT-Maru/stylesheet.css';
+
+/* UTILS */
+@import './utils/u-text.css';
+@import './utils/u-anim.css';
+@import './utils/u-link.css';
+
+/* COMPONENTS */
+@import './components/ticker.css';
+@import './components/image.css';
+@import './components/imageWithText.css';
+
+@layer base {
+  html {
+    @apply u-text-body;
+    --initialViewportHeight: 100vh;
+    scroll-behavior: initial;
+
+    & * {
+      font-smooth: always;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  html,
+  body {
+    /* Remove overscroll behaviour */
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    opacity: 0;
+  }
+
+  /* THEME FRAME */
+  body {
+    transition: color 1s ease, border 1s ease;
+    border: 8px solid var(--colors-accent);
+    min-height: 100vh;
+  }
+
+  html.js-ready {
+    & body {
+      animation: fadeIn 1.5s ease forwards;
+    }
+  }
+
+  html.scrolled {
+    @media screen(md) {
+      header {
+        opacity: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  main {
+    @apply bg-background text-foreground;
+  }
+
+  /* Remove tap highlight */
+  * {
+    -webkit-tap-highlight-color: transparent; /* For older versions of WebKit browsers */
+    tap-highlight-color: transparent;
+  }
+
+  /* SWUP JS */
+  html.is-changing .transition-fade {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+  }
+  /* Define the styles for the unloaded pages */
+  html.is-animating .transition-fade {
+    opacity: 0;
+  }
+  /*
+* The animation when filtering users
+*/
+
+  .swup-fragment {
+    transition: opacity 0.3s ease;
+
+    &.is-leaving,
+    &.is-changing {
+      opacity: 0;
+    }
+  }
+
+  [x-data='pageLink'] {
+  }
+  [x-data='pageLink'].active {
+    /*text-decoration: underline;*/
+  }
+
+  [x-data='pageLink'].inactive {
+  }
+
+  /* SENSIBLE RICH TEXT RULES */
+  p,
+  blockquote {
+    max-width: 32em;
+  }
+
+  .text-center p,
+  .text-center ul,
+  .text-center blockquote {
+    @apply mx-auto;
+    max-width: 32em;
+  }
+
+  .h-initial {
+    height: var(--initialViewportHeight);
+  }
+
+  .inset {
+  }
+  .content {
+    h1 {
+      @apply u-text-hero pb-[1em];
+    }
+    p {
+      @apply pb-[2em];
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: bold;
+      padding-bottom: 0.5em;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 1em;
+      padding-bottom: 2em;
+
+      li {
+        list-style: disc;
+        padding-bottom: 0.5em;
+      }
+    }
+
+    img {
+      @apply mx-auto my-inset;
+    }
+  }
+
+  /* LENIS DEFAULTS */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .absolute-center-x {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .absolute-center-y {
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+
+  .absolute-center-xy {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
+}

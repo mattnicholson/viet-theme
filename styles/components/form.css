@@ -1,0 +1,36 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.form {
+		@apply flex flex-col gap-gutter;
+
+		& ::placeholder {
+			@apply text-mid-2;
+		}
+
+		& :focus {
+			outline: none;
+			@apply bg-pale-2;
+		}
+
+		& input {
+			@apply transition u-text-hashtag bg-pale-1 text-dark p-gutter;
+		}
+
+		& textarea {
+			@apply transition u-text-hashtag bg-pale-1 text-dark p-gutter h-[8em];
+			resize: none;
+		}
+
+		& > div:last-child {
+			text-align: right;
+		}
+
+		& button {
+			@apply u-link-button-alt;
+		}
+	}
+}

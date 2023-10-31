@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <title>
+      {{meta.title}}
+    </title>
+    <meta charset="UTF-8"/>
+    {% if meta.description %}
+      <meta name="description" content="{{meta.description}}"/>
+    {% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/gfx/icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:image" content="https://xxx/assets/img/meta.png" />
+
+    {# STYLESHEET #}
+    <link rel="stylesheet" href="/style.css?v={% version %}"/>
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+    {# BLOCKS #}
+    {% block styles %}
+      {{ styles | safe }}
+    {% endblock %}
+    {% block head %}{% endblock %}
+   
+  </head>
+  <body>
+
+    {{ venueFromHash.render({locations:locations}) }}
+
+    {% for location in locations %}
+      <template x-data x-if="$store.venue.active == '{{location.slug}}'">
+      {{ venueTheme.render({location:location})}}
+      </template>
+    {% endfor %}
+
+    <div x-data="locationsModal" x-show="isMatch()" @click="close();if($store.venue.active) $store.venue.setModal($store.venue.active)" x-transition.opacity x-transition.opacity.duration.500ms style="background:rgba(0,0,0,0.7)" class="z-[999] fixed top-0 right-0 bottom-0 left-0">
+
+        <div class="absolute top-0 right-0 bottom-0 left-0 cursor-pointer overflow-y-auto" x-data="lenis">
+      <div class="grid place-items-center py-[60px] min-h-[100%]">
+        <div @click="$event.stopPropagation()" class="rounded-xl shadow-xl cursor-default relative bg-white text-black p-inset m-0 w-[90%] mx-auto max-w-[600px] min-h-[400px] flex-shrink-0 shadow">
+        <div class="absolute top-gutter right-gutter w-[20px] cursor-pointer" @click="close();if($store.venue.active) $store.venue.setModal($store.venue.active)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <g>
+            <rect x="5.37" y="-1.63" width="2" height="16" transform="translate(-1 8) rotate(-45)" ></rect>
+            <rect x="-1.63" y="5.37" width="16" height="2" transform="translate(-1 8) rotate(-45)" ></rect>
+          </g>
+        </svg></div>
+
+        {#  LOCATION SWITCHER SCOPE #}
+        <div>
+        <template x-if="$store.route.match('#book')">
+            <div>
+              {{ modalLocationSwitcher.render({locations:locations}) }}
+              <hr class="mb-inset" />
+              
+              {% for location in locations %}
+                
+                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                {{ modalBookingTemplate.render({location:location})}}
+                </template>
+              {% endfor %}
+            </div>
+          </template>
+          <template x-if="$store.route.match('#locations')">
+            <div>
+            <div>
+              {{ modalLocationSwitcher.render({locations:locations}) }}
+              <hr class="mb-inset" />
+             {% for location in locations %}
+                
+                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                <div>
+                {{ modalContactTemplate.render({location:location})}}
+                </div>
+                </template>
+              {% endfor %}
+            </div>
+            </div>
+          </template>
+          <template x-if="$store.route.match('#menu')">
+            <div>
+            <div>
+              {{ modalLocationSwitcher.render({locations:locations}) }}
+              <hr class="mb-inset" />
+              
+              {% for location in locations %}
+                
+                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                <div>
+                {{ modalMenusTemplate.render({location:location})}}
+                </div>
+                </template>
+              {% endfor %}
+             
+            </div>
+            </div>
+          </template>
+          <template x-if="$store.route.match('#takeaway')">
+            <div>
+            <div>
+              {{ modalLocationSwitcher.render({locations:locations}) }}
+              <hr class="mb-inset" />
+             {% for location in locations %}
+                
+                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                <div>
+                {{ modalTakeawayTemplate.render({location:location})}}
+                </div>
+                </template>
+              {% endfor %}
+             
+            </div>
+            </div>
+          </template>
+          <template x-if="$store.route.match('#delivery')">
+            <div>
+            <div>
+              {{ modalLocationSwitcher.render({locations:locations}) }}
+              <hr class="mb-inset" />
+              
+               {% for location in locations %}
+                
+                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                <div>
+                {{ modalDeliveryTemplate.render({location:location})}}
+                </div>
+                </template>
+              {% endfor %}
+            </div>
+            </div>
+          </template>
+          </div>
+         
+          </div>
+        </div>
+      </div>
+      
+    
+    </div>
+
+
+  <div id="page">
+  <div class="page-body">
+ 
+    <div id="opener" class="transition-fade">
+    {% block opener %}
+      {{ opener | safe }}
+    {% endblock %}
+   </div>
+
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+    </div>
+    </div>
+    
+    {% block js %}
+      {{ js | safe }}
+    {% endblock %}
+
+    <!-- Instant page preloader -->
+    <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+
+  </body>
+</html>

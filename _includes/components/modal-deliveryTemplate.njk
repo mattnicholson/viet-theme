@@ -1,0 +1,9 @@
+{% macro render(props) %}
+	<div class="content">
+	<h2>Delivery from {{ props.location.title }}</h2>
+	</div>
+    <div class="flex flex-col gap-inset">
+    	<a href="{{ props.location.deliveryUrl }}" class="block cursor-pointer py-[0.4em] px-gutter  bg-[#cccccc]">Open Deliveroo</a>
+    	{{ props.location.deliveryTerms | safe }}
+    </div>
+{% endmacro %}

@@ -1,0 +1,18 @@
+{% macro render(props) %}
+<div class="dataNumbers">
+    <div class="dataNumbers-intro">
+    	<h3 x-data="staggerText" x-bind="lazy">{{ props.preHeading }}</h3>
+    	<h2 x-data="staggerText" x-bind="lazy">{{ props.heading | safe }}</h2>
+    </div>
+    <div class="dataNumbers-content">
+    	{% for item in props.items %}
+    		<div class="dataNumbers-item">
+    			<div class="dataNumbers-number" x-data="staggerText" x-bind="lazy">{{ item.number }}</div>
+    			<div class="dataNumbers-info" x-data="manifesto">{{  item.text | safe }}</div>
+    		</div>
+    	{%  endfor %}
+    	<div class="dataNumbers-text">{{ props.text | safe}}</div>	
+    </div>
+
+</div>
+{% endmacro %}

@@ -1,0 +1,29 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.teamGrid {
+		@apply -ml-gutter relative pb-inset;
+
+		& * {
+		}
+
+		& > li {
+			display: inline-block;
+			vertical-align: top;
+			@apply w-[50%] pl-gutter;
+		}
+
+		&.teamGrid--secondary {
+			& > li {
+				@apply md:w-[33.33333%];
+
+				& .item-media {
+					@apply w-[60px] md:w-[80px];
+				}
+			}
+		}
+	}
+}

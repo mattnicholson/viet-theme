@@ -1,0 +1,5 @@
+{% macro render(props) %}
+    <div class="overflow-hidden {% if props['aspect'] == 'fluid' %}w-full h-full{% endif %} {% if props['aspect'] == 'square' %}aspect-square{% elseif props['aspect'] == 'portrait' %}aspect-portrait{% elseif props['aspect'] == 'landscape' %}aspect-landscape{% endif %} relative" {% if (props['aspect'] != 'portrait') and (props['aspect'] != 'square') and (props['aspect'] != 'landscape') and (props['aspect'] != 'fluid') %}style="aspect-ratio:{{ props.aspect }};"{% endif %}>
+      <div class="Image" x-data="image" x-bind="lazy" data-fit="{% if props.fit %}{{props.fit}}{%else%}cover{% endif %}" data-src="{{ props.src }}"></div>
+    </div>
+{% endmacro %}

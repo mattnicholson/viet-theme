@@ -1,0 +1,74 @@
+@layer utilities {
+	:root {
+		--stagger-letter-delay: 0.04s;
+		--stagger-line-delay: 0.15s;
+		--stagger-duration: 0.75s;
+		--stagger-ease: cubic-bezier(0.35, 0.145, 0.045, 1.195);
+		/* cubic-bezier(0.350, 0.145, 0.045, 1.195); */
+		/* cubic-bezier(0.645, 0.67, 0.355, 1.09) */
+	}
+
+	@keyframes staggerText {
+		0% {
+			opacity: 0;
+			transform: translateY(100%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+
+	@keyframes staggerLine {
+		0% {
+			opacity: 0;
+			transform: translateY(calc(var(--line-index) * 30%));
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+}
+
+@layer components {
+	.staggerText {
+		opacity: 0;
+		&.staggerText--is-ready {
+			opacity: 1;
+		}
+	}
+
+	.staggerText-line {
+		will-change: opacity, transform;
+		overflow: hidden;
+		opacity: 0;
+		height: 1.1em;
+	}
+
+	.staggerText-letter {
+		will-change: opacity, transform;
+		display: inline-block;
+		opacity: 0;
+		overflow: visible;
+	}
+
+	.staggerText--is-ready .staggerText-anim--play {
+		& .staggerText-letter {
+			animation: staggerText var(--stagger-duration) var(--stagger-ease)
+				forwards;
+			animation-delay: calc(
+				(var(--line-index) * var(--stagger-line-delay)) +
+					(var(--letter-index) * var(--stagger-letter-delay))
+			);
+		}
+
+		& .staggerText-line {
+			animation: staggerLine var(--stagger-duration) ease forwards;
+			animation-delay: calc(var(--line-index) * var(--stagger-line-delay));
+		}
+	}
+
+	.staggerText-space {
+	}
+}

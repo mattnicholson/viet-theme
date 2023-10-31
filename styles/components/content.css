@@ -1,0 +1,78 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.content {
+		@apply u-text-body p-inset md:w-[90%] lg:w-[80%];
+
+		margin: 0 auto;
+		padding-top: 2.5em;
+
+		& p,
+		& li {
+			@apply u-text-body px-inset;
+			max-width: 35em;
+			margin: 0 auto;
+			padding-bottom: 2em;
+		}
+
+		& ul {
+			@apply pl-inset ml-inset;
+		}
+		& li {
+			@apply pl-0 pb-[1em];
+			list-style: disc;
+		}
+
+		a {
+			@apply u-link-body;
+		}
+
+		& h1,
+		& h2 {
+			@apply u-text-heading py-[0.25em];
+		}
+
+		& h3,
+		& h4 {
+			@apply u-text-intro-quote pb-[0.25em] px-inset max-w-[14.3em];
+
+			margin: 0 auto;
+		}
+
+		& h5,
+		& h6 {
+			@apply u-text-description px-inset max-w-[43.9em] 2xl:max-w-[55em];
+
+			margin: 0 auto;
+			padding-bottom: 0.25em;
+		}
+
+		& img {
+			@apply pt-[1em] pb-[3em];
+
+			& + h4 {
+				@apply u-text-description -translate-y-[100%] 2xl:-translate-y-[140%] px-0;
+				max-width: none;
+			}
+		}
+
+		& blockquote {
+			@apply u-text-intro-quote pb-gutter pt-inset;
+			max-width: 35em;
+			margin-left: auto;
+			margin-right: auto;
+
+			& + p {
+				@apply u-text-description;
+				width: 12em;
+				margin-left: auto;
+				margin-right: 0;
+				padding-top: 0.8em;
+				padding-bottom: 4em;
+			}
+		}
+	}
+}

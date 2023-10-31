@@ -1,0 +1,4 @@
+{% macro render(props) %}
+<div x-data x-effect="$store.page.setTitle('{{ props.title }}')"></div>
+<div x-data x-effect="$store.page.setUrl('{{ props.url }}')"></div>
+{% endmacro %}

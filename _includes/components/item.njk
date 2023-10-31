@@ -1,0 +1,11 @@
+{% macro render(props) %}
+    <div class="item {% if props.modifier %}item--{{ props.modifier }}{% endif %}">
+      {% if props.image %}<div class="item-media">{{ props.image }}</div>{% endif %}
+      {% if props.title %}<div class="item-head">{{ props.title }}</div>{% endif %}
+      {% if props.subtitle %}<div class="item-subtitle">{{ props.subtitle }}</div>{% endif %}
+      {% if props.date %}<div class="item-date">{{ props.date }}</div>{% endif %}
+      {% if props.description %}<div class="item-body">{{  props.description }}</div>{% endif %}
+      {% if props.url %}<div class="item-foot"><a href="{{ props.url }}">{{ props.linkText }}</a></div>{%  endif %}
+      {% if props.tags %}<ul class="item-tags">{% for tag in props.tags %}<li><a href="{{ tag.url }}">{{ tag.title }}</a></li>{% endfor %}</ul>{%  endif %}
+    </div>
+{% endmacro %}

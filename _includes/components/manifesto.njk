@@ -1,0 +1,10 @@
+{% macro render(props) %}
+    <div class="manifesto">
+    	<div class="manifesto-title">
+    	{{  props.title }}
+    	</div>
+    	<div class="manifesto-text" x-data="manifesto">
+        {{ props.text | safe }}
+        </div>
+    </div>
+{% endmacro %}

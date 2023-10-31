@@ -1,0 +1,15 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.masonry {
+		@apply relative -ml-gutter;
+
+		& .grid-sizer,
+		& .grid-item {
+			@apply pl-gutter pb-gutter w-[100%] md:w-[33.333333333%];
+		}
+	}
+}

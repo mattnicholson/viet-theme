@@ -1,0 +1,15 @@
+@layer utilities {
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .u-anim-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+}

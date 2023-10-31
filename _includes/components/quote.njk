@@ -1,0 +1,25 @@
+{% macro render(props) %}
+    <div class="quote">
+    	<div class="quote-content">
+	    	<div class="quote-opener">
+	    		<svg xmlns="http://www.w3.org/2000/svg" width="65.799" height="138.704" viewBox="0 0 65.799 138.704">
+				  <path id="Path_198" data-name="Path 198" d="M65.8,0V64.346c0,41.106-24.6,69.062-65.8,74.358V107.052c14.723-1.89,23.609-11.76,23.878-26.3H0V0Z" transform="translate(65.799 138.704) rotate(180)" fill="#f4df3e"/>
+				</svg>
+
+	    	</div>
+	    	<div class="quote-text" x-data="manifesto">
+	        {{ props.text | safe }}
+	        </div>
+	        <div class="quote-caption">
+	        {{  props.caption }}
+	        </div>
+
+	        <div class="quote-closer">
+	        	<svg xmlns="http://www.w3.org/2000/svg" width="65.799" height="138.704" viewBox="0 0 65.799 138.704">
+				  <path id="Path_512" data-name="Path 512" d="M65.8,0V64.346c0,41.106-24.6,69.062-65.8,74.358V107.052c14.723-1.89,23.609-11.76,23.878-26.3H0V0Z" fill="#f4df3e"/>
+				</svg>
+
+	        </div>
+        </div>
+    </div>
+{% endmacro %}

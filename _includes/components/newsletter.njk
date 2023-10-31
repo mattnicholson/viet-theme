@@ -1,0 +1,12 @@
+{% macro render(props) %}
+<div class="newsletter">
+	<div class="newsletter-content">
+	<h2 x-data="staggerText" x-bind="lazy">{{ props.heading }}</h2>
+	<p>{{  props.text | safe }}</p>
+    <form>
+    	<input type="text" placeholder="Your Email">
+    	<button type="submit">Submit</button>
+    </form>
+    </div>
+</div>
+{% endmacro %}

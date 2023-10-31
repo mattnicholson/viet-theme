@@ -1,0 +1,67 @@
+{% macro render(props) %}
+	<div x-data="watchSize" class="pointer-events-none absolute top-0 left-0 w-full h-full">
+
+
+   <svg :width="width" :height="height" x-data :viewBox="`0 0 ${width} ${height}`" fill="none" xmlns="http://www.w3.org/2000/svg">
+{#  LEFT VERTICAl #}
+<path x-data :d="`M34 42L34 ${height - 42}`" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+{#  RIGHT VERTICAl #}
+<path x-data :d="`M${width - 34} 42L${width - 34} ${height - 42}`"  stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+
+{%  if props.eyebrow %}
+{#  TOP LEFT PRE-EYEBROW #}
+<path x-data :d="`M${width * 0.35} 33L45 33`"  stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+{#  TOP RIGHT PRE-EYEBROW #}
+<path x-data :d="`M${width - 45} 33L${width * 0.65} 33`" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+{% else %}
+<path x-data :d="`M${width - 45} 33L45 33`"  stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+{%  endif %}
+{#  BOTTOM #}
+<path x-data :d="`M${width - 45} ${height - 33}L45 ${height - 33}`" stroke="var(--colors-foreground)" stroke-width="2.5" stroke-linecap="round"/>
+
+{# TOP LEFT CORNER #}
+<mask x-data :id="`${UID}_mask0_0_1`" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="56" height="56">
+<circle cx="27.8022" cy="27.8022" r="26.5522" stroke="white" stroke-width="2.5"/>
+</mask>
+<g x-data :mask="`url(#${UID}_mask0_0_1)`">
+<rect x="25.9487" y="25.022" width="47.2637" height="41.7033" fill="var(--colors-foreground)"/>
+</g>
+
+{#  TOP RIGHT #}
+<g x-effect="xoffset = width-56" x-data={xoffset:0,yoffset:0} :transform="`rotate(90 ${(xoffset + 28)} ${(yoffset + 28)})`">
+  <mask x-data :id="`${UID}_top_right`" x-data style="mask-type:alpha" maskUnits="userSpaceOnUse" :x="`${xoffset}`" :y="`${yoffset}`" width="56" height="56">
+  <circle x-data :cx="`${(xoffset) + 27.8022}`" :cy="`${(yoffset + 27.8022)}`" r="26.5522" stroke="white" stroke-width="2.5"/>
+  </mask>
+  <g x-data :mask="`url(#${UID}_top_right)`">
+  <rect x-data :x="`${(xoffset) + 25.9487}`" :y="`${(yoffset + 25.022)}`" width="47.2637" height="41.7033" fill="var(--colors-foreground)"/>
+  </g>
+</g>
+
+{#  BOTTOM LEFT #}
+<g x-effect="yoffset = height-56" x-data={xoffset:0,yoffset:0} :transform="`rotate(-90 ${(xoffset + 28)} ${(yoffset + 28)})`">
+  <mask x-data :id="`${UID}_bottom_left`" x-data style="mask-type:alpha" maskUnits="userSpaceOnUse" :x="`${xoffset}`" :y="`${yoffset}`" width="56" height="56">
+  <circle x-data :cx="`${(xoffset) + 27.8022}`" :cy="`${(yoffset + 27.8022)}`" r="26.5522" stroke="white" stroke-width="2.5"/>
+  </mask>
+  <g x-data :mask="`url(#${UID}_bottom_left)`">
+  <rect x-data :x="`${(xoffset) + 25.9487}`" :y="`${(yoffset + 25.022)}`" width="47.2637" height="41.7033" fill="var(--colors-foreground)"/>
+  </g>
+</g>
+
+{#  BOTTOM RIGHT #}
+<g x-effect="xoffset = width-56;yoffset = height-56" x-data={xoffset:0,yoffset:0} :transform="`rotate(180 ${(xoffset + 28)} ${(yoffset + 28)})`">
+  <mask x-data :id="`${UID}_bottom_right`" x-data style="mask-type:alpha" maskUnits="userSpaceOnUse" :x="`${xoffset}`" :y="`${yoffset}`" width="56" height="56">
+  <circle x-data :cx="`${(xoffset) + 27.8022}`" :cy="`${(yoffset + 27.8022)}`" r="26.5522" stroke="white" stroke-width="2.5"/>
+  </mask>
+  <g x-data :mask="`url(#${UID}_bottom_right)`">
+  <rect x-data :x="`${(xoffset) + 25.9487}`" :y="`${(yoffset + 25.022)}`" width="47.2637" height="41.7033" fill="var(--colors-foreground)"/>
+  </g>
+</g>
+
+
+
+
+
+</svg>
+
+  </div>
+{% endmacro %}

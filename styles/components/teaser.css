@@ -1,0 +1,45 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.teaser {
+		@apply relative;
+	}
+
+	.teaser-title {
+		@apply pb-[0.5em] 2xl:pb-[0.2em];
+		@apply lg:min-h-[2.4em] 2xl:min-h-[2em];
+	}
+
+	.teaser-head {
+		@apply w-full lg:w-[55%] 2xl:w-[75%];
+		pointer-events: none;
+	}
+
+	.teaser-text {
+		@apply pb-[1em] w-full flex flex-col gap-inset lg:pl-inset;
+
+		@media screen(lg) {
+			@apply absolute bottom-inset right-0 p-inset w-[40%];
+		}
+
+		@media screen(2xl) {
+			@apply w-[35%];
+		}
+	}
+
+	.teaser-text-description {
+		@apply w-[70%] md:w-[50%] lg:w-[75%];
+	}
+
+	.teaser-text-links {
+		@apply w-[70%] md:w-[50%] lg:w-[75%];
+	}
+
+	.teaser-text-description,
+	.teaser-text-links {
+		@apply ml-auto lg:ml-0;
+	}
+}

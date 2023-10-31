@@ -1,0 +1,5 @@
+{% macro render(text) %}
+    <div class="heading" x-data="staggerText" x-bind="lazy">
+        {{ text |safe }}
+    </div>
+{% endmacro %}

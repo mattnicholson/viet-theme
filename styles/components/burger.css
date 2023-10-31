@@ -1,0 +1,163 @@
+@layer utilities {
+	:root {
+		--burger-line-index: 1;
+		--burger-line-offset: 20%;
+		--burger-animation-delay: 0.25s;
+		--burger-stagger-line-delay: 0.01s;
+		--burger-stagger-duration: 1.5s;
+		--burger-stagger-ease: cubic-bezier(0.16, 1, 0.3, 1);
+		--burger-x-padding: 18vw;
+		--burger-y-padding: 15vmin;
+	}
+
+	@keyframes burgerStaggerLine {
+		0% {
+			opacity: 0;
+			transform: translateY(
+				calc(var(--burger-line-index) * var(--burger-line-offset))
+			);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+}
+
+@layer components {
+	.burger {
+		@apply w-full h-[100vh] relative overflow-hidden;
+		transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
+		transform: scale(1.2);
+		& .burger-animation svg {
+			@apply absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover;
+			z-index: 1;
+
+			& path {
+				fill: transparent;
+
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
+
+				visibility: hidden;
+			}
+		}
+		&:after {
+			content: '';
+			@apply block bg-dark w-full h-full absolute top-0 left-0;
+			z-index: 0;
+			transform: scaleY(0);
+			transition: 1s 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+			transform-origin: 50% 100%;
+		}
+
+		& .burger-nav {
+			@apply absolute top-0 left-0 w-full;
+			padding: var(--burger-y-padding) var(--burger-x-padding);
+			z-index: 2;
+			transition: 1s ease;
+			opacity: 0;
+			& nav {
+				& ul {
+					@apply u-text-menu-tile pb-inset;
+
+					opacity: 0;
+				}
+
+				& li {
+					opacity: 0;
+				}
+
+				& a {
+					@apply inline-block;
+					transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+					&:hover {
+						-webkit-text-stroke: 1px var(--colors-dark); /* Set the width and color of the text stroke */
+						color: transparent; /* Make the fill transparent */
+						transform: scale(1.1) translateX(5%);
+					}
+				}
+			}
+		}
+
+		& .burger-foot {
+			@apply u-text-description absolute bottom-0 left-0 w-full p-inset flex flex-row gap-inset justify-between;
+			z-index: 2;
+			padding-left: var(--burger-x-padding);
+			padding-right: var(--burger-x-padding);
+
+			transition: 1s ease;
+			opacity: 0;
+		}
+
+		& .burger-secondary ul {
+			@apply flex flex-row gap-inset;
+		}
+
+		& .burger-social {
+			@apply flex flex-row gap-gutter pt-inset;
+			transition: 1s ease;
+			opacity: 0;
+
+			& a {
+				display: inline-block;
+				transition: 0.2s ease;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+		}
+
+		&.is-visible {
+			transform: scale(1);
+			& .burger-nav {
+				opacity: 1;
+			}
+			& .burger-nav nav {
+				& ul {
+					transition: none;
+					animation: burgerStaggerLine 0.8s ease forwards;
+				}
+				& li {
+					transition: none;
+					animation: burgerStaggerLine var(--burger-stagger-duration)
+						var(--burger-stagger-ease) forwards;
+					animation-delay: calc(
+						var(--burger-line-index) * var(--burger-stagger-line-delay) +
+							var(--burger-animation-delay)
+					);
+				}
+			}
+			&:after {
+				transform: scaleY(1);
+			}
+			& .burger-social,
+			& .burger-foot {
+				opacity: 1;
+				@apply delay-500;
+			}
+		}
+
+		&.transitioning-out {
+			&:after {
+				transform: scaleY(0);
+			}
+			& .burger-nav nav {
+				& ul,
+				& li {
+					animation: fadeOut 1s ease;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@layer utilities {
+	/* TICKER */
+	:root {
+		--ticker-duration: 20s;
+	}
+}
+
+@layer components {
+	@keyframes ticker {
+		0% {
+			transform: translate3d(0, 0, 0);
+			visibility: visible;
+		}
+
+		100% {
+			transform: translate3d(-25%, 0, 0);
+		}
+	}
+
+	.ticker {
+		white-space: nowrap;
+		overflow: hidden;
+		width: 100%;
+
+		& .ticker-body {
+			animation: ticker 10s linear infinite;
+			animation-duration: var(--ticker-duration);
+			display: inline-block;
+
+			& > * {
+				display: inline-block;
+				padding: 0 1em;
+			}
+		}
+	}
+}

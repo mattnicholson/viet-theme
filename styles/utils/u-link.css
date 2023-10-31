@@ -1,0 +1,30 @@
+@layer utilities {
+	.u-link-button {
+		@apply transition u-text-body inline-block py-[8px] px-gutter rounded-full uppercase;
+		font-weight: bold;
+		min-width: 12em;
+		text-align: center;
+		border: 2px solid;
+		letter-spacing: 0.05em;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
+	.u-link-button-alt {
+		@apply u-link-button;
+		color: currentColor;
+		background: transparent;
+		border-color: currentColor;
+	}
+
+	.u-link-body {
+		@apply transition duration-500;
+		border-bottom: 0.08em solid;
+
+		&:hover {
+			border-color: transparent;
+		}
+	}
+}

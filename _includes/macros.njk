@@ -1,0 +1,56 @@
+{% macro pageSwitcher(page,locations) %}
+<div class="flex flex-row gap-inset justify-center p-gutter">
+{% for location in locations %}
+    <a x-data href="{{page.url}}#{{location.slug}}" class="inline-block cursor-pointer py-[0.4em] px-gutter bg-[#cccccc] text-black" :class="($store.venue.active == '{{ location.slug }}') ? 'bg-[#cccccc]' : 'opacity-30'">{{location.title}}</a>
+  {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro loremipsum(chars = 150) %}{% set text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel nunc sit amet risus gravida malesuada. Donec varius arcu sed elit varius malesuada. Phasellus vel magna eu dui hendrerit ultricies. Vivamus nec justo semper, vehicula neque vel, semper libero. Pellentesque mollis lectus vel neque interdum iaculis." %}{{ text | truncate(chars) }}
+{% endmacro %}
+
+{% macro longcontent() %}
+
+{% set content ='<p>'+loremipsum(999)+'</p>' +
+    '<img src="/assets/img/02.jpg">' +
+    '<h4>Lorem<br />Ipsum Dolor</h4>' +
+    '<p>'+loremipsum(999)+'</p>' +
+    '<blockquote>' + loremipsum(300) + '</blockquote><p>Lorem Ipsum,<br />Dolor Sit Amet</p>' + 
+    '<p>'+loremipsum(999)+'</p>' + 
+    '<h1>Lorem<br />Ipsum Dolor</h1>' +
+    '<p>'+loremipsum(999)+'</p>' + 
+    '<h3>Lorem Ipsum Dolor</h3>' +
+    '<p>'+loremipsum(999)+'</p>' +
+    '<h5>Lorem Ipsum Dolor</h5>' +
+    '<p>'+loremipsum(100)+'<a href="#">Dolor sit amet</a> ' + loremipsum(100) + '</p>' +
+    '<ul>'+
+    '<li>'+loremipsum(100)+'</li>'+
+    '<li>'+loremipsum(200)+'</li>'+
+    '<li>'+loremipsum(50)+'</li>'+
+    '</ul>' %}
+
+    {{  content | safe }}
+
+{% endmacro %}
+
+{% macro legalcontent() %}
+
+{% set content ='<p>'+loremipsum(999)+'</p>' +
+ 
+    '<h4>Lorem<br />Ipsum Dolor</h4>' +
+    '<p>'+loremipsum(999)+'</p>' +
+    '<p>'+loremipsum(999)+'</p>' + 
+    '<p>'+loremipsum(999)+'</p>' + 
+    '<h3>Lorem Ipsum Dolor</h3>' +
+    '<p>'+loremipsum(999)+'</p>' +
+    '<h5>Lorem Ipsum Dolor</h5>' +
+    '<p>'+loremipsum(100)+'<a href="#">Dolor sit amet</a> ' + loremipsum(100) + '</p>' +
+    '<ul>'+
+    '<li>'+loremipsum(100)+'</li>'+
+    '<li>'+loremipsum(200)+'</li>'+
+    '<li>'+loremipsum(50)+'</li>'+
+    '</ul>' %}
+
+    {{  content | safe }}
+
+{% endmacro %}

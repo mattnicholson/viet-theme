@@ -1,0 +1,28 @@
+@layer utilities {
+	:root {
+	}
+}
+
+@layer components {
+	.definitionList {
+		& li {
+			@apply py-inset md:py-gutter flex flex-row;
+			border-bottom: 1px solid theme('colors.dark');
+
+			&:first-child {
+				padding-top: 0;
+			}
+			&:last-child {
+				border: none;
+			}
+		}
+
+		& dt {
+			@apply w-[33%] max-w-[5em] pr-inset;
+		}
+
+		& a {
+			@apply u-link-body;
+		}
+	}
+}

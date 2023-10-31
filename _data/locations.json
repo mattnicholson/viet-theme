@@ -1,0 +1,92 @@
+[
+	{
+		"title": "Soho",
+		"slug": "soho",
+		"graphic": "/assets/img/soho-texture.jpg",
+		"texture": "/assets/img/bg-soho.jpg",
+		"image": "/assets/img/soho.jpg",
+		"bookingLink": "https://resy.com/cities/ldn/cay-tre-soho",
+		"bookingEmbedId": "https://resy.com/cities/ldn/cay-tre-soho",
+		"locationLatLng": "51.51323434564766, -0.1321925628430808",
+		"bookingEmbedType": "iframe",
+		"bookingProvider": "Resy",
+		"locationAddress": "42 - 43 DEAN ST<br />LONDON<br />W1D 4PZ",
+		"locationMapUrl": "https://maps.app.goo.gl/aRBM1m2Ks6gP8QAd8",
+		"locationMapTheme": "mapbox://styles/mattnicholson/cloeaxi8z002k01qr6lovcaen",
+		"locationMapTint": "#BA8A54",
+		"locationMapAccent": "#FFFFFF",
+		"locationTelephone": "+44 20 7317 9118",
+		"locationEmail": "caytresoho@vietnamesekitchen.co.uk",
+		"locationOpening": "Monday - Thursday: 11am-3pm, 5pm-10.30pm<br />Friday - Saturday: 11am-11pm<br />Sunday: 11am-10pm",
+		"menus": [
+			{
+				"title": "A la Carte",
+				"pdf": "/assets/pdf/menu-alacarte.pdf",
+				"image": "/assets/img/menu-alacarte.jpg"
+			},
+			{
+				"title": "Drinks",
+				"pdf": "/assets/pdf/menu-drinks.pdf",
+				"image": "/assets/img/menu-drinks.jpg"
+			},
+			{
+				"title": "Takeaway",
+				"pdf": "/assets/pdf/menu-takeaway.pdf",
+				"image": "/assets/img/menu-takeaway.jpg"
+			}
+		],
+		"deliveryUrl": "https://deliveroo.co.uk/menu/london/soho/cay-tre",
+		"deliveryTerms": "<p>Opening hours: Monday - Saturday 11am-10.30pm, Sunday 11am - 10pm</p><p>Delivery is currently operating in the following areas: Kingsland Road, Shoreditch, Hoxton, Hackney, Old street, City of London, Islington, Highbury, Stoke Newington, Dalston, Holloway, Farringdon, St Luke’s Clerkenwell, Spitalfields, Whitechapel, Bethnal Green, Bow, Homerton and surrounding East London area.</p><p>We understand that the health, safety and well-being of our staff and guests are paramount. As such, our staff regularly sanitise their hands and work environments, as well as adapting a ‘no contact’ policy for delivery.</p>",
+		"theme": {
+			"accent": "#F0D8AB",
+			"relief": "#000000",
+			"background": "#4B4242",
+			"foreground": "#F0D8AB"
+		}
+	},
+	{
+		"title": "Hoxton",
+		"slug": "hoxton",
+		"graphic": "/assets/img/hoxton-texture.jpg",
+		"texture": "/assets/img/bg-hoxton.jpg",
+		"image": "/assets/img/hoxton.jpg",
+		"bookingLink": "https://sitechefthemes.s3.amazonaws.com/themes/9141-60/dist/cayTreHoxton.html",
+		"bookingEmbedId": "https://sitechefthemes.s3.amazonaws.com/themes/9141-60/dist/cayTreHoxton.html",
+		"bookingEmbedType": "iframe",
+		"bookingProvider": "Resdiary",
+		"locationLatLng": "51.52677589746599,-0.08175680243131195",
+		"locationAddress": "301 OLD ST<br />LONDON<br />EC1V 9LA",
+		"locationMapUrl": "https://maps.app.goo.gl/EhSVFiYYamEtafZr8",
+		"locationMapTheme": "mapbox://styles/mattnicholson/cloeaxi8z002k01qr6lovcaen",
+		"locationMapTint": "#C0A66D",
+		"locationMapAccent": "#FFFFFF",
+		"locationTelephone": "+44 20 7729 8662",
+		"locationEmail": "info@caytre.co.uk",
+		"locationOpening": "Monday - Thursday: 11am-3pm, 5pm-10.30pm<br />Friday - Saturday: 11am-11pm<br />Sunday: 11am-10pm",
+		"deliveryUrl": "https://deliveroo.co.uk/menu/london/hoxton/cay-tre-viet-grill",
+		"deliveryTerms": "<p>Opening hours: Monday - Saturday 11am-10.30pm, Sunday 11am - 10pm</p><p>Delivery is currently operating in the following areas: Kingsland Road, Shoreditch, Hoxton, Hackney, Old street, City of London, Islington, Highbury, Stoke Newington, Dalston, Holloway, Farringdon, St Luke’s Clerkenwell, Spitalfields, Whitechapel, Bethnal Green, Bow, Homerton and surrounding East London area.</p><p>We understand that the health, safety and well-being of our staff and guests are paramount. As such, our staff regularly sanitise their hands and work environments, as well as adapting a ‘no contact’ policy for delivery.</p>",
+		"menus": [
+			{
+				"title": "A la Carte",
+				"pdf": "/assets/pdf/menu-alacarte.pdf",
+				"image": "/assets/img/menu-alacarte.jpg"
+			},
+			{
+				"title": "Drinks",
+				"pdf": "/assets/pdf/menu-drinks.pdf",
+				"image": "/assets/img/menu-drinks.jpg"
+			},
+			{
+				"title": "Takeaway",
+				"pdf": "/assets/pdf/menu-takeaway.pdf",
+				"image": "/assets/img/menu-takeaway.jpg"
+			}
+		],
+		"theme": {
+			"accent": "#E84E0E",
+			"relief": "#000000",
+			"background": "#C0A66D",
+			"foreground": "#5C0916"
+		}
+	}
+]

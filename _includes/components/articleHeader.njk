@@ -1,0 +1,12 @@
+{% macro render(props) %}
+	<div class="articleHeader relative">
+    <div class="heading" x-data="staggerText" x-bind="lazy">
+        {{ props.heading |safe }}
+    </div>
+<div class="relative w-full flex flex-row justify-between p-inset">
+   <ul class="taglist u-text-hashtag">{% for tag in props.tags %}<li class="inline-block pr-inset"><a class="transition hover:opacity-50" href="{{ tag.url }}">{{ tag.title }}</a></li>{% endfor %}</ul>
+    <div class="uppercase u-text-body">{{ props.date }}</div>
+    </div>
+    </div>
+    
+{% endmacro %}
