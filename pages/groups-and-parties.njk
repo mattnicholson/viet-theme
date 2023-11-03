@@ -1,5 +1,7 @@
 {% extends "pages/_layout.njk" %}
 {% import "_includes/macros.njk" as macros with context %}
+{% import "_includes/components/enquiryForm.njk" as form %}
+{% import "_includes/components/topFrame.njk" as topFrame %}
 
 {# COMPONENTS #}
 {% import "_includes/components/pageData.njk" as pageData %}
@@ -11,45 +13,136 @@
 
 {% block main %}
 
+<div x-data x-effect="$store.venue.setDefault()"></div>
+
 <div class="p-inset text-center  pt-[150px]">
     <div class="content">
-    <h1>Groups & Parties</h1>
+        <h1>Groups & Parties</h1>
     </div>
 
-    {# RESET VENUE IF NO HASH...NEEDS REWORKING AS ROUTE DOESNT MATCH WHEN CLICKING LINK EVEN IF HASH PRESENT #}
-	{#
-	<div x-data x-effect="if(!$store.route.match('#'))$store.venue.setActive('')"></div>
-	#}
-
-     <div x-data x-show="$store.venue.active != ''">
-    {{ macros.pageSwitcher(p,l) }}
+    <div class="relative pt-[1em]">
+ 
+    {{ form.render({
+        action:'https://formspree.io/f/xaygkndq',
+        fields: [
+            form.group({
+                fields : [
+                    form.field({
+                        type:'text',
+                        name : 'Name',
+                        placeholder:'Your name'
+                    })
+                    
+                ]
+            }),
+            form.group({
+                type:'set',
+                title:'How can we reach you?',
+                fields : [
+                   
+                    form.field({
+                        type:'text',
+                        name : 'Email',
+                        placeholder:'Email'
+                    }),
+                    form.field({
+                        type:'text',
+                        name : 'Telephone',
+                        placeholder:'Telephone'
+                    })
+                ]
+            }),
+            form.group({
+                type:'set',
+                title:'Tell us about your event...',
+                fields : [
+                    form.field({
+                        type:'text',
+                        name : 'Party_Size',
+                        placeholder:'Party Size'
+                    }),
+                    form.field({
+                        type:'text',
+                        name : 'Event_Date',
+                        placeholder:'Event Date'
+                    }),
+                    form.field({
+                        type:'text',
+                        name : 'Preferred_Time',
+                        placeholder:'Preferred Time'
+                    })
+                ]
+            }),
+            form.group({
+                fields : [
+                    form.field({
+                        type:'textarea',
+                        name : 'Special_Requests',
+                        placeholder:'Special requests...'
+                    })
+                ]
+            }),
+            form.group({
+                title: "How did you find us?",
+                fields : [
+                    form.field({
+                        type:'radio',
+                        name:'Found_By',
+                        specify:true,
+                        options : [
+                            {
+                                id:'found_google',
+                                value:'Google',
+                                label:'Google'
+                            },
+                            {
+                                id:'found_recommendation',
+                                value:'Recommendation',
+                                label:'Recommendation'
+                            },
+                            {
+                                id:'found_been',
+                                value:'Been Before',
+                                label:'Have been to the restaurant before'
+                            },
+                            {
+                                id:'found_other',
+                                value:'Other',
+                                label:'Other...'
+                            }
+                        ]
+                        
+                    })
+                ]
+            }),
+            form.group({
+                title: "Which venue did you want to book?",
+                fields : [
+                    form.field({
+                        type:'select',
+                        name:'Venue',
+                        specify:true,
+                        options : [
+                            {
+                                id:'venue_soho',
+                                value:'Soho',
+                                label:'Soho'
+                            },
+                            {
+                                id:'venue_hoxton',
+                                value:'Hoxton',
+                                label:'Hoxton'
+                            }
+                        ]
+                        
+                    })
+                ]
+            })
+        ]
+    }) }}
     </div>
 
-    <template x-data x-if="$store.venue.active == ''">
-    	<div class="w-[80%] max-w-[600px] mx-auto">
-    		<div class="content text-center p-inset">
-				<h2>Please select a venue...</h2>
-			</div>
-    		<ul class="flex flex-col gap-gutter ">
-    		{% for location in locations %}
-    		<li>
-    			<a href="#{{location.slug}}" class="block cursor-pointer py-[0.4em] px-gutter  bg-[#cccccc] aspect-[4/2] flex justify-center items-center" >{{ location.title }}</a>
-    		</li>
-			{% endfor %}
-  			</ul>
-    	</div>
-    </template>
-
-    {% for location in locations %}
-    <template x-data x-if="$store.venue.active == '{{location.slug}}'">
-    <div>
-    <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/appKklfzdSZYMkkZ4/shriyTzuA5RNdQImq?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="898" style="background: transparent;"></iframe>
-    </div>
-    </template>
-	{%  endfor %}
-
-  </div>
-  <hr />
+</div>
 
 
 

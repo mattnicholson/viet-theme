@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./assets/js/**/*.js')
 
   // EXPORT STATIC THINGS
+  eleventyConfig.addPassthroughCopy({ public: '/' })
   eleventyConfig.addPassthroughCopy('assets/fonts')
   eleventyConfig.addPassthroughCopy('assets/gfx')
   eleventyConfig.addPassthroughCopy('assets/img')

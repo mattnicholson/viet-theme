@@ -1,12 +1,15 @@
 {% macro render(props) %}
 <div class="newsletter">
-	<div class="newsletter-content">
-	<h2 x-data="staggerText" x-bind="lazy">{{ props.heading }}</h2>
-	<p>{{  props.text | safe }}</p>
-    <form>
-    	<input type="text" placeholder="Your Email">
-    	<button type="submit">Submit</button>
+	<div class="newsletter-body">
+	{%  if props.text  %}
+		<p>{{ props.text }}</p>
+	{% endif %}
+	<div class="newsletter-form">
+    <form action="https://formspree.io/f/meqbdoll" method="POST">
+    	<input type="text" name="email" placeholder="Your Email">
+    	<button type="submit">Sign up</button>
     </form>
+    </div>
     </div>
 </div>
 {% endmacro %}

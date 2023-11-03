@@ -2,11 +2,13 @@
 	"sisterSites": [
 		{
 			"title": "Viet Grill",
-			"url": "http://site.com"
+			"url": "https://www.vietgrillrestaurant.co.uk/",
+			"logo": "/assets/img/logo-viet-grill.png"
 		},
 		{
 			"title": "Keu",
-			"url": "http://site.com"
+			"url": "https://www.banhmikeu.co.uk",
+			"logo": "/assets/img/logo-keu.png"
 		}
 	]
 }

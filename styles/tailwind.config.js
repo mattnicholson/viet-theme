@@ -4,6 +4,8 @@ const colors = {
   // CORE
   black: 'var(--colors-dark)',
   burgundy: 'var(--colors-burgundy)',
+  grey: 'var(--colors-grey)',
+  sand: 'var(--colors-sand)',
   dark: 'var(--colors-dark)',
   accent: 'var(--colors-accent)',
   frame: 'var(--colors-frame)',

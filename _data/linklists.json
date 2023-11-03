@@ -15,7 +15,7 @@
 	],
 	"actions": [
 		{
-			"title": "Book a table",
+			"title": "Book",
 			"url": "#book"
 		},
 		{

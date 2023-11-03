@@ -1,0 +1,62 @@
+{% macro render(props) %}
+
+  <form class="form" action="{{props.action}}" method="POST">
+  {% for field in props.fields %}
+    {{ field | safe }}
+  {%  endfor %}
+  <div class="form-submit"><button type="submit">Send</button></div>
+  </form>
+   
+{% endmacro %}
+
+{% macro group(props) %}
+  <div>
+  {%  if props.title %}
+    <h3 class="form-group-title">{{ props.title }}</h3>
+  {%  endif %}
+  <div class="form-group form-group--{{props.type}}">
+
+  {% for field in props.fields %}
+    {{ field | safe }}
+  {%  endfor %}
+  </div>
+  </div>
+   
+{% endmacro %}
+
+
+{% macro field(props) %}
+
+  <div class="form-field form-field--{{props.type}}">
+	{% if props.type == 'select' %}
+  		<select name="{{props.name}}">
+  		{% for option in props.options %}
+  			<option value="{{option.value}}">{{option.value}}</option>
+  		{% endfor %}
+		</select>
+	{% elif props.type == 'radio' %}
+    <div>
+		<fieldset x-data="{'{{props.name}}':''}">
+    <div class="form-options">
+		{% for option in props.options %}
+		  <label for="{{option.id}}" class="form-radio">
+		    <input x-model="{{props.name}}" type="radio" id="{{option.id}}" name="{{props.name}}" value="{{option.value}}" />
+		    <span>{{option.label}}</span>
+		  </label>
+		{%  endfor %}
+    </div>
+      <template x-if="{{props.name}}.match(/other/i)">
+      <div class="form-specify">
+      <input type="text" name="{{props.name}}" x-init="$el.focus()" placeholder="Please specify..." />
+      </div>
+      </template>
+  		</fieldset>
+      </div>
+	{% elif props.type == 'textarea' %}
+  		<textarea name="{{props.name}}" placeholder="{{props.placeholder}}"></textarea>
+	{% else %}
+  		<input type="{{props.type}}" name="{{props.name}}" placeholder="{{props.placeholder}}" />
+	{% endif %}
+  </div>
+   
+{% endmacro %}

@@ -12,6 +12,12 @@
 {% import "_includes/components/venueFromhash.njk" as venueFromHash %}
 {% import "_includes/components/venueTheme.njk" as venueTheme %}
 {% import "_includes/components/magicFrame.njk" as magicFrame %}
+{% import "_includes/components/topFrame.njk" as topFrame %}
+{% import "_includes/components/newsletter.njk" as newsletter %}
+{% import "_includes/components/socials.njk" as socials %}
+{% import "_includes/components/image.njk" as image %}
+{% import "_includes/components/logo.njk" as logo %}
+
 
 
 {# OPTIONAL STYLES #}
@@ -26,10 +32,10 @@
 {%  block outsidescroll %}
 <header x-data @click.outside="$store.route.removeHash()" class="fixed top-inset left-inset right-inset md:right-auto md:left-1/2 md:-translate-x-1/2 bg-white  shadow-lg rounded-lg shadow-md bg-nav text-navtext transition duration-[400ms] z-[99] py-[0.4em] md:py-0">
     
-    <nav >
-
-      <ul class="u-text-shortcuts flex flex-row gap-[2em] px-[4em] justify-between md:justify-center align-center py-[10px]">
-        <li class="flex justify-center items-center"><a class="" href="/"><svg class="" width="16" height="16" viewBox="0 0 127 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div id="nav" class="md:flex md:flex-row md:gap-[4em]">
+    <nav>
+      <ul class="u-text-shortcuts flex flex-row gap-[2em] px-[4em] md:px-[2em] justify-between md:justify-start align-center py-[10px]">
+        <li class="block md:hidden flex justify-center items-center"><a class="" href="/"><svg class="" width="16" height="16" viewBox="0 0 127 111" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M63.06 0L0 47.295H15.765V110.355H47.295V78.825H78.825V110.355H110.355V46.8221L126.12 47.295L63.06 0Z" fill="currentColor"/>
 </svg>
 </a></li>
@@ -38,6 +44,19 @@
         {% endfor %}
       </ul>
     </nav>
+
+
+    <a class="hidden md:block relative w-[5em] pt-[0.2em]" href="/">{{ logo.render() }}</a>
+
+
+    <nav class="hidden md:block">
+      <ul class="u-text-shortcuts flex flex-row gap-[2em] px-[4em] md:px-[2em] justify-between md:justify-center align-center py-[10px]">
+        {%  for link in linklists.actions %}
+        <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    </div>
 
     <div class="max-h-[calc(80vh-50px)] overflow-auto" style="--colors-relief:var(--colors-navtext);--colors-accent:var(--colors-nav);">
     <template x-data x-if="$store.route.match('#menu')">
@@ -100,7 +119,7 @@
           </div>
   </header>
 
-  <div class="transition fixed bottom-0 shadow-[0_-2px_2px_0px_rgba(0,0,0,0.3)] z-[100] left-0 md:left-1/2 md:-translate-x-1/2 right-0 md:right-auto text-black bg-white md:rounded-t-lg md:px-inset">
+  <div class="transition fixed bottom-0 shadow-[0_-2px_2px_0px_rgba(0,0,0,0.3)] z-[100] left-0 md:left-1/2 md:-translate-x-1/2 right-0 md:right-auto text-black bg-white md:rounded-t-lg md:px-inset md:hidden">
   <nav >
 
       <ul class="flex flex-row gap-[2em] justify-center py-[0.5em] px-[1em]">
@@ -188,8 +207,8 @@
 
   
 
-
-  <main id="swup" class="transition-fade">
+  <div id="swup" class="transition-fade">
+  <main>
   {% block main %}
        
 
@@ -198,6 +217,7 @@
        
   {% endblock %}
   </main>
+  <div class="bg-grey text-sand border-t-[1px] border-sand">
   <div class="text-center p-inset">
     <ul class="flex flex-row gap-inset justify-center p-inset">
         {%  for link in linklists.main %}
@@ -205,24 +225,41 @@
         {% endfor %}
       </ul>
      </div>
-  <hr />
-  <div class="flex flex-col gap-inset py-inset">
-    <div class="text-center">
-      [[ NEWSLETTER ]]
+
+     <div class="relative w-full max-w-[60em] mx-auto">
+  <div class="relative flex flex-col gap-gutter py-inset pb-[3em]" style="--colors-foreground:currentColor">
+    <div class="relative aspect-[15/1]">
+    {{ topFrame.render() }}
+    <div class="absolute top-0 left-0 right-0 u-text-eyebrow text-center pt-[0.3em]">
+      Stay In Touch
+    </div>
     </div>
     <div class="text-center">
-      [[ SOCIALS ]]
+      {{ newsletter.render({
+        text:'Sign up to our newsletter'
+      }) }}
+    </div>
+    <div class="text-center">
+      {{ socials.render({
+        text:'Follow us'
+      }) }}
     </div>
   </div>
-  <hr />
+  </div>
+  </div>
+
   <footer>
 
-    <div class="text-center p-inset">
-    Visit our sister sites
+    <div class="text-center p-inset footer-sisters text-sand flex flex-col items-center justify-center">
+    <h3 class="u-text-eyebrow">Visit our sister sites</h3>
    
-    <ul class="flex flex-row gap-inset justify-center p-inset">
+    <ul class="flex flex-row gap-inset justify-center p-inset w-full">
         {%  for site in theme.sisterSites %}
-        <li><a href="{{ site.url }}">{{site.title}}</a></li>
+        <li class="w-[25%] aspect-square relative rounded-full bg-grey shadow-xl shadow-inner"><a class="transition duration-[400ms] hover:scale-[1.1] hover:rotate-[-5deg] block absolute top-[10%] left-[10%] right-[10%] bottom-[10%]" href="{{ site.url }}">{{ image.render({
+          aspect:'fluid',
+          src: site.logo,
+          fit:'contain'
+        }) }}</a></li>
         {% endfor %}
       </ul>
      </div>
@@ -237,6 +274,8 @@
       <div>© 2023 <a href="http://eatdrinkvietnam.co.uk">eatdrinkvietnam.co.uk</a></div>
     </div>
   </footer>
+  </div>
+
 
 
 {% endblock %}

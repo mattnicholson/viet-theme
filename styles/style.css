@@ -18,6 +18,7 @@
 @import './components/ticker.css';
 @import './components/image.css';
 @import './components/imageWithText.css';
+@import './components/form.css';
 
 @layer base {
   html {
@@ -176,6 +177,48 @@
 
   .lenis.lenis-scrolling iframe {
     pointer-events: none;
+  }
+
+  .newsletter {
+    .newsletter-body {
+      @apply flex flex-col gap-gutter;
+    }
+    .newsletter-form {
+      max-width: 25em;
+      @apply w-full mx-auto relative border-[2px] rounded-full;
+      border-color: currentColor;
+
+      input {
+        @apply block w-full bg-transparent text-current placeholder-current p-[0.4em] pl-[1em] pr-[6em];
+        outline: none;
+      }
+
+      button {
+        @apply u-link-button absolute right-0 top-0 h-full bg-sand text-grey !border-sand;
+        &:hover {
+          @apply scale-100;
+        }
+      }
+    }
+  }
+
+  .footer-sisters {
+    @apply relative aspect-[4/1.5] shadow-inner;
+    background: url(/assets/img/bg-soho.jpg) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  #nav {
+    svg {
+      @apply w-full;
+    }
+
+    nav {
+      @media screen(md) {
+        width: 45%;
+      }
+    }
   }
 }
 

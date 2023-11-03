@@ -1,6 +1,80 @@
-{
-	"title": "Site",
-	"description": "",
-	"twitter": "",
-	"url": "https://site.com"
-}
+[
+	{
+		"url": "/pages/soho/",
+		"meta": {
+			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
+			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
+		}
+	},
+	{
+		"url": "/pages/hoxton/",
+		"meta": {
+			"title": "Shoreditch | Vietnamese Food Delivery, Takeaway, Eat-in | Pho Speciality | Cay Tre Restaurant",
+			"description": "Voted London’s Favourite Pho, since 2001, Cay Tre’s been serving the best fresh, healthy authentic traditional Vietnamese cuisine in Hoxton, Shoreditch. Eat in, takeaway or delivery menu available."
+		}
+	},
+	{
+		"url": "/pages/groups-and-parties/",
+		"meta": {
+			"title": "Group Booking | Authentic Vietnamese Food | Cay Tre Restaurants",
+			"description": "Make a booking with us and enjoy most authentic Vietnamese restaurant in London. We have a saying at Cây Tre, which is 'to make the simplest of dishes taste good you need the ingredients of time and passion' and you can be assured we have plenty of both."
+		}
+	},
+	{
+		"url": "/pages/catering/",
+		"meta": {
+			"title": "Catering Services | Corporate Events & Parties Caterers | Cay Tre",
+			"description": "Looking for a party caterer over the festive season? Our Vietnamese food delis can cater to all events including buffets, canapés and of course a sit down meal."
+		}
+	},
+	{
+		"url": "/pages/weddings/",
+		"meta": {
+			"title": "Wedding Catering London | Bespoke Vietnamese Food Menu | Unforgettable Event",
+			"description": "We create bespoke Vietnamese dishes & exclusive creations made just for Wedding occasions."
+		}
+	},
+	{
+		"url": "/blogs/posts/",
+		"meta": {
+			"title": "Vietnamese Food Blog You Should Follow",
+			"description": "Take a look at our food blog to discover and get inspiration with many simple, healthy recipes of Vietnamese cuisine with incredibly rich culture behind it."
+		}
+	},
+	{
+		"url": "/blogs/posts/cay-tre-food-diaries-a-north-south-alliance/",
+		"type": "posts",
+		"meta": {
+			"title": "Cay Tre Food Diaries: A North-South Alliance",
+			"description": "Discover Vietnam's culinary diversity with northern and southern regions. North: communal dining, clear broths, and family meals. South: vibrant street food, sweet and spicy dishes. Both celebrate fresh herbs, rice, and noodles, connecting people through food."
+		},
+		"postDate": "01/11/2023",
+		"title": "Cay Tre Food Diaries: A North-South Alliance",
+		"image": "/assets/img/post-cay-tre-food-diaries.jpg",
+		"content": "<p>Vietnam's culinary diversity is evident in its regional eating traditions, shaped by geography,&nbsp;climate, and cultural influences. Northern and Southern Vietnam exhibit striking differences in our&nbsp;dining customs, participants, and preferred foods.</p><p>In Northern Vietnam, communal dining is common, emphasising family and shared meals. The&nbsp;region's cooler climate lends itself to heartier, warming dishes, like Pho Bac (northern-style pho),&nbsp;where clear, delicate broths and subtle flavours take centre stage. Family members and neighbours&nbsp;often gather around the table, sharing a variety of dishes, including spring rolls, grilled meats, and&nbsp;dishes with ginger and herbs.</p><p>Southern Vietnam, with its tropical climate, has a vibrant street food culture. Dining is often more&nbsp;informal, with bustling food markets and open-air eateries. Meals in the south are characterised by&nbsp;the prominence of sugar and spiciness, like the famous Bun Rieu and Hu Tieu, noodle dishes with&nbsp;sweet and spicy broths. Here, the influence of Chinese and Cambodian cuisine is more&nbsp;pronounced.</p><p>Both regions celebrate the use of fresh herbs, rice, and noodles, but their flavours and dining&nbsp;settings offer a captivating glimpse into Vietnam's diverse gastronomic landscape. Regardless of&nbsp;the differences, food remains a central element in connecting people and fostering a sense of&nbsp;community in Vietnamese culture.</p>"
+	},
+	{
+		"url": "/blogs/posts/cay-tre-press/",
+		"type": "posts",
+		"meta": {
+			"title": "Cay Tre Press",
+			"description": "Cay Tre is acclaimed as one of London's finest Vietnamese restaurants, offering authentic dishes in Hoxton and Soho. Praised for its bright and modern ambiance, it's known for tableside service and standout dishes like La Vong grilled fish and delicious seafood options. With chic decor and impeccable service, it has been a go-to for Vietnamese cuisine enthusiasts."
+		},
+		"postDate": "27/05/2021",
+		"title": "Cay Tre Press",
+		"image": "/assets/img/post-press.jpg",
+		"content": "<p><em>Many feel cay Tre Hoxton, including Mark Hix, to be the very best Vietnamese restaurant in town (</em><a href=\"https://www.hot-dinners.com/Restaurant-Reviews/Soho-Fitzrovia-Covent-Garden/cay-tre-soho-vietnamese-dean-street-london\" ><em>Hot Dinners</em></a><em >). Also owners of the successful Viet Grill and</em> Keu, they also have a flagship restaurant right in the centre of Soho. <em >Expect a restaurant with a bright look, to challenge the vogue that contemporary Asian restaurants must be dark and moody, and more of a small-plates approach than the original Cay Tre offered.</em> (<a href=\"https://www.hot-dinners.com/Restaurant-Reviews/Soho-Fitzrovia-Covent-Garden/cay-tre-soho-vietnamese-dean-street-london\" >Hot Dinners</a>)</p><p>Cay Tre has stood the test of time and still serves some of the best Vietnamese food in London, offering great quality, authentic Vietnamese dishes in Hoxton and Soho. We take a look at some of the press Cay Tre has received over the years.</p><p>Cay Tre Hoxton, a wondrous Vietnamese cafe, just on the fringes of the City of London (said <a href=\"https://www.theguardian.com/lifeandstyle/2005/may/01/foodanddrink.shopping2\">Jay Rayner</a>), was one of the first Vietnamese restaurants to hit London.</p><p>Over the years, this Vietnamese eatery has established itself as an old faithful for the office workers, club kids and night owls of Shoreditch. It’s seen a few cosmetic changes (the current look features smooth white tables and monochromatic bamboo wall art), but it remains a modest enterprise that puts value to the fore. (<a href=\"https://www.squaremeal.co.uk/restaurants/cay-tre-soho_3484#:~:text=Reviews%20of%20Cay%20Tre%20Soho&amp;text=Excellent%20food%2C%20good%20variety%20%26%20choice.&amp;text=Having%20been%20going%20to%20the,had%20opened%20closer%20to%20home.&amp;text=The%20service%20is%20quick%20and,and%20light%20(yet%20filling).\">Squaremeal</a>)</p><p><a href=\"https://www.theguardian.com/lifeandstyle/2005/may/01/foodanddrink.shopping2\">Jay Rayner</a> notes the fantastic table service at Cay Tre<em>, I am a sucker for tableside service</em><em>. One of our starters, La Vong grilled fish, managed to combine all of this. A gas burner was brought to the table holding a frying pan which contained pieces of monkfish marinated in galangal and saffron and buried under mountains of dill and spring onions. The fish was sauteed in front of us while the waitress built bowls containing rice noodles slicked with a pungent fermented rice sauce, plus peanuts and slivers of vinegared spring onion and chilli. The physical drama is fabulous, the flavours intense and equally dramatic: first the ripe saltiness of the fish, then the burst of dill. Next, a bowl of pho, the classic Vietnamese noodle soup heavy with fresh herbs and slivers of tender beef, was both soothing and thrilling.</em></p><p>We’ve eaten our way around the menu and reckon that seafood is the top shout, be it a crispy Devon crab and glass noodle wrap, braised catfish clay pot or grilled monkfish with galangal, turmeric and dill cooked tableside. Meat eaters also have plenty to chew on, from spicy lamb neck curry or stewed pork belly with caramelised coconut juice and a hard-boiled egg to a ‘wokked’ pho loaded with braised beef shin, mustard greens and shimeji mushrooms. Yes, it’s busy (and noisy), but turnaround is steady, even with a brisk takeaway trade. (<a href=\"https://www.squaremeal.co.uk/restaurants/cay-tre-soho_3484#:~:text=Reviews%20of%20Cay%20Tre%20Soho&amp;text=Excellent%20food%2C%20good%20variety%20%26%20choice.&amp;text=Having%20been%20going%20to%20the,had%20opened%20closer%20to%20home.&amp;text=The%20service%20is%20quick%20and,and%20light%20(yet%20filling).\">Squaremeal</a>)</p><p><em>The original branch of Cây Tre gave many Hoxtonites their first taste of pho and helped to crank up London’s Vietnamese bandwagon, while its younger Soho sibling offers just about everything you might expect – from chic, minimalist decor and impeccably smart staff to beautifully served food ‘</em>said <a href=\"https://www.timeout.com/london/restaurants/cay-tre-1\">Time Out</a>.</p><p>The sleek white tables, pale wood-panelled walls and calm, quiet atmosphere in Cay Tre are very different to your average Hanoi eating establishment - although it's just as busy.But Soho's newest Vietnamese restaurant stays loyal to its culinary influences as remarked by <a href=\"https://www.dailymail.co.uk/femail/food/article-2009516/Cay-Tre-Soho-restaurant-review-Vietnamese-eatery-stays-loyal-influences.html\">Daily Mail.</a></p><p>The freshened-up interiors blend cool white tables with bamboo wall art, while the menu is big on carefully sourced ingredients of impeccable provenance – witness grilled oysters with shallot oil and peanut topping, lemon-cured beef salad with knotweed or wok-fried lamb with chilli and sweet onions. Singletons can bag stools at the front and slurp bowls of pho while listening to the throbbing soundtrack – perhaps with a cocktail on the side. The owners also run Kêu (a bánh mì pitstop in Soho) and the Viet Grill on Kingsland Road. (<a href=\"https://www.timeout.com/london/restaurants/cay-tre-1\">Time Out</a>)</p><p>So, ‘<em>if you’re looking for summer rolls or a satisfying bowl of pho in central London, the Soho branch of Cây Tre should be your go-to. The restaurant serves a greatest hits of Vietnamese dishes in a sleek-looking Soho space that’s good for casual dinners and small groups. The food’s good; the ox cheek pho is particularly good when it’s on, and the spring roll noodle salad is a nice way to mix things up. While it takes bookings, it’s also a handy (and inexpensive) backup if you need a last minute fix.</em> (<a href=\"https://www.theinfatuation.com/london/reviews/cay-tre-soho\">Infatuation</a>)</p>"
+	},
+	{
+		"url": "/blogs/posts/cay-tre-press/",
+		"type": "posts",
+		"meta": {
+			"title": "A History of Pho",
+			"description": "Explore the rich history and regional diversity of Pho, Vietnam's iconic dish. Learn about its North Vietnamese roots, regional variations, and enduring appeal. Discover Cay Tre's authentic Pho in Soho and Hoxton."
+		},
+		"postDate": "13/09/2018",
+		"title": "A Brief History of Pho",
+		"image": "/assets/img/post-history.jpg",
+		"content": "<p>Pho has long been a national traditional dish of Vietnam, Pho also has many types but perhaps most famous is the bowl of beef noodle soup in Hanoi.</p><p>The origin of Pho<br />Pho is often thought to be shaped in the early 20th century. There are two different opinions about where pho first appeared in Vietnam, that are Nam Dinh and Hanoi, where this dish became popular. On the origins of the dish, there was a view that phở originated from a Cantonese dish called “ngau yuk phan”. It was also suggested that pho is derived from “buffalo meat soup” (using vermicelli) of Vietnam, then being transformed into “beef soup” using “banh cuon” (steamed rolled rice pancake). Another theory is that pho is derived from the French beef pot-au-feu (French pronounced like “pɔ.to.fø”) combined with spices and herbs in Vietnamese cuisine.</p><p>And although there are many theories about the deep roots of pho, one thing is certain: Phở originates in North Vietnam. This dish migrated to the Central and the South in the mid-1950s, after the defeat of France in Indochina and Vietnam was divided into two regions. The northern Vietnamese migrated to the South in 1954 carrying pho in and pho began being difference between regions.</p><p>Development of Pho to become the most popular traditional dish of Vietnamese Cuisine</p><p>Today, pho has different processing methods and flavours. In Vietnam, there are different names to distinguish them: Pho Bac (Northern Pho), Pho Hue (Central Pho) and Pho Saigon (Southern Pho). Normally, the northern pho is characterised by salty taste and the south is sweet and rich in vegetables. Noodle strip in the south is smaller than in the north.</p><p>Previously, there was only beef noodle soup with well-done beef slices, later there were also with medium beef slice or chicken. Going further, there are experiments with duck meat, but not much success. There are also some types of pho transformed from traditional noodles such as pho rolls, stir-fried pho in 1970s, deep fried pho in the 1980s...</p><p>Thach Lam writes in his book \"Ha Noi with 36 streets and wards \":</p><p>\"Pho is a special dish of Hanoi, not because only Hanoi has it, but only Pho in Hanoi is the most delicious.\" Delicious pho must be the \"classic\" pho, cooked with beef, \"the broth is clear and sweet, the noodle strip is flexible but not crushed, the beef is crunchy but not chewy, and the accompaniment of chilli, lemon, onion, fresh herbs and black pepper makes it just right ”. In the 1940's, pho was very popular in Hanoi: \"It's a daily dish throughout the day for everyone, especially civil servants and workers. People eat pho at breakfast, lunch and dinner... \".</p><p>From the mid-1960s to the early 1990s of the 20th century, for the most reason, the subsidised food system in Hanoi and many northern provinces, appeared \"unmanned noodle \"(no-meat noodle) in state-owned trading outlets. In the 1990s, pho was richer and Hanoians often ate noodles with “quẩy” (long golden-brown deep fried strip of dough). In Hanoi, pho is a special dish of Hanoi people and eaten as a breakfast, lunch or dinner. Phở noodle soup is made from slow cooked broth of beef bones. Meat for noodle can be beef or chicken. Noodle strips must be thin, soft and flexible, the spices of pho are fresh herbs, spring onions, black pepper, chilli vinegar, lemon slices.</p><p>Pho at Cay Tre<br/>True to Vietnamese cuisine tradition, Cay Tre's speciality and home-grown creation is our famous ‘Phở’ with broth simmered for at least 24 hours and creating an impressive pho menu at our Soho and Hoxton, Shoreditch establishments. Want to try our pho today? Why not order via Deliveroo now to get pipping hot ‘Phở’ delivered to your door step within 30 mins. Enjoy!</p>"
+	}
+]

@@ -1,0 +1,124 @@
+{%  macro header() %}
+    {# TAGS FOR <head> #}
+    <meta name="msvalidate.01" content="000BB46D7C412777E681D684F8C2C561" />
+    <meta name="facebook-domain-verification" content="j7pm2n13jc7c9spzg241kfqc04qb69" />
+{%  endmacro %}
+
+{% macro footer() %}
+
+    {# TAGS FOR </body> #}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122113253-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-122113253-2");
+    gtag("set", { user_id: "USER_ID" }); // Set the user ID using signed-in user_id.
+</script>
+<!-- Global site tag (gtag.js) - Google Ads: 784051511 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-784051511"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "AW-784051511");
+</script>
+<script>
+    /**
+     * Function that registers a click on an outbound link in Analytics.
+     * This function takes a valid URL string as an argument, and uses that URL string
+     * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+     * using 'navigator.sendBeacon' in browser that support it.
+     */
+    var getOutboundLink = function (url) {
+        gtag("event", "click", {
+            event_category: "outbound",
+            event_label: url,
+            transport_type: "beacon",
+            event_callback: function () {
+                document.location = url;
+            },
+        });
+    };
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "866205897182494");
+    fbq("track", "PageView");
+</script>
+<noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=866205897182494&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Facebook Pixel Code -->
+<script>
+    !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "1728973407331614");
+    fbq("track", "PageView");
+</script>
+<noscript>
+    <img
+        height="1"
+        width="1"
+        src="https://www.facebook.com/tr?id=1728973407331614&ev=PageView
+&noscript=1"
+    />
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Clarity tracking code for https://www.caytrerestaurant.co.uk/ -->
+<script>
+    (function (c, l, a, r, i, t, y) {
+        c[a] =
+            c[a] ||
+            function () {
+                (c[a].q = c[a].q || []).push(arguments);
+            };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "4dm330y54n");
+</script>
+
+{% endmacro %}

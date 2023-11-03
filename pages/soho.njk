@@ -79,12 +79,14 @@
     }) }}
     
 
+    <div class="relative w-full max-w-[60em] mx-auto">
     <div class="relative p-inset">
       <div class="u-text-eyebrow absolute top-0 left-1/2 -translate-x-1/2">Menus</div>
       {{ topFrame.render() }}
       <div class="relative md:p-inset pt-[70px]">
       {{ modalMenusTemplate.render({location:pageLocation}) }}
       </div>
+    </div>
     </div>
 
     <div class="flex flex-col md:flex-row gap-inset justify-center items-center">
