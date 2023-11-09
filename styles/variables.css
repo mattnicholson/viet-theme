@@ -10,10 +10,14 @@
 		--colors-accent: #5c0916;
 		--colors-relief: #ffffff;
 		--colors-background: #ffffff;
-		--colors-foreground: #000000;
+		--colors-foreground: #4b4242;
 		--colors-frame: #f0d8ab;
+		--colors-frametext: #5c0916;
 		--colors-nav: #f0d8ab;
-		--colors-navtext: #4b4242;
+		--colors-navtext: #5c0916;
+		--colors-footertext: #4b4242;
+		--colors-footer: #f0d8ab;
+		--footer-texture: '';
 	}
 	/* TYPE */
 	:root {

@@ -55,6 +55,7 @@ init(() => {
 		width: 0,
 		height: 0,
 		resizer: null,
+		listener: null,
 		setSize() {
 			this.width = this.$el.offsetWidth
 			this.height = this.$el.offsetHeight
@@ -62,6 +63,18 @@ init(() => {
 		init() {
 			this.UID = generateRandomAlphanumericId(8)
 			this.setSize()
+
+			let shouldListen = this.$el.dataset.listen
+
+			if (shouldListen) {
+				this.listener = setInterval(() => {
+					this.setSize()
+				}, 100)
+			}
+
+			this.$nextTick(() => {
+				this.setSize()
+			})
 
 			const throttledResize = throttle(
 				() => {
@@ -77,6 +90,7 @@ init(() => {
 		},
 		destroy() {
 			if (this.resizer) window.removeEventListener('resize', this.resizer)
+			if (this.listener) clearInterval(this.listener)
 		},
 	}))
 })

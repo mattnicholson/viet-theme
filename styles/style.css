@@ -78,7 +78,7 @@
 
   /* SWUP JS */
   html.is-changing .transition-fade {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
     opacity: 1;
   }
   /* Define the styles for the unloaded pages */
@@ -185,16 +185,16 @@
     }
     .newsletter-form {
       max-width: 25em;
-      @apply w-full mx-auto relative border-[2px] rounded-full;
+      @apply w-full mx-auto relative border-[2px] rounded-full bg-footer;
       border-color: currentColor;
 
       input {
-        @apply block w-full bg-transparent text-current placeholder-current p-[0.4em] pl-[1em] pr-[6em];
+        @apply block w-full bg-transparent text-footertext placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] pr-[6em];
         outline: none;
       }
 
       button {
-        @apply u-link-button absolute right-0 top-0 h-full bg-sand text-grey !border-sand;
+        @apply u-link-button absolute right-0 top-0 h-full bg-footertext text-footer !border-footertext;
         &:hover {
           @apply scale-100;
         }
@@ -202,11 +202,22 @@
     }
   }
 
-  .footer-sisters {
-    @apply relative aspect-[4/1.5] shadow-inner;
-    background: url(/assets/img/bg-soho.jpg) center center no-repeat;
+  .footer-texture {
+    @apply relative text-sand;
+    background: center center no-repeat;
+    background-image: var(--footer-texture);
+    background-color: var(--colors-grey);
     background-size: cover;
-    background-attachment: fixed;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      @apply hidden w-full h-full absolute top-0 left-0 bg-[black] block opacity-[0.1];
+    }
+
+    & > * {
+      z-index: 2;
+    }
   }
 
   #nav {
@@ -216,9 +227,13 @@
 
     nav {
       @media screen(md) {
-        width: 45%;
+        width: 50%;
       }
     }
+  }
+
+  .wrapper {
+    @apply relative w-full md:w-[90%] max-w-[1170px] mx-auto;
   }
 }
 

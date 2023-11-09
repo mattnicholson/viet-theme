@@ -159,7 +159,7 @@
 		& input,
 		& textarea,
 		& select {
-			@apply transition w-full p-[0.4em] pl-[1em] px-gutter rounded-full border-[2px];
+			@apply transition w-full p-[0.4em] pl-[1em] px-gutter rounded-full border-[2px] border-current placeholder-transparentgrey;
 		}
 
 		& select {

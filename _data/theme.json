@@ -3,12 +3,14 @@
 		{
 			"title": "Viet Grill",
 			"url": "https://www.vietgrillrestaurant.co.uk/",
-			"logo": "/assets/img/logo-viet-grill.png"
+			"logo": "/assets/img/logo-viet-grill.png",
+			"icon": "vietgrill"
 		},
 		{
 			"title": "Keu",
 			"url": "https://www.banhmikeu.co.uk",
-			"logo": "/assets/img/logo-keu.png"
+			"logo": "/assets/img/logo-keu.png",
+			"icon": "keu"
 		}
 	]
 }

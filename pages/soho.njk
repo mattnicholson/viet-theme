@@ -63,8 +63,8 @@
   
 
   <div class="relative flex flex-col gap-inset">
-    <div class="py-gutter bg-accent absolute top-0 left-0 right-0 -translate-y-full text-relief">
-      {{ ticker.render('Promotional text here') }}
+    <div class="py-gutter bg-frame absolute top-0 left-0 right-0 -translate-y-full text-frametext">
+      {{ ticker.render('<a href="#christmas">NEW CHRISTMAS MENU</a>') }}
     </div>
 
 
@@ -79,7 +79,8 @@
     }) }}
     
 
-    <div class="relative w-full max-w-[60em] mx-auto">
+  
+    <div class="wrapper">
     <div class="relative p-inset">
       <div class="u-text-eyebrow absolute top-0 left-1/2 -translate-x-1/2">Menus</div>
       {{ topFrame.render() }}
@@ -95,6 +96,17 @@
     <a class="u-link-button-wide" href="#delivery">Order Delivery</a>
     </div>
 
+
+    <a class="anchor block h-[5vh]" name="christmas" id="christmas"></a>
+
+    <div class="bg-sand">
+    <div class="wrapper">
+      <img src="/assets/img/xmas.svg" class="w-full" />
+    </div>
+    <div class="p-[2em] flex flex-col md:flex-row gap-inset justify-center items-center text-grey -translate-y-[1em]">
+    <a class="u-link-button-wide " href="#book">Book Now</a>
+    </div>
+    </div>
 
     {{ collage.render({
       portrait: '/assets/img/02.jpg',
@@ -127,19 +139,18 @@
 
 
     {%  set contactContent %}
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row items-center">
 <div class="md:order-2 md:w-1/2 text-center flex flex-col gap-inset">
 
-      <div class="content text-left pl-inset">
+      <div class="content text-center pl-inset">
          <h1>Find Us</h1>
-          <p>{{ pageLocation.locationAddress | safe }} <a href="{{ pageLocation.locationMapUrl }}">Map</a></p>
-          <p>Contact:<br />{{ pageLocation.locationTelephone }}<br />
-          <a href="mailto:{{ pageLocation.locationEmail }}">{{ pageLocation.locationEmail }}</a></p>
+          <p>{{ pageLocation.locationAddress | safe }} <a class="u-link-body" href="{{ pageLocation.locationMapUrl }}">Map</a></p>
+          <p>{{ pageLocation.locationTelephone }}<br />
+          <a class="u-link-body" href="mailto:{{ pageLocation.locationEmail }}">{{ pageLocation.locationEmail }}</a></p>
           <p>Opening Hours:<br />{{ pageLocation.locationOpening | safe }}</p>
-           <a class="u-link-button" href="/pages/contact/#{{ pageLocation.slug }}">More</a>
       </div>
       </div>
-      <div class="md:order-1 md:w-1/2 md:pr-inset">
+      <div class="hidden md:block md:order-1 md:w-1/2 md:pr-inset">
          <div x-data="mapbox" @wheel.prevent="" data-latlng="{{ pageLocation.locationLatLng }}" data-hex="{{pageLocation.theme.accent }}" data-accent="{{pageLocation.locationMapAccent }}" data-tint="{{pageLocation.locationMapTint }}" data-styles="{{ pageLocation.locationMapTheme }}" class="h-[400px] md:h-auto md:aspect-square" ></div>
       </div>
     

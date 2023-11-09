@@ -1,6 +1,6 @@
 @layer utilities {
 	.u-link-button {
-		@apply transition u-text-allcaps inline-block py-[0.3em] px-gutter rounded-full uppercase;
+		@apply transition u-text-allcaps inline-block py-[0.5em] px-gutter rounded-full uppercase;
 		font-weight: bold;
 		min-width: 8em;
 		text-align: center;
@@ -34,12 +34,14 @@
 
 	.u-link-close {
 		@apply font-display u-text-shortcuts p-[0.5em] text-center mt-gutter mx-inset;
-		border-top: 2px solid;
+
 		cursor: pointer;
 	}
 
 	.u-link-icon {
-		@apply u-text-allcaps flex flex-row gap-[0.7em] md:gap-[0.5em]  py-[0.7em] md:py-0;
+		@apply u-text-allcaps  flex flex-row gap-[0.7em] md:gap-[0.5em]  py-[1.2em] md:py-0;
+		font-size: 1rem;
+		font-weight: bold;
 
 		svg {
 			@apply w-[1.2em] h-[auto] transition duration-[300ms];

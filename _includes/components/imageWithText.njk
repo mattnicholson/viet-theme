@@ -1,22 +1,22 @@
 {% import "_includes/components/magicFrame.njk" as magicFrame %}
 
 {% macro render(props) %}
-	<div class="relative w-full max-w-[60em] mx-auto">
+	<div class="wrapper">
 	<div class="py-[5vh]">
       <div class="flex flex-col md:flex-row imageWithText {% if props.imagePosition == 'left' %}imageWithText--imageLeft{% else %}imageWithText--imageRight{% endif %}">
         <div class="text-center overflow-hidden  relative w-full shrink-0 md:w-1/2 p-inset flex flex-col gap-inset">
 
           {{ magicFrame.render({eyebrow:true}) }}
 
-          <div class="flex flex-col mx-auto h-full w-[80%] justify-center items-center p-inset gap-inset">
+          <div class="flex flex-col mx-auto h-full w-[95%] justify-center items-center p-inset pt-[50px] md:pt-inset pb-[60px] gap-inset">
           {% if props.preHeading != '' or props.heading != '' %}
             <div>
-          {% if props.preHeading != '' %}<p class="u-text-eyebrow absolute top-inset -mt-[0.25em] left-[35%] right-[35%] text-center">{{ props.preHeading |safe }}</p>{%  endif  %}
+          {% if props.preHeading != '' %}<p class="u-text-eyebrow absolute top-[32px] -mt-[0.5em] left-[35%] right-[35%] text-center">{{ props.preHeading |safe }}</p>{%  endif  %}
           {% if props.heading != '' %}<p class="u-text-hero pt-inset">{{ props.heading |safe }}</p>{%  endif %}
             </div>
           {%  endif %}
           
-          <div class="flex flex-col gap-inset pb-inset">
+          <div class="flex flex-col gap-inset">
           <div class="imageWithText-body u-text-body">{{  props.text | safe }}</div>
           <ul class="flex flex-row gap-gutter ml-auto">
           {% if props.link1Url != '' %}

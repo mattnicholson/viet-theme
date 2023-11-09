@@ -2,8 +2,9 @@
 	{
 		"title": "Soho",
 		"slug": "soho",
-		"graphic": "/assets/img/soho-texture.jpg",
+		"graphic": "/assets/img/soho-texture.png",
 		"texture": "/assets/img/bg-soho.jpg",
+		"footer": "/assets/img/footer.png",
 		"image": "/assets/img/soho.jpg",
 		"bookingLink": "https://resy.com/cities/ldn/cay-tre-soho",
 		"bookingEmbedId": "https://resy.com/cities/ldn/cay-tre-soho",
@@ -36,23 +37,28 @@
 			}
 		],
 		"deliveryUrl": "https://deliveroo.co.uk/menu/london/soho/cay-tre",
+		"deliveryPlatform": "Deliveroo",
 		"deliveryTerms": "<p>Opening hours: Monday - Saturday 11am-10.30pm, Sunday 11am - 10pm</p><p>Delivery is currently operating in the following areas: Kingsland Road, Shoreditch, Hoxton, Hackney, Old street, City of London, Islington, Highbury, Stoke Newington, Dalston, Holloway, Farringdon, St Luke’s Clerkenwell, Spitalfields, Whitechapel, Bethnal Green, Bow, Homerton and surrounding East London area.</p><p>We understand that the health, safety and well-being of our staff and guests are paramount. As such, our staff regularly sanitise their hands and work environments, as well as adapting a ‘no contact’ policy for delivery.</p>",
 		"theme": {
-			"accent": "#F0D8AB",
+			"accent": "#B38B5c",
 			"relief": "#4B4242",
 			"background": "#4B4242",
 			"foreground": "#F0D8AB",
 			"frame": "#F0D8AB",
+			"frametext": "#4B4242",
 			"nav": "#F0D8AB",
-			"navtext": "#4B4242"
+			"navtext": "#4B4242",
+			"footer": "#4B4242",
+			"footertext": "#F0D8AB"
 		}
 	},
 	{
 		"title": "Hoxton",
 		"slug": "hoxton",
-		"graphic": "/assets/img/hoxton-texture.jpg",
-		"texture": "/assets/img/bg-hoxton.jpg",
+		"graphic": "/assets/img/hoxton-texture.png",
+		"texture": "/assets/img/hoxton-plants.png",
 		"image": "/assets/img/hoxton.jpg",
+		"footer": "/assets/img/footer-hoxton.png",
 		"bookingLink": "https://sitechefthemes.s3.amazonaws.com/themes/9141-60/dist/cayTreHoxton.html",
 		"bookingEmbedId": "https://sitechefthemes.s3.amazonaws.com/themes/9141-60/dist/cayTreHoxton.html",
 		"bookingEmbedType": "iframe",
@@ -61,12 +67,13 @@
 		"locationAddress": "301 OLD ST<br />LONDON<br />EC1V 9LA",
 		"locationMapUrl": "https://maps.app.goo.gl/EhSVFiYYamEtafZr8",
 		"locationMapTheme": "mapbox://styles/mattnicholson/cloeaxi8z002k01qr6lovcaen",
-		"locationMapTint": "#C0A66D",
+		"locationMapTint": "#BDA674",
 		"locationMapAccent": "#FFFFFF",
 		"locationTelephone": "+44 20 7729 8662",
 		"locationEmail": "info@caytre.co.uk",
 		"locationOpening": "Monday - Thursday: 11am-3pm, 5pm-10.30pm<br />Friday - Saturday: 11am-11pm<br />Sunday: 11am-10pm",
 		"deliveryUrl": "https://deliveroo.co.uk/menu/london/hoxton/cay-tre-viet-grill",
+		"deliveryPlatform": "Deliveroo",
 		"deliveryTerms": "<p>Opening hours: Monday - Saturday 11am-10.30pm, Sunday 11am - 10pm</p><p>Delivery is currently operating in the following areas: Kingsland Road, Shoreditch, Hoxton, Hackney, Old street, City of London, Islington, Highbury, Stoke Newington, Dalston, Holloway, Farringdon, St Luke’s Clerkenwell, Spitalfields, Whitechapel, Bethnal Green, Bow, Homerton and surrounding East London area.</p><p>We understand that the health, safety and well-being of our staff and guests are paramount. As such, our staff regularly sanitise their hands and work environments, as well as adapting a ‘no contact’ policy for delivery.</p>",
 		"menus": [
 			{
@@ -89,10 +96,13 @@
 			"accent": "#E84E0E",
 			"relief": "#000000",
 			"background": "#FFFFFF",
-			"foreground": "#E84E0E",
+			"foreground": "#5C0916",
 			"frame": "#E84E0E",
+			"frametext": "#F0D8AB",
 			"nav": "#F0D8AB",
-			"navtext": "#E84E0E"
+			"navtext": "#5c0916",
+			"footer": "#E84E0E",
+			"footertext": "#F0D8AB"
 		}
 	}
 ]
