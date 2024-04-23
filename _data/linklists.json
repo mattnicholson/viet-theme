@@ -29,6 +29,10 @@
 	],
 	"main": [
 		{
+			"title": "Locations",
+			"url": "/pages/our-locations/"
+		},
+		{
 			"title": "Our Story",
 			"url": "/pages/our-story/"
 		},

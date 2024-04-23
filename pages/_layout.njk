@@ -205,7 +205,7 @@
 
             <div class="md:min-w-[650px]" x-data @click="$store.route.removeHash()">
               <ul class="u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em]">
-              <li><a href="/">Locations</a></li>
+          
               {%  for link in linklists.main %}
               <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
               {% endfor %}
