@@ -1,0 +1,10 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ['default'] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modal" x-data="modal">[[ modal ]]</div>
+{% endmacro %}

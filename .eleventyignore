@@ -1,1 +1,3 @@
-README.md
+*/**/README.md
+src/theme/components/**/*.njk
+src/theme/inc/**/*.njk

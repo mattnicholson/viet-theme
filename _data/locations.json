@@ -5,7 +5,7 @@
 		"graphic": "/assets/img/soho-texture.png",
 		"texture": "/assets/img/bg-soho.jpg",
 		"footer": "/assets/img/footer.png",
-		"image": "/assets/img/soho.jpg",
+		"image": "/assets/img/home/ct-01.jpg",
 		"bookingLink": "https://resy.com/cities/ldn/cay-tre-soho",
 		"bookingEmbedId": "https://resy.com/cities/ldn/cay-tre-soho",
 		"locationLatLng": "51.51323434564766, -0.1321925628430808",
@@ -23,7 +23,7 @@
 			{
 				"title": "A la Carte",
 				"pdf": "/assets/pdf/menu-alacarte.pdf",
-				"image": "/assets/img/menu-alacarte.jpg"
+				"image": "/assets/img/home/ct-03-a-la-carte.jpg"
 			},
 			{
 				"title": "Drinks",
@@ -33,7 +33,7 @@
 			{
 				"title": "Takeaway",
 				"pdf": "/assets/pdf/menu-takeaway.pdf",
-				"image": "/assets/img/menu-takeaway.jpg"
+				"image": "/assets/img/home/ct-03-takeaway.jpg"
 			}
 		],
 		"deliveryUrl": "https://deliveroo.co.uk/menu/london/soho/cay-tre",

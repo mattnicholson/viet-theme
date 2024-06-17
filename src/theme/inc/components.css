@@ -1,0 +1,5 @@
+/* NOTE: This file is generated automatically, to make changes see src/theme/scripts/createNunjucksComponentWrapper */
+@import '../components/carousel/carousel.css';
+@import '../components/foo/foo.css';
+@import '../components/modal/modal.css';
+@import '../components/test/test.css';

@@ -1,3 +1,5 @@
+const theme = require('./src/theme/lib/theme')
+
 const htmlmin = require('html-minifier')
 
 const now = String(Date.now())
@@ -6,6 +8,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/*.css')
   eleventyConfig.addWatchTarget('./styles/**/*.css')
+  eleventyConfig.addWatchTarget('./src/**/*.css')
+  eleventyConfig.addWatchTarget('./src/**/*.njk')
+  eleventyConfig.addWatchTarget('./src/**/*.js')
   eleventyConfig.addWatchTarget('./assets/js/**/*.js')
 
   // EXPORT STATIC THINGS
@@ -18,6 +23,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode('version', function () {
     return now
   })
+
+  eleventyConfig.addFilter("json", function (value) {
+    return JSON.stringify(value);
+  });
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (
@@ -35,4 +44,7 @@ module.exports = function (eleventyConfig) {
 
     return content
   })
+
+  // Add 11ty functions from the theme...
+  theme.init(eleventyConfig);
 }

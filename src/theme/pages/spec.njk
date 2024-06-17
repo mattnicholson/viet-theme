@@ -1,0 +1,41 @@
+---
+permalink: /spec/
+eleventyExcludeFromCollections: true
+---
+{% extends "src/theme/inc/theme.njk" %}
+{%  block body %}
+{# 
+
+	Call theme components programmatically...
+
+#}
+
+{%  for key,c in theme %}
+	{# set com = getComponentConfig(key) #}
+	{%  if c.modifiers | length %}
+		{% for m in c.modifiers %}
+			<h3>{{ key }} / {{ m }}</h3>
+			{%  set props = c.defaultProps %}
+			{%  set props = props | setAttribute('modifier', m) %}
+
+			{{ c.render(props) }}
+			<hr />
+		{% endfor %}
+	{%  else %}
+	<h3>{{ key }}</h3>
+	{{ c.render(c.defaultProps) }}
+	<hr />
+	{%  endif %}
+
+{% endfor %}
+
+
+
+{# 
+
+	Call theme components arbitrarily...
+
+#}
+
+{{ theme.test.render() }}
+{%  endblock %}

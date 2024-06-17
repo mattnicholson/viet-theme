@@ -1,0 +1,8 @@
+---
+permalink: /test/
+eleventyExcludeFromCollections: true
+---
+{% extends "src/theme/inc/theme.njk" %}
+{%  block body %}
+	{{ theme.test.render() }}
+{%  endblock %}

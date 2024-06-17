@@ -1,0 +1,27 @@
+{% extends "src/theme/inc/wrapper.njk" %}
+{%  block output %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/style.css?v={% version %}"/>
+{%  block head %}
+<style type="text/css">
+	
+</style>
+{% endblock %}
+<body>
+	<div id="page">
+		<div class="page-body">
+			<div id="opener" class="transition-fade"></div>
+			<div id="swup" class="transition-fade">
+		  		<main>
+				{%  block body %}
+
+				{%  endblock %}
+				</main>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/js/main.js"></script>
+</html>
+{%  endblock %}

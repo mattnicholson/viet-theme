@@ -16,8 +16,11 @@ import './components/locationsModal'
 import './components/lenis'
 import './components/mapbox'
 import './components/image'
+import './components/keen-slider'
 import './components/watchSize'
 import './components/viewportProgress'
+
+import '../../src/theme/inc/components.js'
 
 // Make sure there is a global global
 window.global = window
@@ -29,8 +32,8 @@ ready(() => {
 	let lastScroll = 0
 	// Start lenis
 	const lenis = new Lenis({
-		wrapper: document.body,
-		wheelEventsTarget: scrollWrapper,
+		//wrapper: document.body,
+		//wheelEventsTarget: scrollWrapper,
 	})
 
 	window.lenis = lenis

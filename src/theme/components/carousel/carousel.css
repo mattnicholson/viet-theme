@@ -1,0 +1,12 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+    .carousel {
+        background:black;
+        color:white;
+    }
+}

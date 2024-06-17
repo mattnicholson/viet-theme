@@ -30,6 +30,18 @@
 {% endblock %}
 
 {%  block outsidescroll %}
+
+<div class="cursor-pointer fixed flex gap-[5px] items-center bottom-[100px] right-[30px] md:bottom-inset md:right-inset rounded-full p-[5px] px-[10px] text-[16px] bg-[white] z-[10] mt-[1em]">
+<svg xmlns="http://www.w3.org/2000/svg" width="16"
+height="16" viewBox="0 0 420 420" stroke="#000" fill="none">
+<path stroke-width="26"
+d="M209,15a195,195 0 1,0 2,0z"/>
+<path stroke-width="18"
+d="m210,15v390m195-195H15M59,90a260,260 0 0,0 302,0 m0,240 a260,260 0 0,0-302,0M195,20a250,250 0 0,0 0,382 m30,0 a250,250 0 0,0 0-382"/>
+</svg>
+<span>Việt</span>
+</div>
+
 <header x-data @click.outside="$store.route.removeHash()" class="fixed top-inset left-inset right-inset md:right-auto md:left-1/2 md:-translate-x-1/2 bg-white  shadow-lg rounded-lg shadow-md bg-nav text-navtext transition duration-[400ms] z-[99] py-[0.4em] md:py-[0.2em]">
     
     <div id="nav" class="md:flex md:flex-row md:pl-[1em] md:gap-[4em] md:items-center">
@@ -362,7 +374,7 @@
      </div>
     
     <div class="border-b-2 border-current mx-inset"></div>
-    <div class="py-[2em] md:p-inset flex flex-col justify-center items-center md:flex-row md:justify-between gap-[2em] md:gap-gutter pb-[100px] md:pb-[2em]">
+    <div class="py-[2em] md:p-inset flex flex-col justify-center items-center md:flex-row md:justify-between gap-[2em] md:gap-gutter pb-[100px] md:pb-[4em]">
        <ul class="flex flex-row gap-[1em] md:gap-gutter order-[1] md:order-[0]">
         {%  for link in linklists.legal %}
         <li><a class="inline-block" x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>

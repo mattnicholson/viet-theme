@@ -43,7 +43,7 @@
 <rect width="200.749" height="45" fill="white"/>
 </clipPath>
 </defs>
-</svg><div class="u-text-eyebrow">{{ pageLocation.title }}</div></div></div>
+</svg><div class="{% if page.url == '/' %}hidden{% endif %} u-text-eyebrow">{{ pageLocation.title }}</div></div></div>
 
 </div>
 {% endblock %}
@@ -75,7 +75,7 @@
       text: "<p>Just a short walk away from Chinatown and London's west end, our flagship Soho venue is centred on the bustling foodie street Dean Street, serving up authentic Vietnamese feasting menus and seasonal dishes.</p>",
       link1Url:'/pages/our-story/',
       link1Text:"More",
-      image:'/assets/img/soho-01.jpg'
+      image:'/assets/img/home/ct-02.jpg'
     }) }}
     
 
@@ -109,9 +109,16 @@
     </div>
 
     {{ collage.render({
-      portrait: '/assets/img/02.jpg',
+      portrait: '/assets/img/home/ct-04-texture.png',
       landscape : '/assets/img/soho-02.jpg',
-      illustration:'/assets/img/bikes.png'
+      illustration:'/assets/img/bikes.png',
+      images : [
+        '/assets/img/home/ct-04-01.jpg',
+        '/assets/img/home/ct-04-02.jpg',
+        '/assets/img/home/ct-04-03.jpg',
+        '/assets/img/home/ct-04-04.jpg',
+        '/assets/img/home/ct-04-05.jpg'
+      ]
     })}}
 
     
@@ -128,11 +135,11 @@
     
    
 
-    <div class="relative p-inset">
+    <div class="relative">
     <div class="w-full relative aspect-[1021/496]">
       {{ image.render({
         aspect:'fluid',
-        src : '/assets/img/soho-04.jpg'
+        src : '/assets/img/home/ct-05.jpg'
       }) }}
     </div>
     </div>
