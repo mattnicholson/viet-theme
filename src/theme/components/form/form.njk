@@ -1,0 +1,168 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+	action : '/',
+	fields: [
+	{
+        fields : [
+            {
+                type:'text',
+                name : 'Name',
+                placeholder:'Your name'
+            }      
+        ]
+    },
+   {
+        type:'set',
+        title:'How can we reach you?',
+        fields : [
+           
+            {
+                type:'text',
+                name : 'Email',
+                placeholder:'Email'
+            },
+            {
+                type:'text',
+                name : 'Telephone',
+                placeholder:'Telephone'
+            }
+        ]
+    },{
+    	title:'How can we help?',
+    	fields:[
+    		{
+                type:'textarea',
+                name : 'Message',
+                placeholder:'Message...'
+            }
+    	]
+    },
+    {
+        title: "How did you hear about us?",
+        fields : [
+            {
+                type:'radio',
+                name:'Found_By',
+                specify:true,
+                options : [
+                    {
+                        id:'found_google',
+                        value:'Google',
+                        label:'Google'
+                    },
+                    {
+                        id:'found_recommendation',
+                        value:'Recommendation',
+                        label:'Recommendation'
+                    },
+                    {
+                        id:'found_other',
+                        value:'Other',
+                        label:'Other...'
+                    }
+                ]
+                
+            }
+        ]
+    },
+    {
+                title: "Please select an option...",
+                fields : [
+                   {
+                        type:'select',
+                        name:'Option',
+                        specify:true,
+                        options : [
+                            {
+                                id:'option_a',
+                                value:'Option A',
+                                label:'Option A'
+                            },
+                            {
+                                id:'option_2',
+                                value:'Option B',
+                                label:'Option B'
+                            }
+                        ]
+                        
+                    }
+                ]
+            }
+    ]
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+
+  <form class="form" action="{{props.action}}" method="POST">
+  {% for f in props.fields %}
+  	{% if f.fields %}
+  		{{ group(f) | safe }}
+  	{%  else %}
+  		{{ field(f) | safe }}
+  	{%  endif %}
+    
+  {%  endfor %}
+  <div class="form-submit"><button type="submit">{% if props.cta %}{{ props.cta}}{% else %}Send{% endif %}</button></div>
+  </form>
+   
+{% endmacro %}
+
+{% macro group(props) %}
+  <div>
+  {%  if props.title %}
+    <h3 class="form-group-title">{{ props.title }}</h3>
+  {%  endif %}
+  <div class="form-group form-group--{{props.type}}">
+
+  {% for f in props.fields %}
+    {{ field(f) | safe }}
+  {%  endfor %}
+  </div>
+  </div>
+   
+{% endmacro %}
+
+
+{% macro field(props) %}
+
+  <div class="form-field form-field--{{props.type}}">
+	{% if props.type == 'select' %}
+  		<select name="{{props.name}}">
+  		{% for option in props.options %}
+  			<option value="{{option.value}}">{{option.value}}</option>
+  		{% endfor %}
+		</select>
+	{% elif props.type == 'radio' %}
+    <div>
+		<fieldset x-data="{'{{props.name}}':''}">
+    <div class="form-options">
+		{% for option in props.options %}
+		  <label for="{{option.id}}" class="form-radio">
+		    <input x-model="{{props.name}}" type="radio" id="{{option.id}}" name="{{props.name}}" value="{{option.value}}" />
+		    <span>{{option.label}}</span>
+		  </label>
+		{%  endfor %}
+    </div>
+      <template x-if="{{props.name}}.match(/other/i)">
+      <div class="form-specify">
+      <input type="text" name="{{props.name}}" x-init="$el.focus()" placeholder="Please specify..." />
+      </div>
+      </template>
+  		</fieldset>
+      </div>
+	{% elif props.type == 'textarea' %}
+  		<textarea name="{{props.name}}" placeholder="{{props.placeholder}}"></textarea>
+	{% else %}
+  		<input type="{{props.type}}" name="{{props.name}}" placeholder="{{props.placeholder}}" />
+	{% endif %}
+  </div>
+   
+{% endmacro %}
+
+

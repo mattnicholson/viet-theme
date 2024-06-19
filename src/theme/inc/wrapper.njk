@@ -1,6 +1,15 @@
 {# NOTE: This file is generated automatically, to make changes see src/theme/scripts/createNunjucksComponentWrapper #}
-{% import "src/theme/components/carousel/carousel.njk" as carousel %}
-{% import "src/theme/components/foo/foo.njk" as foo %}
-{% import "src/theme/components/modal/modal.njk" as modal %}
-{% import "src/theme/components/test/test.njk" as test %}
-{% set theme = {'carousel':carousel,'foo':foo,'modal':modal,'test':test} %}{% block output %}{% endblock %}
+{% import "src/theme/components/carousel/carousel.njk" as carousel with context %}
+{% import "src/theme/components/collage/collage.njk" as collage with context %}
+{% import "src/theme/components/content/content.njk" as content with context %}
+{% import "src/theme/components/enquiryCatering/enquiryCatering.njk" as enquiryCatering with context %}
+{% import "src/theme/components/enquiryGroups/enquiryGroups.njk" as enquiryGroups with context %}
+{% import "src/theme/components/example/example.njk" as example with context %}
+{% import "src/theme/components/footer/footer.njk" as footer with context %}
+{% import "src/theme/components/form/form.njk" as form with context %}
+{% import "src/theme/components/header/header.njk" as header with context %}
+{% import "src/theme/components/logo/logo.njk" as logo with context %}
+{% import "src/theme/components/magicFrame/magicFrame.njk" as magicFrame with context %}
+{% import "src/theme/components/socials/socials.njk" as socials with context %}
+{% import "src/theme/components/ticker/ticker.njk" as ticker with context %}
+{% set components = saveComponents({'carousel':carousel,'collage':collage,'content':content,'enquiryCatering':enquiryCatering,'enquiryGroups':enquiryGroups,'example':example,'footer':footer,'form':form,'header':header,'logo':logo,'magicFrame':magicFrame,'socials':socials,'ticker':ticker}) %}{% block output %}{% endblock %}

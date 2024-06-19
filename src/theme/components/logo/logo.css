@@ -1,0 +1,22 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .logo {
+        @apply aspect-[201/45];
+        svg{
+            @apply w-full h-auto;
+        }
+    }
+
+    .logo.logo--default {
+		
+	}
+
+	
+}

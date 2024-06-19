@@ -5,12 +5,18 @@ const htmlmin = require('html-minifier')
 const now = String(Date.now())
 
 module.exports = function (eleventyConfig) {
+  
+  eleventyConfig.setQuietMode(true); // Don't log every page
+
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/*.css')
   eleventyConfig.addWatchTarget('./styles/**/*.css')
   eleventyConfig.addWatchTarget('./src/**/*.css')
   eleventyConfig.addWatchTarget('./src/**/*.njk')
   eleventyConfig.addWatchTarget('./src/**/*.js')
+  eleventyConfig.addWatchTarget('./src/theme/**/*.css')
+  eleventyConfig.addWatchTarget('./src/theme/**/*.njk')
+  eleventyConfig.addWatchTarget('./src/theme/**/*.js')
   eleventyConfig.addWatchTarget('./assets/js/**/*.js')
 
   // EXPORT STATIC THINGS

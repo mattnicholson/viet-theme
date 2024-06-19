@@ -1,0 +1,235 @@
+
+@layer utilities {
+    :root {
+        --collage-alt-bg: theme('colors.sand');
+        --collage-alt-fg: theme('colors.gold');
+        --collage-alt-text: theme('colors.grey');
+
+        --collage-dark-bg: theme('colors.grey');
+        --collage-dark-fg: theme('colors.sand');
+        --collage-dark-text: theme('colors.sand');
+    }
+}
+
+@layer components {
+
+	.collage-wrapper.collage-wrapper--alt{
+    	background: var(--collage-alt-bg);
+    	color: var(--collage-alt-fg);
+
+    	.content p{
+    		color: var(--collage-alt-text);
+    	}
+	}
+
+	.collage-wrapper.collage-wrapper--dark{
+    	background: var(--collage-dark-bg);
+    	color: var(--collage-dark-fg);
+
+    	.content p{
+    		color: var(--collage-dark-text);
+    	}
+	}
+
+    .collage {
+
+    	.collage-media{
+    		@apply relative z-[1] aspect-[6/4];
+    	}
+        .collage-portrait-media{
+        	@apply overflow-hidden aspect-[5/6.4] relative z-[0];
+        }
+        .collage-landscape-media{
+        	@apply overflow-hidden aspect-[6/3.7] relative z-[1];
+        }
+        .collage-illustration{
+        	@apply overflow-hidden aspect-[4/6] relative z-[2];
+        }
+        .collage-content{
+        	@apply relative z-[4];
+        }
+    }
+
+    .collage.collage--default,
+    .collage.collage--4 {
+		.collage-portrait-media{
+			@apply absolute left-inset top-[50%] -translate-y-1/2 h-[90%];
+		}
+
+		.collage-landscape-media{
+			@apply absolute h-[50%] left-[100%] -translate-y-[50%] -translate-x-full -ml-inset top-[60%];
+		}
+
+		.collage-illustration{
+			@apply absolute left-[55%] bottom-[5%] md:bottom-[8%] h-[30%] md:h-[20%];
+		}
+
+		.collage-content{
+			@apply absolute w-[95%] md:w-auto md:h-[100%] left-[50%] top-[50%] -translate-x-1/2  -translate-y-1/2 aspect-[5/6] md:aspect-[4/6];
+		}
+
+		.collage-title{
+			@apply absolute left-[22%] right-[22%] top-[32px] -translate-y-1/2 text-center u-text-eyebrow;
+		}
+
+		.collage-text{
+			@apply hidden;
+		}
+	}
+
+	.collage.collage--1 {
+
+		.collage-title{
+			@apply u-text-hero text-center pb-[1em];
+		}
+
+		.collage-text{
+			@apply px-[2rem] pb-[2rem];
+		}
+
+		.collage-media{
+    		@apply relative z-[1] aspect-[1/0.6];
+    	}
+
+    	.collage-portrait-media{
+			@apply absolute top-[15%] right-[0] w-[45%];
+		}
+
+		.collage-landscape-media{
+			@apply absolute w-[65%] left-[0] top-[5%];
+		}
+
+		.collage-illustration{
+			@apply absolute left-[10%] top-[60%] w-[20%] md:h-[25%];
+
+		}
+
+		.collage-parallax-landscape{
+			@apply z-[0];
+		}
+
+		.collage-parallax-portrait{
+			@apply z-[1];
+		}
+		
+	}
+
+	.collage.collage--2 {
+
+		@apply relative mx-auto md:w-[90%] max-w-[1400px];
+
+		.collage-content{
+			@apply py-[5rem] px-[3.5rem] pb-[20vw] md:pb-[3rem];
+
+			@media screen('md'){
+				@apply mr-[50%];
+			}
+		}
+		.collage-title{
+			@apply u-text-hero text-center pb-[1em] px-[1.5rem];
+		}
+
+		.collage-text{
+			@media screen('md'){
+				@apply px-[1.5rem];
+
+			}
+		}
+
+		.collage-media{
+    		@apply relative z-[1] aspect-[1/0.6] md:aspect-[16/6];
+    	}
+
+    	.collage-portrait-media{
+			@apply absolute top-[0%] -translate-y-[15vw] left-[20%] w-[45%];
+
+			@media screen('md'){
+				@apply right-[10%] left-auto -translate-y-[30%];
+
+			}
+		}
+
+		.collage-landscape-media{
+			@apply hidden;
+		}
+
+		.collage-illustration{
+			@apply absolute right-[10%] top-[60%] w-[20%];
+
+			@media screen('md'){
+				@apply top-0 right-[20%] w-[20%] aspect-[1/1] -translate-y-[150%];
+
+			}
+
+		}
+
+		.collage-parallax-landscape{
+			@apply z-[0];
+		}
+
+		.collage-parallax-portrait{
+			@apply z-[1];
+		}
+	}
+
+
+	.collage.collage--3 {
+
+		@apply relative mx-auto md:w-[90%] max-w-[1400px];
+
+		.collage-content{
+			@apply py-[5rem] px-[3.5rem] pb-[20vw] md:pb-[3rem];
+
+			@media screen('md'){
+				@apply ml-[40%];
+			}
+		}
+		.collage-title{
+			@apply u-text-hero text-center pb-[1em] px-[1.5rem];
+		}
+
+		.collage-text{
+			@media screen('md'){
+				@apply px-[1.5rem];
+
+			}
+		}
+
+		.collage-media{
+    		@apply relative z-[1] aspect-[1/0.6] md:aspect-[16/6];
+    	}
+
+    	.collage-portrait-media{
+			@apply absolute top-[0%] -translate-y-[15vw] left-[5%] w-[45%];
+
+			@media screen('md'){
+				@apply left-[0%] right-auto -translate-y-[50%];
+
+			}
+		}
+
+		.collage-landscape-media{
+			@apply absolute top-[50%] md:top-[20%] right-[0%] w-[60%];
+		}
+
+		.collage-illustration{
+			@apply absolute left-[10%] top-[60%] w-[20%];
+
+			@media screen('md'){
+				@apply top-0 left-[10%] w-[20%] aspect-[1/1] -translate-y-[200%];
+
+			}
+
+		}
+
+		.collage-parallax-landscape{
+			@apply z-[0];
+		}
+
+		.collage-parallax-portrait{
+			@apply z-[1];
+		}
+	}
+
+	
+}

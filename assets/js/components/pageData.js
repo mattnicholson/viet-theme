@@ -55,10 +55,30 @@ init(() => {
 		},
 		init(args) {
 			// Always activate this link on click
-			this.$el.addEventListener('click', () => {
+			this.$el.addEventListener('click', (ev) => {
 				const curUrl = Alpine.store('page').url
-				// Deactivate all active links
-				document
+				
+				// Set to toggle - remove link if already active
+				// Currently only works for hash links
+				if(this.$el.dataset.toggle){
+
+					let href = this.$el.getAttribute('href');
+					// If it's a hash link, remove the hash
+					if(href.match('#')){
+
+						if(window.location.hash === href){
+							ev.preventDefault();
+							Alpine.store('route').removeHash()
+						}
+
+					}else{
+						// TODO: GO back or reset the URL if not a hsahs link
+					}
+
+				}else{
+
+					// Deactivate all active links
+					document
 					.querySelectorAll('[x-data="pageLink"].active')
 					.forEach((el) => {
 						// We want to decative the exact current page, but keep breadcrumb pages active...
@@ -67,9 +87,12 @@ init(() => {
 							el.classList.add('inactive')
 						}
 					})
-				// Add active to the clicked element
-				this.$el.classList.add('active')
-				this.$el.classList.remove('inactive')
+
+					// Add active to the clicked element
+					this.$el.classList.add('active')
+					this.$el.classList.remove('inactive')
+				}
+				
 			})
 			// Watch state for changes
 			this.update()

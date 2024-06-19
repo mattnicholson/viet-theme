@@ -1,0 +1,23 @@
+
+@layer utilities {
+    :root {
+        --magicFrame-alt-bg: theme('colors.grey');
+        --magicFrame-alt-fg: theme('colors.sand');
+    }
+}
+
+
+.magicFrame {
+    
+}
+
+.magicFrame.magicFrame--default {
+	
+}
+
+.magicFrame-wrapper--alt{
+    background: var(--magicFrame-alt-bg);
+    color: var(--magicFrame-alt-fg);
+}
+
+

@@ -1,0 +1,25 @@
+
+@layer utilities {
+    :root {
+        --footer-dark-bg: theme('colors.grey');
+        --footer-dark-fg: theme('colors.sand');
+    }
+}
+
+@layer components {
+
+    .footer-wrapper.footer-wrapper--dark{
+        background: var(--footer-dark-bg);
+        color: var(--footer-dark-fg);
+    }
+
+    .footer {
+        
+    }
+
+    .footer.footer--default {
+		
+	}
+
+	
+}

@@ -1,0 +1,120 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+        action:'https://formspree.io/f/xaygkndq',
+        cta : 'Submit',
+        fields: [
+            {
+                fields : [
+                    {
+                        type:'text',
+                        name : 'Name',
+                        placeholder:'Name'
+                    },
+                    {
+                        type:'text',
+                        name : 'Email',
+                        placeholder:'Email address'
+                    },
+                    {
+                        type:'text',
+                        name : 'Phone',
+                        placeholder:'Phone'
+                    }
+                    
+                ]
+            },
+            {
+
+                title:'Your event:',
+                fields : [
+                    {
+                        type:'select',
+                        name:'Venue',
+                        specify:true,
+                        options : [
+                            {
+                                id:'venue_soho',
+                                value:'Venue: Soho',
+                                label:'Soho'
+                            },
+                            {
+                                id:'venue_hoxton',
+                                value:'Venue: Hoxton',
+                                label:'Hoxton'
+                            }
+                        ]
+                        
+                    },
+                    {
+                        type:'text',
+                        name : 'Event_Date',
+                        placeholder:'Event Date'
+                    },
+                    {
+                        type:'text',
+                        name : 'Event_Time',
+                        placeholder:'Event Time'
+                    },
+                    {
+                        type:'text',
+                        name : 'Party_Size',
+                        placeholder:'Party Size'
+                    },
+                    {
+                        type:'textarea',
+                        name : 'Special_Requests',
+                        placeholder:'Special requests...'
+                    }
+                ]
+            },
+            
+            {
+                title: "How did you find us?",
+                fields : [
+                    {
+                        type:'radio',
+                        name:'Found_By',
+                        specify:true,
+                        options : [
+                            {
+                                id:'found_google',
+                                value:'Google',
+                                label:'Google'
+                            },
+                            {
+                                id:'found_recommendation',
+                                value:'Recommendation',
+                                label:'Recommendation'
+                            },
+                            {
+                                id:'found_been',
+                                value:'Been Before',
+                                label:'Been to the restaurant'
+                            },
+                            {
+                                id:'found_other',
+                                value:'Other',
+                                label:'Other'
+                            }
+                        ]
+                        
+                    }
+                ]
+            }
+        ]
+    } %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+	<div class="text-center pb-inset">
+		<h3 class="u-text-subheading">Group Booking Form</h3>
+	</div>
+{%  render 'form',{
+	render:props
+} %}
+{% endmacro %}
+
+

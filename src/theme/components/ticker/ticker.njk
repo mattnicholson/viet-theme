@@ -1,0 +1,30 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {content:'Ticker text'} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+	{% set content = props.content %}
+  <div class="ticker">
+          <div class="ticker-body" style="{% if content | length > 50%}--ticker-duration:40s{%endif%}">
+            <div class="u-text-ticker">{{ content | safe }}</div>
+            {%  if content | length < 150 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 140 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 130 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 120 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 110 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 100 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 90 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 80 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 70 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 60 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 50 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 40 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 30 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 20 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+            {%  if content | length < 10 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
+          </div>
+	</div>
+{% endmacro %}

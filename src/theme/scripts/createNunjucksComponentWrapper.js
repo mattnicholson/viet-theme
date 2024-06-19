@@ -36,7 +36,7 @@ componentFolders.forEach(c => {
     if (fs.existsSync(componentFilePath)) {
     	components.push(handle);
         // Append the import statement if the file exists
-        wrapperOutput += `{% import "src/theme/components/${handle}/${handle}.njk" as ${handle} %}\n`;
+        wrapperOutput += `{% import "src/theme/components/${handle}/${handle}.njk" as ${handle} with context %}\n`;
     }
 
     const scriptFilePath = path.join(__dirname, `../components/${handle}/${handle}.js`);
@@ -57,9 +57,9 @@ componentFolders.forEach(c => {
 
 });
 
-wrapperOutput += `{% set theme = {`
+wrapperOutput += `{% set components = saveComponents({`
 wrapperOutput += components.map((c) =>`'${c}':${c}`).join(',')
-wrapperOutput += `} %}`
+wrapperOutput += `}) %}`
 
 wrapperOutput += "{% block output %}{% endblock %}"
 

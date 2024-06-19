@@ -1,0 +1,32 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    .header-wrapper.header-wrapper--static {
+		@apply m-inset;
+	}
+
+	.header-wrapper.header-wrapper--fixed {
+		@apply fixed top-inset left-inset right-inset z-[99];
+	}
+
+	
+    .header {
+        @apply shadow-lg rounded-lg shadow-md bg-nav text-grey transition duration-[400ms] py-[0.4em] md:py-[0.2em] mx-auto;
+
+        @media screen('lg'){
+
+        	width: clamp(850px,60%,1000px);
+        }
+    }
+
+    .header.header--default {
+		
+	}
+
+	
+}

@@ -1,6 +1,6 @@
 @layer utilities {
 	.u-link-button {
-		@apply transition u-text-allcaps inline-block py-[0.5em] px-gutter rounded-full uppercase;
+		@apply transition u-text-allcaps inline-block py-[0.8em] px-gutter rounded-full uppercase;
 		font-weight: bold;
 		min-width: 8em;
 		text-align: center;

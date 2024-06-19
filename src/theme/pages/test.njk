@@ -4,5 +4,29 @@ eleventyExcludeFromCollections: true
 ---
 {% extends "src/theme/inc/theme.njk" %}
 {%  block body %}
-	{{ theme.test.render() }}
+	{# When extending the theme, component macros are in the global scope inside a 'components' object #}
+	{{ components.example.render() }}
+
+	{# Components can be called using the global getter _('componentName') #}
+	{{  _('example').render() }}
+
+	{# Non-existent components will render nothing - this fails more gracefully than trying to call the global object directly #}
+	{{  _('notAComponent').render() }}
+
+	{# Render a component using its default props and its wrapper (if defined inside the component file) #}
+	{% render 'magicFrame' , {
+		wrapper : {
+			'aspect' : 'landscape'
+		},
+		render:{
+			eyebrow:false
+		}
+	} %}
+
+	{# You can render programmatically by label #}
+	{% set coms = ['magicFrame','example'] %}
+	{%  for c in coms %}
+		{% render c %}
+		<hr />
+	{%  endfor %}
 {%  endblock %}

@@ -7,16 +7,18 @@
 		--colors-grey: #4b4242;
 		--colors-burgundy: #5c0916;
 		--colors-sand: #f0d8ab;
+		--colors-gold: #B98A58;
 		--colors-accent: #5c0916;
 		--colors-relief: #ffffff;
 		--colors-background: #ffffff;
 		--colors-foreground: #4b4242;
 		--colors-frame: #f0d8ab;
-		--colors-frametext: #5c0916;
+		--colors-frametext: #4b4242;
 		--colors-nav: #f0d8ab;
 		--colors-navtext: #5c0916;
 		--colors-footertext: #4b4242;
 		--colors-footer: #f0d8ab;
+		--sizes-frame: 8px;
 		--footer-texture: '';
 	}
 	/* TYPE */

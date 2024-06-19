@@ -6,6 +6,7 @@ const colors = {
   burgundy: 'var(--colors-burgundy)',
   grey: 'var(--colors-grey)',
   sand: 'var(--colors-sand)',
+  gold: 'var(--colors-gold)',
   dark: 'var(--colors-dark)',
   accent: 'var(--colors-accent)',
   frame: 'var(--colors-frame)',
@@ -23,7 +24,7 @@ const colors = {
 }
 
 module.exports = {
-  content: ['*.njk', '**/*.njk', '_includes/**/*.njk', 'assets/js/**/*.js'],
+  content: ['*.njk', '**/*.njk', '_includes/**/*.njk', 'assets/js/**/*.js','src/components/**/*.js','src/components/**/*.njk','src/components/**/*.css'],
   safelist: [],
   theme: {
     fontFamily: {

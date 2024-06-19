@@ -1,0 +1,54 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+	legalLinks : [
+		{
+			url : '#',
+			title : 'Terms'
+		},
+		{
+			url : '#',
+			title : 'Privacy'
+		}
+	],
+	sponsorLink : {
+		url : 'http://eatdrinkvietnam.co.uk',
+		text : 'eatdrinkvietnam.co.uk'
+	}
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{% set wrapperModifiers = ["default","dark"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="footer {% if props.modifier %}footer--{{ props.modifier }}{% endif %}">
+	
+	<div class="border-b-2 border-current mx-inset"></div>
+    <div class="py-[2em] md:p-inset flex flex-col justify-center items-center md:flex-row md:justify-between gap-[2em] md:gap-gutter pb-[100px] md:pb-[4em]">
+       <ul class="flex flex-row gap-[1em] md:gap-gutter order-[1] md:order-[0] md:min-w-[10em]">
+        {%  for link in props.legalLinks %}
+        <li><a class="inline-block" x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div class="text-center order-[0] md:order-[1]">
+      {{ _('socials').render({
+        text:''
+      }) }}
+      </div>
+
+      <div class="order-[2] md:order-[2]" x-data="{
+        currentYear: new Date().getFullYear()
+    }">© <span x-text="currentYear">{{ currentYear() }}</span> <a href="{{ props.sponsorLink.url }}">{{ props.sponsorLink.text }}</a></div>
+    </div>
+
+</div>
+{% endmacro %}
+
+{% macro wrapper(props) %}
+<div class="footer-wrapper {% if props.modifier %}footer-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}

@@ -1,10 +1,10 @@
 {# Anything defined in here will be available at the theme level #}
-{% set defaultProps = {foo:'bar'} %}
+{% set defaultProps = {} %}
 
 {# Anything defined in here will be available at the theme level #}
-{% set modifiers = ['default','hero'] %}
+{% set modifiers = ["default"] %}
 
 {# Render the component #}
 {% macro render(props) %}
-<div class="test" x-data="test">[[ TEST ]]</div>
+<div class="example p-4" x-data="example">Example component for illustration</div>
 {% endmacro %}

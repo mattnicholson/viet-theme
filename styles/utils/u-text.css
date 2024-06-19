@@ -46,6 +46,23 @@
     letter-spacing: -0.02em;
   }
 
+  .u-text-subheading {
+    @apply font-display uppercase;
+    font-weight: normal!important;
+    font-size: 14px;
+    line-height: 120%;
+
+    @media screen(md) {
+      font-size: 16px;
+    }
+
+    @media screen(xl) {
+      font-size: 18px;
+    }
+
+    
+  }
+
   .u-text-nav {
     @apply font-display uppercase;
     font-weight: normal;

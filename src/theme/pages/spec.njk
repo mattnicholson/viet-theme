@@ -10,32 +10,68 @@ eleventyExcludeFromCollections: true
 
 #}
 
-{%  for key,c in theme %}
-	{# set com = getComponentConfig(key) #}
+{%  for key,c in components %}
+	{% if key != 'example' %}
 	{%  if c.modifiers | length %}
 		{% for m in c.modifiers %}
-			<h3>{{ key }} / {{ m }}</h3>
+			<h3 class="p-4 uppercase font-mono text-[12px]">{{ key }} / {{ m }}</h3>
 			{%  set props = c.defaultProps %}
 			{%  set props = props | setAttribute('modifier', m) %}
 
-			{{ c.render(props) }}
-			<hr />
+			{%  if c.wrapper %}
+				{% if c.wrapperModifiers | length %}
+					{% for w in c.wrapperModifiers %}
+						
+						<h3 class="p-4 uppercase font-mono text-[12px]">{{ key }} wrapper: {{ w }}</h3>
+						{# Translate to prevent fixed position #}
+						<div class="translate-x-0 relative min-h-[10vmax]">
+						{{ c.wrapper({
+							modifier:w,
+							content: c.render(props)
+						}) }}
+						</div>
+					{%  endfor %}
+				{% else %}
+					{# Translate to prevent fixed position #}
+					<div class="translate-x-0 relative min-h-[10vmax]">
+					{{ c.wrapper({
+						content: c.render(props)
+					}) }}
+					</div>
+				{% endif %}
+			{%  else %}
+				{{ c.render(props) }}
+			{%  endif %}
+			
+			<hr class="my-4" />
 		{% endfor %}
 	{%  else %}
-	<h3>{{ key }}</h3>
-	{{ c.render(c.defaultProps) }}
-	<hr />
+	<h3 class="p-4 uppercase font-mono text-[12px]">{{ key }}</h3>
+	
+	{% if c.wrapper %}
+			{{ c.wrapper({
+				content: c.render(c.defaultProps)
+			}) }}
+		{%  else %}
+			{{ c.render(c.defaultProps) }}
+		{%  endif %}
+	<hr class="my-4" />
 	{%  endif %}
-
+{%  endif %}
 {% endfor %}
 
 
 
 {# 
 
-	Call theme components arbitrarily...
+	You can call theme components arbitrarily...
+	eg
+
+	{{  components.example.render() }}
+
+	or using the global getter (useful when inside another component)
+
+	{{  _('example').render() }}
 
 #}
-
-{{ theme.test.render() }}
 {%  endblock %}

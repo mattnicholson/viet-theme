@@ -3,9 +3,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* LIBRARIES */
-@import 'keen-slider/keen-slider.min.css';
-
 /* VARIABLES */
 @import './variables.css';
 
@@ -18,11 +15,11 @@
 @import './utils/u-link.css';
 
 /* COMPONENTS */
-@import './components/ticker.css';
+/*@import './components/ticker.css';
 @import './components/image.css';
 @import './components/imageWithText.css';
 @import './components/form.css';
-@import './components/carousel.css';
+@import './components/carousel.css';*/
 
 @import '../src/theme/inc/components.css';
 
@@ -53,7 +50,7 @@
   /* THEME FRAME */
   body {
     transition: color 1s ease, border 1s ease;
-    border: 8px solid var(--colors-frame);
+    border: var(--sizes-frame) solid var(--colors-frame);
     min-height: 100vh;
   }
 
@@ -92,8 +89,8 @@
     opacity: 0;
   }
   /*
-* The animation when filtering users
-*/
+    * The animation when animating sub-pages / fragments
+  */
 
   .swup-fragment {
     transition: opacity 0.3s ease;
@@ -132,37 +129,7 @@
 
   .inset {
   }
-  .content {
-    h1 {
-      @apply u-text-hero pb-[1em];
-    }
-    p {
-      @apply pb-[2em];
-    }
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
-
-    ul {
-      text-align: left;
-      padding-left: 1em;
-      padding-bottom: 2em;
-
-      li {
-        list-style: disc;
-        padding-bottom: 0.5em;
-      }
-    }
-
-    img {
-      @apply mx-auto my-inset;
-    }
-  }
+  
 
   /* LENIS DEFAULTS */
   html.lenis {

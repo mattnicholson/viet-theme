@@ -1,0 +1,56 @@
+@layer utilities {
+    /* TICKER */
+    :root {
+        --ticker-duration: 20s;
+        --ticker-default-bg: theme('colors.frame');
+        --ticker-default-fg: theme('colors.frametext');
+    }
+}
+
+@layer components {
+    @keyframes ticker {
+        0% {
+            transform: translate3d(0, 0, 0);
+            visibility: visible;
+        }
+
+        100% {
+            transform: translate3d(-25%, 0, 0);
+        }
+    }
+
+    .ticker {
+
+        --ticker-bg: var(--background,var(--ticker-default-bg));
+        --ticker-text: var(--foreground,var(--ticker-default-fg));
+
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+
+        @apply py-gutter;
+
+        background: var(--ticker-bg);
+        color: var(--ticker-text);
+
+        & .ticker-body {
+            animation: ticker 10s linear infinite;
+            animation-duration: var(--ticker-duration);
+            display: inline-block;
+
+            & > * {
+                display: inline-block;
+                padding: 0 1em;
+                @apply u-text-body uppercase;
+                font-size: 0.9rem;
+                font-weight: bold;
+                &:after {
+                    content: '*';
+                    display: inline-block;
+
+                    padding-left: 2.2em;
+                }
+            }
+        }
+    }
+}

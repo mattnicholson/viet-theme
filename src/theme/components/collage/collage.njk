@@ -1,0 +1,67 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	landscape:'/assets/img/placeholder.jpg',
+	portrait:'/assets/img/placeholder-texture.jpg',
+	illustration:'/assets/img/placeholder-illustration.png',
+	title : 'A Lorem dolor sit amet',
+	text : '<p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default","1","2","3","4"] %}
+
+{% set wrapperModifiers = ["default","alt","dark"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+  <div class="collage {% if props.modifier %}collage--{{ props.modifier }}{% endif %} relative py-[10vh]">
+	
+	<div class="collage-content">
+  			
+  			<div class="collage-title">
+  			{{ props.title }}
+  			</div>
+  			<div class="collage-text">
+  			{{ _('content').render({content:props.text}) }}
+  			</div>
+
+  			{%  if props.modifier != '1' %}
+      		{{ _('magicFrame').render({
+      			eyebrow: (props.modifier == 'default' or props.modifier == '4')
+      		}) }}
+      		{%  endif %}
+    
+    </div>
+
+	<div class="collage-media">
+
+	    <div x-data="viewportProgress" data-parallax="10" class="collage-parallax-portrait absolute w-full h-full">
+	    <div class="collage-portrait-media">
+	          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.portrait }}"></div>
+	    </div>
+	    </div>
+
+	    <div x-data="viewportProgress" data-parallax="-15" class="collage-parallax-landscape absolute w-full h-full">
+	    <div class="collage-landscape-media">
+	          {%  if props.images %}
+	            {{  _('carousel').render({images:props.images}) }}
+	          {%  else %}
+	          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.landscape }}"></div>
+	          {% endif %}
+	    </div>
+	    </div>
+
+
+    	<div class="collage-illustration">
+          <div class="Image" x-data="image" x-bind="lazy" data-fit="contain" data-src="{{ props.illustration }}"></div>
+        </div>
+
+    
+  	</div>
+  </div>
+{% endmacro %}
+
+{# Optional default wrapper for this component - used for spec sheet #}
+{% macro wrapper(props) %}
+<div class="collage-wrapper {% if props.modifier %}collage-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
