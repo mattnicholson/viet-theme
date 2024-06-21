@@ -1,0 +1,23 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["basic","card"] %}
+
+
+{# Different types of wrapper #}
+{% set wrapperModifiers = ["default","landscape","portrait","square"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="item {% if props.modifier %}item--{{ props.modifier }}{% endif %}" x-data="item">[[ item ]]</div>
+{% endmacro %}
+
+
+{# Wrapper for different wrapper types - used ofr spec or {% render 'item' %} shortcode #}
+{% macro wrapper(props) %}
+<div class="item-wrapper {% if props.modifier %}item-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
+        

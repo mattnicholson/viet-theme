@@ -8,8 +8,11 @@
 {% import "src/theme/components/footer/footer.njk" as footer with context %}
 {% import "src/theme/components/form/form.njk" as form with context %}
 {% import "src/theme/components/header/header.njk" as header with context %}
+{% import "src/theme/components/headingFrame/headingFrame.njk" as headingFrame with context %}
+{% import "src/theme/components/imageWithText/imageWithText.njk" as imageWithText with context %}
+{% import "src/theme/components/item/item.njk" as item with context %}
 {% import "src/theme/components/logo/logo.njk" as logo with context %}
 {% import "src/theme/components/magicFrame/magicFrame.njk" as magicFrame with context %}
 {% import "src/theme/components/socials/socials.njk" as socials with context %}
 {% import "src/theme/components/ticker/ticker.njk" as ticker with context %}
-{% set components = saveComponents({'carousel':carousel,'collage':collage,'content':content,'enquiryCatering':enquiryCatering,'enquiryGroups':enquiryGroups,'example':example,'footer':footer,'form':form,'header':header,'logo':logo,'magicFrame':magicFrame,'socials':socials,'ticker':ticker}) %}{% block output %}{% endblock %}
+{% set components = saveComponents({'carousel':carousel,'collage':collage,'content':content,'enquiryCatering':enquiryCatering,'enquiryGroups':enquiryGroups,'example':example,'footer':footer,'form':form,'header':header,'headingFrame':headingFrame,'imageWithText':imageWithText,'item':item,'logo':logo,'magicFrame':magicFrame,'socials':socials,'ticker':ticker}) %}{% block output %}{% endblock %}

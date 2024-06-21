@@ -1,0 +1,39 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    .item-wrapper.item-wrapper--default {
+		
+	}
+
+	.item-wrapper.item-wrapper--landscape {
+		
+	}
+
+	.item-wrapper.item-wrapper--portrait {
+		
+	}
+
+	.item-wrapper.item-wrapper--square {
+		
+	}
+
+	
+    .item {
+        
+    }
+
+    .item.item--basic {
+		
+	}
+
+	.item.item--card {
+		
+	}
+
+	
+}

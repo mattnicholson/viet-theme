@@ -1,0 +1,30 @@
+
+@layer utilities {
+    :root {
+        --headingFrame-alt-fg: theme('colors.gold');
+    }
+}
+
+@layer components {
+
+    
+    .headingFrame {
+        @apply pointer-events-none absolute top-0 left-0 w-full h-[60px];
+    }
+
+    .headingFrame.headingFrame--1 {
+		
+	}
+
+	.headingFrame.headingFrame--2 {
+		
+	}
+
+	.headingFrame-wrapper{
+		@apply u-layout-wrapper--wide;
+	}
+	.headingFrame-wrapper.headingFrame-wrapper--alt{
+    	color: var(--headingFrame-alt-fg);
+	}
+	
+}

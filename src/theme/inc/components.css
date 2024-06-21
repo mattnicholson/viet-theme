@@ -8,6 +8,9 @@
 @import '../components/footer/footer.css';
 @import '../components/form/form.css';
 @import '../components/header/header.css';
+@import '../components/headingFrame/headingFrame.css';
+@import '../components/imageWithText/imageWithText.css';
+@import '../components/item/item.css';
 @import '../components/logo/logo.css';
 @import '../components/magicFrame/magicFrame.css';
 @import '../components/socials/socials.css';

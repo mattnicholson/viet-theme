@@ -1,0 +1,84 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	preHeading : 'Pre Heading',
+	heading : 'Heading',
+	text:'<p>Lorem ipsum dolor sit amet</p>',
+	image : '/assets/img/placeholder.jpg',
+	link1Url:'#',
+	link1Text:'Link 1',
+	link2Url:'#',
+	link2Text:'Link 2'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["imageLeft","imageRight"] %}
+
+{% set wrapperModifiers = ["default","alt","dark"] %}
+
+
+{# Render the component #}
+{% macro render(props) %}
+      <div class="imageWithText {% if props.modifier %}imageWithText--{{ props.modifier }}{% else %}imageWithText--imageLeft{% endif %}">
+      	{# TEXT SIDE #}
+        <div class="text-center overflow-hidden  relative w-full shrink-0 md:w-1/2 p-inset flex flex-col gap-inset">
+
+        	{# FRAME #}
+          	{{ _('magicFrame').render({
+      			eyebrow: true
+      		}) }}
+
+      		{#  CONTENT #}
+          <div class="flex flex-col mx-auto h-full w-[95%] justify-center items-center p-inset pt-[50px] md:pt-inset pb-[60px] gap-inset">
+
+	          {#  PRE HEADING & HEADING #}
+	          {% if props.preHeading != '' or props.heading != '' %}
+	            <div>
+	          {% if props.preHeading != '' %}<p class="u-text-eyebrow absolute top-[32px] -mt-[0.5em] left-[35%] right-[35%] text-center">{{ props.preHeading |safe }}</p>{%  endif  %}
+	          {% if props.heading != '' %}<p class="u-text-hero pt-inset">{{ props.heading |safe }}</p>{%  endif %}
+	            </div>
+	          {%  endif %}
+	          {#  END PRE HEADING & HEADING #}
+      			
+      			{# TEXT & LINKS STACK #}
+	          	<div class="flex flex-col gap-inset">
+	          		{# BODY #}
+		          <div class="imageWithText-body u-text-body">
+		          	{{ _('content').render({content:props.text}) }}
+		          </div>
+		          {# END BODY #}
+
+		          {# LINKS #}
+		          <ul class="flex flex-row gap-gutter ml-auto">
+		          {% if props.link1Url and props.link1Url != '' %}
+		          	<li>
+		          		<a class="u-link-button" href="{{ props.link1Url }}">{{ props.link1Text }}</a>
+		          	</li>
+		          {% endif %}
+		          {% if props.link2Url and props.link2Url %}
+		          	<li>
+		          		<a class="u-link-button" href="{{ props.link2Url }}">{{ props.link2Text }}</a>
+		          	</li>
+		          {% endif %}
+		          </ul>
+		          {# END LINKS #}
+		      	</div>
+		      	{# END TEXT & LINKS STACK #}
+
+          </div>
+          {#  END CONTENT #}
+          
+        </div>
+        {# END TEXT SIDE #}
+        {# IMAGE SIDE #}
+        <div class="overflow-hidden aspect-[6/5] relative w-full shrink-0 md:w-1/2 p-inset">
+          <div class="relative w-full h-full">
+          	<div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.image }}"></div>
+          </div>
+        </div>
+        {# END IMAGE SIDE #}
+      </div>
+{% endmacro %}
+
+{% macro wrapper(props) %}
+<div class="imageWithText-wrapper {% if props.modifier %}imageWithText-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}

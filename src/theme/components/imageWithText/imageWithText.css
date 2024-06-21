@@ -1,0 +1,75 @@
+
+@layer utilities {
+    :root {
+        --imageWithText-alt-bg: theme('colors.sand');
+        --imageWithText-alt-fg: theme('colors.gold');
+        --imageWithText-alt-text: theme('colors.grey');
+
+        --imageWithText-dark-bg: theme('colors.grey');
+        --imageWithText-dark-fg: theme('colors.sand');
+        --imageWithText-dark-text: theme('colors.sand');
+    }
+}
+
+@layer components {
+
+    
+    .imageWithText-wrapper{
+       
+        .imageWithText{
+        	 @apply u-layout-wrapper py-[5vh];
+        }
+    }
+
+    .imageWithText-wrapper.imageWithText-wrapper--alt {
+
+    	background: var(--imageWithText-alt-bg);
+    	color: var(--imageWithText-alt-fg);
+
+    	.content p{
+    		color: var(--imageWithText-alt-text);
+    	}
+
+    
+	}
+
+	.imageWithText-wrapper.imageWithText-wrapper--dark {
+
+    	background: var(--imageWithText-dark-bg);
+    	color: var(--imageWithText-dark-fg);
+
+    	.content p{
+    		color: var(--imageWithText-dark-text);
+    	}
+	}
+
+    .imageWithText{
+    	@apply flex flex-col md:flex-row;
+    }
+
+	.imageWithText-body {
+		p {
+			@apply pb-[1em];
+		}
+	}
+	.imageWithText.imageWithText--imageLeft {
+		& > *:nth-child(1) {
+			order: 2;
+		}
+
+		& > *:nth-child(2) {
+			order: 1;
+		}
+	}
+
+	.imageWithText.imageWithText--imageRight {
+		& > *:nth-child(1) {
+			order: 1;
+		}
+
+		& > *:nth-child(2) {
+			order: 2;
+		}
+	}
+	
+}

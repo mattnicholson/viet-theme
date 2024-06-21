@@ -10,6 +10,7 @@
 @import '../assets/fonts/GT-Maru/stylesheet.css';
 
 /* UTILS */
+@import './utils/u-layout.css';
 @import './utils/u-text.css';
 @import './utils/u-anim.css';
 @import './utils/u-link.css';

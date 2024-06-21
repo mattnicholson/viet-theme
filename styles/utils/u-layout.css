@@ -1,0 +1,25 @@
+@layer utilities {
+  .u-layout-wrapper{
+    @apply relative w-full md:w-[90%] max-w-[1170px] mx-auto;
+  }
+
+  .u-layout-wrapper--wide{
+    @apply relative w-full md:w-[90%] max-w-[1400px] mx-auto;
+  }
+
+  .u-layout-abs-center-x {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .u-layout-abs-center-y {
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+
+  .u-layout-abs-center-xy {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+  }
+}
