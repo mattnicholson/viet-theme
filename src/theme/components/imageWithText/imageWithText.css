@@ -19,6 +19,10 @@
         .imageWithText{
         	 @apply u-layout-wrapper py-[5vh];
         }
+
+        .content p{
+    		color: var(--theme-text);
+    	}
     }
 
     .imageWithText-wrapper.imageWithText-wrapper--alt {

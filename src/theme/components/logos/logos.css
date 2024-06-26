@@ -1,0 +1,31 @@
+
+@layer utilities {
+    :root {
+        --logos-dark-bg: theme('colors.grey');
+        --logos-dark-fg: theme('colors.sand');
+    }
+}
+
+@layer components {
+
+    .logos-wrapper.logos-wrapper--dark{
+        background: var(--logos-dark-bg);
+        color: var(--logos-dark-fg);
+    }
+
+    .logos {
+        svg{
+            @apply w-full h-auto;
+        }
+    }
+
+    .logos.logos--default {
+		
+	}
+
+	.logos.logos--dark {
+		
+	}
+
+	
+}

@@ -1,0 +1,48 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	custom:false,
+	bg : '#F0D8AE',
+	fg :'#174E3B',
+	image : '/assets/img/placeholder-advert.svg',
+	mobileImage : '/assets/img/placeholder-advert-square.svg',
+	linkUrl : '#anchor',
+	linkText : 'Book',
+	description: 'Promotion for website'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default","alt",false] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="advert {% if props.modifier %}advert--{{ props.modifier }}{% endif %}">
+
+	{%  set content %}
+    <div class="u-layout-wrapper">
+      <img src="{{ props.image }}" alt="{{ props.description }}" class="w-full hidden sm:block" />
+      <img src="{{ props.mobileImage }}"  alt="{{ props.description }}" class="w-full block sm:hidden" />
+    </div>
+    <div class="p-[2em] flex flex-col md:flex-row gap-inset justify-center items-center -translate-y-[1em]">
+    	<a class="u-link-button-wide" href="{{ props.linkUrl }}">{{ props.linkText }}</a>
+    </div>
+    {%  endset %}
+
+    {# Set modifier to false if props.custom is on, this will use the props.fg and props.bg to colour the advert #}
+    {% set modifier = props.modifier %}
+    {%  if props.custom %}{%  set modifier = false %}{%  endif %}
+
+	{% render 'theme',{
+		render : {
+			settings : {
+				fg:props.fg,
+				bg:props.bg
+			},
+			modifier : modifier,
+			content : content
+		}
+	} %}
+	
+</div>
+{% endmacro %}
+
+

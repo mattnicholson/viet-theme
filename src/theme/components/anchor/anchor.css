@@ -1,0 +1,14 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .anchor {
+        @apply block h-[5vh];
+    }
+	
+}

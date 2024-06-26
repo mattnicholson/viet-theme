@@ -13,6 +13,7 @@
 
 @layer components {
 
+
 	.collage-wrapper.collage-wrapper--alt{
     	background: var(--collage-alt-bg);
     	color: var(--collage-alt-fg);
@@ -32,15 +33,16 @@
 	}
 
     .collage {
+    	@apply u-layout-wrapper;
 
     	.collage-media{
     		@apply relative z-[1] aspect-[6/4];
     	}
         .collage-portrait-media{
-        	@apply overflow-hidden aspect-[5/6.4] relative z-[0];
+        	@apply overflow-hidden aspect-[5/6.4] relative z-[0] shadow-md;
         }
         .collage-landscape-media{
-        	@apply overflow-hidden aspect-[6/3.7] relative z-[1];
+        	@apply overflow-hidden aspect-[6/3.7] relative z-[1] shadow-md;
         }
         .collage-illustration{
         	@apply overflow-hidden aspect-[4/6] relative z-[2];
@@ -52,6 +54,9 @@
 
     .collage.collage--default,
     .collage.collage--4 {
+
+    	@apply u-layout-wrapper--wide;
+
 		.collage-portrait-media{
 			@apply absolute left-inset top-[50%] -translate-y-1/2 h-[90%];
 		}
@@ -201,7 +206,7 @@
 
     	.collage-portrait-media{
 			@apply absolute top-[0%] -translate-y-[15vw] left-[5%] w-[45%];
-
+			
 			@media screen('md'){
 				@apply left-[0%] right-auto -translate-y-[50%];
 
@@ -210,6 +215,7 @@
 
 		.collage-landscape-media{
 			@apply absolute top-[50%] md:top-[20%] right-[0%] w-[60%];
+
 		}
 
 		.collage-illustration{

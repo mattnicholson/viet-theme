@@ -1,0 +1,36 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="newsletterPanel {% if props.modifier %}newsletterPanel--{{ props.modifier }}{% endif %}">
+	
+      <div class="wrapper">
+        <div class="relative flex flex-col gap-[2em] md:gap-gutter py-[4em] md:py-inset md:pb-[3em]">
+          <div class="relative aspect-[15/1]">
+            <div class="hidden md:block">
+              {{ _('headingFrame').render({
+              	modifier:'1'
+              }) }}
+            </div>
+            <div class="relative md:absolute md:top-0 md:left-0 md:right-0 u-text-hero text-center pt-[0em]">
+              Stay In Touch
+            </div>
+          </div>
+          <div class="w-[80%] mx-auto md:w-full text-center">
+            {{ _('newsletter').render({
+              text:'Lorem ipsum dolor sit amet'
+            }) }}
+          </div> 
+        </div>
+      </div>
+  
+</div>
+{% endmacro %}
+
+

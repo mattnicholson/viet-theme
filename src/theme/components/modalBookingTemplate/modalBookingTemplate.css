@@ -1,0 +1,19 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .modalBookingTemplate {
+        
+    }
+
+    .modalBookingTemplate.modalBookingTemplate--default {
+		
+	}
+
+	
+}

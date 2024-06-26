@@ -29,4 +29,30 @@ eleventyExcludeFromCollections: true
 		{% render c %}
 		<hr />
 	{%  endfor %}
+
+	{# You can use the render filter to call renders when still in an object contet, such as defining an array of blocks to render #}
+	{% render 'theme',{
+		render : {
+			root:true,
+			settings : {
+				fg : 'cyan',
+				bg: '#EEE'
+			},
+			blocks : [
+				'magicFrame' | render,
+				'example' | render
+			]
+		}
+	} %}
+	<hr />
+	{#  This theme will inherit the root settings from the other theme #}
+	{% render 'theme',{
+		render : {
+			blocks : [
+				'magicFrame' | render,
+				'example' | render
+			]
+		}
+	} %}
+
 {%  endblock %}

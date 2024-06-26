@@ -1,0 +1,35 @@
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+    .newsletter {
+        .newsletter-body {
+          @apply flex flex-col gap-gutter;
+        }
+
+        .newsletter-text{
+            @apply u-text-body text-center;
+        }
+
+        .newsletter-form {
+          max-width: 25em;
+          @apply w-full mx-auto relative border-[2px] rounded-full bg-footer;
+          border-color: currentColor;
+
+          input {
+            @apply block w-full bg-transparent text-footertext placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] pr-[6em];
+            outline: none;
+          }
+
+          button {
+            @apply u-link-button absolute right-0 top-0 h-full bg-footertext text-footer !border-footertext;
+            line-height: 1;
+            &:hover {
+              @apply scale-100;
+            }
+          }
+        }
+    }
+}

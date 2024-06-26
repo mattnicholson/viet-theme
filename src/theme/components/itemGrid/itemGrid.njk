@@ -1,0 +1,52 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	itemModifier:'basic',
+	items : [{
+		modifier:'basic',
+		title : 'Lorem ispum',
+		link:'#',
+		image: '/assets/img/placeholder.jpg'
+	},{
+		modifier:'basic',
+		title : 'Lorem ispum',
+		link:'#',
+		image: '/assets/img/placeholder.jpg'
+	},{
+		modifier:'basic',
+		title : 'Lorem ispum',
+		link:'#',
+		image: '/assets/img/placeholder.jpg'
+	},{
+		modifier:'basic',
+		title : 'Lorem ispum',
+		link:'#',
+		image: '/assets/img/placeholder.jpg'
+	}]
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["two","two-wide","three"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="itemGrid {% if props.modifier %}itemGrid--{{ props.modifier }}{% endif %}">
+	{% for i in props.items %}
+	{%  set item %}
+		{% set renderItem = i %}
+		{% if props.itemModifier %}
+			{% set renderItem = i | setAttribute('modifier',props.itemModifier) %}
+		{% endif %}
+		{%  render 'item',{
+			skipWrapper:true,
+			render: renderItem
+		} %}
+	{% endset %}
+	<div>
+	{{ item | safe }}
+	</div>
+	{% endfor %}
+</div>
+{% endmacro %}
+
+

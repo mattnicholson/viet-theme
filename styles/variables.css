@@ -18,9 +18,15 @@
 		--colors-navtext: #5c0916;
 		--colors-footertext: #4b4242;
 		--colors-footer: #f0d8ab;
-		--sizes-frame: 8px;
+		
 		--footer-texture: '';
 	}
+
+	/* SIZE SETTINGS */
+	:root {
+		--sizes-frame: 8px;
+	}
+	
 	/* TYPE */
 	:root {
 		--font-base-size: 16px;

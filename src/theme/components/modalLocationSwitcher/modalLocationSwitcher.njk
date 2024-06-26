@@ -1,0 +1,36 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	locations:[
+		{
+			slug : 'venue-1',
+			title : 'Venue 1'
+		},
+		{
+			slug : 'venue-2',
+			title : 'Venue 2'
+		}
+	]
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modalLocationSwitcher {% if props.modifier %}modalLocationSwitcher--{{ props.modifier }}{% endif %}">
+	
+	<div x-data >
+    <ul class="flex flex-row gap-gutter my-gutter items-center justify-center">
+    {% for location in props.locations %}
+    <li x-data @click="$store.venue.setModal('{{ location.slug }}')" class="u-link-button min-w-[0]" :class="($store.venue.modal === '{{ location.slug }}' || ($store.venue.modal === '' && {{ loop.index0 }} === 0)) ? 'active' : 'inactive'">{{ location.title }}</li>
+	{% endfor %}
+  	</ul>
+    </div>
+
+</div>
+{% endmacro %}
+
+

@@ -39,7 +39,7 @@ For a page to make use of the theme functionality, you just need to extend the b
 
 ## Including styles and scripts
 
-Make sure the auto-generated styles and scripts are included from teh main css and js files:
+Make sure the auto-generated styles and scripts are included from the main css and js files:
 
 ```
 css
@@ -148,6 +148,42 @@ wrapper props are sent to teh wrapper, and render props are sent to the componen
         modifier:'default'
     }
 } %}
+
+```
+
+If you want to inherit the default props and just override a couple, you can tell it to inherit props:
+
+```
+{% render 'componentName',{
+    inheritProps:true,
+    render:{
+        overrideThisProp:'newValue'
+    }
+} %}
+
+```
+
+You can also call `render` as a filter, in case you need to render things into an object context, eg an array of components you want to join together:
+The arguments are the same as the `{% render %}` shortcode
+
+```
+{% set output = [
+    [
+        'componentA' | render,
+        'componentB' | render({
+            wrapper : {
+                modifier:'alt'
+            },
+            render:{
+                modifier:'default'
+            },
+            inheritProps:true,
+            skipWrapper:true
+        })
+    ] | join('')
+] %}
+
+{{ output | safe}}
 
 ```
 

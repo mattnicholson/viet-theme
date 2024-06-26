@@ -1,6 +1,7 @@
 @layer utilities {
 	.u-link-button {
 		@apply transition u-text-allcaps inline-block py-[0.8em] px-gutter rounded-full uppercase;
+		border-radius: var(--theme-button-roundness);
 		font-weight: bold;
 		min-width: 8em;
 		text-align: center;
@@ -9,6 +10,34 @@
 
 		&:hover {
 			transform: scale(1.05);
+		}
+
+		&.active{
+			background: var(--theme-button-active-bg);
+			border-color: var(--theme-button-active-bg);
+			color: var(--theme-button-active-fg);
+		}
+
+		&.inactive{
+			opacity: 0.5;
+		}
+	}
+
+	.u-link-pill {
+		@apply transition cursor-pointer inline-flex gap-[5px] items-center rounded-full p-[5px] px-[10px] text-[16px] bg-[white] shadow-md;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
+	.u-link-hero {
+		@apply transition cursor-pointer u-text-hero block;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.5;
 		}
 	}
 
@@ -26,7 +55,7 @@
 	.u-link-body {
 		@apply transition duration-500;
 		border-bottom: 0.08em solid;
-
+		cursor: pointer;
 		&:hover {
 			border-color: transparent;
 		}
@@ -42,7 +71,7 @@
 		@apply u-text-allcaps  flex flex-row gap-[0.7em] md:gap-[0.5em]  py-[1.2em] md:py-0;
 		font-size: 1rem;
 		font-weight: bold;
-
+		cursor: pointer;
 		svg {
 			@apply w-[1.2em] h-[auto] transition duration-[300ms];
 			transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);

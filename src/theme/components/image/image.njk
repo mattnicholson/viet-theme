@@ -1,0 +1,20 @@
+{# Anything defined in here will be available at the theme level #}
+
+{#  fit: natural | cover | contain #}
+
+{% set defaultProps = {
+	fit:'cover',
+	src:'/assets/img/placeholder.jpg'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="image {% if props.modifier %}image--{{ props.modifier }}{% endif %}" x-data="image" x-bind="lazy" data-fit="{{ props.fit }}" data-src="{{ props.src }}"></div>
+{% endmacro %}
+
+

@@ -1,0 +1,23 @@
+
+@layer utilities {
+    :root {
+        --frame-bg: var(--theme-frame-bg);
+        --frame-size: var(--theme-frame-size);
+    }
+}
+
+@layer components {
+
+    
+    .frame {
+        @apply relative;
+        background: var(--frame-bg);
+        padding: var(--frame-size);
+    }
+
+    .frame.frame--default {
+		
+	}
+
+	
+}

@@ -46,4 +46,20 @@ const cachebustSamePageLinks = () => {
 	})
 }
 
-export { ready, letterize, cachebustSamePageLinks }
+const injectCSS = (href) => {
+    const link = document.createElement('link');
+    link.href = href;
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }
+
+  // Function to inject JS
+  const injectJS = (src, callback) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+
+export { ready, letterize, cachebustSamePageLinks,injectJS,injectCSS }

@@ -1,0 +1,20 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+	content : 'shadow' | render
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="frame {% if props.modifier %}frame--{{ props.modifier }}{% endif %}">
+	{{ props.content | safe }}
+</div>
+{% endmacro %}
+
+

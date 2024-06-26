@@ -1,0 +1,34 @@
+
+@layer utilities {
+    :root {
+    	/* Root variables are actually set using the nunjucks component with render prop 'root' set to true, so that these can be set dynamically */
+    }
+}
+
+@layer components {
+
+    
+    .theme {
+        background: var(--theme-bg);
+        color: var(--theme-fg);
+    }
+
+    .theme.theme--default {
+    	--theme-bg: theme('colors.light');
+		--theme-fg: theme('colors.grey');
+		--theme-text: theme('colors.grey');
+    }
+
+    .theme.theme--alt {
+		--theme-bg: theme('colors.sand');
+		--theme-fg: theme('colors.gold');
+		--theme-text: theme('colors.grey');
+	}
+
+	.theme.theme--dark {
+		--theme-bg: theme('colors.grey');
+		--theme-fg: theme('colors.sand');
+		--theme-text: theme('colors.sand');
+	}
+	
+}

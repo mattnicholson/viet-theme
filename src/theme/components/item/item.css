@@ -6,32 +6,82 @@
 
 @layer components {
 
+	.item-wrapper{
+		@apply relative mx-auto u-layout-wrapper--content;
+	}
+
     .item-wrapper.item-wrapper--default {
 		
 	}
 
 	.item-wrapper.item-wrapper--landscape {
-		
+
+		.item-media{
+			@apply aspect-[6/4];
+		}
 	}
 
 	.item-wrapper.item-wrapper--portrait {
-		
+		.item-media{
+			@apply aspect-[4/6];
+		}
 	}
 
 	.item-wrapper.item-wrapper--square {
-		
+		.item-media{
+			@apply aspect-[1/1];
+		}
 	}
 
 	
     .item {
-        
+        @apply relative text-center;
+
+        .content{
+        	padding-bottom: 0;
+        	:last-child{
+        		padding-bottom: 0;	
+        	}
+        }
+
+        .item-link{
+			@apply u-layout-fluid block opacity-0 z-[3];
+		}
+    }
+
+    .item-media{
+    	@apply relative aspect-[6/4];
     }
 
     .item.item--basic {
-		
+		@apply flex flex-col gap-inset;
+		.item-content > *{
+			@apply flex flex-col gap-inset;
+		}
+		.item-head{
+			@apply u-text-bodyHeading;
+		}
 	}
 
 	.item.item--card {
+
+		@apply text-light;
+
+		.item-media{
+			@apply z-[1];
+		}
+
+		.item-content{
+			@apply u-layout-fluid u-layout-center-content z-[2];
+		}
+
+		.item-head{
+			@apply u-text-hero;
+		}
+		.item-body{
+			@apply hidden;
+		}
+
 		
 	}
 

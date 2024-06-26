@@ -1,0 +1,35 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	text : 'Lorem ipsum dolor sit amet'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="newsletter {% if props.modifier %}newsletter--{{ props.modifier }}{% endif %}" x-data="newsletter">
+	
+	<div class="newsletter-body">
+		
+		<div class="newsletter-form">
+		    <form action="https://formspree.io/f/meqbdoll" method="POST">
+		    	<input type="text" name="email" placeholder="Your Email">
+		    	<button type="submit">Sign up</button>
+		    </form>
+    	</div>
+
+    	{%  if props.text  %}
+    	<div class="newsletter-text">
+			<p>{{ props.text | safe }}</p>
+		</div>
+		{% endif %}
+
+	</div>
+
+</div>
+{% endmacro %}
+
+

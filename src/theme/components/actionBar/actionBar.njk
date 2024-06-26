@@ -1,0 +1,133 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	links : [
+		{
+			url : '#book',
+			title: "Book"
+		},
+		{
+			url : '#takeaway',
+			title: "Takeaway"
+		},
+		{
+			url : '#delivery',
+			title: "Delivery"
+		}
+	],
+	locations : [{
+		slug : 'venue-1',
+		title : 'Venue 1',
+    	openingHours : 'Weekdays 9—5<br />Weekends 9—3',
+   		address: "Adress<br />Line 2<br />Line 3",
+		telephone : '01234567890',
+		email : 'email@venue.com',
+		bookingLink : '#',
+    	mapUrl : '#'
+	},
+	{
+		slug : 'venue-2',
+		title : 'Venue 2',
+    	openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
+    	address: "Adress<br />Line 2<br />Line 3",
+		telephone : '01234567890',
+		email : 'email@venue.com',
+		bookingLink : '#',
+    	mapUrl : '#'
+	}]
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{% set wrapperModifiers = ["static"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="actionBar {% if props.modifier %}actionBar--{{ props.modifier }}{% endif %}" x-data="actionBar">
+	
+	<div x-data class="transition absolute bottom-0 bg-frame text-frametext z-[100] left-0 right-0 " :class="$store.route.match('#book|#takeaway|delivery') ? 'border-t-2 border-frametext' : 'border-t-2 border-transparent'">
+  <nav >
+
+      <ul class="flex flex-row gap-[3em] justify-center py-[0.5em] px-[1em]">
+        
+        {%  for link in props.links %}
+        <li class="shrink-0"><a class="u-link-icon" x-data="pageLink" href="{{ link.url }}" data-toggle="true">{{link.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <div x-data :class="$store.route.match('#book') ? '!translate-y-0' : 'translate-y-[105%]'" class="block translate-y-[105%] transition duration-[0.6s] absolute bottom-0 pb-[7rem] md:pb-[2.5rem]  z-[99] left-0 md:left-1/2 md:-translate-x-1/2 right-0 md:right-auto bg-frame text-frametext md:min-w-[600px] md:rounded-t-lg">
+    
+    <div  x-data @click="$event.stopPropagation()" class="aspect-[5/3.5] relative">
+      <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[0.8rem] left-1/2 -translate-x-1/2">Book</div>
+      
+<div class="w-full h-full flex justify-center items-center">
+      <ul class="flex flex-col gap-[1em]">
+      {% for location in props.locations %}
+        <li><a class="u-link-button-wide" href="{{ location.bookingLink }}" target="_blank">{{ location.title }}</a></li>
+      {% endfor %}
+      </ul>
+      </div>
+
+      {{ _('magicFrame').render({eyebrow:true}) }}
+    </div>
+
+  </div>
+
+  <div x-data :class="$store.route.match('#takeaway') ? '!translate-y-0' : 'translate-y-[105%]'" class="block translate-y-[105%] transition duration-[0.6s] absolute bottom-0 pb-[7rem] md:pb-[2.5rem]  z-[99] left-0 md:left-1/2 md:-translate-x-1/2 right-0 md:right-auto bg-frame text-frametext md:min-w-[600px] md:rounded-t-lg">
+    
+    <div x-data @click="$event.stopPropagation()" class="aspect-[5/4] relative">
+      <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[0.8rem] left-1/2 -translate-x-1/2">Takeaway</div>
+
+      <div class="w-full h-full flex justify-center items-center">
+      <div class="w-full shrink-0">
+              {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
+             
+             {% for location in props.locations %}
+                
+                <template x-if="($store.venue.modal === '{{ location.slug }}' || ($store.venue.modal === '' && {{ loop.index0 }} === 0)) ">
+                <div class="flex flex-col gap-gutter px-[50px]">
+                <p class="py-[1em] text-center">{{ location.telephone }}<br />
+                <a href="mailto:{{ location.email }}">{{ location.email }}</a></p>
+                <ul class="w-full flex flex-col gap-[1em] justify-center text-center">
+                <li><a href="tel:{{ location.telephone }}" class="u-link-button-wide">Call {{location.title}}</a></li>
+                </ul>
+                </div>
+                </template>
+              {% endfor %}
+             
+            </div>
+            </div>
+
+      {{ _('magicFrame').render({eyebrow:true}) }}
+    </div>
+
+  </div>
+
+  <div x-data :class="$store.route.match('#delivery') ? '!translate-y-0' : 'translate-y-[105%]'" class="block translate-y-[105%] transition duration-[0.6s] absolute bottom-0 pb-[7rem] md:pb-[2.5rem] z-[99] left-0 md:left-1/2 md:-translate-x-1/2 right-0 md:right-auto bg-frame text-frametext md:min-w-[600px] md:rounded-t-lg">
+    
+    <div  x-data @click="$event.stopPropagation()" class="aspect-[5/3.5] relative">
+      <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[0.8rem] left-1/2 -translate-x-1/2">Delivery</div>
+
+      <div class="w-full h-full flex justify-center items-center">
+      <ul class="flex flex-col gap-[1em]">
+      {% for location in props.locations %}
+        <li><a class="u-link-button-wide" href="{{ location.deliveryUrl }}" target="_blank">{{ location.title }}</a></li>
+      {% endfor %}
+      </ul>
+      </div>
+      {{ _('magicFrame').render({eyebrow:true}) }}
+    </div>
+
+  </div>
+
+</div>
+{% endmacro %}
+
+{% macro wrapper(props) %}
+<div class="actionBar-wrapper {% if props.modifier %}actionBar-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
+
+

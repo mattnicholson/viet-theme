@@ -1,0 +1,125 @@
+
+@layer utilities {
+    :root {
+    	--nav-texture-bg: var(--theme-nav-texture);
+    }
+}
+
+@layer components {
+
+	/* Default nav is centred horizontal */
+	.nav {
+        text-align: center;
+        ul{
+    		@apply flex flex-row gap-gutter justify-center;
+    	}
+    }
+
+    .nav-wrapper{
+    	@apply p-gutter;
+    }
+
+    /* Wrapper styles... */
+    .nav-wrapper.nav-wrapper--horizontal {
+
+		.nav ul{
+			@apply flex flex-row gap-gutter;
+		}
+	}
+
+	.nav-wrapper.nav-wrapper--stack {
+		.nav ul{
+			@apply flex flex-col gap-gutter;
+		}
+	}
+
+	.nav-wrapper.nav-wrapper--texture {
+
+		background:center center no-repeat;
+		background-image: var(--nav-texture-bg);
+		background-size: cover;
+		
+		.nav{
+			@apply flex aspect-[4/1] items-center justify-center w-full;
+
+			&.nav--align-left{
+				@apply justify-start;
+			}
+
+			&.nav--align-right{
+				@apply justify-end;
+			}
+		}
+		.nav--buttons,
+		.nav--links,
+		.nav--hero{
+			--theme-button-active-bg: theme('colors.light');
+			--theme-button-active-fg: theme('colors.grey');
+
+			@apply text-light;
+		}
+	}
+
+	/* Nav Alignment modifiers... */
+
+    .nav.nav--align-left{
+    	text-align: left;
+    	ul{
+    		@apply justify-start;
+    	}
+    }
+
+    .nav.nav--align-right{
+    	text-align: right;
+    	ul{
+    		@apply justify-end;
+    	}
+    }
+
+    /* Nav link modifiers... */
+
+    .nav.nav--buttons {
+		a,.nav-link{
+			@apply u-link-button;
+		}
+	}
+
+	.nav.nav--pills {
+		a,.nav-link{
+			@apply u-link-pill;
+		}
+	}
+
+	.nav.nav--links {
+		a,.nav-link{
+			@apply u-link-body;
+		}
+	}
+
+	.nav.nav--hero {
+		ul{
+			@apply u-text-hero;
+		}
+		a,.nav-link{
+			@apply u-link-hero;
+		}
+	}
+
+	.nav-wrapper.nav-wrapper--horizontal,
+	.nav-wrapper.nav-wrapper--texture {
+
+		.nav--hero ul{
+			@apply gap-[2em];
+		}
+	}
+
+	.nav-wrapper.nav-wrapper--stack {
+
+		.nav--hero ul{
+			@apply gap-inset;
+		}
+	}
+
+
+	
+}

@@ -1,0 +1,29 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .itemGrid {
+        @apply grid p-inset;
+    }
+
+    .itemGrid.itemGrid--two {
+
+    	@apply gap-gutter grid-cols-1 md:grid-cols-2 u-layout-wrapper;
+		
+	}
+
+	.itemGrid.itemGrid--two-wide {
+		@apply gap-[clamp(30px,6vw,80px)] grid-cols-1 md:grid-cols-2 u-layout-wrapper--wide w-full md:w-full;
+	}
+
+	.itemGrid.itemGrid--three {
+		@apply gap-gutter grid-cols-1 md:grid-cols-3 u-layout-wrapper;
+	}
+
+	
+}

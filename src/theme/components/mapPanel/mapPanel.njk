@@ -1,0 +1,89 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	title:'Find Us',
+	locations:[{
+		label:'Venue 1',
+		address:'Address',
+		mapUrl:'#',
+		email: 'email@email.com',
+		telephone:'1234567890',
+		openingHours : 'Weekdays 9—5<br />Weekends 9—3',
+		latlng:"51.51323434564766, -0.1321925628430808"
+	},
+	{
+		label:'Venue 2',
+		address:'Address 2',
+		mapUrl:'#',
+		email: 'email2@email.com',
+		telephone:'0 1234567890',
+		openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
+		latlng:"50, -0.1321925628430808"
+	}
+	]
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+{# Different types of wrapper #}
+{% set wrapperModifiers = ["default","dark"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="mapPanel {% if props.modifier %}mapPanel--{{ props.modifier }}{% endif %}" x-data="{tabIndex:0}">
+	<div class="mapPanel-content">
+		<div class="mapPanel-details">
+			
+	      <div class="content text-center lg:pl-inset">
+	      		{% if props.locations | length > 1 %}
+	      			<ul class="flex flex-row gap-gutter my-gutter items-center justify-center">
+	      			{% for t in props.locations %}
+	      			<li @click="tabIndex = {{ loop.index0 }}" class="u-link-button min-w-[0]" :class="(tabIndex === {{ loop.index0 }}) ? 'opacity-1' : 'opacity-30'">{{ t.label }}</li>
+					{%  endfor %}
+	      			 </ul>
+	      		{%  endif %}
+
+	      		{% for l in props.locations %}
+	      		<template x-if="tabIndex === {{ loop.index0 }}">
+	      		<div>
+	      			{{ _('modalContactTemplate').render(l)}}
+	          	</div>
+	          	</template>
+	      		{%  endfor %}
+	      </div>
+	    </div>
+	    <div class="mapPanel-map">
+	    	{% for l in props.locations %}
+	      		<template x-if="tabIndex === {{ loop.index0 }}">
+		         {% render 'map',{
+		         	render : {
+		         		latlng:l.latlng
+		         	},
+		         	skipWrapper:true,
+		         	inheritProps:true
+		         } %}
+		         </template>
+	     	{%  endfor %}
+	    </div>
+    </div>
+
+    {% render 'headingFrame',{
+		render : {
+			title:props.title
+		},
+     	skipWrapper:true,
+     	inheritProps:true
+     } %}
+
+</div>
+{% endmacro %}
+
+
+{# Wrapper for different wrapper types - used ofr spec or {% render 'mapPanel' %} shortcode #}
+{% macro wrapper(props) %}
+<div class="mapPanel-wrapper {% if props.modifier %}mapPanel-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
+        

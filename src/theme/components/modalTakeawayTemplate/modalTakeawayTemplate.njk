@@ -1,0 +1,30 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+		title:'Venue',
+		email: 'email@email.com',
+		telephone:'1234567890'
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modalTakeawayTemplate {% if props.modifier %}modalTakeawayTemplate--{{ props.modifier }}{% endif %}">
+	
+	<div class="flex flex-col gap-gutter px-[50px]">
+     <p class="py-[1em] text-center mx-auto">{{ props.telephone }}<br />
+     <a class="u-link-body" href="mailto:{{ props.email }}">{{ props.email }}</a></p>
+     <ul class="w-full flex flex-col gap-[1em] justify-center text-center">
+     	<li><a href="tel:{{ props.telephone }}" class="u-link-button-wide">Call {{props.title}}</a></li>
+     </ul>
+    </div>
+
+</div>
+{% endmacro %}
+
+

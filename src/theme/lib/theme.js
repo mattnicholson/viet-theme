@@ -17,6 +17,18 @@ exports.init = function (eleventyConfig){
 
 	/* 
 
+	Return a value from the global data context (_data/{key})
+	
+	{{ data('theme').settings }}
+
+	*/
+    eleventyConfig.addNunjucksGlobal('data', function(key) {
+		let d= this.ctx[key]
+		return d;
+    });
+
+	/* 
+
 	Return the component macro for a given key.
 	It fails gracefully so you can call a non existent component and it will still render the page
 	
@@ -41,6 +53,7 @@ exports.init = function (eleventyConfig){
 
 	Render a component by name, using its wrapper and default props.
 	By default the wrapper will be rendered unless skipWrapper flag is true
+	By default if render props are passed in, defaultProps are ignore, but you can set inheritProps to true to merge defaults with whatever is passed in
 	
 	{% render 'someComponent' , {
 		wrapper : {
@@ -49,12 +62,13 @@ exports.init = function (eleventyConfig){
 		render:{
 			propForComponent: 'bar'
 		}
-		skipWrapper:true/false
+		skipWrapper:true/false,
+		inheritProps:true/false
 	} %}
 
 	*/
-    eleventyConfig.addShortcode('render', function(key,props) {
-    	
+
+	const render = (key,props) => {
 		if(components[key]){
 			let c = components[key];
 			let skipWrapper = false;
@@ -64,6 +78,10 @@ exports.init = function (eleventyConfig){
 				let renderProps = props && props.render ? props.render : c.defaultProps;
 				let wrapperProps = props && props.wrapper ? props.wrapper : {};
 
+				if(props && props.render && props.inheritProps){
+					renderProps = {...c.defaultProps,...props.render};
+				}
+
 				// Render the content...
 				let content = nunjucks.renderString('{{ _c.render(_renderProps) | safe }}',{...this.ctx,_c:c,_renderProps:renderProps});
 				wrapperProps.content = content;
@@ -71,6 +89,11 @@ exports.init = function (eleventyConfig){
 				return nunjucks.renderString('{{ _c.wrapper(_wrapperProps) | safe }}',{...this.ctx,_c:c,_wrapperProps:wrapperProps});
 			}else{
 				let renderProps = props && props.render ? props.render : c.defaultProps;
+
+				if(props && props.render && props.inheritProps){
+					renderProps = {...c.defaultProps,...props.render};
+				}
+
 				let rendered = nunjucks.renderString('{{ _c.render(_renderProps) | safe }}',{...this.ctx,_c:c,_renderProps:renderProps});
 				return rendered;
 			}
@@ -79,8 +102,95 @@ exports.init = function (eleventyConfig){
 
 		console.error(`{% render %}: '${key}' component does not exist!`)
 		return '';
+	}
+
+    eleventyConfig.addShortcode('render', function(key,props) {
+    	
+		return render(key,props)
+    });
+
+    /*
+		
+		render filter does same as shortcode...
+
+		'nameOfComponent' | render
+		'nameOfComponent' | render({
+			render : {
+	
+			},
+			wrapper : {
+	
+			},
+			skipWrapper,
+			inheritProps
+		})
+	
+	*/
+
+    eleventyConfig.addFilter('render', function(key, props) {
+		return render(key,props)
+    });
+
+    /*
+
+    Simple nunjucks rendering for a string eg
+	
+	{
+		value : "Title is {{ title }}" | nunjucks({title:'Foo'})
+	}
+
+    */
+
+
+    eleventyConfig.addFilter('nunjucks', function(string, context) {
+		return nunjucks.renderString(string,{...this.ctx,...context});
     });
 	
+
+	 /*
+
+    Map an array of object to another set of values, parsing each key with the current item with nunjucks
+	
+	{% set tabs = [
+		title : 'Title',
+		content:''
+	]%}
+	
+	Thr filter will also provide an index value of the current iteration
+
+	{%  set links = tabs | map({
+			onClick : "active = {{ index }};",
+			text : '{{ title }}',
+			class : "active === {{ index }} ? 'active' : 'inactive'"
+	}) %}
+
+    */
+
+
+    eleventyConfig.addFilter('map', function(array, schema) {
+		return array.map((i,ix)=>{
+
+			let out = {};
+
+			Object.keys(schema).forEach(key => {
+  				let value = schema[key];
+  				out[key] = nunjucks.renderString(value,{...this.ctx,...i,index:ix});
+
+			});
+
+			return out;
+		});
+    });
+	
+
+	/*
+		
+		add a key to an object
+
+		{% set obj = obj | setAttribute('key',val) %}
+		
+	
+	*/
 	eleventyConfig.addFilter('setAttribute', function(dictionary, key, value) {
 		let d = dictionary || {};
         d[key] = value;

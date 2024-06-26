@@ -1,0 +1,55 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+	tabs : [
+		{
+			title : 'Tab 1',
+			content : '<div class="content"><h1>Content 1</h1></div>' 
+		},
+		{
+			title : 'Tab 2',
+			content : '<div class="content"><h1>Content 2</h1></div>' 
+		}
+	]
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div x-data="{active:0}" class="tabSwitcher {% if props.modifier %}tabSwitcher--{{ props.modifier }}{% endif %}">
+	
+	{%  set links = props.tabs | map({
+			onClick : "active = {{ index }};",
+			text : '{{ title }}',
+			class : "active === {{ index }} ? 'active' : 'inactive'"
+	}) %}
+
+	<div>
+	{%  render 'nav',{
+		render : {
+			align:'center',
+			modifier:'buttons',
+			links:links
+		},
+		wrapper:{
+			modifier:'horizontal'
+		}
+	} %}
+	</div>
+	<div>
+	{% for t in props.tabs %}
+		<template x-if="active === {{ loop.index0 }}">
+	        <div>
+	        {{ t.content | safe }}
+	        </div>
+        </template>
+	{%  endfor %}
+	</div>
+</div>
+{% endmacro %}
+
+

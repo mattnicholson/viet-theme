@@ -10,8 +10,34 @@ eleventyExcludeFromCollections: true
 
 #}
 
+<div x-data="{
+        search: new URLSearchParams(window.location.search).get('search') || '',
+        updateSearchParam(event) {
+            this.search = event.target.value;
+            const url = new URL(window.location);
+            if (this.search) {
+                url.searchParams.set('search', this.search);
+            } else {
+                url.searchParams.delete('search');
+            }
+            window.history.pushState({}, '', url);
+            window.scrollTo(0,0);
+        }
+    }">
+
+     <select class="fixed bottom-inset left-1/2 -translate-x-1/2 z-[5] rounded-md shadow-md px-2 border border-[1px]" @change="updateSearchParam($event)">
+            <option value="" x-text="search === '' ? 'Filter spec...' : 'All'"></option>
+            {% for key, c in components %}
+                {% if key != 'example' %}
+                    <option value="{{ key }}" x-bind:selected="search === '{{ key }}'">{{ key }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
 {%  for key,c in components %}
 	{% if key != 'example' %}
+	<template x-if="!search || search === '{{ key }}'">
+	<div>
 	{%  if c.modifiers | length %}
 		{% for m in c.modifiers %}
 			<h3 class="p-4 uppercase font-mono text-[12px]">{{ key }} / {{ m }}</h3>
@@ -56,9 +82,13 @@ eleventyExcludeFromCollections: true
 			{{ c.render(c.defaultProps) }}
 		{%  endif %}
 	<hr class="my-4" />
+
 	{%  endif %}
-{%  endif %}
+	</div>
+	</template>
+	{%  endif %}
 {% endfor %}
+</div>
 
 
 

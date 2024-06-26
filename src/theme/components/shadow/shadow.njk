@@ -1,0 +1,18 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	content : '<div class="w-full aspect-[16/9]"></div>'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="shadow {% if props.modifier %}shadow--{{ props.modifier }}{% endif %}">
+	{{ props.content | safe }}
+</div>
+{% endmacro %}
+
+

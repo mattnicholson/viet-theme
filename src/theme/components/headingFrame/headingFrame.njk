@@ -1,5 +1,7 @@
 {# Anything defined in here will be available at the theme level #}
-{% set defaultProps = {} %}
+{% set defaultProps = {
+	title : ''
+} %}
 
 {# Anything defined in here will be available at the theme level #}
 {% set modifiers = ["1","2"] %}
@@ -47,6 +49,8 @@
 			</svg>
 		</div>
 	{% endif %}
+
+	<div class="headingFrame-title">{{ props.title }}</div>
 
 </div>
 {% endmacro %}

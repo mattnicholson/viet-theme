@@ -1,0 +1,41 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	links : [
+		{
+			url : '#',
+			text : 'Việt'
+		}
+	]
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+{# Different types of wrapper #}
+{% set wrapperModifiers = ["static","fixed"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="floatingActionMenu {% if props.modifier %}floatingActionMenu--{{ props.modifier }}{% endif %}">
+	{%  render 'nav',{
+		render:{
+			align:'right',
+			links:props.links,
+			modifier:'pills'
+		},
+		wrapper:{
+			modifier:'horizontal'
+		}
+	} %}
+</div>
+{% endmacro %}
+
+
+{# Wrapper for different wrapper types - used ofr spec or {% render 'floatingActionMenu' %} shortcode #}
+{% macro wrapper(props) %}
+<div class="floatingActionMenu-wrapper {% if props.modifier %}floatingActionMenu-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
+        

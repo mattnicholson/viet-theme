@@ -1,0 +1,61 @@
+
+@layer utilities {
+    :root {
+       	--mapPanel-default-bg: transparent;
+        --mapPanel-default-fg: theme('colors.gold');
+        --mapPanel-default-text: theme('colors.grey');
+
+        --mapPanel-dark-bg: theme('colors.grey');
+        --mapPanel-dark-fg: theme('colors.sand');
+        --mapPanel-dark-text: theme('colors.sand');
+    }
+}
+
+@layer components {
+
+	.mapPanel-wrapper{
+		@apply pt-inset;
+		.mapPanel{
+			@apply u-layout-wrapper;
+		}
+	}
+    .mapPanel-wrapper.mapPanel-wrapper--default {
+		background: var(--mapPanel-default-bg);
+        color: var(--mapPanel-default-fg);
+
+        .content p{
+        	color: var(--mapPanel-default-text);
+        }
+	}
+
+	.mapPanel-wrapper.mapPanel-wrapper--dark {
+	
+        background: var(--mapPanel-dark-bg);
+        color: var(--mapPanel-dark-fg);
+
+        .content p{
+        	color: var(--mapPanel-dark-text);
+        }
+   
+	}
+
+	
+    .mapPanel-content {
+        @apply p-inset md:py-[calc(2*var(--spacing-inset))] md:px-[calc(3*var(--spacing-inset))];
+        @apply flex flex-col lg:flex-row items-center;
+    }
+
+    .mapPanel-map{
+    	@apply w-full lg:order-1 lg:w-1/2 md:pr-inset;
+    }
+
+    .mapPanel-details{
+    	@apply w-full lg:order-2 lg:w-1/2 text-center flex flex-col gap-inset;
+    }
+
+    .mapPanel.mapPanel--default {
+		
+	}
+
+	
+}

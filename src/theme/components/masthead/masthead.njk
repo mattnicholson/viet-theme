@@ -1,0 +1,39 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+	image:'/assets/img/placeholder-masthead.jpg',
+	title : 'Heading'
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["logo","title"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="masthead {% if props.modifier %}masthead--{{ props.modifier }}{% endif %}">
+	
+	<div class="masthead-content">
+	{%  if props.modifier == 'logo' %}
+		<div class="masthead-logo">{% render 'logo' %}</div>
+	{%  else %}
+		<div class="masthead-title">{{  props.title }}</div>
+	{%  endif  %}
+	</div>
+
+	<div class="masthead-media">
+		{% render 'image',{
+	      	render:{
+	      		src : props.image,
+	      		fit:'cover'
+	      	}
+	     } %}
+	</div>
+
+</div>
+{% endmacro %}
+
+{# Wrapper for different wrapper types - used ofr spec or {% render 'mapPanel' %} shortcode #}
+{% macro wrapper(props) %}
+<div class="masthead-wrapper {% if props.modifier %}masthead-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}

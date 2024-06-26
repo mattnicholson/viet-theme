@@ -1,0 +1,54 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	image:'/assets/img/placeholder.jpg',
+	texture:'/assets/img/placeholder-texture.jpg',
+	illustration:'/assets/img/placeholder-stamp.png'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["full","inset","texture"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="media {% if props.modifier %}media--{{ props.modifier }}{% endif %}">
+	
+
+	<div class="media-image">
+		{% render 'image',{
+	      	render:{
+	      		src : props.image,
+	      		fit:'cover'
+	      	}
+	     } %}
+	</div>
+
+
+	{% if props.modifier == 'texture' or props.modifier == 'inset' %}
+		<div class="media-texture">
+		{% render 'image',{
+	      	render:{
+	      		src : props.texture,
+	      		fit:'cover'
+	      	}
+	     } %}
+		</div>
+	{%  endif %}
+
+	{% if props.illustration %}
+	<div class="media-illustration" x-data="viewportProgress" data-parallax="-25">
+		{% render 'image',{
+	      	render:{
+	      		src : props.illustration,
+	      		fit:'contain',
+	      		modifier:'transparent'
+	      	}
+	     } %}
+	</div>
+	{% endif %}
+
+</div>
+{% endmacro %}
+
+

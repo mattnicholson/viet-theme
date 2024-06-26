@@ -1,0 +1,41 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	title : 'Book',
+	text : "Walk-ins are always welcome and we'll get you seated as soon as possible. However, at busy times booking is advisable.",
+	locations : [
+		{
+			bookingLink : '#',
+			title : 'Venue 1'
+		},
+		{
+			bookingLink : '#',
+			title : 'Venue 2'
+		}
+	]
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modalBookingTemplate {% if props.modifier %}modalBookingTemplate--{{ props.modifier }}{% endif %}">
+	{#<div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[25px] left-1/2 -translate-x-1/2">{{ props.title }}</div>#}
+          	
+
+                <div class="w-full h-full flex justify-center items-center">
+                	<div class="w-full flex items-center flex-col gap-inset justify-center">
+                		{% if props.text %}<div class="text-center u-text-subheading u-layout-wrapper--content">{{  props.text |safe }}</div>{%  endif %}
+	                  <ul class="flex flex-col gap-[1em]">
+	                  {% for location in props.locations %}
+	                    <li><a class="u-link-button-wide" href="{{ location.bookingLink }}" target="_blank">{{ location.title }}</a></li>
+	                  {% endfor %}
+	                  </ul>
+                  </div>
+                </div>
+</div>
+{% endmacro %}
+
+

@@ -1,0 +1,19 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	pinHex : '#4b4242',
+	tint:'#B98A58',
+	roads:'#FFFFFF',
+	latlng: "51.51323434564766, -0.1321925628430808",
+	styles: 'mapbox://styles/mattnicholson/cloeaxi8z002k01qr6lovcaen'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="map {% if props.modifier %}map--{{ props.modifier }}{% endif %}" x-data="mapbox" @wheel.prevent="" data-latlng="{{ props.latlng }}" data-hex="{{ props.pinHex }}" data-accent="{{ props.roads }}" data-tint="{{ props.tint }}" data-styles="{{ props.styles }}"></div>
+{% endmacro %}
+
+

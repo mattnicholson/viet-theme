@@ -1,0 +1,1 @@
+// NewsletterPanel.js

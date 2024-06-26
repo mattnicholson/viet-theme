@@ -1,0 +1,27 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    .floatingActionMenu-wrapper.floatingActionMenu-wrapper--static {
+		
+	}
+
+	.floatingActionMenu-wrapper.floatingActionMenu-wrapper--fixed {
+		@apply fixed bottom-[100px] right-[30px] md:bottom-inset md:right-inset z-[99];
+	}
+
+	
+    .floatingActionMenu {
+        
+    }
+
+    .floatingActionMenu.floatingActionMenu--default {
+		
+	}
+
+	
+}

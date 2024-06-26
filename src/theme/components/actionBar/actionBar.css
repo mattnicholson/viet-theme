@@ -1,0 +1,26 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    .actionBar-wrapper.actionBar-wrapper--static {
+        @apply w-full h-[50vh] min-h-[500px] relative overflow-hidden;
+    }
+
+    .actionBar-wrapper.actionBar-wrapper--fixed {
+        @apply fixed bottom-0 left-0 right-0 z-[10];
+    }
+    
+    .actionBar {
+        
+    }
+
+    .actionBar.actionBar--default {
+		
+	}
+
+	
+}

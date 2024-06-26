@@ -7,6 +7,22 @@
     @apply relative w-full md:w-[90%] max-w-[1400px] mx-auto;
   }
 
+  .u-layout-wrapper--content{
+    @apply relative max-w-[32rem] mx-auto;
+  }
+
+  .u-layout-wrapper--notice{
+    @apply relative max-w-[20rem] mx-auto;
+  }
+
+  .u-layout-fluid{
+    @apply absolute top-0 left-0 right-0 bottom-0;
+  }
+
+  .u-layout-center-content{
+    @apply flex items-center justify-center;
+  }
+
   .u-layout-abs-center-x {
     right: 50%;
     transform: translateX(50%);

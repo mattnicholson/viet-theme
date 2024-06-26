@@ -64,16 +64,57 @@
 	locations : [{
 		slug : 'venue-1',
 		title : 'Venue 1',
-		locationTelephone : '01234567890',
-		locationEmail : 'email@venue.com',
-		bookingLink : '#'
+    openingHours : 'Weekdays 9—5<br />Weekends 9—3',
+    address: "Adress<br />Line 2<br />Line 3",
+		telephone : '01234567890',
+		email : 'email@venue.com',
+		bookingLink : '#',
+    mapUrl : '#',
+    "menus": [
+      {
+        "title": "A la Carte",
+        "pdf": "/assets/pdf/menu-alacarte.pdf",
+        "image": "/assets/img/home/ct-03-a-la-carte.jpg"
+      },
+      {
+        "title": "Drinks",
+        "pdf": "/assets/pdf/menu-drinks.pdf",
+        "image": "/assets/img/menu-drinks.jpg"
+      },
+      {
+        "title": "Takeaway",
+        "pdf": "/assets/pdf/menu-takeaway.pdf",
+        "image": "/assets/img/home/ct-03-takeaway.jpg"
+      }
+    ]
 	},
 	{
 		slug : 'venue-2',
 		title : 'Venue 2',
-		locationTelephone : '01234567890',
-		locationEmail : 'email@venue.com',
-		bookingLink : '#'
+    openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
+    address: "Adress<br />Line 2<br />Line 3",
+    mapUrl: "#",
+		telephone : '01234567890',
+		email : 'email@venue.com',
+		bookingLink : '#',
+    mapUrl : '#',
+    "menus": [
+      {
+        "title": "A la Carte",
+        "pdf": "/assets/pdf/menu-alacarte.pdf",
+        "image": "/assets/img/home/ct-03-a-la-carte.jpg"
+      },
+      {
+        "title": "Drinks",
+        "pdf": "/assets/pdf/menu-drinks.pdf",
+        "image": "/assets/img/menu-drinks.jpg"
+      },
+      {
+        "title": "Takeaway",
+        "pdf": "/assets/pdf/menu-takeaway.pdf",
+        "image": "/assets/img/home/ct-03-takeaway.jpg"
+      }
+    ]
 	}]
 } %}
 
@@ -109,7 +150,7 @@
     
     </div>
 
-    <div class="relative" style="--colors-foreground:var(--colors-navtext);--colors-relief:var(--colors-navtext);--colors-accent:var(--colors-nav);">
+    <div @click="$event.stopPropagation()" class="relative" style="--colors-foreground:var(--colors-navtext);--colors-relief:var(--colors-navtext);--colors-accent:var(--colors-nav);">
 
     <template x-data x-if="$store.route.match('#menu|#locations|#more')">
      {{ _('magicFrame').render({
@@ -118,7 +159,7 @@
      </template>
 
           <template x-data x-if="$store.route.match('#menu')">
-            <div class="pt-[3.5em] md:pt-[2.5em] pb-[2em]">
+            <div  class="pt-[3.5em] md:pt-[2.5em] pb-[2em]">
            {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
             <div class="relative ">
             <div class="md:min-w-[650px] mt-[2em] px-inset pb-[2.5em] max-h-[calc(75vh-100px)]  overflow-auto">
@@ -128,10 +169,10 @@
               <div class="mx-[60px]">
               {% for location in props.locations %}
                 
-                <template x-if="$store.venue.modal == '{{location.slug}}'">
-                <div>
-                {{ _('modalMenusTemplate').render({location:location})}}
-                </div>
+                <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
+            
+                {{ _('modalMenusTemplate').render({menus:location.menus})}}
+            
                 </template>
               {% endfor %}
               </div>
@@ -155,9 +196,9 @@
               <div class="mx-[60px]">
               {% for location in props.locations %}
                 
-                <template x-if="$store.venue.modal == '{{location.slug}}'">
+                <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
                 <div>
-                {{ _('modalContactTemplate').render({location:location})}}
+                {{ _('modalContactTemplate').render(location)}}
                 </div>
                 </template>
               {% endfor %}
@@ -177,17 +218,16 @@
           
             <div class="relative">
               <div  x-data @click="$event.stopPropagation()" class="py-[5em] relative">
-                <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[25px] left-1/2 -translate-x-1/2">Book</div>
-          
-                <div class="w-full h-full flex justify-center items-center">
-                  <ul class="flex flex-col gap-[1em]">
-                  {% for location in props.locations %}
-                    <li><a class="u-link-button-wide" href="{{ location.bookingLink }}" target="_blank">{{ location.title }}</a></li>
-                  {% endfor %}
-                  </ul>
-                </div>
 
-                {{ _('magicFrame').render({eyebrow:true}) }}
+                {% render 'modalBookingTemplate',{
+                  render : {
+                    locations:props.locations
+                  },
+                  inheritProps:true
+                } %}
+                
+
+                {{ _('magicFrame').render({eyebrow:false}) }}
               </div>
             </div>
             <div x-data class="u-link-close absolute -bottom-[0.3em] left-0 right-0" @click="$store.route.removeHash()">Close</div>
@@ -209,14 +249,10 @@
              
              {% for location in props.locations %}
                 
-                <template x-if="$store.venue.modal == '{{location.slug}}'">
-                <div class="flex flex-col gap-gutter px-[50px]">
-                <p class="py-[1em] text-center mx-auto">{{ location.locationTelephone }}<br />
-                <a class="u-link-body" href="mailto:{{ location.locationEmail }}">{{ location.locationEmail }}</a></p>
-                <ul class="w-full flex flex-col gap-[1em] justify-center text-center">
-                <li><a href="tel:{{ location.locationTelephone }}" class="u-link-button-wide">Call {{location.title}}</a></li>
-                </ul>
-                </div>
+                <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
+
+                {{ _('modalTakeawayTemplate').render(location)}}
+
                 </template>
               {% endfor %}
              

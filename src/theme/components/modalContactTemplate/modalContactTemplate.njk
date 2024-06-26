@@ -1,0 +1,36 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+
+		title:'Venue',
+		address:'Address<br />Address 2<br /> Address 3',
+		mapUrl:'#',
+		email: 'email@email.com',
+		telephone:'1234567890',
+		openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
+		latlng:"51.51323434564766, -0.1321925628430808"
+
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modalContactTemplate {% if props.modifier %}modalContactTemplate--{{ props.modifier }}{% endif %}">
+	
+	<div class="content text-center">
+		<h3 class="u-text-eyebrow !font-normal">Address</h3>
+  		<p>{{ props.address | safe }}<br /><a class="u-link-body" href="{{ props.mapUrl }}">Map</a></p>
+  		<h3 class="u-text-eyebrow !font-normal">Opening Hours</h3>
+  		<p>{{ props.openingHours | safe }}</p>
+  		<h3 class="u-text-eyebrow !font-normal">Contact Us</h3>
+  		<p>{% if props.telephone %}{{ props.telephone }}<br />{%  endif %}
+  		<a class="u-link-body" href="mailto:{{ props.email }}">{{ props.email }}</a></p>
+  	</div>
+
+</div>
+{% endmacro %}
+
+

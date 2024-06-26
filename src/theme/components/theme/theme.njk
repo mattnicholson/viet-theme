@@ -1,0 +1,52 @@
+{%  set rootSettings = data('theme').settings %}
+
+{# Anything defined in here will be available at the theme level #}
+{# Can pass in an array of items to props.blocks or a single html text to props.content #}
+{% set defaultProps = {
+	root:false,
+	settings : rootSettings,
+	blocks : [],
+	content : [
+		'itemGrid'|render({
+			inheritProps:true,
+			render:{
+				itemModifier:'card',
+				modifier:'three'
+			}
+		}),
+		'imageWithText' | render,
+		'logos' | render
+	] | join("")
+
+} %}
+
+{# If you don't pass a modifier, then the colours passed in to settings will be used #}
+{% set modifiers = ["root","default","alt","dark",false] %}
+
+{# Render the component #}
+{% macro render(props) %}
+{%  if props.root %}
+	<style type="text/css">
+		:root{
+			{% for k,v in props.settings %}
+			--theme-{{k}}:{{v}};
+			{% endfor %}
+		}
+
+		html{
+			background: var(--theme-bg);
+			color: var(--theme-fg);
+		}
+		
+	</style>
+{%  endif %}
+{%  if props.content or props.blocks|length  %}
+<div class="theme {% if props.modifier %}theme--{{ props.modifier }}{% endif %}" x-data="theme" {% if not props.modifier and props.settings %}style="{% for k,v in props.settings %}--theme-{{k}}:{{v}};{% endfor %}"{% endif %}>
+	{% set output = props.content %}
+	{%  if props.blocks | length %}{% set output = props.blocks | join("") %}{%  endif %}
+	{{  output | safe }}
+</div>
+{%  endif %}
+{% endmacro %}
+
+

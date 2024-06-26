@@ -2,6 +2,7 @@
 {%  block output %}
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="UTF-8"/>
 <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
 
@@ -26,6 +27,13 @@
 			--sizes-frame: 8px;
 		}
 	</style>#}
+	{% render 'theme',{
+		inheritProps:true,
+		render : {
+			root:true,
+			content : ''
+		}
+	} %}
 	<div id="page">
 		<div class="page-body">
 			<div id="opener" class="transition-fade"></div>

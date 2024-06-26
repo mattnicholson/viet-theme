@@ -1,0 +1,51 @@
+
+@layer utilities {
+    :root {
+    	--media-default-bg: theme('colors.grey');
+    }
+}
+
+@layer components {
+
+    
+    .media {
+        @apply w-full h-screen relative;
+        background: var(--media-default-bg);
+    }
+
+    .media-image{
+    	@apply u-layout-fluid z-[1];
+    }
+
+    .media-texture{
+    	@apply u-layout-fluid z-[0];
+    }
+
+    .media-illustration{
+    	@apply absolute top-[5%] left-[5%] z-[2] aspect-[1/1];
+    	width: clamp(120px,40%,500px);
+    }
+
+    .media.media--full {
+		
+	}
+
+	.media.media--inset {
+		.media-image{
+			@apply top-[10vw] left-[10vw] right-[10vw] bottom-[10vw];
+		}
+	}
+
+	.media.media--texture {
+		.media-image{
+			@apply aspect-[1/1] h-[80%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[80%];
+		}
+
+		 .media-illustration{
+    		@apply absolute bottom-[5%] right-[5%] left-auto top-auto;
+   		 }
+
+	}
+
+	
+}

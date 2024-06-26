@@ -37,7 +37,12 @@
 
 	    <div x-data="viewportProgress" data-parallax="10" class="collage-parallax-portrait absolute w-full h-full">
 	    <div class="collage-portrait-media">
-	          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.portrait }}"></div>
+	        {% render 'image',{
+	          	render:{
+	          		src : props.portrait,
+	          		fit:'cover'
+	          	}
+	          } %}
 	    </div>
 	    </div>
 
@@ -46,14 +51,25 @@
 	          {%  if props.images %}
 	            {{  _('carousel').render({images:props.images}) }}
 	          {%  else %}
-	          <div class="Image" x-data="image" x-bind="lazy" data-fit="cover" data-src="{{ props.landscape }}"></div>
+	          {% render 'image',{
+	          	render:{
+	          		src : props.landscape,
+	          		fit:'cover'
+	          	}
+	          } %}
 	          {% endif %}
 	    </div>
 	    </div>
 
 
     	<div class="collage-illustration">
-          <div class="Image" x-data="image" x-bind="lazy" data-fit="contain" data-src="{{ props.illustration }}"></div>
+          {% render 'image',{
+	          	render:{
+	          		src : props.illustration,
+	          		fit:'contain',
+	          		modifier:'transparent'
+	          	}
+	          } %}
         </div>
 
     

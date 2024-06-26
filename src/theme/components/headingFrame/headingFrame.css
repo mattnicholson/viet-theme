@@ -7,7 +7,10 @@
 
 @layer components {
 
-    
+    .headingFrame-title{
+    	@apply absolute top-0 left-1/2 u-text-eyebrow -translate-x-1/2 pt-[0.5em];
+    }
+
     .headingFrame {
         @apply pointer-events-none absolute top-0 left-0 w-full h-[60px];
     }
@@ -21,7 +24,7 @@
 	}
 
 	.headingFrame-wrapper{
-		@apply u-layout-wrapper--wide;
+		@apply u-layout-wrapper;
 	}
 	.headingFrame-wrapper.headingFrame-wrapper--alt{
     	color: var(--headingFrame-alt-fg);

@@ -1,5 +1,11 @@
 {# Anything defined in here will be available at the theme level #}
-{% set defaultProps = {} %}
+{% set defaultProps = {
+	image:'/assets/img/placeholder.jpg',
+	title : 'A Lorem dolor sit amet',
+	text : '<p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>',
+	link:'#',
+	linkText:'See more'
+} %}
 
 {# Anything defined in here will be available at the theme level #}
 {% set modifiers = ["basic","card"] %}
@@ -9,10 +15,36 @@
 {% set wrapperModifiers = ["default","landscape","portrait","square"] %}
 
 
-
 {# Render the component #}
 {% macro render(props) %}
-<div class="item {% if props.modifier %}item--{{ props.modifier }}{% endif %}" x-data="item">[[ item ]]</div>
+<div class="item {% if props.modifier %}item--{{ props.modifier }}{% endif %}">
+	
+	<div class="item-media">
+		{% render 'image',{
+	      	render:{
+	      		src : props.image,
+	      		fit:'cover'
+	      	}
+	     } %}
+	</div>
+
+	<div class="item-content">
+		<div>
+			<div class="item-head">
+				{{ props.title }}
+			</div>
+			<div class="item-body">
+				{{ _('content').render({content:props.text}) }}
+			</div>
+		</div>
+	</div>
+
+	{%  if props.link %}
+	<a class="item-link" href="{{ props.link }}">
+		{{ props.linkText }}
+	</a>
+	{%  endif %}
+</div>
 {% endmacro %}
 
 

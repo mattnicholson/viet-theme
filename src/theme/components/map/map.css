@@ -1,0 +1,19 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .map {
+        @apply h-[400px] md:h-auto md:aspect-square;
+    }
+
+    .map.map--default {
+		
+	}
+
+	
+}

@@ -1,0 +1,54 @@
+
+@layer utilities {
+     :root {
+       	--masthead-default-bg: theme('colors.grey');
+       	--masthead-default-fg: theme('colors.sand');
+       	--masthead-default-text: theme('colors.light');
+
+		--masthead-default-height: calc(100vh - var(--sizes-frame));
+       	--masthead-touch-height: calc(var(--initialViewportHeight) - var(--sizes-frame));
+
+       	--masthead-logo-scale: calc((310/1100) * 100%);
+       	--masthead-logo-min: 195px;
+       	--masthead-logo-max: 600px;
+    }
+}
+
+@layer components {
+
+    
+    .masthead {
+        @apply w-full relative;
+
+        height: var(--masthead-touch-height);
+
+        @media screen('sm'){
+        	height: var(--masthead-default-height);
+        }
+
+        background: var(--masthead-default-bg);
+        color: var(--masthead-default-fg);
+
+        .masthead-title{
+        	color: var(--masthead-default-text);
+        }
+    }
+
+    .masthead-media{
+    	@apply u-layout-fluid z-[0] opacity-90;
+    }
+
+    .masthead-content{
+    	@apply u-layout-fluid z-[1] flex items-center justify-center;
+    }
+
+    .masthead-logo {
+		width: clamp(var(--masthead-logo-min),var(--masthead-logo-scale),var(--masthead-logo-max));
+	}	
+
+	.masthead-title {
+		@apply u-layout-wrapper u-text-max text-center;
+	}
+
+	
+}

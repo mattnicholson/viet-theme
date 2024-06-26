@@ -1,0 +1,69 @@
+{# Props for nav #}
+{# 
+	You can pass in values that integrate with alpine too - updating classes and triggering events on click 
+	So you can communicate across components with this set up...
+
+	eg:
+	
+	Listen on the window: (will fire for ANY clicked element, regardless of the tree)
+	<div x-data @custom-event.window="alert('handled this event!'); doSomething(event.detail);"></div>
+
+	Listen up the tree: (will fire only in the tree of the clicked element)
+	<div x-data @custom-event="alert('handled this event!'); doSomething(event.detail);"></div>
+#}
+{% set defaultProps = {
+	align : 'center',
+	pageLinks : false,
+	links : [
+		{
+			text : '{{ title }}' | nunjucks({title:'First Link'}),
+			url : '#'
+		},
+		{
+			text : 'Link 2',
+			url : '#'
+		},
+		{
+			data: "{active:false}",
+			onClick : "active = !active;",
+			text : 'Toggle (will be overridden by the dynamic `xTitle` property)',
+			xText : "active ? 'Active' : 'Inactive'",
+			class : "active ? 'active' : 'inactive'",
+			event : {
+				label : 'custom-event',
+				detail : "{active:active,index:$el.dataset.index}"
+			}
+		}
+	]
+} %}
+
+{# Affects the way the links are styled #}
+{% set modifiers = ["buttons","pills","links","hero"] %}
+
+
+{# Different types of affects the flow of the nav #}
+{% set wrapperModifiers = ["horizontal","stack","texture"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<nav class="nav {% if props.modifier %}nav--{{ props.modifier }}{% endif %} {% if props.align %}nav--align-{{ props.align }}{% endif %}">
+	<ul>
+		{%  for i in props.links %}
+			<li>
+				<{% if i.url %}a href="{{ i.url }}"{% else %}span{% endif %} {% if props.pageLinks %}x-data="pageLink"{% else %}x-data{% if i.data %}="{{ i.data }}"{% endif %}{% endif %} {% if i.onClick or i.event %}@click="{% if i.onClick %}{{ i.onClick }};{% endif %}{% if i.event %}$dispatch('{{i.event.label}}',{detail:{{i.event.detail}}});{% endif %}console.log('clicked')"{% endif %} {% if i.class %}:class="{{ i.class }}"{% endif %} class="nav-link" href="{{ i.url }}" {% if i.xText %}x-text="{{ i.xText }}"{% endif %} data-index="{{ loop.index0 }}">
+					{{ i.text }}
+				</{% if i.url %}a{% else %}span{% endif %}>
+			</li>
+		{% endfor %}
+	</ul>
+</nav>
+{% endmacro %}
+
+
+{# Wrapper for different wrapper types - used ofr spec or {% render 'nav' %} shortcode #}
+{% macro wrapper(props) %}
+<div class="nav-wrapper {% if props.modifier %}nav-wrapper--{{props.modifier}}{% endif %} relative">{{ props.content | safe }}</div>
+{%  endmacro %}
+        
