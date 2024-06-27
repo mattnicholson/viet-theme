@@ -13,6 +13,10 @@
     .actionBar-wrapper.actionBar-wrapper--fixed {
         @apply fixed bottom-0 left-0 right-0 z-[10];
     }
+
+    .actionBar-wrapper.actionBar-wrapper--mobile {
+        @apply fixed bottom-0 left-0 right-0 z-[10] md:hidden;
+    }
     
     .actionBar {
         

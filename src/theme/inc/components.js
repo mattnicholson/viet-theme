@@ -1,5 +1,6 @@
 /* NOTE: This file is generated automatically, to make changes see src/theme/scripts/createNunjucksComponentWrapper */
 import '../components/actionBar/actionBar.js'
+import '../components/actionBarWithData/actionBarWithData.js'
 import '../components/advert/advert.js'
 import '../components/anchor/anchor.js'
 import '../components/carousel/carousel.js'

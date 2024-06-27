@@ -1,0 +1,48 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	links : [
+		{
+			url : '#book',
+			title: "Book"
+		},
+		{
+			url : '#takeaway',
+			title: "Takeaway"
+		},
+		{
+			url : '#delivery',
+			title: "Delivery"
+		}
+	],
+	locations : data('locations') | map({
+		slug : '{{ slug }}',
+		title : '{{ title }}',
+		bookingLink : '{{ bookingLink }}',
+		address:'{{ locationAddress | safe }}',
+		mapUrl:'{{ locationMapUrl}}',
+		email: '{{ locationEmail }}',
+		telephone:'{{ locationTelephone }}',
+		openingHours : '{{ locationOpening | safe }}',
+		menus: '{{ menus | json | safe }}'								
+	},{
+		jsonKeys : ['menus']
+	})
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+{# Render the component #}
+{% macro render(props) %}
+
+	{% render 'actionBar',{
+        render : props,
+        wrapper:{
+            modifier:'mobile'
+        }
+    } %}
+    	
+{% endmacro %}
+
+

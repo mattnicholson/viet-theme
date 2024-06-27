@@ -11,7 +11,7 @@
 	}
 
 	.floatingActionMenu-wrapper.floatingActionMenu-wrapper--fixed {
-		@apply fixed bottom-[100px] right-[30px] md:bottom-inset md:right-inset z-[99];
+		@apply fixed bottom-[100px] right-[30px] md:bottom-inset md:right-inset z-[9];
 	}
 
 	
