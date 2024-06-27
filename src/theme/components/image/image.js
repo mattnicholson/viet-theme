@@ -1,1 +1,1 @@
-import '../../../../assets/js/components/image'
+import '../../../../assets/js/alpine/image'

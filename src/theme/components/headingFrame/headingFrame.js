@@ -1,2 +1,2 @@
 // Dependencies for magicFrame...
-import '../../../../assets/js/components/watchSize'
+import '../../../../assets/js/alpine/watchSize'

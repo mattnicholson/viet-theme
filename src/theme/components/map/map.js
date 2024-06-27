@@ -1,1 +1,1 @@
-import '../../../../assets/js/components/mapbox'
+import '../../../../assets/js/alpine/mapbox'

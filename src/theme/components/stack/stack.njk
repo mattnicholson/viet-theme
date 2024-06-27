@@ -1,0 +1,18 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	items : ['<div>Item 1</div>','<div>Item 2</div>']
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="stack {% if props.modifier %}stack--{{ props.modifier }}{% endif %}">
+	{% for i in props.items %}
+		<div>{{ i | safe }}</div>
+	{%  endfor %}
+</div>
+{% endmacro %}
+
+

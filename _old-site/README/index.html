@@ -1,0 +1,35 @@
+<h1>eleventy-tailwindcss-alpinejs-starter</h1>
+<p>A starter repository showing how to build a website with the <a href="https://www.11ty.dev">Eleventy</a>, <a href="https://tailwindcss.com">Tailwind CSS</a>, and <a href="https://alpinejs.dev">Alpine.js</a>.</p>
+<h2>Getting Started</h2>
+<h3>1. Install the dependencies</h3>
+<pre><code>yarn
+</code></pre>
+<h3>2. Run Eleventy</h3>
+<pre><code>yarn dev
+</code></pre>
+<h2>Working with 11ty</h2>
+<h3>NPM packages</h3>
+<p>To use NPM packages, install anything you want as per usual. Then make the dist version of the script available by adding something like this to the <code>.eleventy.js</code> file:</p>
+<pre><code>eleventyConfig.addPassthroughCopy({
+  './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
+})
+</code></pre>
+<h3>Custom scripts</h3>
+<p>You can add custom JS by editing the file at <code>assets/js/plugin.js</code>. Alternatively, you can add additional scripts (eg <code>assets/js/extraThings.js</code>) then import it into the main <code>plugin.js</code> file with:</p>
+<pre><code>import extraThings form './extraThings.js'
+</code></pre>
+<p>On build, the bundler will concatenate all the scripts into a single file.</p>
+<h3>Other assets</h3>
+<p>If you want to include other assets (eg, fonts or images etc), you can add them to the <code>assets/</code> directory. Then add a line like this to the <code>.eleventy.js</code> file:</p>
+<pre><code>eleventyConfig.addPassthroughCopy('assets/gfx')
+</code></pre>
+<p>This will ensure that every file in the <code>assets/gfx/</code> directory is copied to the public directory. They will then be available in to import in the code as absolute URLs, eg: <code>/gfx/logo.png</code>.</p>
+<h3>Content Data</h3>
+<p>Any dynamic content can be stored in the <code>_data/</code> directory as a JSON file, for example the <code>_data/meta.json</code>. The contents of the JSON will then be available in the template files via the filename, eg <code>meta.title</code>.</p>
+<h2>CSS</h2>
+<h3>Tailwind CSS</h3>
+<p>This site is setup to use <a href="https://tailwindcss.com">Tailwind CSS</a>. You can configure Tailwind using the config file in <code>styles/tailwind.config.js</code> according to <a href="https://tailwindcss.com/docs/configuration">the Tailwind documentation</a>.</p>
+<h3>Other CSS</h3>
+<p>You can also include some style rules</p>
+<h2>Deploying</h2>
+<p>You can create a deployment-ready version of the site by running <code>yarn build</code>. This will create a distributable version in the <code>_site/</code> directory.</p>

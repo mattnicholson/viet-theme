@@ -8,6 +8,7 @@
 {% macro render(props) %}
 	{% set content = props.content %}
   <div class="ticker">
+      <div>
           <div class="ticker-body" style="{% if content | length > 50%}--ticker-duration:40s{%endif%}">
             <div class="u-text-ticker">{{ content | safe }}</div>
             {%  if content | length < 150 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
@@ -26,5 +27,6 @@
             {%  if content | length < 20 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
             {%  if content | length < 10 %}<div class="u-text-ticker">{{ content | safe }}</div>{%  endif %}
           </div>
+      </div>
 	</div>
 {% endmacro %}

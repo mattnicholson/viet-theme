@@ -24,7 +24,7 @@
 
 {# Render the component #}
 {% macro render(props) %}
-<div class="modalMenusTemplate {% if props.modifier %}modalMenusTemplate--{{ props.modifier }}{% endif %}" x-data="modalMenusTemplate">
+<div class="modalMenusTemplate {% if props.modifier %}modalMenusTemplate--{{ props.modifier }}{% endif %}">
 	<ul class="relative flex flex-col md:flex-row gap-gutter " data-no-swup>
     {% for menu in props.menus %}
     <li class="w-full aspect-[2/1] md:w-[33.33%] md:aspect-[3/3.9] text-light relative"><div class="absolute w-full h-full z-[0]">
@@ -32,7 +32,7 @@
     fit:'cover',
     src:menu.image
   }) }}
-  </div><a class="w-full h-full z-[1] absolute top-0 left-0 flex items-center text-center justify-center u-text-eyebrow bg-transparentblack" href="{{ menu.pdf}}">{{menu.title}}</a>
+  </div><a class="w-full h-full z-[1] absolute top-0 left-0 flex items-center text-center justify-center u-text-hero bg-transparentblack" href="{{ menu.pdf}}">{{menu.title}}</a>
     </li>
 	{% endfor %}
   </ul>

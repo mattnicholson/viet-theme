@@ -13,6 +13,7 @@
 @import '../components/form/form.css';
 @import '../components/frame/frame.css';
 @import '../components/header/header.css';
+@import '../components/headerWithData/headerWithData.css';
 @import '../components/headingFrame/headingFrame.css';
 @import '../components/image/image.css';
 @import '../components/imageWithText/imageWithText.css';
@@ -35,6 +36,7 @@
 @import '../components/newsletterPanel/newsletterPanel.css';
 @import '../components/shadow/shadow.css';
 @import '../components/socials/socials.css';
+@import '../components/stack/stack.css';
 @import '../components/tabSwitcher/tabSwitcher.css';
 @import '../components/theme/theme.css';
 @import '../components/ticker/ticker.css';

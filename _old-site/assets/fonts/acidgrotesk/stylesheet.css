@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'Acid Grotesk';
+	src: url('/assets/fonts/acidgrotesk/AcidGrotesk-Light.woff2') format('woff2'),
+		url('/assets/fonts/acidgrotesk/AcidGrotesk-Light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}

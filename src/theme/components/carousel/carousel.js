@@ -1,2 +1,2 @@
 // Dependencies for carousel...
-import '../../../../assets/js/components/keen-slider'
+import '../../../../assets/js/alpine/keen-slider'

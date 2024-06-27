@@ -1,0 +1,247 @@
+---
+permalink: /
+eleventyExcludeFromCollections: true
+---
+{% extends "src/theme/_layout.njk" %}
+
+{%  block page %}
+
+	{% render 'masthead',{
+		inheritProps:true,
+		render : {
+			modifier:'logo',
+			image:'/assets/img/home/01-masthead.jpg'
+		},
+		wrapper : {
+			modifier : 'withTicker'
+		}
+	} %}
+
+	{% render 'ticker',{
+		inheritProps:true,
+		render : {
+			content:'Authentic Vietnamese Flavours'
+		}
+	} %}
+	
+	{{ 'theme' | render({
+
+			render : {
+				modifier:'gold',
+				content : [
+
+					'shadow' | render({
+
+						render : {
+							content : [
+
+								'imageWithText' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier : 'imageRight',
+											preHeading : 'Our Story',
+											heading : 'A Taste of Vietnam',
+											text:'<p>Over the past 20 years, founder Hieu Bui has revolutionised the UK’s Vietnamese food scene, refining the authentic recipes he gathers on his travels, and recreating them with quality British produce sourced at the peak of its season.</p>',
+											image : '/assets/img/home/02-story.jpg',
+											link1Url:'/our-story/',
+											link1Text:'Read More',
+											link2Url:false
+										}
+									}
+								),
+
+								'headingFrame' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier:'1',
+											title:'Menus'
+										}
+									}
+								),
+
+								'content' | render(
+									{
+										inheritProps:true,
+										render : {
+											content:'<p>On our menu, you’ll find classic Vietnamese dishes made with fresh, seasonal ingredients, from comforting phở and slow-simmered curries to vibrant summer rolls and crunchy salads.</p>'
+										}
+									}
+								),
+
+								'tabSwitcher' | render(
+									{
+										inheritProps:true,
+										render : {
+											tabs : locations | map({
+												title : '{{ title }}',
+												content : "{{ 'stack' | render(
+													{
+														render:{
+															items:[
+																'modalMenusTemplate' | render({
+																	render:{
+																		menus:menus
+																	}
+																}),
+																'nav' | render({
+																	render : {
+																		modifier:'buttons',
+																		links : [
+																			{
+																				text : 'Book A Table',
+																				url : bookingLink,
+																				newWindow:true
+																			},
+																			{
+																				text : 'Order Delivery',
+																				url : deliveryUrl,
+																				newWindow:true
+																			},
+																			{
+																				text : 'Order Takeaway',
+																				url : '#takeaway'
+																			}
+																		]
+																	}
+																})
+															]
+														}
+													}
+												) | safe }}"
+											})
+										}
+									}
+								)
+
+							] | join('')
+						}
+
+					})
+
+				] | join('')
+			}
+
+		}) | safe }}
+
+		{{ [
+			'frame' | render({
+				render : {
+					modifier : 'spacer'
+				}
+			}),
+
+			'media' | render(
+					{
+						inheritProps:true,
+						render : {
+							image : '/assets/img/home/03-media-image.jpg',
+							texture : '/assets/img/home/03-media-texture.png',
+							illustration:false,
+							modifier:'inset'
+						}
+					}
+				),
+
+			'imageWithText' | render(
+				{
+					inheritProps:true,
+					render : {
+						modifier : 'imageLeft',
+						preHeading : 'Events',
+						heading : 'Groups + Private Bookings',
+						text:'<p>We create bespoke packages for groups of all sizes, from six to 30. Whether it’s canapés and cocktails or a Vietnamese feast for the whole room to share, we’re here to make it happen.</p>',
+						image : '/assets/img/home/04-events.jpg',
+						link1Url:'/groups-and-parties/',
+						link1Text:'Find Out More',
+						link2Url:false
+					},
+					wrapper : {
+						modifier : 'alt'
+					}
+				}
+			),
+
+			'collage' | render(
+				{
+					inheritProps:true,
+					render : {
+						title : 'A Journey Through Vietnam',
+						modifier : '4',
+						landscape:'/assets/img/home/05-collage-image.jpg',
+						portrait:'/assets/img/home/05-collage-texture.png',
+						illustration:'/assets/img/home/05-collage-illustration.png'
+					},
+					wrapper : {
+						modifier : 'dark'
+					}
+				}
+			),
+
+			'media' | render(
+				{
+					inheritProps:true,
+					render : {
+						image : '/assets/img/home/06-media-image.jpg',
+						modifier:'full'
+					}
+				}
+			),
+
+			'imageWithText' | render(
+				{
+					inheritProps:true,
+					render : {
+						modifier : 'imageRight',
+						preHeading : 'Gifts',
+						heading : 'Gift Vouchers',
+						text:'<p>Treat someone to a Cây Tre voucher to mark a special occasion, say thank you or let them know you’re thinking of them. In return, we’ll treat them to some traditional Vietnamese hospitality at our homes in Hoxton and Soho.</p>',
+						image : '/assets/img/home/07-gift-vouchers.jpg',
+						link1Url:'#',
+						link1Text:'Buy Now',
+						link2Url:false
+					},
+					wrapper : {
+						modifier : 'alt'
+					}
+				}
+			)
+
+		] | join('') | safe }}
+
+		{{ 'theme' | render({
+
+			render : {
+				modifier:'gold',
+				content : [
+
+					'shadow' | render({
+
+						render : {
+							content : [
+								'mapPanel' | render({
+									render : {
+										title : 'Find Us',
+										locations : locations | map(
+											{
+												label:'{{ title }}',
+												address:'{{ locationAddress | safe }}',
+												mapUrl:'{{ locationMapUrl}}',
+												email: '{{ locationEmail }}',
+												telephone:'{{ locationTelephone }}',
+												openingHours : '{{ locationOpening | safe }}',
+												latlng:"{{ locationLatLng }}"
+											}
+										)
+									}
+								})
+							] | join('')
+						}
+					})
+				] | join('')
+			}
+		}) | safe }}
+	
+
+{%  endblock %}

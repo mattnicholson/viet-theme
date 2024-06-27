@@ -1,0 +1,78 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	links : data('linklists').main,
+	mobileLinks : data('linklists').main,
+	shortcuts : [{
+		url : '#menu',
+		title : 'Menu'
+	},
+	{
+		url : '#locations',
+		title : 'Find Us'
+	},
+	{
+		url : '#book',
+		title : 'Book'
+	},
+	{
+		url : '#takeaway',
+		title : 'Takeaway'
+	},
+	{
+		url : '/groups-and-parties/',
+		title : 'Group Bookings'
+	}],
+	mobileShortcuts : [{
+		url : '#menu',
+		title : 'Menu'
+	},
+	{
+		url : '#locations',
+		title : 'Find Us'
+	}],
+	actions : [
+	{
+		url : '#book',
+		title : 'Book'
+	},
+	{
+		url : '#takeaway',
+		title : 'Takeaway'
+	},
+	{
+		url : '#delivery',
+		title : 'Delivery'
+	}],
+	locations : data('locations') | map({
+		slug : '{{ slug }}',
+		title : '{{ title }}',
+		bookingLink : '{{ bookingLink }}',
+		address:'{{ locationAddress | safe }}',
+		mapUrl:'{{ locationMapUrl}}',
+		email: '{{ locationEmail }}',
+		telephone:'{{ locationTelephone }}',
+		openingHours : '{{ locationOpening | safe }}',
+		menus: '{{ menus | json | safe }}'								
+	},{
+		jsonKeys : ['menus']
+	})
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+
+	{% render 'header',{
+        render : props,
+        wrapper:{
+            modifier:'fixed'
+        }
+    } %}
+    	
+{% endmacro %}
+
+

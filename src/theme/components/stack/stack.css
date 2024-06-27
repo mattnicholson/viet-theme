@@ -1,0 +1,19 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .stack {
+        @apply flex flex-col gap-gutter;
+    }
+
+    .stack.stack--default {
+		
+	}
+
+	
+}

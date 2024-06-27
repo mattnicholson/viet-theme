@@ -45,6 +45,20 @@
 			"url": "#locations"
 		}
 	],
+	"footer": [
+		{
+			"title": "Our Story",
+			"url": "/our-story/"
+		},
+		{
+			"title": "Groups & Parties",
+			"url": "/groups-and-parties/"
+		},
+		{
+			"title": "Contact Us",
+			"url": "#locations"
+		}
+	],
 	"legal": [
 		{
 			"title": "Privacy Policy",

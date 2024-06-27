@@ -13,11 +13,21 @@
         @apply relative;
         background: var(--frame-bg);
         padding: var(--frame-size);
+        min-height: calc(100vh);
     }
 
-    .frame.frame--default {
-		
+    .frame.frame--main {
+		main{
+            @apply flex flex-col flex-grow min-h-[calc(100vh-(2*var(--frame-size)))];
+        }
 	}
+
+    .frame.frame--spacer {
+        min-height: 0;
+        padding: 0;
+        height: var(--frame-size);
+        background: transparent;
+    }
 
 	
 }

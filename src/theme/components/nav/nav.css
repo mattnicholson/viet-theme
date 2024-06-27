@@ -50,13 +50,16 @@
 				@apply justify-end;
 			}
 		}
-		.nav--buttons,
-		.nav--links,
-		.nav--hero{
+		.nav--buttons{
 			--theme-button-active-bg: theme('colors.light');
 			--theme-button-active-fg: theme('colors.grey');
 
 			@apply text-light;
+		}
+
+		.nav--links,
+		.nav--hero{
+			@apply text-sand;
 		}
 	}
 

@@ -30,5 +30,12 @@
 		--theme-fg: theme('colors.sand');
 		--theme-text: theme('colors.sand');
 	}
+
+	.theme.theme--gold {
+		--theme-bg: theme('colors.light');
+		--theme-fg: theme('colors.gold');
+		--theme-text: theme('colors.grey');
+		--theme-button-active-bg: theme('colors.gold');
+	}
 	
 }

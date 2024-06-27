@@ -1,0 +1,94 @@
+{% extends "src/theme/inc/theme.njk" %}
+
+
+{% block head %}
+    {#  <head></head> #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/gfx/icon.png" />
+{% endblock %}
+
+{#  Before swup #}
+{% block header %}
+
+    {% render 'headerWithData' %}
+
+    <!-- frame -->
+    <div class="frame frame--main">
+{% endblock %}
+
+{#  After swup #}
+{% block footer %}
+    
+    
+
+     {% render 'nav',{
+        inheritProps:true,
+        render : {
+            pageLinks : true,
+            modifier : 'hero',
+            links : linklists.footer | map({
+                text : "{{ title | safe }}",
+                url : "{{ url }}"
+            })
+        },
+        wrapper:{
+            modifier:'texture'
+        }
+    } %}
+
+    {% render 'newsletterPanel',{
+        inheritProps:true,
+        render : {
+            text : '<strong>Privacy Notice:</strong> By signing up, you consent to receive occasional emails with news about Vietnamese Kitchen restaurants, events and suchlike, in accordance with the Privacy Policy.'
+        },
+        wrapper:{
+            modifier:''
+        }
+    } %}
+
+    {% render 'logos',{
+        inheritProps:true,
+        render : {
+            
+        },
+        wrapper:{
+            modifier:'dark'
+        }
+    } %}
+
+    {% render 'footer',{
+        inheritProps:true,
+        render : {
+            
+        },
+        wrapper:{
+            modifier:'dark'
+        }
+    } %}
+
+    {% render 'floatingActionMenu',{
+        inheritProps:true,
+        render : {
+            links : [
+                {
+                    url : '/vietnamese/',
+                    text : 'Việt'
+                }
+            ]
+        },
+        wrapper:{
+            modifier:'fixed'
+        }
+    } %}
+
+
+    </div>
+    <!-- / frame -->
+    
+{% endblock %}
+
+{% block scripts %}
+    {# before </body> #}
+{% endblock %}

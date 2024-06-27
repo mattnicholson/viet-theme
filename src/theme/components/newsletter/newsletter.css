@@ -10,7 +10,8 @@
         }
 
         .newsletter-text{
-            @apply u-text-body text-center;
+            max-width: 25em;
+            @apply mx-auto px-gutter u-text-body text-left;
         }
 
         .newsletter-form {

@@ -17,7 +17,7 @@
 		email: 'email2@email.com',
 		telephone:'0 1234567890',
 		openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
-		latlng:"50, -0.1321925628430808"
+		latlng:"52, -0.1321925628430808"
 	}
 	]
 } %}
@@ -37,11 +37,11 @@
 	<div class="mapPanel-content">
 		<div class="mapPanel-details">
 			
-	      <div class="content text-center lg:pl-inset">
+	      <div class="text-center lg:pl-inset">
 	      		{% if props.locations | length > 1 %}
-	      			<ul class="flex flex-row gap-gutter my-gutter items-center justify-center">
+	      			<ul class="pb-inset flex flex-row gap-gutter my-gutter items-center justify-center">
 	      			{% for t in props.locations %}
-	      			<li @click="tabIndex = {{ loop.index0 }}" class="u-link-button min-w-[0]" :class="(tabIndex === {{ loop.index0 }}) ? 'opacity-1' : 'opacity-30'">{{ t.label }}</li>
+	      			<li @click="tabIndex = {{ loop.index0 }}" class="u-link-button min-w-[0]" :class="(tabIndex === {{ loop.index0 }}) ? 'active' : 'inactive'">{{ t.label }}</li>
 					{%  endfor %}
 	      			 </ul>
 	      		{%  endif %}
@@ -72,7 +72,8 @@
 
     {% render 'headingFrame',{
 		render : {
-			title:props.title
+			title:props.title,
+			modifier : '2'
 		},
      	skipWrapper:true,
      	inheritProps:true

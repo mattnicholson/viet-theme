@@ -2,6 +2,7 @@
 @layer utilities {
     :root {
     	--media-default-bg: theme('colors.grey');
+    	--media-inset: clamp(20px,5vw,100px);
     }
 }
 
@@ -32,7 +33,7 @@
 
 	.media.media--inset {
 		.media-image{
-			@apply top-[10vw] left-[10vw] right-[10vw] bottom-[10vw];
+			@apply top-[var(--media-inset)] left-[var(--media-inset)] right-[var(--media-inset)] bottom-[var(--media-inset)];
 		}
 	}
 

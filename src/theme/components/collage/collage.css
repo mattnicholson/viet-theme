@@ -13,7 +13,6 @@
 
 @layer components {
 
-
 	.collage-wrapper.collage-wrapper--alt{
     	background: var(--collage-alt-bg);
     	color: var(--collage-alt-fg);
@@ -34,6 +33,7 @@
 
     .collage {
     	@apply u-layout-wrapper;
+    	@apply my-inset;
 
     	.collage-media{
     		@apply relative z-[1] aspect-[6/4];

@@ -6,27 +6,15 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600;700" rel="stylesheet">
-<link rel="icon" type="image/png" href="/assets/gfx/icon.png" />
-
 <link rel="stylesheet" href="/style.css?v={% version %}"/>
 
 {%  block head %}
-<style type="text/css">
-	
-</style>
+	{#  NOTE: If you override the {% head %} block, you will need to relink the icon #}
+	<link rel="icon" type="image/png" href="/assets/gfx/icon.png" />
 {% endblock %}
 <body>
-	{#<style type="text/css">
-		:root{
-			--color-accent-bg: #FF0000;
-			--color-accent-fg: #FFFFFF;
-
-			--sizes-frame: 8px;
-		}
-	</style>#}
+	
+	{# Create a root theme #}
 	{% render 'theme',{
 		inheritProps:true,
 		render : {
@@ -34,18 +22,32 @@
 			content : ''
 		}
 	} %}
+
+	{%  block header %}
+	
+	{% endblock %}
+
 	<div id="page">
 		<div class="page-body">
 			<div id="opener" class="transition-fade"></div>
 			<div id="swup" class="transition-fade">
 		  		<main>
-				{%  block body %}
+				{%  block page %}
 
 				{%  endblock %}
 				</main>
 			</div>
 		</div>
 	</div>
+
+	{%  block footer %}
+	
+	{% endblock %}
+
+	{%  block scripts %}
+	
+	{% endblock %}
+
 </body>
 <script type="text/javascript" src="/js/main.js"></script>
 </html>

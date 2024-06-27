@@ -2,8 +2,8 @@
 permalink: /test/
 eleventyExcludeFromCollections: true
 ---
-{% extends "src/theme/inc/theme.njk" %}
-{%  block body %}
+{% extends "src/theme/_spec.njk" %}
+{%  block page %}
 	{# When extending the theme, component macros are in the global scope inside a 'components' object #}
 	{{ components.example.render() }}
 

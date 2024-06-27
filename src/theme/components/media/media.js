@@ -1,1 +1,1 @@
-import '../../../../assets/js/components/viewportProgress'
+import '../../../../assets/js/alpine/viewportProgress'

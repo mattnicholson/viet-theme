@@ -9,6 +9,8 @@
 {# Anything defined in here will be available at the theme level #}
 {% set modifiers = ["logo","title"] %}
 
+{% set wrapperModifiers = ["default","withTicker"] %}
+
 {# Render the component #}
 {% macro render(props) %}
 <div class="masthead {% if props.modifier %}masthead--{{ props.modifier }}{% endif %}">
@@ -25,7 +27,8 @@
 		{% render 'image',{
 	      	render:{
 	      		src : props.image,
-	      		fit:'cover'
+	      		fit:'cover',
+	      		modifier:'transparent'
 	      	}
 	     } %}
 	</div>

@@ -16,9 +16,11 @@
 
         h1 {
           @apply u-text-hero pb-[1em];
+          color: var(--theme-fg);
         }
         p {
           @apply pb-[2em];
+          color: var(--theme-text);
         }
         h2,
         h3,
@@ -27,12 +29,14 @@
         h6 {
           font-weight: bold;
           padding-bottom: 0.5em;
+          color: var(--theme-fg);
         }
 
         ul {
           text-align: left;
           padding-left: 1em;
           padding-bottom: 2em;
+          color: var(--theme-text);
 
           li {
             list-style: disc;

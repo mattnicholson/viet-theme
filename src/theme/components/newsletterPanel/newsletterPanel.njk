@@ -1,5 +1,7 @@
 {# Anything defined in here will be available at the theme level #}
-{% set defaultProps = {} %}
+{% set defaultProps = {
+  text : 'Lorem ipsum dolor sit amet'
+} %}
 
 {# Anything defined in here will be available at the theme level #}
 {% set modifiers = ["default"] %}
@@ -24,7 +26,7 @@
           </div>
           <div class="w-[80%] mx-auto md:w-full text-center">
             {{ _('newsletter').render({
-              text:'Lorem ipsum dolor sit amet'
+              text:props.text
             }) }}
           </div> 
         </div>

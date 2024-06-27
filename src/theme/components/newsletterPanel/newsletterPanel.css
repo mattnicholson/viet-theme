@@ -10,12 +10,12 @@
     .newsletterPanel {
 
         @apply footer-texture aspect-[4/1] flex items-center;
-        @apply relative text-sand;
+        @apply relative bg-grey text-sand;
 
-        background: center center no-repeat;
+        /*background: center center no-repeat;
         background-image: var(--theme-footer-texture);
         background-color: var(--theme-footer-bg);
-        background-size: cover;
+        background-size: cover;*/
         z-index: 1;
 
         &:after {

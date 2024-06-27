@@ -143,7 +143,10 @@ exports.init = function (eleventyConfig){
 
 
     eleventyConfig.addFilter('nunjucks', function(string, context) {
-		return nunjucks.renderString(string,{...this.ctx,...context});
+
+
+		return this.env.renderString(string,{...this.ctx,...context});
+
     });
 	
 
@@ -164,18 +167,37 @@ exports.init = function (eleventyConfig){
 			class : "active === {{ index }} ? 'active' : 'inactive'"
 	}) %}
 
+	You can also send in a list of keys that should be converted back into an object...
+
+	{%  set links = items | map({
+		
+			data : '{{ data | json | safe }}'
+			
+	},{
+		jsonKeys: ['data']
+	}) %}
+
+	The matching keys will be converted back into objects with JSON.decode() - make sure they were encoded in the first pass, and the JSON is valid and was rendered 'safe'!
+
     */
 
 
-    eleventyConfig.addFilter('map', function(array, schema) {
+    eleventyConfig.addFilter('map', function(array, schema, opts) {
 		return array.map((i,ix)=>{
 
 			let out = {};
 
 			Object.keys(schema).forEach(key => {
   				let value = schema[key];
-  				out[key] = nunjucks.renderString(value,{...this.ctx,...i,index:ix});
+  				let rendered = this.env.renderString(value,{...this.ctx,...i,index:ix});
 
+  				out[key] = rendered;
+
+  				if(opts && opts.jsonKeys){
+  					if(opts.jsonKeys.indexOf(key) !== -1){
+  						out[key] = JSON.parse(rendered)
+  					}
+  				}
 			});
 
 			return out;
@@ -196,6 +218,8 @@ exports.init = function (eleventyConfig){
         d[key] = value;
         return d;
     });
+
+    
 
 }
 

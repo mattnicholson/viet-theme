@@ -2,8 +2,9 @@
     /* TICKER */
     :root {
         --ticker-duration: 20s;
-        --ticker-default-bg: theme('colors.frame');
-        --ticker-default-fg: theme('colors.frametext');
+        --ticker-default-bg: var(--theme-accent);
+        --ticker-default-fg: var(--theme-text);
+        --ticker-height: 4.5rem;
     }
 }
 
@@ -24,14 +25,19 @@
         --ticker-bg: var(--background,var(--ticker-default-bg));
         --ticker-text: var(--foreground,var(--ticker-default-fg));
 
+        @apply flex flex-row items-center;
+        height: var(--ticker-height);
+
         white-space: nowrap;
         overflow: hidden;
         width: 100%;
 
-        @apply py-gutter;
-
         background: var(--ticker-bg);
         color: var(--ticker-text);
+
+        & > div{
+            @apply grow-0;
+        }
 
         & .ticker-body {
             animation: ticker 10s linear infinite;
@@ -46,7 +52,7 @@
                 font-weight: bold;
                 &:after {
                     content: '*';
-                    display: inline-block;
+                    display: none;
 
                     padding-left: 2.2em;
                 }

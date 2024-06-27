@@ -23,17 +23,17 @@
 			{
 				"title": "A la Carte",
 				"pdf": "/assets/pdf/menu-alacarte.pdf",
-				"image": "/assets/img/home/ct-03-a-la-carte.jpg"
+				"image": "/assets/img/menus/soho/a-la-carte.jpg"
 			},
 			{
 				"title": "Drinks",
 				"pdf": "/assets/pdf/menu-drinks.pdf",
-				"image": "/assets/img/menu-drinks.jpg"
+				"image": "/assets/img/menus/soho/drinks.jpg"
 			},
 			{
 				"title": "Takeaway",
 				"pdf": "/assets/pdf/menu-takeaway.pdf",
-				"image": "/assets/img/home/ct-03-takeaway.jpg"
+				"image": "/assets/img/menus/soho/takeaway.jpg"
 			}
 		],
 		"deliveryUrl": "https://deliveroo.co.uk/menu/london/soho/cay-tre",
@@ -79,17 +79,17 @@
 			{
 				"title": "A la Carte",
 				"pdf": "/assets/pdf/menu-alacarte.pdf",
-				"image": "/assets/img/menu-alacarte.jpg"
+				"image": "/assets/img/menus/hoxton/a-la-carte.jpg"
 			},
 			{
 				"title": "Drinks",
 				"pdf": "/assets/pdf/menu-drinks.pdf",
-				"image": "/assets/img/menu-drinks.jpg"
+				"image": "/assets/img/menus/hoxton/drinks.jpg"
 			},
 			{
 				"title": "Takeaway",
 				"pdf": "/assets/pdf/menu-takeaway.pdf",
-				"image": "/assets/img/menu-takeaway.jpg"
+				"image": "/assets/img/menus/hoxton/takeaway.jpg"
 			}
 		],
 		"theme": {
