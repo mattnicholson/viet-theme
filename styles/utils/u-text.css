@@ -25,6 +25,7 @@
 
   .u-text-bodyHeading {
     @apply font-display;
+    font-weight: 700;
     font-size: calc(14px);
     @media screen(md) {
       font-size: 18px;
@@ -45,7 +46,7 @@
 
   .u-text-hero {
     @apply font-display uppercase;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 22px;
     line-height: 120%;
 
@@ -63,7 +64,7 @@
 
   .u-text-max {
     @apply font-display uppercase;
-    font-weight: normal;
+    font-weight: 700;
     font-size: clamp(25px,7vw,60px);
     line-height: 100%;
 
@@ -74,7 +75,7 @@
 
   .u-text-subheading {
     @apply font-display uppercase;
-    font-weight: normal!important;
+    font-weight: 700!important;
     font-size: 14px;
     line-height: 120%;
 
@@ -91,7 +92,7 @@
 
   .u-text-nav {
     @apply font-display uppercase;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 22px;
     line-height: 120%;
 
@@ -110,7 +111,7 @@
     @apply u-text-body;
     font-size: 0.85rem;
     @apply font-display uppercase;
-    font-weight: normal;
+    font-weight: 700;
     line-height: 100%;
 
     letter-spacing: 0.05em;
@@ -118,6 +119,7 @@
 
   .u-text-shortcuts {
     @apply uppercase font-display text-[0.8rem] md:text-[0.6rem];
+     font-weight: 700;
     letter-spacing: 0.03em;
   }
 }

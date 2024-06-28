@@ -30,7 +30,7 @@ module.exports = {
     fontFamily: {
       sans: ['Darker Grotesque', 'sans-serif'],
       serif: ['serif'],
-      display: ['GT Maru', 'sans-serif'],
+      display: ['Quicksand', 'sans-serif'],
     },
     fontWeight: {
       normal: 400,

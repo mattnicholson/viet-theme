@@ -1,7 +1,7 @@
 
 @layer utilities {
     :root {
-        --image-bg: currentColor;
+        --image-bg: var(--theme-fg);
     }
 }
 
