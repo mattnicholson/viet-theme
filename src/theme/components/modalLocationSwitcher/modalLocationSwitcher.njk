@@ -20,6 +20,7 @@
 
 {# Render the component #}
 {% macro render(props) %}
+{%  if props.locations | length > 1 %}
 <div class="modalLocationSwitcher {% if props.modifier %}modalLocationSwitcher--{{ props.modifier }}{% endif %}">
 	
 	<div x-data >
@@ -31,6 +32,7 @@
     </div>
 
 </div>
+{%  endif %}
 {% endmacro %}
 
 

@@ -73,12 +73,10 @@
     {% render 'floatingActionMenu',{
         inheritProps:true,
         render : {
-            links : [
-                {
-                    url : '/vietnamese/',
-                    text : 'Việt'
-                }
-            ]
+            links : linklists.floatingActionMenu | map({
+                text : "{{ title | safe }}",
+                url : "{{ url }}"
+            })
         },
         wrapper:{
             modifier:'fixed'

@@ -1,7 +1,7 @@
 import Alpine from 'alpinejs'
 import Values from 'values.js'
 import { init } from '../utils/alpine'
-import { injectCSS,injectJS } from '../utils/dom'
+import { injectCSS,injectJS, getComputedColor} from '../utils/dom'
 
 /*
 
@@ -18,6 +18,7 @@ Example Usage:
 const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoibWF0dG5pY2hvbHNvbiIsImEiOiJjbG5pd2owMDAxNnpsMmtuazlzNzlsZ3hkIn0.Nb5wUnelQnKppEYQQPflpw';
 let mapboxgl = window.mapboxgl ? window.mapboxgl : null;
 
+
 const initMapbox = ($el,callback) => {
 
 	if(!$el) return;
@@ -28,13 +29,20 @@ const initMapbox = ($el,callback) => {
 		},500)
 		return;
 	}else{
-		let styles = $el.dataset.styles
-		let markerHex = $el.dataset.hex || '#C9C9C9'
-		let tint = $el.dataset.tint || markerHex
-		let accent = $el.dataset.accent || '#FFFFFF'
-		let latLng = $el.dataset.latlng.split(',')
-		let lat = parseFloat(latLng[0].trim())
-		let lng = parseFloat(latLng[1].trim())
+		let styles = $el.dataset.styles;
+		
+		let markerHex = $el.dataset.hex || '#C9C9C9';
+		if(markerHex.match('var')) markerHex = getComputedColor(markerHex,$el);
+
+		let tint = $el.dataset.tint || markerHex;
+		if(tint.match('var')) tint = getComputedColor(tint,$el);
+
+		let accent = $el.dataset.accent || '#FFFFFF';
+		if(accent.match('var')) accent = getComputedColor(accent,$el);
+
+		let latLng = $el.dataset.latlng.split(',');
+		let lat = parseFloat(latLng[0].trim());
+		let lng = parseFloat(latLng[1].trim());
 
 		const colours = new Values(tint).all(20)
 		const accents = new Values(accent).all(20)
@@ -132,7 +140,6 @@ init(() => {
 	Alpine.data('mapbox', () => ({
 		map: null,
 		init(args) {
-			
 			
 			this.$nextTick(() => {
 

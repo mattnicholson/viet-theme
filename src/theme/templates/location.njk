@@ -36,6 +36,7 @@
 								'spacer' | render,
 
 								'nav' | render({
+									condition : (locations | length > 1),
 									render : {
 										pageLinks:false,
 										modifier:'buttons',
@@ -128,6 +129,8 @@
 										}
 									}
 								),
+
+								'spacer' | render,
 
 								'media' | render(
 									{

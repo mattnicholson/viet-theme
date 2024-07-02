@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "write-theme-wrapper":"node src/theme/scripts/createNunjucksComponentWrapper.js",
+    "write-theme-wrapper": "node src/theme/scripts/createNunjucksComponentWrapper.js",
     "watch-js": "npx esbuild ./assets/js/main.js --outfile=./_site/js/main.js --bundle --target=es2018 --watch",
     "watch-styles": "npx postcss styles/style.css -o _site/style.css --watch",
     "dev": "NODE_ENV=development concurrently  \"npm run write-theme-wrapper\" \"ELEVENTY_ENV=development eleventy --serve --port 8000\"  \"npm:watch-*\"",

@@ -41,6 +41,12 @@
 			"title" : "Catering"
 		}
 	],
+	"floatingActionMenu": [
+		{
+            "url" : "/vietnamese/",
+            "title" : "Việt"
+        }
+	],
 	"actions": [
 		{
 			"title": "Book",

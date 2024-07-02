@@ -33,9 +33,10 @@ init(() => {
 		setImage() {
 			let src = this.$el.dataset.src
 			let fit = this.$el.dataset.fit || 'natural'
-
+			let alt = this.$el.dataset.alt || `Image from ${window.location.hostname}`;
+			
 			if (src) {
-				this.$el.innerHTML = `<img src="${src}" class="block w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
+				this.$el.innerHTML = `<img src="${src}" alt="${alt}" class="block w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
 					fit === 'natural' ? 'object-none' : ''
 				} ${fit === 'cover' ? 'h-full object-cover' : ''} ${
 					fit === 'contain' ? 'h-full object-contain' : ''

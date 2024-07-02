@@ -62,4 +62,32 @@ const injectCSS = (href) => {
     document.head.appendChild(script);
   }
 
-export { ready, letterize, cachebustSamePageLinks,injectJS,injectCSS }
+// Compute a hex value from a cssvar
+function getComputedColor(cssVar,$el) {
+  // Create a temporary element
+  const tempEl = document.createElement('div');
+  tempEl.style.display = 'none';
+  $el.appendChild(tempEl);
+
+  // Apply the CSS variable to the temporary element
+  tempEl.style.color = cssVar;
+
+  // Get the computed style of the element
+  const computedColor = getComputedStyle(tempEl).color;
+
+  // Remove the temporary element from the DOM
+  $el.removeChild(tempEl);
+
+  // Convert the computed color (RGB) to a hex code
+  const rgb = computedColor.match(/\d+/g);
+  const hex = rgb
+    ? `#${((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2]))
+        .toString(16)
+        .slice(1)
+        .toUpperCase()}`
+    : null;
+
+  return hex;
+}
+
+export { ready, letterize, cachebustSamePageLinks,injectJS,injectCSS, getComputedColor }

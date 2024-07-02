@@ -25,5 +25,9 @@
 		@apply gap-gutter grid-cols-1 md:grid-cols-3 u-layout-wrapper;
 	}
 
+	.itemGrid:has(> div:only-child) {
+	  @apply grid-cols-1 w-[70%] md:w-1/2 mx-auto;
+	}
+
 	
 }

@@ -16,9 +16,14 @@
 		"button-roundness" : "9999px",
 		"button-active-bg" : "var(--theme-fg)",
 		"button-active-fg" : "var(--theme-bg)",
+		"button-inactive-opacity" : "1",
 
 		"frame-size" : "clamp(6px,1vw,16px)",
 		"frame-bg" : "var(--theme-accent)",
+
+		"map-pin" : "var(--theme-colors-grey)",
+		"map-tint" : "var(--theme-colors-gold)",
+		"map-roads" : "var(--theme-colors-light)",
 
 		"nav-texture" : "url(/assets/img/texture/footer-nav-texture.png)",
 

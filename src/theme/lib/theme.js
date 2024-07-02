@@ -95,6 +95,11 @@ exports.init = function (eleventyConfig){
 			let skipWrapper = false;
 			if(props && props.skipWrapper) skipWrapper = true;
 
+			// Allow conditional rendering by passign in a condition prop that is boolean
+			if(props && props.hasOwnProperty('condition')){
+				if(!props.condition) return '';
+			}
+
 			if(c.wrapper && !skipWrapper){
 				let renderProps = props && props.render ? props.render : c.defaultProps;
 				let wrapperProps = props && props.wrapper ? props.wrapper : {};

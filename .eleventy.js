@@ -1,5 +1,4 @@
 const theme = require('./src/theme/lib/theme')
-
 const htmlmin = require('html-minifier')
 
 const now = String(Date.now())
@@ -36,7 +35,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (
-      process.env.ELEVENTY_PRODUCTION &&
       outputPath &&
       outputPath.endsWith('.html')
     ) {

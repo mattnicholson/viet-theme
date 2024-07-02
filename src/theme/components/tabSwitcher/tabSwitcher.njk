@@ -28,6 +28,7 @@
 			class : "active === {{ index }} ? 'active' : 'inactive'"
 	}) %}
 
+	{% if tabs | length > 1 %}
 	<div>
 	{%  render 'nav',{
 		render : {
@@ -40,6 +41,7 @@
 		}
 	} %}
 	</div>
+	{% endif %}
 	<div>
 	{% for t in props.tabs %}
 		<template x-if="active === {{ loop.index0 }}">

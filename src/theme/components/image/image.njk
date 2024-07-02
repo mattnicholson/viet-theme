@@ -4,7 +4,8 @@
 
 {% set defaultProps = {
 	fit:'cover',
-	src:'/assets/img/placeholder.jpg'
+	src:'/assets/img/placeholder.jpg',
+	alt : ['Image from ',data('site').url | replace('https://',''),', ',data('site').description] | join
 } %}
 
 {# Anything defined in here will be available at the theme level #}
@@ -14,7 +15,9 @@
 
 {# Render the component #}
 {% macro render(props) %}
-<div class="image {% if props.modifier %}image--{{ props.modifier }}{% endif %}" x-data="image" x-bind="lazy" data-fit="{{ props.fit }}" data-src="{{ props.src }}"></div>
+{% set alt = defaultProps.alt  %}
+{%  if props.alt %}{% set alt = props.alt  %}{%  endif %}
+<div class="image {% if props.modifier %}image--{{ props.modifier }}{% endif %}" data-alt="{{ alt }}" x-data="image" x-bind="lazy" data-fit="{{ props.fit }}" data-src="{{ props.src }}"></div>
 {% endmacro %}
 
 
