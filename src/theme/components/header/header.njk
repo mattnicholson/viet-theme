@@ -290,25 +290,26 @@
           </template>
 
          
-
-          <div x-show="$store.route.match('#more')">
+          <template x-data x-if="$store.route.match('#more')">
+          <div>
             <div class="relative py-inset min-h-[50vh] flex flex-col justify-center items-center">
 
-            <div class="md:min-w-[650px]" x-data @click="$store.route.removeHash()">
-              <ul class="u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em]">
-          
-              {%  for link in props.links %}
-              <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
-              {% endfor %}
-              </ul>
-               
-            </div>
+              <div class="md:min-w-[650px]" x-data @click="$store.route.removeHash()">
+                <ul class="u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em]">
+            
+                {%  for link in props.links %}
+                <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+                {% endfor %}
+                </ul>
+                 
+              </div>
 
-             <div x-data class="u-link-close absolute -bottom-[0.3em] left-0 right-0" @click="$store.route.removeHash()">Close</div>
+              <div x-data class="u-link-close absolute -bottom-[0.3em] left-0 right-0" @click="$store.route.removeHash()">Close</div>
              
             </div>
           </div>
-
+          </template>
+          
           </div>
   </header>
 {% endmacro %}
