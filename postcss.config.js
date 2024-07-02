@@ -4,7 +4,7 @@ module.exports = {
 		require('tailwindcss/nesting'),
 		require('tailwindcss')('./styles/tailwind.config.js'),
 		require('autoprefixer'),
-		//require('cssnano'),
+		require('cssnano'),
 		// Add other PostCSS plugins here if needed
 	],
 }
