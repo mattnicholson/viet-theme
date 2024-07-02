@@ -1,0 +1,13 @@
+---
+pagination:
+    data: entries
+    size: 1
+    alias: entry
+permalink: "{{ entry | uniquePermalink }}"
+---
+
+{# This file creates a page dynamically for every item in _data/entries.json #}
+{% extends "src/theme/inc/template.njk" %}  
+
+
+  

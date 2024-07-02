@@ -1,0 +1,14 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default","gutter","frame","desktopDouble"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="spacer {% if props.modifier %}spacer--{{ props.modifier }}{% endif %}"></div>
+{% endmacro %}
+
+

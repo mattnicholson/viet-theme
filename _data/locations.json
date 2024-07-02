@@ -2,6 +2,22 @@
 	{
 		"title": "Soho",
 		"slug": "soho",
+		"url": "/our-locations/soho/",
+		"content":{
+			"heading" : "From Saigon to Soho",
+			"intro" : "<p>On Dean Street, a stone’s throw from both Chinatown and the West End theatre district, you’ll find the home of traditional Vietnamese cooking in London. Look out for our glowing paper lanterns and expect a warm welcome in the capital’s buzziest neighbourhood.</p>",
+			"masthead" : "/assets/img/locations/soho/01-masthead.jpg",
+			"collageStyle":"1",
+			"collagePortrait" : "/assets/img/locations/soho/02-collage-image.jpg",
+			"collageLandscape" : "/assets/img/locations/soho/02-collage-texture.png",
+			"collageIllustration" : "/assets/img/locations/soho/02-collage-illustration.png",
+			"mediaImage" : "/assets/img/locations/soho/03-media-image.jpg",
+			"mediaTexture" : "/assets/img/locations/soho/03-media-texture.png",
+			"groupImage" :"/assets/img/group-bookings/02-item-soho.jpg",
+			"groupDescription" :  "Join us in the heart of London, where we can accommodate groups of up to 30 guests for everything from drinks receptions to full-blown feasts."
+		},
+		
+		"thumbnail" : "/assets/img/our-story/05-item-soho.jpg",
 		"graphic": "/assets/img/soho-texture.png",
 		"texture": "/assets/img/bg-soho.jpg",
 		"footer": "/assets/img/footer.png",
@@ -22,17 +38,17 @@
 		"menus": [
 			{
 				"title": "A la Carte",
-				"pdf": "/assets/pdf/menu-alacarte.pdf",
+				"pdf": "/assets/pdf/soho/menu-alacarte.pdf",
 				"image": "/assets/img/menus/soho/a-la-carte.jpg"
 			},
 			{
 				"title": "Drinks",
-				"pdf": "/assets/pdf/menu-drinks.pdf",
+				"pdf": "/assets/pdf/soho/menu-drinks.pdf",
 				"image": "/assets/img/menus/soho/drinks.jpg"
 			},
 			{
 				"title": "Takeaway",
-				"pdf": "/assets/pdf/menu-takeaway.pdf",
+				"pdf": "/assets/pdf/soho/menu-takeaway.pdf",
 				"image": "/assets/img/menus/soho/takeaway.jpg"
 			}
 		],
@@ -55,6 +71,21 @@
 	{
 		"title": "Hoxton",
 		"slug": "hoxton",
+		"url": "/our-locations/hoxton/",
+		"content":{
+			"heading" : "From Hanoi to Hoxton",
+			"intro" : "<p>Our flagship spot was one of the first Vietnamese restaurants to open its doors in London. Decorated with beautiful wooden panelling and contemporary Vietnamese art, it’s the perfect pitstop to grab a table and watch the quirky East End go by. </p>",
+			"masthead" : "/assets/img/locations/hoxton/01-masthead.jpg",
+			"collageStyle":"1",
+			"collagePortrait" : "/assets/img/locations/hoxton/02-collage-image.jpg",
+			"collageLandscape" : "/assets/img/locations/hoxton/02-collage-texture.png",
+			"collageIllustration" : "/assets/img/locations/hoxton/02-collage-illustration.png",
+			"mediaImage" : "/assets/img/locations/hoxton/03-media-image.jpg",
+			"mediaTexture" : "/assets/img/locations/hoxton/03-media-texture.png",
+			"groupImage" :"/assets/img/group-bookings/02-item-hoxton.jpg",
+			"groupDescription" :  "Our Hoxton home can accommodate groups of up to 20 guests, with a choice of both set menus and à la carte options available."
+		},
+		"thumbnail" : "/assets/img/our-story/05-item-hoxton.jpg",
 		"graphic": "/assets/img/hoxton-texture.png",
 		"texture": "/assets/img/hoxton-plants.png",
 		"image": "/assets/img/hoxton.jpg",
@@ -78,17 +109,17 @@
 		"menus": [
 			{
 				"title": "A la Carte",
-				"pdf": "/assets/pdf/menu-alacarte.pdf",
+				"pdf": "/assets/pdf/hoxton/menu-alacarte.pdf",
 				"image": "/assets/img/menus/hoxton/a-la-carte.jpg"
 			},
 			{
 				"title": "Drinks",
-				"pdf": "/assets/pdf/menu-drinks.pdf",
+				"pdf": "/assets/pdf/hoxton/menu-drinks.pdf",
 				"image": "/assets/img/menus/hoxton/drinks.jpg"
 			},
 			{
 				"title": "Takeaway",
-				"pdf": "/assets/pdf/menu-takeaway.pdf",
+				"pdf": "/assets/pdf/hoxton/menu-takeaway.pdf",
 				"image": "/assets/img/menus/hoxton/takeaway.jpg"
 			}
 		],

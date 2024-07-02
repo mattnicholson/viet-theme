@@ -84,6 +84,8 @@
 
 	.collage.collage--1 {
 
+		@apply !pt-0 !pb-[20vh];
+
 		.collage-title{
 			@apply u-text-hero text-center pb-[1em];
 		}

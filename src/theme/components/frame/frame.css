@@ -18,7 +18,8 @@
 
     .frame.frame--main {
 		main{
-            @apply flex flex-col flex-grow min-h-[calc(100vh-(2*var(--frame-size)))];
+            @apply flex flex-col;
+            /* flex-grow min-h-[calc(100vh-(2*var(--frame-size)))] */
         }
 	}
 

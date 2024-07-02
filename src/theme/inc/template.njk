@@ -1,0 +1,8 @@
+---
+eleventyExcludeFromCollections: true
+---
+{%  if entry %}
+{% set entryTemplate = entry | templateHandle %}
+{% set template = ["src/theme/templates/",entryTemplate,".njk"] | join %}
+{% extends template %} 
+{%  endif %} 

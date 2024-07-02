@@ -1,0 +1,24 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	{% for page in collections.all %}
+    {# Assume underscore URLs and src/ are not for the sitemap #}
+    {% if not '_' in page.url and not 'src/' in page.url %}
+        <url>
+            <loc>{{ site.url }}{{ page.url | url }}</loc>
+            <lastmod>{{ page.date.toISOString() }}</lastmod>
+        </url>
+    {% endif %}
+    {% endfor %}
+    {% for entry in entries %}
+        <url>
+            <loc>{{ site.url }}{{ entry | uniquePermalink | url }}</loc>
+            <priority>0.5</priority>
+			<changefreq>weekly</changefreq>
+            <lastmod>{{ entry.postDate }}</lastmod>
+        </url>
+    {% endfor %}
+</urlset>

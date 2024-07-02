@@ -4,6 +4,27 @@ exports.init = function (eleventyConfig){
 	 
 	let components = {};
 
+
+	/*
+		
+		Work out permalink for an entry object
+		
+	
+	*/
+	eleventyConfig.addFilter('uniquePermalink', function(entry) {
+		return entry.url;
+    });
+
+    /*
+		
+		Work out template for an entry object
+		
+	
+	*/
+	eleventyConfig.addFilter('templateHandle', function(entry) {
+		return entry.template ? entry.template : 'basic';
+    });
+
 	/* Output current year */
 	eleventyConfig.addNunjucksGlobal('currentYear', function() {
 		return new Date().getFullYear();
@@ -179,6 +200,19 @@ exports.init = function (eleventyConfig){
 
 	The matching keys will be converted back into objects with JSON.decode() - make sure they were encoded in the first pass, and the JSON is valid and was rendered 'safe'!
 
+	You can also pass in a ctx attribute into the options to add more variables to the renderer:
+	
+	{% set foo = 'bar' %}
+	{%  set links = items | map({
+		
+			text : '{{ foo }}'
+			
+	},{
+		ctx: {
+			foo : foo
+		}
+	}) %}
+
     */
 
 
@@ -189,7 +223,10 @@ exports.init = function (eleventyConfig){
 
 			Object.keys(schema).forEach(key => {
   				let value = schema[key];
-  				let rendered = this.env.renderString(value,{...this.ctx,...i,index:ix});
+  				let customCtx = {};
+  				if(opts && opts.ctx) customCtx = opts.ctx;
+
+  				let rendered = this.env.renderString(value,{...this.ctx,...customCtx,...i,index:ix});
 
   				out[key] = rendered;
 

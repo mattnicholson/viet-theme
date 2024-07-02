@@ -1,0 +1,29 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .spacer {
+        @apply h-inset;
+    }
+
+    .spacer.spacer--desktopDouble {
+        @apply h-inset md:h-[5vw];
+    }
+
+    .spacer.spacer--gutter {
+		@apply h-gutter;
+	}
+
+    .spacer.spacer--frame {
+        height: var(--theme-frame-size);
+    }
+
+	 .spacer.spacer--forHeader {
+        height: 7rem;
+    }
+}

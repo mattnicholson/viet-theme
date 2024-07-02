@@ -1,0 +1,55 @@
+{% extends "src/theme/_layout.njk" %}
+{%  block page %}
+    
+
+    {{ 'theme' | render({
+
+            render : {
+                modifier:'gold',
+                content : [
+
+                    'shadow' | render({
+
+                        render : {
+                            modifier : 'window',
+                            content : [
+
+                                'spacer' | render({
+                                    render : {
+                                        modifier : 'forHeader'
+                                    }
+                                }),
+
+                                'content' | render(
+                                    {
+                                        inheritProps:true,
+                                        render : {
+                                             content : [
+                                                ['<h1>',entry.title,'</h1>'] | join,
+                                                entry.body
+                                            ] | join
+                                        }
+                                    }
+                                ),
+
+                                'spacer' | render
+
+                                
+
+                            ] | join('')
+                        }
+
+                    })
+
+                    
+
+                ] | join('')
+            }
+
+        }) | safe }}
+
+
+    {# entry | json #}
+    
+
+{%  endblock %}

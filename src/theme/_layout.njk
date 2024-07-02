@@ -13,6 +13,7 @@
 {#  Before swup #}
 {% block header %}
 
+    {#  Header Nav #}
     {% render 'headerWithData' %}
 
     <!-- frame -->
@@ -23,8 +24,8 @@
 {% block footer %}
     
     
-
-     {% render 'nav',{
+    {#  Footer Nav #}
+    {% render 'nav',{
         inheritProps:true,
         render : {
             pageLinks : true,
@@ -62,7 +63,7 @@
     {% render 'footer',{
         inheritProps:true,
         render : {
-            
+            legalLinks : linklists.legal
         },
         wrapper:{
             modifier:'dark'

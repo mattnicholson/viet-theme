@@ -70,6 +70,7 @@
 		email : 'email@venue.com',
 		bookingLink : '#',
     mapUrl : '#',
+    deliveryUrl: "#",
     "menus": [
       {
         "title": "A la Carte",
@@ -93,11 +94,11 @@
 		title : 'Venue 2',
     openingHours : 'Weekdays 24 Hrs<br />Weekends 9—3',
     address: "Adress<br />Line 2<br />Line 3",
-    mapUrl: "#",
 		telephone : '01234567890',
 		email : 'email@venue.com',
 		bookingLink : '#',
     mapUrl : '#',
+    deliveryUrl: "#",
     "menus": [
       {
         "title": "A la Carte",
@@ -150,7 +151,7 @@
     
     </div>
 
-    <div @click="$event.stopPropagation()" class="relative" style="--colors-foreground:var(--colors-navtext);--colors-relief:var(--colors-navtext);--colors-accent:var(--colors-nav);">
+    <div @click="if ($event.target.tagName.toLowerCase() !== 'a') $event.stopPropagation()" class="relative" style="--colors-foreground:var(--colors-navtext);--colors-relief:var(--colors-navtext);--colors-accent:var(--colors-nav);">
 
     <template x-data x-if="$store.route.match('#menu|#locations|#more')">
      {{ _('magicFrame').render({

@@ -1,6 +1,7 @@
 
 @layer utilities {
     :root {
+
     }
 }
 
@@ -16,6 +17,9 @@
 
 	
     .header {
+
+    	--theme-button-active-fg: theme('colors.sand');
+
         @apply shadow-lg rounded-lg shadow-md bg-nav text-grey transition duration-[400ms] py-[0.4em] md:py-[0.2em] mx-auto;
 
         @media screen('lg'){

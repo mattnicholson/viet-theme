@@ -14,20 +14,26 @@
             max-width: 32em;
         }
 
-        h1 {
+        h1,h2 {
           @apply u-text-hero pb-[1em];
           color: var(--theme-fg);
         }
+        
         p {
           @apply pb-[2em];
           color: var(--theme-text);
         }
-        h2,
+
         h3,
-        h4,
+        h4 {
+           @apply u-text-subheading;
+          padding-bottom: 0.5em;
+          color: var(--theme-fg);
+        }
+
         h5,
         h6 {
-          font-weight: bold;
+           @apply u-text-eyebrow;
           padding-bottom: 0.5em;
           color: var(--theme-fg);
         }

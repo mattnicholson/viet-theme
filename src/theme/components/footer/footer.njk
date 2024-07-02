@@ -36,9 +36,7 @@
       </ul>
 
       <div class="text-center order-[0] md:order-[1]">
-      {{ _('socials').render({
-        text:''
-      }) }}
+      {{ 'socials' | render | safe }}
       </div>
 
       <div class="order-[2] md:order-[2]" x-data="{

@@ -17,6 +17,8 @@
     	--theme-bg: theme('colors.light');
 		--theme-fg: theme('colors.grey');
 		--theme-text: theme('colors.grey');
+		--theme-button-active-bg: theme('colors.grey');
+		--theme-button-active-fg: theme('colors.light');
     }
 
     .theme.theme--alt {

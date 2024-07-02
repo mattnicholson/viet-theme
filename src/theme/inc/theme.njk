@@ -1,17 +1,37 @@
 {% extends "src/theme/inc/wrapper.njk" %}
 {%  block output %}
 <!DOCTYPE html>
-<html lang="en">
+{%  set siteLang = 'en' %}
+{% if entry %}
+	{%  if entry.meta and entry.meta.lang %}{%  set siteLang = entry.meta.lang %}{% endif %}
+{% endif %}
+<html lang="{{ siteLang }}">
 <meta charset="UTF-8"/>
 <meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
 
 <link rel="stylesheet" href="/style.css?v={% version %}"/>
 
+{%  if site.icon %}
+<link rel="icon" type="image/png" href="{{ site.icon }}" />
+{%  endif %}
+
 {%  block head %}
-	{#  NOTE: If you override the {% head %} block, you will need to relink the icon #}
-	<link rel="icon" type="image/png" href="/assets/gfx/icon.png" />
+	{# Add items to <head> from inside src/theme/_layout #}
 {% endblock %}
+
+{%  set siteTitle = site.title %}
+{%  set siteDescription = site.description %}
+
+{% if entry %}
+	{%  set siteTitle = [entry.title,' | ',site.title] | join %}
+	{%  if entry.meta and entry.meta.title %}{%  set siteTitle = entry.meta.title %}{% endif %}
+	{%  if entry.meta and entry.meta.description %}{%  set siteDescription = entry.meta.description %}{% endif %}
+{% endif %}
+
+<title>{{siteTitle}}</title>
+<meta name="description" content="{{siteDescription}}"/>
+
 <body>
 	
 	{# Create a root theme #}
@@ -24,7 +44,7 @@
 	} %}
 
 	{%  block header %}
-	
+		{# Add items for before SWUP page from inside src/theme/_layout #}
 	{% endblock %}
 
 	<div id="page">
@@ -41,11 +61,11 @@
 	</div>
 
 	{%  block footer %}
-	
+		{# Add items for after SWUP page from inside src/theme/_layout #}
 	{% endblock %}
 
 	{%  block scripts %}
-	
+		{# Add items for </body> from inside src/theme/_layout #}
 	{% endblock %}
 
 </body>

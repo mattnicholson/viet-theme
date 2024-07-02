@@ -1,0 +1,98 @@
+{% extends "src/theme/_layout.njk" %}
+
+{%  block page %}
+
+	{#  Load the location related to the entry #}
+	{%  set l = {} %}
+	{% for location in locations %}
+		{%  if location.slug == entry.content.location %}
+			{%  set l = location %}
+		{%  endif %}
+	{%  endfor %}
+
+	{% render 'masthead',{
+		inheritProps:true,
+		render : {
+			title: entry.title,
+			modifier:'title',
+			image:entry.content.masthead
+		},
+		wrapper : {
+			modifier : 'default'
+		}
+	} %}
+	
+	{{ 'theme' | render({
+
+			render : {
+				modifier:'gold',
+				content : [
+
+					'shadow' | render({
+
+						render : {
+							content : [
+
+								'spacer' | render,
+
+								'nav' | render({
+									render : {
+										pageLinks:true,
+										modifier:'buttons',
+										links : linklists.groups | map(
+											{
+												text : '{{ title | safe }}',
+												url : '{{ url }}'
+											}
+										)
+									}
+								}),
+
+								'spacer' | render,
+								'spacer' | render,
+
+								'headingFrame' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier:'1',
+											title:entry.title
+										}
+									}
+								),
+
+								'content' | render(
+									{
+										inheritProps:true,
+										render : {
+											content:entry.content.intro
+										}
+									}
+								),
+
+								'spacer' | render,
+								'spacer' | render,
+
+								'enquiryCatering' | render
+
+								
+
+							] | join('')
+						}
+
+					})
+
+					
+
+				] | join('')
+			}
+
+		}) | safe }}
+		
+		{{ 'spacer' | render({
+			render : {
+				modifier : 'frame'
+			}
+		}) | safe }}
+
+{%  endblock %}

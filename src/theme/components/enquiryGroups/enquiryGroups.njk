@@ -1,6 +1,6 @@
 {# Anything defined in here will be available at the theme level #}
 {% set defaultProps = {
-        action:'https://formspree.io/f/xaygkndq',
+        action:data('site').forms.groups.action,
         cta : 'Submit',
         fields: [
             {
@@ -31,19 +31,13 @@
                         type:'select',
                         name:'Venue',
                         specify:true,
-                        options : [
+                        options : data('locations') | map(
                             {
-                                id:'venue_soho',
-                                value:'Venue: Soho',
-                                label:'Soho'
-                            },
-                            {
-                                id:'venue_hoxton',
-                                value:'Venue: Hoxton',
-                                label:'Hoxton'
+                                id:'venue_{{ slug }}',
+                                value:'Venue: {{ title }}',
+                                label:'{{ title }}'
                             }
-                        ]
-                        
+                        )
                     },
                     {
                         type:'text',

@@ -12,8 +12,8 @@
         @apply shadow-md bg-light flex flex-col flex-grow py-inset;
     }
 
-    .shadow.shadow--default {
-		
+    .shadow.shadow--window {
+		/*min-height: 100vh;*/
 	}
 	
 }

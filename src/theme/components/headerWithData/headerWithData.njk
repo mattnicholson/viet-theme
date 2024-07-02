@@ -1,54 +1,17 @@
-{# Anything defined in here will be available at the theme level #}
+{#  Get navigation from global data and pass to basic header component #}
 {% set defaultProps = {
 	links : data('linklists').main,
 	mobileLinks : data('linklists').main,
-	shortcuts : [{
-		url : '#menu',
-		title : 'Menu'
-	},
-	{
-		url : '#locations',
-		title : 'Find Us'
-	},
-	{
-		url : '#book',
-		title : 'Book'
-	},
-	{
-		url : '#takeaway',
-		title : 'Takeaway'
-	},
-	{
-		url : '/groups-and-parties/',
-		title : 'Group Bookings'
-	}],
-	mobileShortcuts : [{
-		url : '#menu',
-		title : 'Menu'
-	},
-	{
-		url : '#locations',
-		title : 'Find Us'
-	}],
-	actions : [
-	{
-		url : '#book',
-		title : 'Book'
-	},
-	{
-		url : '#takeaway',
-		title : 'Takeaway'
-	},
-	{
-		url : '#delivery',
-		title : 'Delivery'
-	}],
+	shortcuts : data('linklists').shortcuts,
+	mobileShortcuts : data('linklists').mobileShortcuts,
+	actions : data('linklists').actions,
 	locations : data('locations') | map({
 		slug : '{{ slug }}',
 		title : '{{ title }}',
 		bookingLink : '{{ bookingLink }}',
 		address:'{{ locationAddress | safe }}',
 		mapUrl:'{{ locationMapUrl}}',
+		deliveryUrl:'{{ deliveryUrl}}',
 		email: '{{ locationEmail }}',
 		telephone:'{{ locationTelephone }}',
 		openingHours : '{{ locationOpening | safe }}',

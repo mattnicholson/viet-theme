@@ -27,6 +27,7 @@ window.global = window
 
 // App
 ready(() => {
+
 	const scrollWrapper = document.getElementById('page')
 	let isScrolled = false
 	let lastScroll = 0
@@ -94,6 +95,7 @@ ready(() => {
 		],
 	})
 	swup.hooks.on('link:click', (visit) => {
+
 		router = Alpine.store('route')
 		page = Alpine.store('page')
 
@@ -117,6 +119,9 @@ ready(() => {
 			page.setUrl(p)
 		}
 	})
+
+
+
 
 	// Set initial viewportSize
 	document

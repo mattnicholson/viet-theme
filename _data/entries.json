@@ -1,6 +1,90 @@
 [
 	{
+		"url": "/",
+		"template":"index",
+		"meta": {
+			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
+			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
+		}
+	},
+	{
+		"url": "/our-story/",
+		"template":"our-story",
+		"meta": {
+			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
+			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
+		}
+	},
+	{
+		"url": "/our-locations/",
+		"title" : "Locations",
+		"template":"location",
+		"content" : {
+			"location" : "soho"
+		},
+		"meta": {
+			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
+			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
+		}
+	},
+	{
+		"url": "/our-locations/soho/",
+		"title" : "Soho",
+		"template":"location",
+		"content" : {
+			"location" : "soho"
+		},
+		"meta": {
+			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
+			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
+		}
+	},
+	{
+		"url": "/our-locations/hoxton/",
+		"title" : "Hoxton",
+		"template":"location",
+		"content" : {
+			"location" : "hoxton"
+		},
+		"meta": {
+			"title": "Shoreditch | Vietnamese Food Delivery, Takeaway, Eat-in | Pho Speciality | Cay Tre Restaurant",
+			"description": "Voted London’s Favourite Pho, since 2001, Cay Tre’s been serving the best fresh, healthy authentic traditional Vietnamese cuisine in Hoxton, Shoreditch. Eat in, takeaway or delivery menu available."
+		}
+	},
+	{
+		"url": "/groups-and-parties/",
+		"title" : "Group Bookings",
+		"template":"groups",
+		"content" : {
+			"masthead" : "/assets/img/group-bookings/01-masthead.jpg",
+			"brochureLink" : "/assets/pdf/groups.pdf",
+			"intro" : "<p>We welcome groups from six to 30 guests, and our team can help craft your perfect menu for any occasion. Whether it’s a Champagne reception with some of our signature summer rolls, or a long-table feast of small eats and fragrant curries, get in touch below.</p>"
+		},
+		"meta": {
+			"title": "Group Booking | Authentic Vietnamese Food | Cay Tre Restaurants",
+			"description": "Make a booking with us and enjoy most authentic Vietnamese restaurant in London. We have a saying at Cây Tre, which is 'to make the simplest of dishes taste good you need the ingredients of time and passion' and you can be assured we have plenty of both."
+		}
+	},
+	{
+		"url": "/catering/",
+		"title" : "Catering",
+		"template":"catering",
+		"content" : {
+			"masthead" : "/assets/img/group-bookings/01-masthead.jpg",
+			"intro" : "<p>Our kitchen can create bespoke menus, packed with freshness and bold Vietnamese flavours, for everything from Christmas parties and weddings to office conferences. We cater for any number of guests at venues across London — simply fill out the form below.</p>"
+		},
+		"meta": {
+			"title": "Catering Services | Corporate Events & Parties Caterers | Cay Tre",
+			"description": "Looking for a party caterer over the festive season? Our Vietnamese food delis can cater to all events including buffets, canapés and of course a sit down meal."
+		}
+	},
+	{
 		"url": "/pages/soho/",
+		"title" : "Soho",
+		"template":"location",
+		"content" : {
+			"location" : "soho"
+		},
 		"meta": {
 			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
 			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
@@ -8,23 +92,14 @@
 	},
 	{
 		"url": "/pages/hoxton/",
+		"title" : "Hoxton",
+		"template":"location",
+		"content" : {
+			"location" : "hoxton"
+		},
 		"meta": {
 			"title": "Shoreditch | Vietnamese Food Delivery, Takeaway, Eat-in | Pho Speciality | Cay Tre Restaurant",
 			"description": "Voted London’s Favourite Pho, since 2001, Cay Tre’s been serving the best fresh, healthy authentic traditional Vietnamese cuisine in Hoxton, Shoreditch. Eat in, takeaway or delivery menu available."
-		}
-	},
-	{
-		"url": "/pages/groups-and-parties/",
-		"meta": {
-			"title": "Group Booking | Authentic Vietnamese Food | Cay Tre Restaurants",
-			"description": "Make a booking with us and enjoy most authentic Vietnamese restaurant in London. We have a saying at Cây Tre, which is 'to make the simplest of dishes taste good you need the ingredients of time and passion' and you can be assured we have plenty of both."
-		}
-	},
-	{
-		"url": "/pages/catering/",
-		"meta": {
-			"title": "Catering Services | Corporate Events & Parties Caterers | Cay Tre",
-			"description": "Looking for a party caterer over the festive season? Our Vietnamese food delis can cater to all events including buffets, canapés and of course a sit down meal."
 		}
 	},
 	{
@@ -66,7 +141,7 @@
 		"content": "<p><em>Many feel cay Tre Hoxton, including Mark Hix, to be the very best Vietnamese restaurant in town (</em><a href=\"https://www.hot-dinners.com/Restaurant-Reviews/Soho-Fitzrovia-Covent-Garden/cay-tre-soho-vietnamese-dean-street-london\" ><em>Hot Dinners</em></a><em >). Also owners of the successful Viet Grill and</em> Keu, they also have a flagship restaurant right in the centre of Soho. <em >Expect a restaurant with a bright look, to challenge the vogue that contemporary Asian restaurants must be dark and moody, and more of a small-plates approach than the original Cay Tre offered.</em> (<a href=\"https://www.hot-dinners.com/Restaurant-Reviews/Soho-Fitzrovia-Covent-Garden/cay-tre-soho-vietnamese-dean-street-london\" >Hot Dinners</a>)</p><p>Cay Tre has stood the test of time and still serves some of the best Vietnamese food in London, offering great quality, authentic Vietnamese dishes in Hoxton and Soho. We take a look at some of the press Cay Tre has received over the years.</p><p>Cay Tre Hoxton, a wondrous Vietnamese cafe, just on the fringes of the City of London (said <a href=\"https://www.theguardian.com/lifeandstyle/2005/may/01/foodanddrink.shopping2\">Jay Rayner</a>), was one of the first Vietnamese restaurants to hit London.</p><p>Over the years, this Vietnamese eatery has established itself as an old faithful for the office workers, club kids and night owls of Shoreditch. It’s seen a few cosmetic changes (the current look features smooth white tables and monochromatic bamboo wall art), but it remains a modest enterprise that puts value to the fore. (<a href=\"https://www.squaremeal.co.uk/restaurants/cay-tre-soho_3484#:~:text=Reviews%20of%20Cay%20Tre%20Soho&amp;text=Excellent%20food%2C%20good%20variety%20%26%20choice.&amp;text=Having%20been%20going%20to%20the,had%20opened%20closer%20to%20home.&amp;text=The%20service%20is%20quick%20and,and%20light%20(yet%20filling).\">Squaremeal</a>)</p><p><a href=\"https://www.theguardian.com/lifeandstyle/2005/may/01/foodanddrink.shopping2\">Jay Rayner</a> notes the fantastic table service at Cay Tre<em>, I am a sucker for tableside service</em><em>. One of our starters, La Vong grilled fish, managed to combine all of this. A gas burner was brought to the table holding a frying pan which contained pieces of monkfish marinated in galangal and saffron and buried under mountains of dill and spring onions. The fish was sauteed in front of us while the waitress built bowls containing rice noodles slicked with a pungent fermented rice sauce, plus peanuts and slivers of vinegared spring onion and chilli. The physical drama is fabulous, the flavours intense and equally dramatic: first the ripe saltiness of the fish, then the burst of dill. Next, a bowl of pho, the classic Vietnamese noodle soup heavy with fresh herbs and slivers of tender beef, was both soothing and thrilling.</em></p><p>We’ve eaten our way around the menu and reckon that seafood is the top shout, be it a crispy Devon crab and glass noodle wrap, braised catfish clay pot or grilled monkfish with galangal, turmeric and dill cooked tableside. Meat eaters also have plenty to chew on, from spicy lamb neck curry or stewed pork belly with caramelised coconut juice and a hard-boiled egg to a ‘wokked’ pho loaded with braised beef shin, mustard greens and shimeji mushrooms. Yes, it’s busy (and noisy), but turnaround is steady, even with a brisk takeaway trade. (<a href=\"https://www.squaremeal.co.uk/restaurants/cay-tre-soho_3484#:~:text=Reviews%20of%20Cay%20Tre%20Soho&amp;text=Excellent%20food%2C%20good%20variety%20%26%20choice.&amp;text=Having%20been%20going%20to%20the,had%20opened%20closer%20to%20home.&amp;text=The%20service%20is%20quick%20and,and%20light%20(yet%20filling).\">Squaremeal</a>)</p><p><em>The original branch of Cây Tre gave many Hoxtonites their first taste of pho and helped to crank up London’s Vietnamese bandwagon, while its younger Soho sibling offers just about everything you might expect – from chic, minimalist decor and impeccably smart staff to beautifully served food ‘</em>said <a href=\"https://www.timeout.com/london/restaurants/cay-tre-1\">Time Out</a>.</p><p>The sleek white tables, pale wood-panelled walls and calm, quiet atmosphere in Cay Tre are very different to your average Hanoi eating establishment - although it's just as busy.But Soho's newest Vietnamese restaurant stays loyal to its culinary influences as remarked by <a href=\"https://www.dailymail.co.uk/femail/food/article-2009516/Cay-Tre-Soho-restaurant-review-Vietnamese-eatery-stays-loyal-influences.html\">Daily Mail.</a></p><p>The freshened-up interiors blend cool white tables with bamboo wall art, while the menu is big on carefully sourced ingredients of impeccable provenance – witness grilled oysters with shallot oil and peanut topping, lemon-cured beef salad with knotweed or wok-fried lamb with chilli and sweet onions. Singletons can bag stools at the front and slurp bowls of pho while listening to the throbbing soundtrack – perhaps with a cocktail on the side. The owners also run Kêu (a bánh mì pitstop in Soho) and the Viet Grill on Kingsland Road. (<a href=\"https://www.timeout.com/london/restaurants/cay-tre-1\">Time Out</a>)</p><p>So, ‘<em>if you’re looking for summer rolls or a satisfying bowl of pho in central London, the Soho branch of Cây Tre should be your go-to. The restaurant serves a greatest hits of Vietnamese dishes in a sleek-looking Soho space that’s good for casual dinners and small groups. The food’s good; the ox cheek pho is particularly good when it’s on, and the spring roll noodle salad is a nice way to mix things up. While it takes bookings, it’s also a handy (and inexpensive) backup if you need a last minute fix.</em> (<a href=\"https://www.theinfatuation.com/london/reviews/cay-tre-soho\">Infatuation</a>)</p>"
 	},
 	{
-		"url": "/blogs/posts/cay-tre-press/",
+		"url": "/blogs/posts/a-history-of-pho/",
 		"type": "posts",
 		"meta": {
 			"title": "A History of Pho",

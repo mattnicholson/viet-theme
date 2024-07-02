@@ -1,16 +1,44 @@
 {
 	"shortcuts": [
 		{
-			"title": "Menus",
-			"url": "#menu"
+			"url" : "#menu",
+			"title" : "Menu"
 		},
 		{
-			"title": "Find Us",
-			"url": "#locations"
+			"url" : "#locations",
+			"title" : "Find Us"
 		},
 		{
-			"title": "More",
-			"url": "#more"
+			"url" : "#book",
+			"title" : "Book"
+		},
+		{
+			"url" : "#takeaway",
+			"title" : "Takeaway"
+		},
+		{
+			"url" : "/groups-and-parties/",
+			"title" : "Group Bookings"
+		}
+	],
+	"mobileShortcuts": [
+		{
+			"url" : "#menu",
+			"title" : "Menu"
+		},
+		{
+			"url" : "#locations",
+			"title" : "Find Us"
+		}
+	],
+	"groups": [
+		{
+			"url" : "/groups-and-parties/",
+			"title" : "Groups"
+		},
+		{
+			"url" : "/catering/",
+			"title" : "Catering"
 		}
 	],
 	"actions": [
@@ -30,15 +58,15 @@
 	"main": [
 		{
 			"title": "Locations",
-			"url": "/pages/our-locations/"
+			"url": "/our-locations/"
 		},
 		{
 			"title": "Our Story",
-			"url": "/pages/our-story/"
+			"url": "/our-story/"
 		},
 		{
 			"title": "Groups & Parties",
-			"url": "/pages/groups-and-parties/"
+			"url": "/groups-and-parties/"
 		},
 		{
 			"title": "Contact Us",
@@ -62,11 +90,11 @@
 	"legal": [
 		{
 			"title": "Privacy Policy",
-			"url": "/pages/privacy/"
+			"url": "/privacy/"
 		},
 		{
 			"title": "Terms & Conditions",
-			"url": "/pages/terms/"
+			"url": "/terms/"
 		}
 	]
 }

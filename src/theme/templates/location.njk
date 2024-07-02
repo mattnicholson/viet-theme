@@ -1,0 +1,181 @@
+{% extends "src/theme/_layout.njk" %}
+
+{%  block page %}
+
+	{#  Load the location related to the entry #}
+	{%  set l = {} %}
+	{% for location in locations %}
+		{%  if location.slug == entry.content.location %}
+			{%  set l = location %}
+		{%  endif %}
+	{%  endfor %}
+
+	{% render 'masthead',{
+		inheritProps:true,
+		render : {
+			title: entry.title,
+			modifier:'title',
+			image:l.content.masthead
+		},
+		wrapper : {
+			modifier : 'default'
+		}
+	} %}
+	
+	{{ 'theme' | render({
+
+			render : {
+				modifier:'gold',
+				content : [
+
+					'shadow' | render({
+
+						render : {
+							content : [
+
+								'spacer' | render,
+
+								'nav' | render({
+									render : {
+										pageLinks:false,
+										modifier:'buttons',
+										links : locations | map(
+											{
+												text : '{{ title | safe }}',
+												url : '{{ url }}',
+												class : "{% if pageSlug == slug %}'active'{% else %}'inactive'{% endif %}"
+											},
+											{
+												ctx : {
+													pageSlug : l.slug
+												}
+											}
+										)
+									}
+								}),
+
+								'spacer' | render,
+								'spacer' | render,
+
+								'headingFrame' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier:'1',
+											title:l.title
+										}
+									}
+								),
+
+								'collage' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier:l.content.collageStyle,
+											title : l.content.heading,
+											text: l.content.intro,
+											landscape: l.content.collageLandscape,
+											portrait:l.content.collagePortrait,
+											illustration:l.content.collageIllustration
+										},
+										wrapper : {
+											
+										}
+									}
+								),
+
+								'headingFrame' | render(
+									{
+										inheritProps:true,
+										render : {
+											modifier:'1',
+											title:[l.title,' ','Menus'] | join
+										}
+									}
+								),
+
+								'stack' | render(
+									{
+										render:{
+											items:[
+												'modalMenusTemplate' | render({
+													render:{
+														menus:l.menus
+													}
+												}),
+												'nav' | render({
+													render : {
+														modifier:'buttons',
+														links : [
+															{
+																text : 'Book A Table',
+																url : l.bookingLink,
+																newWindow:true
+															},
+															{
+																text : 'Order Delivery',
+																url : l.deliveryUrl,
+																newWindow:true
+															},
+															{
+																text : 'Order Takeaway',
+																url : '#takeaway'
+															}
+														]
+													}
+												})
+											]
+										}
+									}
+								),
+
+								'media' | render(
+									{
+										inheritProps:true,
+										render : {
+											illustration:false,
+											image : l.content.mediaImage,
+											texture : l.content.mediaTexture,
+											modifier:'inset'
+										}
+									}
+								),
+
+								'spacer' | render,
+								'spacer' | render,
+
+								'mapPanel' | render({
+									render : {
+										title : 'Find Us',
+										locations : [{
+											label: l.title,
+											address: l.locationAddress,
+											mapUrl: l.locationMapUrl,
+											email: l.locationEmail,
+											telephone: l.locationTelephone,
+											openingHours: l.locationOpening,
+											latlng: l.locationLatLng
+										}]
+									}
+								})
+								
+
+							] | join('')
+						}
+
+					})
+
+					
+
+				] | join('')
+			}
+
+		}) | safe }}
+		
+		{{ 'spacer' | render({
+			render : {
+				modifier : 'frame'
+			}
+		}) | safe }}
+
+{%  endblock %}
