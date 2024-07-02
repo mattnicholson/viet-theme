@@ -44,9 +44,7 @@
     overscroll-behavior-y: none;
   }
 
-  body {
-    opacity: 0;
-  }
+  
 
   /* THEME FRAME */
   body {
@@ -63,9 +61,13 @@
     */
   }
 
+  body {
+    opacity: 1;
+  }
+
   html.js-ready {
     & body {
-      animation: fadeIn 1.5s ease forwards;
+      /*animation: fadeIn 1.5s ease forwards;*/
     }
   }
 
