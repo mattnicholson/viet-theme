@@ -17,7 +17,7 @@
 	
 	<div class="masthead-content">
 	{%  if props.modifier == 'logo' %}
-		<div class="masthead-logo">{% render 'logo' %}</div>
+		{% if not props.hideLogo %}<div class="masthead-logo">{% render 'logo' %}</div>{%  endif %}
 	{%  else %}
 		<div class="masthead-title">{{  props.title }}</div>
 	{%  endif  %}

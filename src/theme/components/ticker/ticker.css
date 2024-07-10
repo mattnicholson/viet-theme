@@ -4,7 +4,7 @@
         --ticker-duration: 20s;
         --ticker-default-bg: var(--theme-accent);
         --ticker-default-fg: var(--theme-text);
-        --ticker-height: 4.5rem;
+        --ticker-height: 3rem;
     }
 }
 

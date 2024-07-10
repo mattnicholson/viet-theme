@@ -61,6 +61,10 @@
 		.item-head{
 			@apply u-text-bodyHeading;
 		}
+
+		.content{
+			color: var(--theme-text);
+		}
 	}
 
 	.item.item--card {

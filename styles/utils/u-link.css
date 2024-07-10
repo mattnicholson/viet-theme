@@ -5,8 +5,9 @@
 		font-weight: bold;
 		min-width: 8em;
 		text-align: center;
-		border: 2px solid;
+		border: 1.5px solid;
 		cursor: pointer;
+		min-width: 12em;
 
 		&:hover {
 			transform: scale(1.05);

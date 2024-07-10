@@ -35,13 +35,13 @@
       font-size: 20px;
     }
 
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
     line-height: 130%;
   }
 
   .u-text-allcaps {
     @apply text-[0.9rem] md:text-[0.7rem] uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
   }
 
   .u-text-hero {
@@ -59,13 +59,13 @@
       font-size: 30px;
     }
 
-    letter-spacing: -0.02em;
+    letter-spacing: -0.00em;
   }
 
   .u-text-max {
     @apply font-display uppercase;
-    font-weight: 700;
-    font-size: clamp(25px,7vw,60px);
+    font-weight: 600;
+    font-size: clamp(25px,7vw,50px);
     line-height: 100%;
 
    
@@ -104,7 +104,7 @@
       font-size: 30px;
     }
 
-    letter-spacing: -0.02em;
+    letter-spacing: -0.00em;
   }
 
   .u-text-eyebrow {
@@ -114,12 +114,12 @@
     font-weight: 700;
     line-height: 100%;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
   }
 
   .u-text-shortcuts {
     @apply uppercase font-display text-[0.8rem] md:text-[0.6rem];
      font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
   }
 }

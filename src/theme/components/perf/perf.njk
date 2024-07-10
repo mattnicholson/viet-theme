@@ -1,0 +1,17 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="perf {% if props.modifier %}perf--{{ props.modifier }}{% endif %}" x-data="perf">
+	<div x-text="isLowPerformance ? 'LOW PERFORMANCE' : 'HIGH PERFORMANCE'"></div>
+	<div x-text="gpu"></div>
+</div>
+{% endmacro %}
+
+

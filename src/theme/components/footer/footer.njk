@@ -27,7 +27,7 @@
 {% macro render(props) %}
 <div class="footer {% if props.modifier %}footer--{{ props.modifier }}{% endif %}">
 	
-	<div class="border-b-2 border-current mx-inset"></div>
+	<div class="border-b-[1.5px] border-current mx-inset"></div>
     <div class="py-[2em] md:p-inset flex flex-col justify-center items-center md:flex-row md:justify-between gap-[2em] md:gap-gutter pb-[100px] md:pb-[4em]">
        <ul class="flex flex-row gap-[1em] md:gap-gutter order-[1] md:order-[0] md:min-w-[10em]">
         {%  for link in props.legalLinks %}

@@ -11,6 +11,12 @@
 		"text" : "var(--theme-colors-grey)",
 		"accent" : "var(--theme-colors-sand)",
 
+		"header-bg" : "var(--theme-colors-light)",
+		"header-fg" : "var(--theme-colors-gold)",
+		"header-text" : "var(--theme-colors-gold)",
+		"header-button-active-bg" : "var(--theme-colors-gold)",
+		"header-button-active-fg" : "var(--theme-colors-light)",
+
 		"masthead-logo-fg" :"var(--theme-colors-grey)",
 
 		"button-roundness" : "9999px",

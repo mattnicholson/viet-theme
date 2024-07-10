@@ -1,8 +1,10 @@
 @layer utilities {
     :root {
-        --form-focus-color: theme('colors.gold');
-        --form-button-bg: theme('colors.grey');
-        --form-button-fg: theme('colors.light');
+        --form-focus-color: var(--theme-text);
+        --form-button-bg: var(--theme-button-active-bg);
+        --form-button-fg: var(--theme-button-active-fg);
+        --form-border-size: 1.5px;
+        --form-border-color: var(--theme-fg);
     }
 
     .u-select {
@@ -90,6 +92,12 @@
 
 @layer components {
     .form {
+
+        --form-focus-color: var(--theme-text);
+        --form-border-color: var(--theme-fg);
+        --form-button-bg: var(--theme-button-active-bg);
+        --form-button-fg: var(--theme-button-active-fg);
+
         @apply w-[90%] flex flex-col gap-[1em] max-w-[25em] mx-auto pb-[2em];
 
         .form-group-title {
@@ -163,7 +171,10 @@
         & input,
         & textarea,
         & select {
-            @apply transition w-full p-[0.6em] pl-[1em] px-gutter rounded-full border-[2px] border-current placeholder-transparentgrey;
+            @apply transition w-full p-[0.6em] pl-[1em] px-gutter rounded-full border-current placeholder-transparentgrey;
+            color: var(--form-focus-color);
+            border: var(--form-border-size) solid var(--form-border-color);
+
         }
 
         & select {

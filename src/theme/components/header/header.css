@@ -2,6 +2,12 @@
 @layer utilities {
     :root {
 
+    	--header-bg: var(--theme-header-bg);
+    	--header-fg: var(--theme-header-fg);
+    	--header-text: var(--theme-header-text);
+    	--header-active-button-bg: var(--theme-header-button-active-bg);
+    	--header-active-button-fg: var(--theme-header-button-active-fg);
+
     }
 }
 
@@ -18,13 +24,24 @@
 	
     .header {
 
-    	--theme-button-active-fg: theme('colors.sand');
+    	--theme-bg: var(--header-bg);
+    	--theme-fg: var(--header-fg);
+    	--theme-text: var(--header-text);
+    	--theme-button-active-bg: var(--header-active-button-bg);
+    	--theme-button-active-fg: var(--header-active-button-fg);
 
-        @apply shadow-lg rounded-lg shadow-md bg-nav text-grey transition duration-[400ms] py-[0.4em] md:py-[0.2em] mx-auto;
+        @apply shadow-lg rounded-lg shadow-md transition duration-[400ms] py-[0.4em] md:py-[0.2em] mx-auto;
+
+        background: var(--theme-bg);
+        color: var(--theme-fg);
+
+        .content p{
+        	color: var(--theme-text);
+        }
 
         @media screen('lg'){
 
-        	width: clamp(850px,60%,1000px);
+        	width: clamp(850px,52%,980px);
         }
     }
 

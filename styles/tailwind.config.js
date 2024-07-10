@@ -19,7 +19,7 @@ const colors = {
   relief: 'var(--colors-relief)',
   background: 'var(--colors-background)',
   foreground: 'var(--colors-foreground)',
-  transparentblack: 'rgba(0,0,0,0.3)',
+  transparentblack: 'rgba(0,0,0,0.1)',
   transparentgrey: 'rgba(75,66,66,0.5)',
 }
 
