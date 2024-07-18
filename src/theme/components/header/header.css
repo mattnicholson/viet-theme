@@ -43,6 +43,16 @@
 
         	width: clamp(850px,52%,980px);
         }
+
+        nav,.header-main-links{
+            a{
+                border-bottom: 1px solid transparent;
+                transition: 0.4s ease;
+            }
+            a.active{
+                border-bottom: 1px solid currentColor;
+            }
+        }
     }
 
     .header.header--default {

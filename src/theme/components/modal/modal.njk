@@ -1,0 +1,34 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {
+	content : 'Content for modal'
+} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="modal {% if props.modifier %}modal--{{ props.modifier }}{% endif %}">
+	
+	<!-- Modal Wrapper -->
+        <!-- Magic Frame -->
+        <div class="absolute top-[-1rem] left-0 right-0 bottom-[0.5em] pointer-events-none">{{ _('magicFrame').render({listen:true}) }}</div>
+
+        <!-- Modal Content -->
+        <div class="pt-[3.5em] md:pt-[1.5em] pb-[3em]">
+
+                {{  props.content | safe }}
+
+        </div>
+        <!-- / Modal Content -->
+
+        <!-- Modal Close -->
+        <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
+        <!-- / Modal Close -->
+
+      <!-- / Modal Wrapper -->
+
+</div>
+{% endmacro %}
+
+

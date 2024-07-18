@@ -49,8 +49,7 @@
 	}
 
 	.u-link-button-wide {
-		@apply u-link-button;
-		min-width: 12em;
+		@apply u-link-button min-w-[12em] md:min-w-[18em];
 	}
 
 	.u-link-body {

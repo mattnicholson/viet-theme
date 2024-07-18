@@ -140,10 +140,10 @@
 	   
 	      <ul class="u-text-shortcuts w-full grow flex flex-row gap-[2em] lg:gap-[3em] px-[4em] md:px-[2em] justify-between align-center py-[10px]">
 	        {%  for link in props.shortcuts %}
-	        <li class="hidden md:block px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true">{{link.title}}</a></li>
+	        <li class="hidden md:block px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true" data-exact="true">{{link.title}}</a></li>
 	        {% endfor %}
 	        {%  for link in props.mobileShortcuts %}
-	        <li class="block md:hidden px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true">{{link.title}}</a></li>
+	        <li class="block md:hidden px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true" data-exact="true">{{link.title}}</a></li>
 	        {% endfor %}
 	        <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="#more" data-toggle="true">More</a></li>
 	      </ul>
@@ -153,68 +153,90 @@
 
     <div @click="if ($event.target.tagName.toLowerCase() !== 'a') $event.stopPropagation()" class="relative">
 
-    <template x-data x-if="$store.route.match('#menu|#locations|#more')">
-    <div class="absolute top-[-1rem] left-0 right-0 bottom-[0.5em] pointer-events-none">{{ _('magicFrame').render({listen:true}) }}</div>
-     </template>
+    <template x-data x-if="$store.route.match('#menu|#locations|#more|#book|#takeaway|#delivery')">
+        <div :class="$store.route.match('#book|#takeaway|#delivery') ? 'hidden md:block' : ''">
+        {% set modalContent %}
+        <!-- Template: Menus -->
+        <template x-data x-if="$store.route.match('#menu')">
+          <div>
 
-          <template x-data x-if="$store.route.match('#menu')">
-            <div  class="pt-[3.5em] md:pt-[1.5em] pb-[3em]">
-           {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
-            <div class="relative ">
-            <div class="md:min-w-[650px] mt-[2em] px-inset pb-[2.5em] max-h-[calc(75vh-100px)]  overflow-auto">
+            <!-- Menus Switcher -->
+            {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
 
-              
-              
-              <div class="mx-[60px]">
-              {% for location in props.locations %}
-                
-                <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
-            
-                {{ _('modalMenusTemplate').render({menus:location.menus})}}
-            
-                </template>
-              {% endfor %}
-              </div>
+            <!-- Menus Content -->
+            <div class="relative">
 
-             
-            </div>
-            </div>
-            <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
+              <!-- Menus Sizing -->
+              <div class="md:min-w-[650px] mt-[2em] px-inset pb-[2.5em] max-h-[calc(75vh-100px)]  overflow-auto">
 
-            </div>
-          </template>
-
-          <template x-data x-if="$store.route.match('#location')">
-            <div class="pt-[3.5em] md:pt-[1.5em] pb-[3em]">
-           {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
-            <div class="relative ">
-            <div class="md:min-w-[650px] mt-[2em] px-0 md:px-inset pb-[2.5em] max-h-[calc(75vh-100px)]  overflow-auto">
-
-              
-              
-              <div class="mx-[60px]">
-              {% for location in props.locations %}
-                
-                <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
+                <!-- Menu Tiles -->
                 <div>
-                {{ _('modalContactTemplate').render(location)}}
+                {% for location in props.locations %}
+                
+                  <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
+                  {{ _('modalMenusTemplate').render({menus:location.menus,modifier:'small'})}}
+                  </template>
+                {% endfor %}
                 </div>
-                </template>
-              {% endfor %}
+                <!-- / Menu Tiles -->
+
               </div>
-
-             
+              <!-- / Menus Sizing -->
             </div>
-            </div>
-            <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
+            <!-- / Menus Content -->
+          </div>
+        </template>
+        <!-- / Template: Menus -->
 
-            </div>
-          </template>
-
-          {# DESKTOP BOOK DRAWER #}
-          <template x-data x-if="$store.route.match('#book')">
-            <div class="hidden md:block">
+        <!-- Template: Locations -->
+        <template x-data x-if="$store.route.match('#location')">
+        <div>
+       {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
+        <div class="relative ">
+        <div class="md:min-w-[650px] mt-[2em] px-0 md:px-inset pb-[2.5em] max-h-[calc(75vh-100px)]  overflow-auto">
           
+          <div class="mx-[60px]">
+          {% for location in props.locations %}
+            
+            <template x-if="$store.venue.modal == '{{location.slug}}' || ($store.venue.modal == '' && {{ loop.index0 }} === 0)">
+            <div>
+            {{ _('modalContactTemplate').render(location)}}
+            </div>
+            </template>
+          {% endfor %}
+          </div>
+
+         
+        </div>
+        </div>
+        
+
+        </div>
+      </template>
+      <!-- / Template: Locations -->
+
+      <!-- Template: More -->
+      <template x-data x-if="$store.route.match('#more')">
+      <div>
+        <div class="relative py-inset min-h-[50vh] flex flex-col justify-center items-center">
+
+          <div class="md:min-w-[650px]" x-data @click="$store.route.removeHash()">
+            <ul class="header-main-links u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em] -mt-[1rem]">
+        
+            {%  for link in props.links %}
+            <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+            {% endfor %}
+            </ul>
+             
+          </div>
+         
+        </div>
+      </div>
+      </template>
+      <!-- / Template: More -->
+
+      <!-- Template: Book -->
+            <template x-data x-if="$store.route.match('#book')">
             <div class="relative">
               <div  x-data @click="$event.stopPropagation()" class="py-[5em] relative">
 
@@ -225,25 +247,23 @@
                   inheritProps:true
                 } %}
                 
-
-                {{ _('magicFrame').render({eyebrow:false}) }}
               </div>
             </div>
-            <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
-
             </div>
-          </template>
+             </template>
+             <!-- / Template : Book -->
 
-          {# DESKTOP TAKEAWAY DRAWER #}
-          <template x-data x-if="$store.route.match('#takeaway')">
-            <div class="hidden md:block">
+
+             <!-- Template: Takeaway -->
+            <template x-data x-if="$store.route.match('#takeaway')">
+            
           
             <div class="relative">
-              <div x-data @click="$event.stopPropagation()" class="py-[5em] relative">
-      <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[25px] left-1/2 -translate-x-1/2">Takeaway</div>
+              <div x-data @click="$event.stopPropagation()" class="pb-[2em] relative">
+      
 
-      <div class="w-full h-full flex justify-center items-center">
-      <div class="w-full shrink-0" style="--colors-accent:var(--colors-nav);--colors-relief:var(--colors-navtext);">
+              <div class="w-full h-full flex justify-center items-center">
+              <div class="w-full shrink-0" style="--colors-accent:var(--colors-nav);--colors-relief:var(--colors-navtext);">
               {{ _('modalLocationSwitcher').render({locations:props.locations}) }}
              
              {% for location in props.locations %}
@@ -258,55 +278,43 @@
             </div>
             </div>
 
-      {{ _('magicFrame').render({eyebrow:true}) }}
-    </div>
-             <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
+      
             </div>
-          </template>
+            </div>
+           
+            </template>
+            <!-- / Template: Takeaway -->
 
-
-          {# DESKTOP DELIVERY DRAWER #}
-          <template x-data x-if="$store.route.match('#delivery')">
-            <div class="hidden md:block">
+            <!-- Template: Delivery -->
+            <template x-data x-if="$store.route.match('#delivery')">
+           
           
             <div class="relative">
-              <div x-data @click="$event.stopPropagation()" class="py-[5em] relative">
-      <div class="u-text-eyebrow text-center absolute top-[1.8rem] md:top-[25px] left-1/2 -translate-x-1/2">Delivery</div>
+              <div x-data @click="$event.stopPropagation()" class="relative">
+               
 
-      <div class="w-full h-full flex justify-center items-center">
-      <ul class="flex flex-col gap-[1em]">
-      {% for location in props.locations %}
-        <li><a class="u-link-button-wide" href="{{ location.deliveryUrl }}" target="_blank">{{ location.title }}</a></li>
-      {% endfor %}
-      </ul>
-      </div>
-
-      {{ _('magicFrame').render({eyebrow:true}) }}
-    </div>
-             <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
-            </div>
-          </template>
-
-         
-          <template x-data x-if="$store.route.match('#more')">
-          <div>
-            <div class="relative py-inset min-h-[50vh] flex flex-col justify-center items-center">
-
-              <div class="md:min-w-[650px]" x-data @click="$store.route.removeHash()">
-                <ul class="u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em] -mt-[1rem]">
-            
-                {%  for link in props.links %}
-                <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+                <div class="w-full h-full flex justify-center items-center">
+                <ul class="flex flex-col gap-[1em]">
+                {% for location in props.locations %}
+                  <li><a class="u-link-button-wide" href="{{ location.deliveryUrl }}" target="_blank">{{ location.title }}</a></li>
                 {% endfor %}
                 </ul>
-                 
-              </div>
+                </div>
 
-              <div x-data class="u-link-close absolute bottom-0 left-0 right-0" @click="$store.route.removeHash()">Close</div>
+               
+              </div>
              
             </div>
-          </div>
-          </template>
+
+            </template>
+            <!-- / Template: Delivery -->
+      {%  endset %}
+
+      {{ _('modal').render({content:modalContent}) }}
+      </div>
+     </template>
+
+         
           
           </div>
   </header>

@@ -1,0 +1,5 @@
+---
+permalink: "_redirects"
+---
+{%  for r in site.redirects %}{{ r.from }} {{ r.to }} 301
+{% endfor %}

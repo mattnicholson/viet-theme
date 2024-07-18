@@ -7,11 +7,11 @@
 @layer components {
 
     
-    .stack {
-        @apply flex flex-col gap-inset;
+    .modal {
+        
     }
 
-    .stack.stack--default {
+    .modal.modal--default {
 		
 	}
 

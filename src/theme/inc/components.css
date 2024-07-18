@@ -16,6 +16,7 @@
 @import '../components/header/header.css';
 @import '../components/headerWithData/headerWithData.css';
 @import '../components/headingFrame/headingFrame.css';
+@import '../components/icon/icon.css';
 @import '../components/image/image.css';
 @import '../components/imageWithText/imageWithText.css';
 @import '../components/item/item.css';
@@ -27,6 +28,7 @@
 @import '../components/mapPanel/mapPanel.css';
 @import '../components/masthead/masthead.css';
 @import '../components/media/media.css';
+@import '../components/modal/modal.css';
 @import '../components/modalBookingTemplate/modalBookingTemplate.css';
 @import '../components/modalContactTemplate/modalContactTemplate.css';
 @import '../components/modalLocationSwitcher/modalLocationSwitcher.css';

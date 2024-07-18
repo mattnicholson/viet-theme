@@ -27,6 +27,7 @@
 
                 <div class="w-full h-full flex justify-center items-center">
                 	<div class="w-full flex items-center flex-col gap-inset justify-center">
+                		{% if props.title %}<div class="hidden text-center u-text-hero u-layout-wrapper--content">{{  props.title | safe }}</div>{%  endif %}
                 		{% if props.text %}<div class="text-center u-text-body u-layout-wrapper--content">{{  props.text |safe }}</div>{%  endif %}
 	                  <ul class="flex flex-col gap-[1em]">
 	                  {% for location in props.locations %}

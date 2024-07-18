@@ -34,7 +34,8 @@ init(() => {
 			out = out.replace(/^[a-zA-Z]{3,5}\:\/{2}[a-zA-Z0-9_.:-]+\//, '')
 
 			// Add leading slash
-			this.href = `/${out}`
+			// Replace double slash
+			this.href = `/${out}`.replace('//','/');
 		},
 		removeHash() {
 			//window.location.hash = ''

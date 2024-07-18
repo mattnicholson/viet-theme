@@ -15,6 +15,10 @@ Example Usage:
 <div x-data x-text="$store.page.url"></div>
 
 <a href="#" x-data="pageLink">A page link</a>
+<a href="#" x-data="pageLink" data-exact="true">A page link</a>
+
+To keep page data in sync with the router...
+<body x-data="page">
 
 */
 
@@ -22,7 +26,7 @@ init(() => {
 	Alpine.store('page', {
 		title: '',
 		modifier: 'default',
-		url: window.location.pathname,
+		url: window.location.pathname + window.location.hash,
 		setTitle(title) {
 			this.title = title
 		},
@@ -31,8 +35,21 @@ init(() => {
 		},
 		setUrl(url) {
 			this.url = url
-		},
+		}
 	})
+
+	// Sync with router changes, need a <body x-data="page"> or <div x-data="page"> somewhere on the page 
+	Alpine.data('page', () => ({
+		init(args) {
+			let router = Alpine.store('route');
+			if(router){
+				this.$watch(()=>router.href,(val)=>{
+					const p = Alpine.store('page')
+					p.url = val;
+				})
+			}
+		}
+	}))
 
 	Alpine.data('pageLink', () => ({
 		isActive(el) {
@@ -42,6 +59,13 @@ init(() => {
 
 			if (url === '/') return url === p.url
 
+			// If it's not a hash link, check if it's an exact match with data-exact="true"
+			// (hashlinks will always be partial matches)
+			if(!url.match('#') && this.$el.dataset.exact){
+				return url === p.url
+			}
+
+			// Return non-exact match
 			return p.url.match(url)
 		},
 		update() {

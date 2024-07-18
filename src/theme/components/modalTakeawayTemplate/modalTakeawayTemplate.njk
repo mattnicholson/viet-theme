@@ -3,7 +3,9 @@
 
 		title:'Venue',
 		email: 'email@email.com',
-		telephone:'1234567890'
+		telephone:'1234567890',
+		deliveryUrl:'#',
+		deliveryPlatfrom:'Deliveroo'
 
 } %}
 
@@ -18,9 +20,9 @@
 	
 	<div class="flex flex-col gap-gutter px-[50px]">
      <p class="py-[1em] text-center mx-auto">{{ props.telephone }}<br />
-     <a class="u-link-body" href="mailto:{{ props.email }}">{{ props.email }}</a></p>
      <ul class="w-full flex flex-col gap-[1em] justify-center text-center">
      	<li><a href="tel:{{ props.telephone }}" class="u-link-button-wide">Call {{props.title}}</a></li>
+     	<li><a target="_blank" href="{{ props.deliveryUrl }}" class="u-link-button-wide">Order on {{ props.deliveryPlatform }}</a></li>
      </ul>
     </div>
 
