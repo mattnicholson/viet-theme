@@ -236,25 +236,23 @@
       <!-- / Template: More -->
 
       <!-- Template: Book -->
-            <template x-data x-if="$store.route.match('#book')">
-            <div class="relative">
-              <div  x-data @click="$event.stopPropagation()" class="py-[5em] relative">
+      <template x-data x-if="$store.route.match('#book')">
+      <div class="relative">
+        <div  x-data @click="$event.stopPropagation()" class="py-[5em] relative">
 
-                {% render 'modalBookingTemplate',{
-                  render : {
-                    locations:props.locations
-                  },
-                  inheritProps:true
-                } %}
-                
-              </div>
-            </div>
-            </div>
-             </template>
-             <!-- / Template : Book -->
+          {% render 'modalBookingTemplate',{
+            render : {
+              locations:props.locations
+            },
+            inheritProps:true
+          } %}
+          
+        </div>
+      </div>
+       </template>
+       <!-- / Template : Book -->
 
-
-             <!-- Template: Takeaway -->
+       <!-- Template: Takeaway -->
             <template x-data x-if="$store.route.match('#takeaway')">
             
           
@@ -308,15 +306,13 @@
 
             </template>
             <!-- / Template: Delivery -->
-      {%  endset %}
 
-      {{ _('modal').render({content:modalContent}) }}
-      </div>
+        {%  endset %}
+        {{ _('modal').render({content:modalContent}) }}
+        </div>
      </template>
 
-         
-          
-          </div>
+    </div>
   </header>
 {% endmacro %}
 
