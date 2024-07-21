@@ -8,7 +8,7 @@
 @layer components {
 
     .headingFrame-title{
-    	@apply absolute top-0 left-1/2 u-text-eyebrow -translate-x-1/2 pt-[0.5em];
+    	@apply absolute top-0 left-1/2 u-text-eyebrow -translate-x-1/2 pt-[0.5em] w-[30%] text-center;
     }
 
     .headingFrame {

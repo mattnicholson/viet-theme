@@ -1,13 +1,14 @@
 @layer utilities {
 	.u-link-button {
-		@apply transition u-text-allcaps inline-block py-[0.8em] px-gutter rounded-full uppercase;
+		@apply transition u-text-allcaps inline-block py-[0.8em] rounded-full uppercase;
 		border-radius: var(--theme-button-roundness);
 		font-weight: bold;
 		min-width: 8em;
 		text-align: center;
 		border: 1.5px solid;
 		cursor: pointer;
-		min-width: 12em;
+		@apply min-w-[8.5em] px-inset md:min-w-[12em] md:px-gutter;
+		
 
 		&:hover {
 			transform: scale(1.05);
@@ -50,6 +51,10 @@
 
 	.u-link-button-wide {
 		@apply u-link-button min-w-[12em] md:min-w-[18em];
+	}
+
+	.u-link-button-max {
+		@apply u-link-button min-w-[15em] md:min-w-[18em];
 	}
 
 	.u-link-body {

@@ -55,7 +55,7 @@
     .collage.collage--default,
     .collage.collage--4 {
 
-    	@apply u-layout-wrapper--wide;
+    	@apply u-layout-wrapper--wide pt-[7rem] md:pb-[10vh] md:pt-[6vh];
 
 		.collage-portrait-media{
 			@apply absolute left-inset top-[50%] -translate-y-1/2 h-[90%];
@@ -126,7 +126,7 @@
 		@apply relative mx-auto md:w-[90%] max-w-[1400px];
 
 		.collage-content{
-			@apply py-[5rem] px-[3.5rem] pb-[20vw] md:pb-[3rem];
+			@apply py-[5rem] px-[1.5rem] md:px-[3.5rem] pb-[20vw] md:pb-[3rem];
 
 			@media screen('md'){
 				@apply mr-[50%];
@@ -185,7 +185,7 @@
 		@apply relative mx-auto md:w-[90%] max-w-[1400px];
 
 		.collage-content{
-			@apply py-[5rem] px-[3.5rem] pb-[20vw] md:pb-[3rem];
+			@apply py-[5rem] px-[1.5rem] md:px-[3.5rem] pb-[20vw] md:pb-[3rem];
 
 			@media screen('md'){
 				@apply ml-[40%];

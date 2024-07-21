@@ -13,6 +13,7 @@
 #}
 {% set defaultProps = {
 	align : 'center',
+	responsive:true,
 	pageLinks : false,
 	links : [
 		{
@@ -48,7 +49,7 @@
 
 {# Render the component #}
 {% macro render(props) %}
-<nav class="nav {% if props.modifier %}nav--{{ props.modifier }}{% endif %} {% if props.align %}nav--align-{{ props.align }}{% endif %}">
+<nav class="nav {% if props.modifier %}nav--{{ props.modifier }}{% endif %} {% if props.align %}nav--align-{{ props.align }}{% endif %} {% if props.responsive %}nav--responsive{% endif %}">
 	<ul>
 		{%  for i in props.links %}
 			<li>

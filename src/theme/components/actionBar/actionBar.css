@@ -1,10 +1,22 @@
 
 @layer utilities {
     :root {
+
     }
 }
 
 @layer components {
+
+    .actionBar{
+        --theme-button-active-bg:var(--theme-actionBar-button-active-bg);
+        --theme-button-active-fg:var(--theme-actionBar-button-active-fg);
+    }
+
+    .actionBar-panel,
+    .actionBar-actions{
+        background:var(--theme-actionBar-bg);
+        color:var(--theme-actionBar-fg);
+    }
 
     .actionBar-wrapper.actionBar-wrapper--static {
         @apply w-full h-[50vh] min-h-[500px] relative overflow-hidden;

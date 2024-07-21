@@ -20,6 +20,10 @@
 	{# Add items to <head> from inside src/theme/_layout #}
 {% endblock %}
 
+{% if site.scripts %}
+		{{ site.scripts.head | safe }}
+	{% endif %}
+
 {%  set siteTitle = site.title %}
 {%  set siteDescription = site.description %}
 
@@ -64,11 +68,16 @@
 		{# Add items for after SWUP page from inside src/theme/_layout #}
 	{% endblock %}
 
+	<script type="text/javascript" src="/js/main.js"></script>
+
 	{%  block scripts %}
 		{# Add items for </body> from inside src/theme/_layout #}
 	{% endblock %}
 
+	{% if site.scripts %}
+		{{ site.scripts.foot | safe }}
+	{% endif %}
+
 </body>
-<script type="text/javascript" src="/js/main.js"></script>
 </html>
 {%  endblock %}

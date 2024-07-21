@@ -10,7 +10,7 @@
 
     
     .media {
-        @apply w-full h-screen relative;
+        @apply w-full h-[70vh] md:h-screen relative;
         background: var(--media-default-bg);
     }
 
@@ -24,7 +24,7 @@
 
     .media-illustration{
     	@apply absolute top-[5%] left-[5%] z-[2] aspect-[1/1];
-    	width: clamp(120px,40%,500px);
+    	width: clamp(200px,40%,500px);
     }
 
     .media.media--full {

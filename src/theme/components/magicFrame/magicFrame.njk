@@ -11,7 +11,7 @@
 {% macro render(props) %}
 
   {% set stroke = 1.5 %}
-	<div x-data="watchSize" {%if props.listen%}data-listen="true"{%endif%} class="pointer-events-none absolute top-0 left-0 w-full h-full overflow-hidden">
+	<div x-data="watchSize" {%if props.listen%}data-listen="true"{%endif%} class="pointer-events-none absolute top-0 left-[-8px] md:left-0 right-[-8px] md:right-0 h-full overflow-hidden">
 
 
    <svg :width="width" :height="height" x-data class="-ml-[2px] -mt-[2px]" :viewBox="`0 0 ${width} ${height}`" fill="none" xmlns="http://www.w3.org/2000/svg">

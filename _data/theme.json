@@ -17,6 +17,12 @@
 		"header-button-active-bg" : "var(--theme-colors-gold)",
 		"header-button-active-fg" : "var(--theme-colors-light)",
 
+		"actionBar-bg" : "var(--theme-colors-sand)",
+		"actionBar-fg" : "var(--theme-colors-grey)",
+		"actionBar-text" : "var(--theme-colors-grey)",
+		"actionBar-button-active-bg" : "var(--theme-colors-grey)",
+		"actionBar-button-active-fg" : "var(--theme-colors-sand)",
+
 		"masthead-logo-fg" :"var(--theme-colors-grey)",
 
 		"button-roundness" : "9999px",

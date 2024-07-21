@@ -40,7 +40,7 @@
 		background-size: cover;
 		
 		.nav{
-			@apply flex aspect-[4/1] items-center justify-center w-full;
+			@apply flex aspect-[4/5] md:aspect-[4/1] items-center justify-center w-full;
 
 			&.nav--align-left{
 				@apply justify-start;
@@ -79,11 +79,25 @@
     	}
     }
 
+    /* Responsive modifiers... */
+
+    .nav.nav--responsive{
+    	ul{
+    		@apply flex flex-col md:flex-row;
+    	}
+    }
+
     /* Nav link modifiers... */
 
     .nav.nav--buttons {
 		a,.nav-link{
 			@apply u-link-button-wide;
+		}
+
+		&.nav--responsive{
+			a,.nav-link{
+				@apply min-w-[15em] md:min-w-[18em];
+			}
 		}
 	}
 

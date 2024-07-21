@@ -41,7 +41,7 @@
 
 	
     .mapPanel-content {
-        @apply p-inset md:py-[calc(2*var(--spacing-inset))] md:px-[calc(3*var(--spacing-inset))];
+        @apply p-inset pb-[2px] md:py-[calc(2*var(--spacing-inset))] md:px-[calc(3*var(--spacing-inset))];
         @apply flex flex-col lg:flex-row items-center;
     }
 
