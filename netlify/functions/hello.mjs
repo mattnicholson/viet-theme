@@ -7,6 +7,6 @@ export default async (req, context) => {
 	Accessing params: const apiKey = Netlify.env.get("MY_API_KEY");
 
 	*/
-	
-  	return new Response("Hello, world!");
+
+  	return Response.json({ hello: "world" });
 };
