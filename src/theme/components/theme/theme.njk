@@ -29,7 +29,7 @@
 	<style type="text/css">
 		:root{
 			{% for k,v in props.settings %}
-			--theme-{{k}}:{{v}};
+			{% if v %}--theme-{{k}}:{{v}};{% endif %}
 			{% endfor %}
 		}
 
