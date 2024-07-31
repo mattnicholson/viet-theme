@@ -4,8 +4,6 @@ const cms = require('../src/cms/index.js');
 
 module.exports = async function() {
 
-	
-
     try {
 
     	const site = await cms.getSite();
@@ -22,21 +20,15 @@ module.exports = async function() {
 				"name" : site.data.name,
 				"title": site.data.title,
 				"description": site.data.description,
-				"twitter": "",
-				"instagram": "@caytrerestaurant",
-				"url": "https://caytrerestaurant.co.uk",
+				"twitter": site.data.twitter,
+				"instagram": site.data.instagram,
+				"url": site.data.url,
 				"meta_image" : site.data.meta_image.url,
 				"icon" : site.data.icon.url,
 				"logo" : site.data.logo,
 				"scripts" : {
-					"head" : "",
-					"foot":`
-					<!-- Google tag (gtag.js) --> 
-					<script async src="https://www.googletagmanager.com/gtag/js?id=G-032TQP8LQ5"></script>
-					<script> 
-						window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-032TQP8LQ5'); 
-					</script> 
-					`,
+					"head" : site.data.head_scripts,
+					"foot":site.data.footer_scripts
 				},
 				"forms" : {
 					"newsletter" : {

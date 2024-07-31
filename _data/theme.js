@@ -29,8 +29,8 @@ module.exports = async function() {
 					"text" : TEXT,
 					"accent" : ACCENT,
 
-					"cms-header-bg" : "",
-					"cms-header-fg" : "",
+					"cms-header-bg" : site.data.header_bg,
+					"cms-header-fg" : site.data.header_fg,
 					"header-bg" : `var(--theme-cms-header-bg,${BG})`,
 					"header-fg" : `var(--theme-cms-header-fg,${FG})`,
 					"header-text" : `var(--theme-cms-header-fg,${FG})`,
