@@ -37,15 +37,16 @@ module.exports = async function() {
 					"header-button-active-bg" : `var(--theme-cms-header-fg,${FG})`,
 					"header-button-active-fg" : `var(--theme-cms-header-bg,${BG})`,
 
-					"cms-actionbar-bg" : "",
-					"cms-actionbar-fg" : "",
+					"cms-actionbar-bg" : site.data.mobile_actions_bg,
+					"cms-actionbar-fg" : site.data.mobile_actions_fg,
 					"actionBar-bg" : `var(--theme-cms-actionbar-bg,${ACCENT})`,
 					"actionBar-fg" : `var(--theme-cms-actionbar-fg,${FG})`,
 					"actionBar-text" : `var(--theme-cms-actionbar-fg,${FG})`,
 					"actionBar-button-active-bg" : `var(--theme-cms-actionbar-fg,${FG})`,
 					"actionBar-button-active-fg" : `var(--theme-cms-actionbar-bg,${ACCENT})`,
 
-					"masthead-logo-fg" :"var(--theme-colors-grey)",
+					"cms-masthead-logo-fg" : site.data.masthead_logo_fg,
+					"masthead-logo-fg" :`var(--theme-cms-masthead-logo-fg,${TEXT})`,
 
 					"button-roundness" : "9999px",
 					"button-active-bg" : "var(--theme-fg)",
@@ -55,14 +56,20 @@ module.exports = async function() {
 					"frame-size" : "clamp(6px,1vw,16px)",
 					"frame-bg" : "var(--theme-accent)",
 
-					"map-pin" : "var(--theme-colors-grey)",
-					"map-tint" : "var(--theme-colors-gold)",
-					"map-roads" : "var(--theme-colors-light)",
+					"cms-map-pin" : site.data.map_pin,
+					"cms-map-tint" : site.data.map_tint,
+					"cms-map-roads" : site.data.map_roads,
+					"map-pin" : `var(--theme-cms-map-pin,${TEXT})`,
+					"map-tint" : `var(--theme-cms-map-tint,${FG})`,
+					"map-roads" : `var(--theme-cms-map-roads,${BG})`,
 
-					"nav-texture" : "url(/assets/img/texture/footer-nav-texture.png)",
+					"nav-texture" : site.data.footer_navigation_texture ? `url(${site.data.footer_navigation_texture.url})`:'',
 
+					"cms-footer-bg" : site.data.footer_bg,
+					"cms-footer-fg" : site.data.footer_fg,
 					"footer-texture" :  "url(/assets/img/placeholder-texture.jpg)",
-					"footer-bg" :  "var(--theme-colors-grey)"
+					"footer-bg" :  `var(--theme-cms-footer-bg,${TEXT})`,
+					"footer-fg" :  `var(--theme-cms-footer-fg,${BG})`
 				}
 			}
 	      
