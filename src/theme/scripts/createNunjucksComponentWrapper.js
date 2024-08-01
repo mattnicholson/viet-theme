@@ -14,10 +14,15 @@ const path = require('path');
 const componentSource = path.join(__dirname, `../components/`);
 const componentFolders = fs.readdirSync(componentSource, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
 
+// Get template folders
+const templateSource = path.join(__dirname, `../templates/`);
+const templateFiles = fs.readdirSync(templateSource, { withFileTypes: true }).filter(dirent => !dirent.isDirectory())
+
 // Output file paths
 const outputWrapperPath = path.join(__dirname, '../inc/wrapper.njk');
 const outputScriptsPath = path.join(__dirname, '../inc/components.js');
 const outputStylesPath = path.join(__dirname, '../inc/components.css');
+const outputTemplatesPath = path.join(__dirname, '../inc/templates.js');
 
 // Initialize the final output strings
 let wrapperOutput = `{# NOTE: This file is generated automatically, to make changes see src/theme/scripts/createNunjucksComponentWrapper #}\n`;
@@ -25,6 +30,14 @@ let scriptsOutput = `/* NOTE: This file is generated automatically, to make chan
 let stylesOutput = `/* NOTE: This file is generated automatically, to make changes see src/theme/scripts/createNunjucksComponentWrapper */\n`;
 
 let components = [];
+let templates = [];
+
+templateFiles.forEach(t => {
+
+    let handle = t.name.split('.')[0];
+    templates.push(handle);
+
+});
 
 // Loop through themeConfig.components
 componentFolders.forEach(c => {
@@ -67,5 +80,6 @@ wrapperOutput += "{% block output %}{% endblock %}"
 fs.writeFileSync(outputWrapperPath, wrapperOutput);
 fs.writeFileSync(outputScriptsPath, scriptsOutput);
 fs.writeFileSync(outputStylesPath, stylesOutput);
+fs.writeFileSync(outputTemplatesPath, `module.exports = ${JSON.stringify(templates)};`);
 
 console.log('Nunjucks component wrapper and includes created successfully!');

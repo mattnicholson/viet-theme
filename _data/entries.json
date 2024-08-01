@@ -2,6 +2,9 @@
 	{
 		"url": "/",
 		"template":"index",
+		"content":{
+			"showTeaser_3":false
+		},
 		"meta": {
 			"title": "Vietnamese Restaurant London Soho | Delivery, Takeaway, Eat-In | Cay Tre Soho",
 			"description": "Authentic Vietnamese restaurant in London Soho serves up fresh, healthy Vietnamese food. Eat in, takeaway or 2-mile-delivery within 32 minutes."
@@ -146,6 +149,7 @@
 	{
 		"url": "/blogs/posts/a-history-of-pho/",
 		"type": "posts",
+		"template":"post",
 		"meta": {
 			"title": "A History of Pho",
 			"description": "Explore the rich history and regional diversity of Pho, Vietnam's iconic dish. Learn about its North Vietnamese roots, regional variations, and enduring appeal. Discover Cay Tre's authentic Pho in Soho and Hoxton."

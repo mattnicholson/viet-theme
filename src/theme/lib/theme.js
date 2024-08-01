@@ -1,4 +1,5 @@
 const nunjucks = require("nunjucks");
+const templates = require("../inc/templates.js");
 
 exports.init = function (eleventyConfig){
 	 
@@ -38,7 +39,8 @@ exports.init = function (eleventyConfig){
 	
 	*/
 	eleventyConfig.addFilter('templateHandle', function(entry) {
-		return entry.template ? entry.template : 'basic';
+
+		return (entry.template && (templates.indexOf(entry.template) !== -1)) ? entry.template : 'basic';
     });
 
 	/* Output current year */

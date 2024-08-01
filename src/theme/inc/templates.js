@@ -1,0 +1,1 @@
+module.exports = ["basic","catering","example","groups","index","location","our-story"];
