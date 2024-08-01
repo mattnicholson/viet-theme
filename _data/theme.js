@@ -14,8 +14,6 @@ module.exports = async function() {
 
     	}else{
 
-	        console.log(site.data)
-
 	        let BG = site.data.bg ? site.data.bg : '#FFF';
 	        let FG = site.data.fg ? site.data.fg : '#000';
 	        let TEXT = site.data.text ? site.data.text : FG;

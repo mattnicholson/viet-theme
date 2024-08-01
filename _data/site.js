@@ -14,8 +14,6 @@ module.exports = async function() {
 
     	}else{
 
-	        console.log(site)
-
 	        let forms = site.data.forms.reduce((acc, item) => {
 			  acc[item.handle] = { action: item.action };
 			  return acc;

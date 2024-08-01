@@ -1,1 +1,1 @@
-module.exports = ["basic","catering","example","groups","index","location","our-story"];
+module.exports = ["","basic","blocks","catering","example","groups","index-static","index","location","our-story-static","our-story"];

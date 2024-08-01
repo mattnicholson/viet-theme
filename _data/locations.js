@@ -40,7 +40,7 @@ module.exports = async function() {
 				"locationMapUrl": item.venue_map_url,
 				"locationTelephone":item.venue_telephone,
 				"locationEmail": item.venue_email,
-				"locationOpening": item.venue_opening,
+				"locationOpening": cms.nl2br(item.venue_opening),
 				"menus": [
 					{
 						"title": item.menu_1_label,

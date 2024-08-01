@@ -5,9 +5,9 @@
 	{% render 'masthead',{
 		inheritProps:true,
 		render : {
-			title: entry.title,
+			title: 'Our Story',
 			modifier:'title',
-			image:entry.content.masthead_image
+			image:'/assets/img/our-story/01-masthead.jpg'
 		},
 		wrapper : {
 			modifier : 'default'
@@ -33,7 +33,7 @@
 										inheritProps:true,
 										render : {
 											modifier:'2',
-											title:entry.content.intro_eyebrow
+											title:'Our Story'
 										}
 									}
 								),
@@ -42,7 +42,7 @@
 									{
 										inheritProps:true,
 										render : {
-											content:entry.content.intro
+											content:'<h2>Our Roots</h2><p>Considered the godfather of London’s Vietnamese food movement, founder Hieu was born in Hanoi in the north and raised in Saigon in the south. He arrived in London as a student in 1999, and, after struggling to find authentic Vietnamese restaurants in the capital, opened Cay Tre in 2003.</p>'
 										}
 									}
 								),
@@ -69,9 +69,9 @@
 				{
 					inheritProps:true,
 					render : {
-						image : entry.content.media_image,
-						texture : entry.content.media_texture,
-						illustration :entry.content.media_illustration,
+						image : '/assets/img/our-story/02-media-image.jpg',
+						texture : '/assets/img/our-story/02-media-texture.png',
+						illustration : '/assets/img/our-story/02-media-stamp.png',
 						modifier:'texture'
 					}
 				}
@@ -82,11 +82,11 @@
 					inheritProps:true,
 					render : {
 						modifier:'3',
-						title : entry.content.collage_1_title,
-						text: entry.content.collage_1_text,
-						landscape: entry.content.collage_1_landscape,
-						portrait:entry.content.collage_1_portrait,
-						illustration:entry.content.collage_1_illustration
+						title : "Our Signature Dish",
+						text: '<p>Our classic phở has been on the menu since day one. It starts with a deeply-flavoured broth of marrow bones, cinnamon and star anise, slowly simmered for 24 hours. Next, we add fresh ingredients such as flank steak, chicken thigh or king prawns, and serve each bowl with fresh herbs such as saw-tooth coriander and Thai basil. Have yours Hanoi-style by adding a little hoisin, or keep it simple as they do in the north with a splash of Cây Tre’s very own Cậu Vinh chilli sauce — it’s up to you.</p>',
+						landscape: '/assets/img/our-story/03-collage-texture.png',
+						portrait:'/assets/img/our-story/03-collage-image.jpg',
+						illustration:'/assets/img/our-story/03-collage-illustration.png'
 					},
 					wrapper : {
 						modifier : 'alt'
@@ -99,11 +99,11 @@
 					inheritProps:true,
 					render : {
 						modifier:'2',
-						title : entry.content.collage_2_title,
-						text: entry.content.collage_2_text,
+						title : "Our Ingredients",
+						text: '<p>We use the finest produce we can get our hands on, from flavourful Hereford sirloin to corn-fed, free-range chicken. Our seasonal British vegetables are supplied by Borough Market’s Paul Wheeler, while fragrant herbs are grown on farms in Vietnam, picked fresh and delivered to our kitchens in as short a time as possible. Vietnamese cooking is all about the careful balancing of flavours, and we allow the exceptional quality of our ingredients to shine through in each and every dish.</p>',
 						landscape: false,
-						portrait:entry.content.collage_2_portrait,
-						illustration:entry.content.collage_2_illustration
+						portrait:'/assets/img/our-story/04-collage-image.jpg',
+						illustration:'/assets/img/our-story/04-collage-illustration.png'
 					},
 					wrapper : {
 						modifier : 'alt'
@@ -141,7 +141,7 @@
 									{
 										inheritProps:true,
 										render : {
-											content:entry.content.locations_text_1
+											content:'<h2>Our restaurants</h2><p>We opened the doors to our flagship restaurant on Old Street in Hoxton, the beating heart of London’s East End, in 2003, and are proud to still be in the same spot over 20 years later. In 2011, we opened Cây Tre on Soho’s bustling Dean Street, just a short walk from the bright lights of the West End and Covent Garden.</p>'
 										}
 									}
 								),
@@ -171,7 +171,7 @@
 									{
 										inheritProps:true,
 										render : {
-											content:entry.content.locations_text_2
+											content:'<p>Join us for traditional Vietnamese barbecue at Viet Grill, or swing by Keu for authentic Saigon street food — we look forward to welcoming you soon.</p>'
 										}
 									}
 								),

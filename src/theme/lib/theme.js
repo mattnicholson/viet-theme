@@ -39,7 +39,6 @@ exports.init = function (eleventyConfig){
 	
 	*/
 	eleventyConfig.addFilter('templateHandle', function(entry) {
-
 		return (entry.template && (templates.indexOf(entry.template) !== -1)) ? entry.template : 'basic';
     });
 

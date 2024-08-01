@@ -21,17 +21,25 @@
 {% endblock %}
 
 {% if site.scripts %}
-		{{ site.scripts.head | safe }}
-	{% endif %}
+	{{ site.scripts.head | safe }}
+{% endif %}
 
 {%  set siteTitle = site.title %}
 {%  set siteDescription = site.description %}
+{% set siteImage = site.meta_image %}
 
 {% if entry %}
 	{%  set siteTitle = [entry.title,' | ',site.title] | join %}
-	{%  if entry.meta and entry.meta.title %}{%  set siteTitle = entry.meta.title %}{% endif %}
+	{%  if entry.meta and entry.meta.title %}{%  set siteImage = entry.meta.title %}{% endif %}
 	{%  if entry.meta and entry.meta.description %}{%  set siteDescription = entry.meta.description %}{% endif %}
+	{%  if entry.meta and entry.meta.image %}{%  set siteImage = entry.meta.image %}{% endif %}
 {% endif %}
+
+{% if siteImage %}
+<meta property="og:image" content="{{ siteImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ siteImage }}">
+{%  endif %}
 
 <title>{{siteTitle}}</title>
 <meta name="description" content="{{siteDescription}}"/>
