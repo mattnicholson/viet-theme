@@ -1,8 +1,8 @@
 
 @layer utilities {
     :root {
-        --magicFrame-alt-bg: theme('colors.grey');
-        --magicFrame-alt-fg: theme('colors.sand');
+        --magicFrame-alt-bg: var(--theme-palette-alt-bg);
+        --magicFrame-alt-fg: var(--theme-palette-alt-fg);
     }
 }
 

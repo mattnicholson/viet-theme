@@ -3,7 +3,7 @@
      :root {
        	--masthead-default-bg: transparent;
        	--masthead-default-fg: var(--theme-masthead-logo-fg);
-       	--masthead-default-text: theme('colors.light');
+       	--masthead-default-text: var(--theme-bg);
 
         /* We can change this property for different modifiers to make the mosthead adapt to different scenarios */
         --masthead-space-reduce: 0px;

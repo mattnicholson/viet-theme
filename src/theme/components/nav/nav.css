@@ -2,6 +2,7 @@
 @layer utilities {
     :root {
     	--nav-texture-bg: var(--theme-nav-texture);
+    	--nav-texture-fg: var(--theme-nav-texture-fg);
     }
 }
 
@@ -51,15 +52,16 @@
 			}
 		}
 		.nav--buttons{
-			--theme-button-active-bg: theme('colors.light');
-			--theme-button-active-fg: theme('colors.grey');
+			--theme-button-active-bg: var(--theme-bg);
+			--theme-button-active-fg:  var(--theme-text);
 
-			@apply text-light;
+			color:var(--theme-bg);
 		}
 
 		.nav--links,
 		.nav--hero{
-			@apply text-sand;
+			
+			color:var(--nav-texture-fg);
 		}
 	}
 

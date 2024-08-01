@@ -28,6 +28,7 @@
 	.u-link-pill {
 		@apply transition cursor-pointer inline-flex gap-[5px] items-center rounded-full p-[5px] px-[10px] text-[16px] bg-[white] shadow-md;
 		cursor: pointer;
+		color:var(--theme-text);
 
 		&:hover {
 			transform: scale(1.05);

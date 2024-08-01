@@ -1,7 +1,7 @@
 
 @layer utilities {
     :root {
-    	--media-default-bg: theme('colors.grey');
+    	--media-default-bg: var(--theme-text);
     	--media-inset: clamp(20px,5vw,100px);
     }
 }

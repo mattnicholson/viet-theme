@@ -1,6 +1,8 @@
 
 @layer utilities {
     :root {
+        --newsletter-panel-bg: var(--theme-palette-dark-bg);
+        --newsletter-panel-fg: var(--theme-palette-dark-fg);
     }
 }
 
@@ -10,7 +12,10 @@
     .newsletterPanel {
 
         @apply footer-texture aspect-[4/1] flex items-center;
-        @apply relative bg-grey text-sand;
+        @apply relative;
+
+        background: var(--newsletter-panel-bg);
+        color: var(--newsletter-panel-fg);
 
         /*background: center center no-repeat;
         background-image: var(--theme-footer-texture);

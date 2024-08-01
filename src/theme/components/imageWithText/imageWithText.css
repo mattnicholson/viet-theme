@@ -1,13 +1,13 @@
 
 @layer utilities {
     :root {
-        --imageWithText-alt-bg: theme('colors.sand');
-        --imageWithText-alt-fg: theme('colors.gold');
-        --imageWithText-alt-text: theme('colors.grey');
+        --imageWithText-alt-bg: var(--theme-palette-alt-bg);
+        --imageWithText-alt-fg: var(--theme-palette-alt-fg);
+        --imageWithText-alt-text: var(--theme-palette-alt-text);
 
-        --imageWithText-dark-bg: theme('colors.grey');
-        --imageWithText-dark-fg: theme('colors.sand');
-        --imageWithText-dark-text: theme('colors.sand');
+        --imageWithText-dark-bg: var(--theme-palette-dark-bg);
+        --imageWithText-dark-fg: var(--theme-palette-dark-fg);
+        --imageWithText-dark-text: var(--theme-palette-dark-text);
     }
 }
 

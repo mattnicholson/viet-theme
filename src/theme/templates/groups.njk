@@ -25,7 +25,7 @@
 	{{ 'theme' | render({
 
 			render : {
-				modifier:'gold',
+				modifier:'light',
 				content : [
 
 					'shadow' | render({
@@ -73,10 +73,11 @@
 								'theme' | render({
 
 									render : {
-										modifier:'gold',
+										modifier:'light',
 										content : [
 
 											'nav' | render({
+												condition: entry.content.brochureLink | isNotEmpty,
 												render : {
 													modifier:'buttons',
 													links : [

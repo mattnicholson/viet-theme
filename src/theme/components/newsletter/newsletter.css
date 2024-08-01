@@ -1,5 +1,7 @@
 @layer utilities {
     :root {
+      --newsletter-bg: var(--theme-palette-dark-bg);
+      --newsletter-fg: var(--theme-palette-dark-fg);
     }
 }
 
@@ -16,17 +18,25 @@
 
         .newsletter-form {
           max-width: 25em;
-          @apply w-full mx-auto relative border-[2px] rounded-full bg-footer;
+          @apply w-full mx-auto relative border-[2px] rounded-full;
           border-color: currentColor;
 
+          background: var(--newsletter-fg);
+
           input {
-            @apply block w-full bg-transparent text-footertext placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] pr-[6em];
+            @apply block w-full bg-transparent placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] pr-[6em];
+            color: var(--newsletter-bg);
             outline: none;
           }
 
           button {
-            @apply u-link-button absolute right-0 top-0 h-full bg-footertext text-footer !border-footertext;
+            @apply u-link-button absolute right-0 top-0 h-full;
             line-height: 1;
+            
+            color: var(--newsletter-fg);
+            background: var(--newsletter-bg);
+            border-color:var(--newsletter-fg)!important;
+
             &:hover {
               @apply scale-100;
             }

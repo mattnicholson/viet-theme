@@ -2,12 +2,12 @@
 @layer utilities {
     :root {
        	--mapPanel-default-bg: transparent;
-        --mapPanel-default-fg: theme('colors.gold');
-        --mapPanel-default-text: theme('colors.grey');
+        --mapPanel-default-fg: var(--theme-palette-light-fg);
+        --mapPanel-default-text: var(--theme-palette-light-text);
 
-        --mapPanel-dark-bg: theme('colors.grey');
-        --mapPanel-dark-fg: theme('colors.sand');
-        --mapPanel-dark-text: theme('colors.sand');
+        --mapPanel-dark-bg: var(--theme-palette-dark-bg);
+        --mapPanel-dark-fg: var(--theme-palette-dark-fg);
+        --mapPanel-dark-text: var(--theme-palette-dark-text);
     }
 }
 

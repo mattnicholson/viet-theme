@@ -18,7 +18,7 @@ module.exports = async function() {
 
 	        let BG = site.data.bg ? site.data.bg : '#FFF';
 	        let FG = site.data.fg ? site.data.fg : '#000';
-	        let TEXT = site.data.text ? site.data.fg : FG;
+	        let TEXT = site.data.text ? site.data.text : FG;
 	        let ACCENT = site.data.accent ? site.data.accent : '#666';
 
 	        return {
@@ -53,6 +53,24 @@ module.exports = async function() {
 					"button-active-fg" : "var(--theme-bg)",
 					"button-inactive-opacity" : "1",
 
+					"palette-light-bg":`var(--theme-cms-light-bg,${BG})`,
+					"palette-light-fg":`var(--theme-cms-light-fg,${FG})`,
+					"palette-light-text":`var(--theme-cms-light-text,${TEXT})`,
+					"palette-light-button-active-bg":`var(--theme-cms-light-button-active-bg,${FG})`,
+					"palette-light-button-active-fg":`var(--theme-cms-light-button-active-fg,${BG})`,
+
+					"palette-alt-bg":`var(--theme-cms-alt-bg,${ACCENT})`,
+					"palette-alt-fg":`var(--theme-cms-alt-fg,${FG})`,
+					"palette-alt-text":`var(--theme-cms-alt-text,${TEXT})`,
+					"palette-alt-button-active-bg":`var(--theme-cms-alt-button-active-bg,${FG})`,
+					"palette-alt-button-active-fg":`var(--theme-cms-alt-button-active-fg,${ACCENT})`,
+
+					"palette-dark-bg":`var(--theme-cms-dark-bg,${TEXT})`,
+					"palette-dark-fg":`var(--theme-cms-dark-fg,${ACCENT})`,
+					"palette-dark-text":`var(--theme-cms-dark-text,${ACCENT})`,
+					"palette-dark-button-active-bg":`var(--theme-cms-dark-button-active-bg,${ACCENT})`,
+					"palette-dark-button-active-fg":`var(--theme-cms-dark-button-active-fg,${TEXT})`,
+
 					"frame-size" : "clamp(6px,1vw,16px)",
 					"frame-bg" : "var(--theme-accent)",
 
@@ -63,7 +81,9 @@ module.exports = async function() {
 					"map-tint" : `var(--theme-cms-map-tint,${FG})`,
 					"map-roads" : `var(--theme-cms-map-roads,${BG})`,
 
+					"cms-footer-nav-fg":site.data.footer_texture_fg,
 					"nav-texture" : site.data.footer_navigation_texture ? `url(${site.data.footer_navigation_texture.url})`:'',
+					"nav-texture-fg" :  `var(--theme-cms-footer-nav-fg,${ACCENT})`,
 
 					"cms-footer-bg" : site.data.footer_bg,
 					"cms-footer-fg" : site.data.footer_fg,

@@ -1,8 +1,8 @@
 
 @layer utilities {
     :root {
-        --footer-dark-bg: theme('colors.grey');
-        --footer-dark-fg: theme('colors.sand');
+        --footer-dark-bg: var(--theme-palette-dark-bg);
+        --footer-dark-fg: var(--theme-palette-dark-fg);
     }
 }
 

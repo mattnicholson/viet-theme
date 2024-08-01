@@ -4,6 +4,22 @@ exports.init = function (eleventyConfig){
 	 
 	let components = {};
 
+	/*
+
+	Filters for returning boolean against a value
+
+	*/
+	eleventyConfig.addFilter('isNotEmpty', function(val) {
+		if(!val) return false;
+		if(val && val === '') return false;
+		return true;
+    });
+
+    eleventyConfig.addFilter('isEmpty', function(val) {
+		if(!val) return true;
+		if(val && val === '') return true;
+		return false;
+    });
 
 	/*
 		
@@ -75,7 +91,8 @@ exports.init = function (eleventyConfig){
 	Render a component by name, using its wrapper and default props.
 	By default the wrapper will be rendered unless skipWrapper flag is true
 	By default if render props are passed in, defaultProps are ignore, but you can set inheritProps to true to merge defaults with whatever is passed in
-	
+	Pass in a condition boolean to control whether to render the component
+
 	{% render 'someComponent' , {
 		wrapper : {
 			propForWrapper : 'foo'
@@ -83,6 +100,7 @@ exports.init = function (eleventyConfig){
 		render:{
 			propForComponent: 'bar'
 		}
+		condition:true/false,
 		skipWrapper:true/false,
 		inheritProps:true/false
 	} %}
@@ -92,6 +110,11 @@ exports.init = function (eleventyConfig){
 	const render = (key,props) => {
 		if(components[key]){
 			let c = components[key];
+
+			if(props && props.hasOwnProperty('condition')){
+				if(!props.condition) return '';
+			}
+
 			let skipWrapper = false;
 			if(props && props.skipWrapper) skipWrapper = true;
 
@@ -147,6 +170,7 @@ exports.init = function (eleventyConfig){
 			wrapper : {
 	
 			},
+			condition,
 			skipWrapper,
 			inheritProps
 		})

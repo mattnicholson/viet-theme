@@ -1,8 +1,8 @@
 
 @layer utilities {
     :root {
-        --logos-dark-bg: theme('colors.grey');
-        --logos-dark-fg: theme('colors.sand');
+        --logos-dark-bg: var(--theme-palette-dark-bg);
+        --logos-dark-fg: var(--theme-palette-dark-fg);
     }
 }
 

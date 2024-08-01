@@ -1,6 +1,11 @@
 
 @layer utilities {
     :root {
+    	--default-theme-bg:var(--theme-bg);
+    	--default-theme-fg:var(--theme-fg);
+    	--default-theme-text:var(--theme-text);
+    	--default-theme-button-active-bg:var(--theme-button-active-bg);
+    	--default-theme-button-active-fg:var(--theme-button-active-fg);
     	/* Root variables are actually set using the nunjucks component with render prop 'root' set to true, so that these can be set dynamically */
     }
 }
@@ -14,30 +19,35 @@
     }
 
     .theme.theme--default {
-    	--theme-bg: theme('colors.light');
-		--theme-fg: theme('colors.grey');
-		--theme-text: theme('colors.grey');
-		--theme-button-active-bg: theme('colors.grey');
-		--theme-button-active-fg: theme('colors.light');
+    	--theme-bg: var(--default-theme-bg);
+		--theme-fg: var(--default-theme-fg);
+		--theme-text: var(--default-theme-text);
+		--theme-button-active-bg: var(--default-theme-button-active-bg);
+		--theme-button-active-fg: var(--default-theme-button-active-fg);
     }
 
     .theme.theme--alt {
-		--theme-bg: theme('colors.sand');
-		--theme-fg: theme('colors.gold');
-		--theme-text: theme('colors.grey');
+		--theme-bg: var(--theme-palette-alt-bg);
+		--theme-fg: var(--theme-palette-alt-fg);
+		--theme-text: var(--theme-palette-alt-text);
+		--theme-button-active-bg: var(--theme-palette-alt-button-active-bg);
+		--theme-button-active-fg: var(--theme-palette-alt-button-active-fg);
 	}
 
 	.theme.theme--dark {
-		--theme-bg: theme('colors.grey');
-		--theme-fg: theme('colors.sand');
-		--theme-text: theme('colors.sand');
+		--theme-bg: var(--theme-palette-dark-bg);
+		--theme-fg: var(--theme-palette-dark-fg);
+		--theme-text: var(--theme-palette-dark-text);
+		--theme-button-active-bg: var(--theme-palette-dark-button-active-bg);
+		--theme-button-active-fg: var(--theme-palette-dark-button-active-fg);
 	}
 
-	.theme.theme--gold {
-		--theme-bg: theme('colors.light');
-		--theme-fg: theme('colors.gold');
-		--theme-text: theme('colors.grey');
-		--theme-button-active-bg: theme('colors.gold');
+	.theme.theme--light {
+		--theme-bg: var(--theme-palette-light-bg);
+		--theme-fg: var(--theme-palette-light-fg);
+		--theme-text: var(--theme-palette-light-text);
+		--theme-button-active-bg: var(--theme-palette-light-button-active-bg);
+		--theme-button-active-fg: var(--theme-palette-light-button-active-fg);
 	}
 	
 }

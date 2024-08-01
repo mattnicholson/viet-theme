@@ -1,13 +1,13 @@
 
 @layer utilities {
     :root {
-        --collage-alt-bg: theme('colors.sand');
-        --collage-alt-fg: theme('colors.gold');
-        --collage-alt-text: theme('colors.grey');
+        --collage-alt-bg: var(--theme-palette-alt-bg);
+        --collage-alt-fg: var(--theme-palette-alt-fg);
+        --collage-alt-text: var(--theme-palette-alt-text);
 
-        --collage-dark-bg: theme('colors.grey');
-        --collage-dark-fg: theme('colors.sand');
-        --collage-dark-text: theme('colors.sand');
+        --collage-dark-bg: var(--theme-palette-dark-bg);
+        --collage-dark-fg: var(--theme-palette-dark-fg);
+        --collage-dark-text: var(--theme-palette-alt-text);
     }
 }
 
