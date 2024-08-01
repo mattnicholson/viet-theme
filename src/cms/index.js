@@ -1,5 +1,15 @@
-module.exports = {
+const prismic = require('@prismicio/client');
 
+module.exports = {
+	nl2br : function(text){
+		return text.replace(/\n/gi,'<br />');
+	},
+	richText : function(rtfObject){
+
+		if(!rtfObject) return '';
+		return prismic.asHTML(rtfObject);
+	
+	},
 	getSite : async function(){
 
 		const PRISMIC_REPO = process.env.PRISMIC_REPO;

@@ -37,7 +37,8 @@
   "dependencies": {
     "@alpinejs/intersect": "^3.12.3",
     "@alpinejs/morph": "^3.12.3",
-    "@prismicio/client": "^7.7.4",
+    "@prismicio/client": "^7.8.0",
+    "@prismicio/richtext": "^2.1.5",
     "@studio-freight/lenis": "^1.0.19",
     "@swup/fragment-plugin": "^0.3.3",
     "animejs": "^3.2.1",
