@@ -8,16 +8,19 @@
                     {
                         type:'text',
                         name : 'Name',
+                        required:true,
                         placeholder:'Name'
                     },
                     {
                         type:'text',
-                        name : 'Email',
+                        name : 'email',
+                        required:true,
                         placeholder:'Email address'
                     },
                     {
                         type:'text',
                         name : 'Phone',
+                        required:true,
                         placeholder:'Phone'
                     }
                     
@@ -42,16 +45,19 @@
                     {
                         type:'text',
                         name : 'Event_Date',
+                        required:true,
                         placeholder:'Event Date'
                     },
                     {
                         type:'text',
                         name : 'Event_Time',
+                        required:true,
                         placeholder:'Event Time'
                     },
                     {
                         type:'text',
                         name : 'Party_Size',
+                        required:true,
                         placeholder:'Party Size'
                     },
                     {
@@ -105,6 +111,7 @@
 {% macro render(props) %}
 	<div class="text-center pb-inset">
 		<h3 class="u-text-subheading">Group Booking Form</h3>
+        <p>* indicates required fields</p>
 	</div>
 {%  render 'form',{
 	render:props

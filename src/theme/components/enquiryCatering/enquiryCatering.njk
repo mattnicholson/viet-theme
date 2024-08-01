@@ -8,16 +8,19 @@
                     {
                         type:'text',
                         name : 'Name',
+                        required:true,
                         placeholder:'Name'
                     },
                     {
                         type:'text',
-                        name : 'Email',
+                        name : 'email',
+                        required:true,
                         placeholder:'Email address'
                     },
                     {
                         type:'text',
                         name : 'Phone',
+                        required:true,
                         placeholder:'Contact Number'
                     }
                     
@@ -30,16 +33,19 @@
                     {
                         type:'text',
                         name : 'Event_Date',
+                        required:true,
                         placeholder:'Event Date'
                     },
                     {
                         type:'text',
                         name : 'Party_Size',
+                        required:true,
                         placeholder:'Party Size'
                     },
                     {
                         type:'text',
                         name : 'Venue_address',
+                        required:true,
                         placeholder:'Venue Address'
                     },
                     {
@@ -94,6 +100,7 @@
 
     <div class="text-center pb-inset">
         <h3 class="u-text-subheading">Catering Booking Form</h3>
+        <p>* indicates required fields</p>
     </div>
 
 {%  render 'form',{

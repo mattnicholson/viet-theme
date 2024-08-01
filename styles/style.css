@@ -24,6 +24,11 @@
 
 @import '../src/theme/inc/components.css';
 
+/* RECAPTCHA BADGE */
+.grecaptcha-badge{
+  display:none!important;
+}
+
 @layer base {
   html {
     @apply u-text-body;

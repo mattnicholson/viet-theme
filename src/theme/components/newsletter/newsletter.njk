@@ -1,7 +1,10 @@
 {# Anything defined in here will be available at the theme level #}
+{% set recaptchaKey = data('conf').RECAPTCHA_SITE_KEY %}
+
 {% set defaultProps = {
 	action : data('site').forms.newsletter.action,
-	text : 'Lorem ipsum dolor sit amet'
+	text : 'Lorem ipsum dolor sit amet',
+	thanks:"Thank you for signing up!"
 } %}
 
 {# Anything defined in here will be available at the theme level #}
@@ -14,22 +17,32 @@
 {% set action = defaultProps.action %}
 {% if props.action %}{%  set action = props.action %}{%  endif %}
 
-<div class="newsletter {% if props.modifier %}newsletter--{{ props.modifier }}{% endif %}" x-data="newsletter">
+<div class="newsletter {% if props.modifier %}newsletter--{{ props.modifier }}{% endif %}" data-recaptcha-key="{{ recaptchaKey }}" x-data="formspree">
 	
 	<div class="newsletter-body">
 		
-		<div class="newsletter-form">
-		    <form action="{{ action }}" method="POST">
+		<div x-show="!success" class="newsletter-form" :class="isSubmitting ? 'cursor-wait opacity-50':''">
+		    <form x-ref="form" :class="isSubmitting ? 'pointer-events-none':''" action="{{ action }}" method="POST">
 		    	<input type="text" name="email" placeholder="Your Email">
 		    	<button type="submit">Sign up</button>
 		    </form>
     	</div>
 
+    	<div class="newsletter-error" x-show="errors.length">
+		    There was an issue with the form submission
+		</div> 
+
     	{%  if props.text  %}
-    	<div class="newsletter-text">
+    	<div x-show="!success" class="newsletter-text">
 			<p>{{ props.text | safe }}</p>
 		</div>
 		{% endif %}
+
+		<div x-show="success">
+			{% set thanks = props.thanks %}
+    		{% if not props.thanks %}{% set thanks = defaultProps.thanks %}{% endif %}
+			<p>{{ thanks | safe }}</p>
+		</div>
 
 	</div>
 

@@ -1,6 +1,7 @@
 {# Anything defined in here will be available at the theme level #}
+{% set recaptchaKey = data('conf').RECAPTCHA_SITE_KEY %}
 {% set defaultProps = {
-
+    thanks:"<p>Thank you for your submission, we will be in touch</p>",
 	action : '/',
 	fields: [
 	{
@@ -98,8 +99,10 @@
 
 {# Render the component #}
 {% macro render(props) %}
-
-  <form class="form" action="{{props.action}}" method="POST">
+    
+    <div data-recaptcha-key="{{ recaptchaKey }}" x-data="formspree">
+    <div x-show="!success">
+  <form x-ref="form" class="form" :class="isSubmitting ? 'form--submitting' : ''" action="{{props.action}}" method="POST" >
   {% for f in props.fields %}
   	{% if f.fields %}
   		{{ group(f) | safe }}
@@ -108,8 +111,28 @@
   	{%  endif %}
     
   {%  endfor %}
-  <div class="form-submit"><button type="submit">{% if props.cta %}{{ props.cta}}{% else %}Send{% endif %}</button></div>
+
+  <div class="form-errors" x-show="errors.length">
+    <div class="pb-[1em]">There was an issue with the form submission:</div>
+
+    <template x-for="error in errors">
+        <div>
+            <span class="capitalize form-error-field" x-text="error.field.replace(/_/gi,' ')"></span> <span class="form-error-msg" x-text="error.message"></span>
+        </div>
+    </template>
+  </div> 
+
+  <div class="form-submit"><button :disabled="isSubmitting" type="submit"><span x-show="isSubmitting">...</span><span x-show="!isSubmitting">{% if props.cta %}{{ props.cta}}{% else %}Send{% endif %}</span></button></div>
   </form>
+  </div>
+
+  <div class="form-thanks" x-show="success">
+    {% set thanks = props.thanks %}
+    {% if not props.thanks %}{% set thanks = defaultProps.thanks %}{% endif %}
+    {{ thanks | safe }}
+  </div> 
+
+  </div>
    
 {% endmacro %}
 
@@ -131,7 +154,7 @@
 
 {% macro field(props) %}
 
-  <div class="form-field form-field--{{props.type}}">
+  <div {% if props.required %}data-required="{{ props.name }}"{% endif %} class="form-field form-field--{{props.type}}">
 	{% if props.type == 'select' %}
   		<select name="{{props.name}}">
   		{% for option in props.options %}
@@ -159,7 +182,7 @@
 	{% elif props.type == 'textarea' %}
   		<textarea name="{{props.name}}" placeholder="{{props.placeholder}}"></textarea>
 	{% else %}
-  		<input type="{{props.type}}" name="{{props.name}}" placeholder="{{props.placeholder}}" />
+  		<input type="{{props.type}}" name="{{props.name}}" placeholder="{{props.placeholder}}{% if props.required %}*{% endif %}" />
 	{% endif %}
   </div>
    

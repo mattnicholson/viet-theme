@@ -91,6 +91,11 @@
 }
 
 @layer components {
+
+    .form-thanks{
+        @apply text-center p-[3em];
+    }
+        
     .form {
 
         --form-focus-color: var(--theme-text);
@@ -100,6 +105,17 @@
 
         @apply w-[90%] flex flex-col gap-[1em] max-w-[25em] mx-auto pb-[2em];
 
+        &.form--submitting{
+            @apply cursor-wait opacity-50;
+            *{
+                pointer-events:none;
+            }
+        }
+
+        .form-errors{
+            @apply text-center p-[1em] text-[red];
+        }
+        
         .form-group-title {
             @apply mb-[0.5em] pl-[1em] text-left;
 
