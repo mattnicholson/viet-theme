@@ -30,8 +30,8 @@
 
 {% if entry %}
 	{%  set siteTitle = [entry.title,' | ',site.title] | join %}
-	{%  if entry.meta and entry.meta.title %}{%  set siteImage = entry.meta.title %}{% endif %}
-	{%  if entry.meta and entry.meta.description %}{%  set siteDescription = entry.meta.description %}{% endif %}
+	{%  if entry.meta and entry.meta.title %}{% set siteTitle = entry.meta.title %}{% endif %}
+	{%  if entry.meta and entry.meta.description %}{% set siteDescription = entry.meta.description %}{% endif %}
 	{%  if entry.meta and entry.meta.image %}{%  set siteImage = entry.meta.image %}{% endif %}
 {% endif %}
 
