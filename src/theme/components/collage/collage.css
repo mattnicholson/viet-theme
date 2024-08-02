@@ -1,6 +1,10 @@
 
 @layer utilities {
     :root {
+        --collage-light-bg: var(--theme-palette-light-bg);
+        --collage-light-fg: var(--theme-palette-light-fg);
+        --collage-light-text: var(--theme-palette-light-text);
+
         --collage-alt-bg: var(--theme-palette-alt-bg);
         --collage-alt-fg: var(--theme-palette-alt-fg);
         --collage-alt-text: var(--theme-palette-alt-text);
@@ -12,6 +16,15 @@
 }
 
 @layer components {
+
+	.collage-wrapper.collage-wrapper--light{
+    	background: var(--collage-light-bg);
+    	color: var(--collage-light-fg);
+
+    	.content p{
+    		color: var(--collage-light-text);
+    	}
+	}
 
 	.collage-wrapper.collage-wrapper--alt{
     	background: var(--collage-alt-bg);
