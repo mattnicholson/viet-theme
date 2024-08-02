@@ -25,7 +25,7 @@ module.exports = async function() {
 					"body" : entry.data.body ? cms.richText(entry.data.body) : '',
 					"meta": {
 						"title": entry.data.meta_title ? entry.data.meta_title : '',
-						"description": entry.data.meta_description ? entry.data_meta_description : '',
+						"description": entry.data.meta_description ? entry.data.meta_description : '',
 						"image": (entry.data.meta_image && entry.data.meta_image.url) ? entry.data.meta_image.url : ''
 					}
 				}

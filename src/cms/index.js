@@ -5,6 +5,7 @@ let CMS_CACHE = {};
 const CMSModule = {
 	pageTypes: ['basic','home','story','groups','catering','location','post','blocks'],
   nl2br: function(text) {
+    if(!text) return '';
     return text.replace(/\n/gi, '<br />');
   },
   richText: function(rtfObject) {
