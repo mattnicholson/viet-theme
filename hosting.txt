@@ -1,0 +1,36 @@
+Email (Gmail)
+------------------------
+vkwebaddress@gmail.com
+Forwarding12345
+
+Hosting (Netlify)
+------------------------
+https://app.netlify.com/login/email
+vkwebaddress@gmail.com
+PKf-y9i,:%HsXFY
+
+Forms (Formspree)
+------------------------
+www.formspree.io
+vkwebaddress@gmail.com
+#mmN_d3AMcQMZa_
+
+CMS (Prismic)
+------------------------
+https://vietnamese-kitchen.prismic.io/documents/
+vkwebaddress@gmail.com
+rO61WIbW6Anro4K
+
+Maps (Mapbox)
+------------------------
+www.mapbox.com
+
+ReCaptcha (Google)
+------------------------
+https://www.google.com/recaptcha/admin/site/706503382/
+(use gmail login)
+vkwebaddress@gmail.com
+Forwarding12345
+
+Client Key: 6LfWYhwqAAAAAO05-9uJV2X4m_RWogNMpCPJgTIA
+Server-side key: 6LfWYhwqAAAAAGBMD28hYQJpdy5K-hlPpbfgX0YD
