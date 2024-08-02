@@ -96,6 +96,7 @@ module.exports = async function() {
     							"media_image" : (entry.data.media_image && entry.data.media_image.url) ? entry.data.media_image.url : '',
     							"media_texture" : (entry.data.media_texture && entry.data.media_texture.url) ? entry.data.media_texture.url : '',
     							"media_illustration" : (entry.data.media_illustration && entry.data.media_illustration.url) ? entry.data.media_illustration.url : '',
+								"collage_style":entry.data.collage_style ? entry.data.collage_style : 'alt',
 								"collage_1_title":entry.data.collage_1_title,
     							"collage_1_text":cms.richText(entry.data.collage_1_text),
     							"collage_1_landscape" : (entry.data.collage_1_landscape && entry.data.collage_1_landscape.url) ? entry.data.collage_1_landscape.url : '',
