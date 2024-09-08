@@ -41,6 +41,12 @@
     	@apply u-layout-fluid z-[0] opacity-90;
     }
 
+    .masthead--noLogo{
+        .masthead-media{
+            @apply opacity-100;
+        }
+    }
+
     .masthead-content{
     	@apply u-layout-fluid z-[1] flex items-center justify-center;
     }

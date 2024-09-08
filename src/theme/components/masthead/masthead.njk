@@ -13,7 +13,7 @@
 
 {# Render the component #}
 {% macro render(props) %}
-<div class="masthead {% if props.modifier %}masthead--{{ props.modifier }}{% endif %}">
+<div class="masthead {% if props.modifier %}masthead--{{ props.modifier }}{% endif %} {% if props.hideLogo %}masthead--noLogo{% endif %}">
 	
 	<div class="masthead-content">
 	{%  if props.modifier == 'logo' %}
