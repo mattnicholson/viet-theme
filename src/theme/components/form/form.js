@@ -34,7 +34,7 @@ init(() => {
     isSubmitting:false,
     success:false,
     init(args) {
-        console.log('FORM', this.$el.dataset,this.$refs.form);
+        //console.log('FORM', this.$el.dataset,this.$refs.form);
 
         // Bind the submit event listener
         this.submitHandler = this.handleSubmit.bind(this); // Create a bound function
