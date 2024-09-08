@@ -70,14 +70,19 @@
         </div>
         {# END TEXT SIDE #}
         {# IMAGE SIDE #}
+        {% set fit = 'cover' %}
+        {% if props.fitImage %}{% set fit = 'contain' %}{% endif %}
+        
         <div class="overflow-hidden aspect-[6/5] relative w-full shrink-0 md:w-1/2 p-inset">
           <div class="relative w-full h-full">
+          	{% if props.image %}
           	{% render 'image',{
 			      	render:{
 			      		src : props.image,
-			      		fit:'cover'
+			      		fit:fit
 			      	}
 	     			} %}
+	     			{% endif %}
           </div>
         </div>
         {# END IMAGE SIDE #}

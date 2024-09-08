@@ -34,7 +34,7 @@ module.exports = async function() {
 			  }
 			});
 
-	        return {
+	        let siteData = {
 				"name" : site.data.name,
 				"title": site.data.title,
 				"description": site.data.description,
@@ -44,6 +44,9 @@ module.exports = async function() {
 				"meta_image" : site.data.meta_image.url,
 				"icon" : site.data.icon.url,
 				"logo" : site.data.logo,
+				"mailchimp_submission_url" : site.data.mailchimp_submission_url,
+				"mailchimp_user_id" : site.data.mailchimp_user_id,
+				"mailchimp_list_id" : site.data.mailchimp_list_id,
 				"scripts" : {
 					"head" : site.data.head_scripts,
 					"foot":site.data.footer_scripts
@@ -52,6 +55,8 @@ module.exports = async function() {
 				"partners": partners,
 				"redirects":redirects
 			}
+
+			return siteData;
 	      
     	}
     } catch (error) {

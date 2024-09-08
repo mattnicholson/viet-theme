@@ -34,6 +34,34 @@ module.exports = async function() {
 
     				case 'home':
 
+    					let alternatingTeasers = [];
+
+    					if(entry.data.alternating_teasers){
+    						alternatingTeasers = entry.data.alternating_teasers
+    						.filter(t => t.active)
+    						.map(t => {
+
+    							let url;
+    							// ID: internal link
+    							if(t.url && t.url.id) url = cms.entryUrl.bind(cms)(t.url.id, entries);
+    							// URL: Media link
+    							if(t.url && t.url.url) url = t.url.url;
+    							// String: External link
+    							if(typeof t.url === 'string') url = t.url;
+
+    							let item = {
+    								...t,
+    								url : url,
+    								image : (t.image && t.image.url) ? t.image.url : false,
+    								text : cms.richText(t.text)
+    							}
+
+    							return item;
+    						});
+
+
+    					}
+
     					return {
     						...defaultEntry,
     						"url" : entry.data.homepage ? "/" : `/${entry.data.handle}/`,
@@ -43,6 +71,7 @@ module.exports = async function() {
     							"hide_masthead_logo" : entry.data.hide_masthead_logo,
     							"ticker_text" : cms.richText(entry.data.ticker_text),
     							"menus_intro" : cms.richText(entry.data.menus_intro),
+    							"alternating_teasers" : alternatingTeasers,
     							"show_teaser_1":entry.data.show_teaser_1,
     							"teaser_1_eyebrow":entry.data.teaser_1_eyebrow,
     							"teaser_1_title":entry.data.teaser_1_title,
@@ -145,7 +174,7 @@ module.exports = async function() {
 	    		
     		})
 
-    		console.log(entryData);
+    		//console.log(entryData);
     		return entryData;
 
     	}

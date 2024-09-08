@@ -2,6 +2,7 @@
 import '../components/actionBar/actionBar.js'
 import '../components/actionBarWithData/actionBarWithData.js'
 import '../components/advert/advert.js'
+import '../components/alternatingTeasers/alternatingTeasers.js'
 import '../components/anchor/anchor.js'
 import '../components/carousel/carousel.js'
 import '../components/collage/collage.js'

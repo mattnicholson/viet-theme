@@ -2,6 +2,9 @@
 {% set recaptchaKey = data('conf').RECAPTCHA_SITE_KEY %}
 
 {% set defaultProps = {
+	mc_url : data('site').mailchimp_submission_url,
+	mc_user_id : data('site').mailchimp_user_id,
+	mc_list_id : data('site').mailchimp_list_id,
 	action : data('site').forms.newsletter.action,
 	text : 'Lorem ipsum dolor sit amet',
 	thanks:"Thank you for signing up!"
@@ -17,13 +20,14 @@
 {% set action = defaultProps.action %}
 {% if props.action %}{%  set action = props.action %}{%  endif %}
 
-<div class="newsletter {% if props.modifier %}newsletter--{{ props.modifier }}{% endif %}" data-recaptcha-key="{{ recaptchaKey }}" x-data="formspree">
+<div class="newsletter {% if props.modifier %}newsletter--{{ props.modifier }}{% endif %}" data-mc-url="{{ defaultProps.mc_url }}" data-mc-user="{{ defaultProps.mc_user_id }}" data-mc-list="{{ defaultProps.mc_list_id }}" x-data="newsletter">
 	
 	<div class="newsletter-body">
 		
 		<div x-show="!success" class="newsletter-form" :class="isSubmitting ? 'cursor-wait opacity-50':''">
-		    <form x-ref="form" :class="isSubmitting ? 'pointer-events-none':''" action="{{ action }}" method="POST">
-		    	<input type="text" name="email" placeholder="Your Email">
+		    <form x-ref="form" :class="isSubmitting ? 'pointer-events-none':''" method="POST">
+		    	<input type="text" name="EMAIL" placeholder="Your Email">
+		    	<div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_{{defaultProps.mc_user_id}}_{{defaultProps.mc_list_id}}" tabindex="-1" value=""></div>
 		    	<button type="submit">Sign up</button>
 		    </form>
     	</div>

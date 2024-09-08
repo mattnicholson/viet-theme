@@ -135,6 +135,19 @@
 				}
 			}),
 
+			'alternatingTeasers' | render(
+				{
+					condition : (entry.content.alternating_teasers and entry.content.alternating_teasers | length),
+					inheritProps:true,
+					render : {
+						teasers : entry.content.alternating_teasers
+					},
+					wrapper : {
+						modifier : 'alt'
+					}
+				}
+			),
+
 			'media' | render(
 					{
 						inheritProps:true,
@@ -146,6 +159,8 @@
 						}
 					}
 				),
+
+			
 
 			'imageWithText' | render(
 				{

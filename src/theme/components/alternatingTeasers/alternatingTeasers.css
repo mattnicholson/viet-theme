@@ -1,0 +1,20 @@
+
+@layer utilities {
+    :root {
+    }
+}
+
+@layer components {
+
+    
+    .alternatingTeasers {
+       
+        @apply flex flex-col gap-[var(--frame-size)];
+    }
+
+    .alternatingTeasers.alternatingTeasers--default {
+		
+	}
+
+	
+}

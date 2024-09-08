@@ -8,20 +8,30 @@ const CMSModule = {
     if(!text) return '';
     return text.replace(/\n/gi, '<br />');
   },
+  entryUrl: function(id,entries){
+    let doc = entries.find(e => e.id === id);
+    return doc ? this.linkResolver(doc) : '';
+  },
   richText: function(rtfObject) {
     if (!rtfObject) return '';
     return prismic.asHTML(rtfObject,{linkResolver:this.linkResolver});
   },
   linkResolver: function(doc){
-  	if (doc.type === 'basic') {
-	    return `/${doc.data.handle}/`
-	  }
-	  return null
-  },
-  getSiteEntries: async function() {
 
-  	const PRISMIC_REPO = process.env.PRISMIC_REPO;
-    const PRISMIC_SITE_HANDLE = process.env.PRISMIC_SITE_HANDLE;
+    
+    let url = null;
+  	switch(doc.type){
+      default:
+	     url = `/${doc.data.handle}/`;
+       break;
+	  }
+
+	  return url;
+  },
+  getSiteEntries: async function(REPO,SITE_HANDLE) {
+
+  	const PRISMIC_REPO = REPO ? REPO : process.env.PRISMIC_REPO;
+    const PRISMIC_SITE_HANDLE = SITE_HANDLE ? SITE_HANDLE : process.env.PRISMIC_SITE_HANDLE;
 
     if (!PRISMIC_REPO || !PRISMIC_SITE_HANDLE) return false;
 
@@ -53,13 +63,13 @@ const CMSModule = {
 	return entries;
 
   },
-  getSite: async function() {
+  getSite: async function(REPO,SITE_HANDLE) {
     if (CMS_CACHE['site']){
     	return CMS_CACHE['site'];
     }
 
-    const PRISMIC_REPO = process.env.PRISMIC_REPO;
-    const PRISMIC_SITE_HANDLE = process.env.PRISMIC_SITE_HANDLE;
+    const PRISMIC_REPO = REPO ? REPO : process.env.PRISMIC_REPO;
+    const PRISMIC_SITE_HANDLE = SITE_HANDLE ? SITE_HANDLE : process.env.PRISMIC_SITE_HANDLE;
 
     if (!PRISMIC_REPO || !PRISMIC_SITE_HANDLE) return false;
 

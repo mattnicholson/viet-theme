@@ -1,0 +1,44 @@
+{# Anything defined in here will be available at the theme level #}
+{% set defaultProps = {} %}
+
+{# Anything defined in here will be available at the theme level #}
+{% set modifiers = ["default"] %}
+
+
+
+{# Render the component #}
+{% macro render(props) %}
+<div class="alternatingTeasers {% if props.modifier %}alternatingTeasers--{{ props.modifier }}{% endif %}" x-data="alternatingTeasers">
+
+
+	{% for teaser in props.teasers %}
+
+		{% set modifier = 'imageLeft' %}
+		{% if loop.index % 2 == 0 %}{% set modifier = 'imageRight' %}{% endif %}
+		
+		<div class="theme theme--{{ teaser.theme }}" style="{% if teaser.custom_background %}--theme-bg:{{ teaser.custom_background }};--image-bg:{{ teaser.custom_background }};{% endif %}{% if teaser.custom_text %}--theme-text:{{ teaser.custom_text }};--theme-fg:{{ teaser.custom_text }};{% endif %}">
+
+		{% render 'imageWithText', {
+
+			render : {
+
+				modifier : modifier,
+				preHeading : teaser.eyebrow,
+				heading : teaser.heading,
+				image : teaser.image,
+				text : teaser.text,
+				link1Url:teaser.url,
+				link1Text:teaser.cta,
+				fitImage : teaser.fit_image
+			}
+
+		} %}
+		</div>
+
+
+	{% endfor %}
+
+</div>
+{% endmacro %}
+
+
