@@ -42,6 +42,37 @@ exports.init = function (eleventyConfig){
 		return (entry.template && (templates.indexOf(entry.template) !== -1)) ? entry.template : 'basic';
     });
 
+    /*
+		
+		Work out permalink for an entry object
+		
+	
+	*/
+	eleventyConfig.addNunjucksGlobal('isExternalUrl', function(urlToTest) {
+
+		// Make string
+		let url = `${urlToTest}`;
+
+		// Compare to site URL
+		let siteData = this.ctx['site'] || null;
+
+		// Matches site URL, not external
+		if(siteData && url.match(siteData.url)) return false;
+		
+		// Hash link, not external
+		if(url.startsWith('#')) return false;
+
+		// Has file extension, is external
+		const extensionRegex = /\.\w{2,5}(?=([?#]|$))/;
+		if(extensionRegex.test(url)) return true;
+
+		// Internal relative link, not external
+		if(url.startsWith('/')) return false;
+
+		// All others, make external...
+		return true;
+    });
+
 	/* Output current year */
 	eleventyConfig.addNunjucksGlobal('currentYear', function() {
 		return new Date().getFullYear();

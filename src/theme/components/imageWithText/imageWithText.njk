@@ -51,12 +51,12 @@
 		          <ul class="flex flex-row gap-gutter ml-auto">
 		          {% if props.link1Url and props.link1Url != '' %}
 		          	<li>
-		          		<a class="u-link-button" href="{{ props.link1Url }}">{{ props.link1Text }}</a>
+		          		<a class="u-link-button" {% if isExternalUrl(props.link1Url) %}data-no-swup target="_blank"{% endif %} href="{{ props.link1Url }}">{{ props.link1Text }}</a>
 		          	</li>
 		          {% endif %}
-		          {% if props.link2Url and props.link2Url %}
+		          {% if props.link2Url and props.link2Url != '' %}
 		          	<li>
-		          		<a class="u-link-button" href="{{ props.link2Url }}">{{ props.link2Text }}</a>
+		          		<a class="u-link-button" {% if isExternalUrl(props.link2Url) %}data-no-swup target="_blank"{% endif %} href="{{ props.link2Url }}">{{ props.link2Text }}</a>
 		          	</li>
 		          {% endif %}
 		          </ul>

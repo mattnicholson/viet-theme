@@ -32,7 +32,7 @@
     fit:'cover',
     src:menu.image
   }) }}
-  </div><a class="w-full h-full z-[1] absolute top-0 left-0 flex items-center text-center justify-center {% if props.modifier == 'small' %} u-text-subheading {% else %} u-text-hero {% endif %} bg-transparentblack" data-shadow="[text-shadow:_0_1px_2px_rgb(0_0_0_/_50%)]" target="_blank" href="{{ menu.pdf}}">{{menu.title}}</a>
+  </div><a class="w-full h-full z-[1] absolute top-0 left-0 flex items-center text-center justify-center {% if props.modifier == 'small' %} u-text-subheading {% else %} u-text-hero {% endif %} bg-transparentblack" data-shadow="[text-shadow:_0_1px_2px_rgb(0_0_0_/_50%)]" data-no-swup target="_blank" href="{{ menu.pdf}}">{{menu.title}}</a>
     </li>
 	{% endfor %}
   </ul>
