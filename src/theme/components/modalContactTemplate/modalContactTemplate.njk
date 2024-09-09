@@ -22,12 +22,12 @@
 	
 	<div class="content text-center">
 		<h3 class="u-text-eyebrow !font-normal">Address</h3>
-  		<p>{{ props.address | safe }}<br /><a class="u-link-body" href="{{ props.mapUrl }}">Map</a></p>
+  		<p>{{ props.address | safe }}<br /><a class="u-link-body" data-no-swup target="_blank" href="{{ props.mapUrl }}">Map</a></p>
   		<h3 class="u-text-eyebrow !font-normal">Opening Hours</h3>
   		<p>{{ props.openingHours | safe }}</p>
   		<h3 class="u-text-eyebrow !font-normal">Contact Us</h3>
   		<p>{% if props.telephone %}{{ props.telephone }}<br />{%  endif %}
-  		<a class="u-link-body" href="mailto:{{ props.email }}">{{ props.email }}</a></p>
+  		<a class="u-link-body" data-no-swup href="mailto:{{ props.email }}">{{ props.email }}</a></p>
   	</div>
 
 </div>
