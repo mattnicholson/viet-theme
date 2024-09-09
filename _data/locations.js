@@ -15,6 +15,7 @@ module.exports = async function() {
     	}else{
 
 			let venues = site.data.venues.filter(item=>(item.handle && item.handle !== '')).map((item) => {
+
 			  return {
 				"title": item.venue_title,
 				"slug": item.handle,
@@ -44,17 +45,17 @@ module.exports = async function() {
 				"menus": [
 					{
 						"title": item.menu_1_label,
-						"pdf": item.menu_1_pdf ? item.menu_1_pdf.url : '',
+						"pdf": item.menu_1_custom_link ? item.menu_1_custom_link  : (item.menu_1_pdf.url || ''),
 						"image": item.menu_1_image ? item.menu_1_image.url : ''
 					},
 					{
 						"title": item.menu_2_label,
-						"pdf": item.menu_2_pdf ? item.menu_2_pdf.url : '',
+						"pdf": item.menu_2_custom_link ? item.menu_2_custom_link  : (item.menu_2_pdf.url || ''),
 						"image": item.menu_2_image ? item.menu_2_image.url : ''
 					},
 					{
 						"title": item.menu_3_label,
-						"pdf": item.menu_3_pdf ? item.menu_3_pdf.url : '',
+						"pdf": item.menu_3_custom_link ? item.menu_3_custom_link  : (item.menu_3_pdf.url || ''),
 						"image": item.menu_3_image ? item.menu_3_image.url : ''
 					}
 				

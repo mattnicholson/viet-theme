@@ -86,7 +86,7 @@ module.exports = async function() {
     							"teaser_2_cta":entry.data.teaser_2_cta,
     							"teaser_2_url":entry.data.teaser_2_url,
     							"teaser_2_image" : (entry.data.teaser_2_image && entry.data.teaser_2_image.url) ? entry.data.teaser_2_image.url : '',
-    							"show_teaser_3":entry.data.show_teaser_1,
+    							"show_teaser_3":entry.data.show_teaser_3,
     							"teaser_3_eyebrow":entry.data.teaser_3_eyebrow,
     							"teaser_3_title":entry.data.teaser_3_title,
     							"teaser_3_text":cms.richText(entry.data.teaser_3_text),
