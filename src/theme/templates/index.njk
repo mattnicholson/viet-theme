@@ -92,8 +92,8 @@
 																		links : [
 																			{
 																				text : 'Book A Table',
-																				url : bookingLink,
-																				newWindow:true
+																				url : ifelse(locations | length,{condition:'<',val:2,then:bookingLink,else:'#book'}),
+																				newWindow:ifelse(locations | length,{condition:'<',val:2,then:true,else:false})
 																			},
 																			{
 																				text : 'Order Delivery',

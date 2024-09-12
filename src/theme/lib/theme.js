@@ -73,6 +73,49 @@ exports.init = function (eleventyConfig){
 		return true;
     });
 
+     /*
+		
+		Fake ternary function
+
+		{% set foo = ifelse(someValue,{is:*value it needs to match*,then:*return value*,else:* alternative value*}) %}
+
+		Can do different conditions too (defaults to ===)
+		
+		{% set foo = ifelse(someValue,{is:**,condition:'>',then:**,else:**}) %}
+		{% set foo = ifelse(someValue,{is:**,condition:'>=',then:**,else:**}) %}
+		{% set foo = ifelse(someValue,{is:**,condition:'match',then:**,else:**}) %}
+		{% set foo = ifelse(someValue,{is:**,condition:'<',then:**,else:**}) %}
+		{% set foo = ifelse(someValue,{is:**,condition:'<=',then:**,else:**}) %}
+
+	
+	*/
+	eleventyConfig.addNunjucksGlobal('ifelse', function(valueToTest,params) {
+
+		let requiredVal = params.val;
+		let trueResponse = params.then;
+		let falseResponse = params.else;
+
+		let condition = params.condition;
+
+		switch(condition){
+
+			case 'match':
+			return (valueToTest.match(requiredVal)) ? trueResponse : falseResponse;
+			case '>':
+			return (valueToTest > requiredVal) ? trueResponse : falseResponse;
+			case '>=':
+			return (valueToTest >= requiredVal) ? trueResponse : falseResponse;
+			case '<':
+			return (valueToTest < requiredVal) ? trueResponse : falseResponse;
+			case '<=':
+			return (valueToTest <= requiredVal) ? trueResponse : falseResponse;
+			default:
+			return (valueToTest === requiredVal) ? trueResponse : falseResponse;
+		}
+
+		
+    });
+
 	/* Output current year */
 	eleventyConfig.addNunjucksGlobal('currentYear', function() {
 		return new Date().getFullYear();
