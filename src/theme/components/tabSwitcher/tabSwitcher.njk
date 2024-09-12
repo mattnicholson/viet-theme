@@ -28,7 +28,7 @@
 			class : "active === {{ index }} ? 'active' : 'inactive'"
 	}) %}
 
-	{% if tabs | length > 1 %}
+	{% if props.tabs | length > 1 %}
 	<div>
 	{%  render 'nav',{
 		render : {
