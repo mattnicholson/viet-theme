@@ -21,11 +21,13 @@ module.exports = async function() {
     			return {
 				"title": item.link_title,
 				"url": item.link_url,
+				"icon_label" : item.link_icon_label || null
 				}
     		}
 
 			let headerNav = site.data.header_nav.filter(validLink).map(mapToNav);
 			let mobileHeaderNav = site.data.mobile_header_nav.filter(validLink).map(mapToNav);
+			let mobileActionNav = site.data.mobile_action_nav.filter(validLink).map(mapToNav);
 			let moreNav = site.data.more_nav.filter(validLink).map(mapToNav);
 			let footerNav = site.data.footer_nav.filter(validLink).map(mapToNav);
 			let floatingNav = site.data.floating_nav.filter(validLink).map(mapToNav);
@@ -37,20 +39,7 @@ module.exports = async function() {
 				"mobileShortcuts": mobileHeaderNav,
 				"groups": groupsNav,
 				"floatingActionMenu": floatingNav,
-				"actions": [
-					{
-						"title": "Book",
-						"url": "#book"
-					},
-					{
-						"title": "Takeaway",
-						"url": "#takeaway"
-					},
-					{
-						"title": "Delivery",
-						"url": "#delivery"
-					}
-				],
+				"actions": mobileActionNav,
 				"main": moreNav,
 				"footer": footerNav,
 				"legal": legalNav

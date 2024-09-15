@@ -1,7 +1,7 @@
 {# Anything defined in here will be available at the theme level #}
 {% set defaultProps = {
 
-	handle : '#book'
+	handle : 'book'
 
 } %}
 
@@ -11,15 +11,15 @@
 
 {%  macro render(props) %}
 
-    {%  if props.handle == '#book' %}
+    {%  if props.handle == 'book' %}
             {{ book() }}
     {% endif %}
 
-    {%  if props.handle == '#takeaway' %}
+    {%  if props.handle == 'takeaway' %}
             {{ takeaway() }}
     {% endif %}
 
-    {%  if props.handle == '#delivery' %}
+    {%  if props.handle == 'delivery' %}
             {{ delivery() }}
     {% endif %}
 

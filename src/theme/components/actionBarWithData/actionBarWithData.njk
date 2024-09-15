@@ -1,23 +1,11 @@
 {# Anything defined in here will be available at the theme level #}
 {% set defaultProps = {
-	links : [
-		{
-			url : '#book',
-			title: "Book"
-		},
-		{
-			url : '#takeaway',
-			title: "Takeaway"
-		},
-		{
-			url : '#delivery',
-			title: "Delivery"
-		}
-	],
+	links : data('linklists').actions,
 	locations : data('locations') | map({
 		slug : '{{ slug }}',
 		title : '{{ title }}',
 		bookingLink : '{{ bookingLink }}',
+		deliveryUrl : '{{ deliveryUrl }}',
 		address:'{{ locationAddress | safe }}',
 		mapUrl:'{{ locationMapUrl}}',
 		email: '{{ locationEmail }}',
