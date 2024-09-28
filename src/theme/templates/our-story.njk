@@ -183,11 +183,13 @@
 										links : [
 											{
 												text : 'Book A Table',
-												url : '#book'
+												url : ifelse(locations | length,{condition:'<',val:2,then:locations[0].bookingLink,else:'#book'}),
+												newWindow:ifelse(locations | length,{condition:'<',val:2,then:true,else:false})
 											},
 											{
 												text : 'Order Delivery',
-												url : '#delivery'
+												url : ifelse(locations | length,{condition:'<',val:2,then:locations[0].deliveryUrl,else:'#delivery'}),
+												newWindow:ifelse(locations | length,{condition:'<',val:2,then:true,else:false})
 											},
 											{
 												text : 'Order Takeaway',

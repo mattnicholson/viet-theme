@@ -9,7 +9,8 @@
 
     
     .shadow {
-        @apply shadow-md bg-light flex flex-col flex-grow py-inset;
+        @apply shadow-md flex flex-col flex-grow py-inset;
+        background:var(--theme-palette-light-bg);
     }
 
     .shadow.shadow--window {

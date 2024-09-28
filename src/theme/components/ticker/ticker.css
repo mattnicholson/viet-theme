@@ -2,8 +2,8 @@
     /* TICKER */
     :root {
         --ticker-duration: 20s;
-        --ticker-default-bg: var(--theme-accent);
-        --ticker-default-fg: var(--theme-text);
+        --ticker-default-bg: var(--theme-frame-bg);
+        --ticker-default-fg: var(--theme-frame-text);
         --ticker-height: 3rem;
     }
 }

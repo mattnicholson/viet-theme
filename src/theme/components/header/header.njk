@@ -140,10 +140,10 @@
 	   
 	      <ul class="u-text-shortcuts w-full grow flex flex-row gap-[2em] lg:gap-[3em] px-[4em] md:px-[2em] justify-between align-center py-[10px]">
 	        {%  for link in props.shortcuts %}
-	        <li class="hidden md:block px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true" data-exact="true">{{link.title}}</a></li>
+	        <li class="hidden md:block px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" {% if isExternalUrl(link.url) %}target="_blank"{% endif %} data-toggle="true" data-exact="true">{{link.title}}</a></li>
 	        {% endfor %}
 	        {%  for link in props.mobileShortcuts %}
-	        <li class="block md:hidden px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" data-toggle="true" data-exact="true">{{link.title}}</a></li>
+	        <li class="block md:hidden px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" {% if isExternalUrl(link.url) %}target="_blank"{% endif %} data-toggle="true" data-exact="true">{{link.title}}</a></li>
 	        {% endfor %}
 	        <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="#more" data-toggle="true">More</a></li>
 	      </ul>
@@ -224,7 +224,7 @@
             <ul class="header-main-links u-text-hero text-center flex flex-col gap-[1em] py-[2.5em] pb-[3em] -mt-[1rem]">
         
             {%  for link in props.links %}
-            <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}">{{link.title}}</a></li>
+            <li class="px-[0.25em] pt-[3px] -ml-[0.5em] shrink-0"><a class="inline-block " x-data="pageLink" href="{{ link.url }}" {% if isExternalUrl(link.url) %}target="_blank"{% endif %}>{{link.title}}</a></li>
             {% endfor %}
             </ul>
              

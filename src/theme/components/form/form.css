@@ -177,6 +177,10 @@
         }
 
         & ::placeholder {
+
+            color:currentColor;
+            opacity:0.75;
+
         }
 
         & :focus {
@@ -187,9 +191,10 @@
         & input,
         & textarea,
         & select {
-            @apply transition w-full p-[0.6em] pl-[1em] px-gutter rounded-full border-current placeholder-transparentgrey;
+            @apply transition w-full p-[0.6em] pl-[1em] px-gutter rounded-full border-current;
             color: var(--form-focus-color);
             border: var(--form-border-size) solid var(--form-border-color);
+            background:transparent;
 
         }
 

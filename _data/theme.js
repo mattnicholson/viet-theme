@@ -69,8 +69,11 @@ module.exports = async function() {
 					"palette-dark-button-active-bg":`var(--theme-cms-dark-button-active-bg,${ACCENT})`,
 					"palette-dark-button-active-fg":`var(--theme-cms-dark-button-active-fg,${TEXT})`,
 
+					"cms-frame-bg" : site.data.frame_bg,
+					"cms-frame-text" : site.data.frame_text,
 					"frame-size" : "clamp(6px,1vw,16px)",
-					"frame-bg" : "var(--theme-accent)",
+					"frame-bg" : `var(--theme-cms-frame-bg,${ACCENT})`,
+					"frame-text" : `var(--theme-cms-frame-text,${TEXT})`,
 
 					"cms-map-pin" : site.data.map_pin,
 					"cms-map-tint" : site.data.map_tint,
