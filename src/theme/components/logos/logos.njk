@@ -18,9 +18,9 @@
 	<div class="text-center p-inset flex flex-col items-center justify-center">
     <h3 class="u-text-body">{{props.title}}</h3>
    
-    <ul class="flex flex-row gap-gutter justify-center items-center p-gutter w-full">
+    <ul class="flex flex-row gap-[5px] justify-center items-center p-gutter w-full">
         {%  for logo in props.logos %}
-        <li class="w-[35%] md:w-[25%] aspect-[2/1] relative flex items-center"><a class="transition duration-[400ms] hover:scale-[1.1] hover:rotate-[-5deg] absolute top-[10%] left-[10%] right-[10%] bottom-[10%] flex items-center" href="{{ logo.url }}">{{ logo.icon | safe }}</a></li>
+        <li class="w-[35%] md:w-[28%] aspect-[2/1] relative flex items-center"><a class="transition duration-[400ms] hover:scale-[1.1] hover:rotate-[-5deg] absolute top-[10%] left-[5%] right-[5%] bottom-[10%] flex items-center" href="{{ logo.url }}">{{ logo.icon | safe }}</a></li>
         {% endfor %}
       </ul>
      </div>

@@ -16,6 +16,10 @@
     .logos {
         svg{
             @apply w-full h-auto;
+
+            path{
+                fill:currentColor;
+            }
         }
     }
 
