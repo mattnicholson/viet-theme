@@ -24,7 +24,7 @@
           background: var(--newsletter-fg);
 
           input {
-            @apply block w-full bg-transparent placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] pr-[6em];
+            @apply block w-full bg-transparent placeholder-current p-[0.8em] md:p-[0.4em] pl-[1em] md:pl-[1em] pr-[6em];
             color: var(--newsletter-bg);
             outline: none;
           }

@@ -38,7 +38,7 @@
     }
 
     .masthead-media{
-    	@apply u-layout-fluid z-[0] opacity-90;
+    	@apply u-layout-fluid z-[0] opacity-100;
     }
 
     .masthead--noLogo{

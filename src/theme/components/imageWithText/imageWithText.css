@@ -1,6 +1,10 @@
 
 @layer utilities {
     :root {
+        --imageWithText-light-bg: var(--theme-palette-light-bg);
+        --imageWithText-light-fg: var(--theme-palette-light-fg);
+        --imageWithText-light-text: var(--theme-palette-light-text);
+
         --imageWithText-alt-bg: var(--theme-palette-alt-bg);
         --imageWithText-alt-fg: var(--theme-palette-alt-fg);
         --imageWithText-alt-text: var(--theme-palette-alt-text);
@@ -44,6 +48,16 @@
 
     	.content p{
     		color: var(--imageWithText-dark-text);
+    	}
+	}
+
+	.imageWithText-wrapper.imageWithText-wrapper--light {
+
+    	background: var(--imageWithText-light-bg);
+    	color: var(--imageWithText-light-fg);
+
+    	.content p{
+    		color: var(--imageWithText-light-text);
     	}
 	}
 

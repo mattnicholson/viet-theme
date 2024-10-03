@@ -82,6 +82,7 @@ module.exports = async function() {
     							"show_teaser_2":entry.data.show_teaser_2,
     							"teaser_2_eyebrow":entry.data.teaser_2_eyebrow,
     							"teaser_2_title":entry.data.teaser_2_title,
+    							"teaser_2_style":entry.data.teaser_2_style || 'alt',
     							"teaser_2_text":cms.richText(entry.data.teaser_2_text),
     							"teaser_2_cta":entry.data.teaser_2_cta,
     							"teaser_2_url":entry.data.teaser_2_url,

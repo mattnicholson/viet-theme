@@ -146,11 +146,16 @@
 									}
 								),
 
-								'spacer' | render,
+								'spacer' | render(
+									{
+										condition : locations | length > 1
+									}
+								),
 
 								'itemGrid' | render(
 									{
 										inheritProps:true,
+										condition : locations | length > 1,
 										render : {
 											modifier:"two-wide",
 											itemModifier:"card",
@@ -165,7 +170,11 @@
 									}
 								),
 
-								'spacer' | render,
+								'spacer' | render(
+									{
+										condition : locations | length > 1
+									}
+								),
 
 								'content' | render(
 									{
@@ -176,7 +185,47 @@
 									}
 								),
 
+								'stack' | render(
+									{
+										condition: locations | length == 1,
+										render:{
+											items:[
+												'spacer' | render,
+												'modalMenusTemplate' | render({
+													render:{
+														menus:locations[0].menus
+													}
+												}),
+												'nav' | render({
+													render : {
+														responsive:true,
+														modifier:'buttons',
+														links : [
+															{
+																text : 'Book A Table',
+																url : locations[0].bookingLink,
+																newWindow:true
+															},
+															{
+																text : 'Order Delivery',
+																url : locations[0].deliveryUrl,
+																newWindow:true
+															},
+															{
+																text : 'Order Takeaway',
+																url : '#takeaway'
+															}
+														]
+													}
+												}),
+												'spacer' | render
+											]
+										}
+									}
+								),
+
 								'nav' | render({
+									condition : locations | length > 1,
 									render : {
 										responsive:true,
 										modifier:'buttons',
